@@ -253,6 +253,187 @@
       </tags>
   </entry>
   <entry>
+    <title>功能测试小感</title>
+    <url>/2018/02/28/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B0%8F%E6%84%9F/</url>
+    <content><![CDATA[<p>功能测试某种意义上确实是有套路规律的。所谓的测试经验，在我看来就是把套路运用在不同场景的能力，也就是灵活运用的能力。其实这里的<code>套路</code>，换种说法就是<code>测试理论</code>。</p>
+<p>从黑盒角度来说，<code>边界值、等价类</code>，这些应该都是软件测试人员的基本知识，应该深入思维信手拈来而不是刻意为之。<code>边界值</code>帮助我们发现比较好找的bug，改善软件最下限的质量（还别说这些边界校验真的是bug的重灾区，具体数量依赖开发自测水平），<code>等价类</code>帮助我们精简用例数量，提高执行效率。这些可以说是脱离业务场景单独针对代码逻辑的用例设计，可以在不理解业务的前提下直接开测。</p>
+<a id="more"></a>
+
+<p>除此之外，<code>场景法</code>也是非常重要的手段。<code>场景法</code> 简单理解就是根据不同的用户场景来设计用例，这里没有什么一套一套的测试理论，唯一的要求就是理解业务场景，从用户角度出发。<strong>一些不是bug的问题，在这样的要求下可能就会变成bug，因为它们有悖于业务场景，削弱了用户体验</strong>。</p>
+<p>另外，一些更加工程类的bug，比如多线程竞争、变量缺少正确初始化、数据库死锁等问题偏白盒，从黑盒角度看有时症状会比较奇怪。这些问题我觉得更加适合在白盒的角度来发现，这往往也是code review必要性的体现。很多时候，如资源竞争这类问题需要的业务场景比较复杂，场景触发所需要的成本相对更高，甚至靠线下测试环境的机器资源根本无法触发。所以如果什么问题都想着从黑盒角度来发现，那是不靠谱的。<strong>这也正是一个好的QA与普通QA拉开差距的地方——除了理解业务场景、熟练地从黑盒发现功能问题外，还要求可以白盒通读代码，在脑海模拟业务场景，从而去发现逻辑问题。</strong></p>
+<h3 id="如何设计测试用例"><a href="#如何设计测试用例" class="headerlink" title="如何设计测试用例"></a>如何设计测试用例</h3><p>这里并不打算写一篇全面的教程，只是分享个人对某些点的一些看法。</p>
+<p>测试的最高目的，是<strong><em>验证代码产出是否符合需求</em></strong>。那可能会问：“既然只需要符合需求，那为什么还要考虑那么多的边界、异常值呢？”，道理很简单，因为<strong>这些都是隐藏在需求之下的情景</strong>。需求，本身是服务于用户体验的，而不是凭空出来的产品功能约束。那么为了一个完整的用户体验，肯定要包含一定程度的容错操作，这就是边界值、异常值考虑的缘由。</p>
+<p>既然已经有了一个测试的最终目的，那么具体如何设计用例就好办了。</p>
+<ol>
+<li><p>根据代码逻辑进行用例设计，以代码覆盖率作为衡量标准。</p>
+<blockquote>
+<p>所以一些明显覆盖相同逻辑、相同代码路径的用例，就可以去掉。比如新增功能点是支持连续升级，如果连续升级2次和连续升级3次这两个case覆盖的代码逻辑没有差异，后者完全没有存在的必要。</p>
+</blockquote>
+</li>
+<li><p>结合需求进行用例设计。</p>
+<blockquote>
+<p>QA必须对一切保持怀疑，故不能认为RD已经完全按照需求进行开发。另外，这种方式可能会有bonus——发现RD与QA对需求点理解的差异，从而推动确认真正的需求到底是什么，这样无疑对产品有积极的帮助。</p>
+</blockquote>
+</li>
+<li><p>异常情景用例设计。</p>
+<blockquote>
+<p>异常测试可以被放在一大块里面，这样更加方便归纳整理、查漏补缺。异常包括很多情况，具体根据不同业务类型来定义什么是 “异常” ，安装失败、升级失败、解析配置失败、网络请求失败、用户高频操作等等，这些都是异常。</p>
+</blockquote>
+</li>
+<li><p>提高用户体验的用例设计。</p>
+<blockquote>
+<p>这里本身不应该单独分出来的，但是我觉得很重要。用户体验其实不一定会有具体的用例，很多时候往往只是一种主观感受，比如色调、操作流程顺序、功能的作用大小等。一个具体例子就是根据订单号的订单搜索，订单搜索使用模糊匹配效果往往要比精确匹配好，原因很简单，因为根本不可能由用户去记住冗长没有规律的订单号。</p>
+</blockquote>
+</li>
+</ol>
+<p>扯一点题外话，一个好的QA，还应该要熟练掌握各种对自己有帮助的工具。除了发现bug外，还应该有定位bug、调试代码的能力。定位某些bug，比如常见却又难发现的内存泄漏，就需要特定工具帮忙。</p>
+]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>功能测试</tag>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>多线程下的单例模式</title>
+    <url>/2019/04/11/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8B%E7%9A%84%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<p>单例模式可能是应用得最广泛的设计模式之一，也是学习设计模式必学、面试必问的模式之一🤣，那么就很有必要搞清楚单例模式是一个什么东西了。这里着重讨论一下多线程下的单例模式，<a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noopener">Singleton（单例模式）</a>的基本概念就不再展开了。一般来说，应用单例模式的场景为要求全局只存在一个单例类的实例，如果该单例类产生了多个实例可能会对系统造成影响或损害，需要限制为1个。</p>
+<blockquote>
+<p> It ensures that the Singleton class has only one instance and provides a global access point for it. We can use a Singleton when the presence of multiple instances can potentially damage the system, and we need global access to the single instance. </p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="单例模式的经典实现"><a href="#单例模式的经典实现" class="headerlink" title="单例模式的经典实现"></a>单例模式的经典实现</h3><p>我们可以来看一下最经典的例子，以伪代码（接近java，get到意思就好😂）展示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton _instance = <span class="keyword">null</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> _instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这可以说是单例模式最直接的实现了，private修饰构造函数导致外部无法通过<code>new</code>关键字来实例化对象，需要实例化Singleton或者获取Singleton实例必须调用提供的唯一接口<code>getInstance()</code>，对外界调用起到限制。调用<code>getInstance()</code>时首先会检查Singleton对象是否已被初始化，再返回对象实例，另外，Singleton实例只有在第一次调用<code>getInstance()</code>时才会真正初始化，也就是说只有在真正使用的时候才生成实例，这叫做<code>懒加载(lazy initialization)</code>，可以提高系统启动速度，也更加适合在资源有限的系统中运行。</p>
+<p>上面的经典实现有十分明显的问题，<strong>它不是线程安全的（not thread safe）</strong>，具体可以看下面的场景：</p>
+<ol>
+<li>在需要实例化Singleton时，<strong>线程A</strong>进入<code>getInstance()</code>，此时<code>_instance == null</code>为<code>True</code>，<strong>线程A</strong>会进入if分支。</li>
+<li>在<strong>线程A</strong>执行初始化代码<code>_instance = new Singleton()</code>之前，发生一次线程切换，<strong>线程A</strong>挂起，切换到<strong>线程B</strong>，并且<strong>线程B</strong>也调用<code>getInstance()</code>。</li>
+<li>对于<strong>线程B</strong>来说<code>_instance == null</code>也是为<code>True</code>，因为<strong>线程A</strong>根本还没生成Singleton实例，<strong>线程B</strong>进入if分支。</li>
+<li>最终结果就是<strong>线程A</strong>与<strong>线程B</strong>都在if分支里，两个线程都会生成一个Singleton实例，此时系统就有两个Singleton实例。</li>
+</ol>
+<h3 id="简单粗暴地解决"><a href="#简单粗暴地解决" class="headerlink" title="简单粗暴地解决"></a>简单粗暴地解决</h3><p>怎么样可以防止生成多个Singleton实例呢？很容易，把懒加载去掉就好：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> _instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>放弃懒加载的特性，这种实现会在类加载的时候就生成Singleton实例，并且保证线程安全。如果Singleton实例生成的代价低、性能影响小，或者这是最合适的一种实现，因为它简单并且安全。</p>
+<h3 id="添加锁🔐"><a href="#添加锁🔐" class="headerlink" title="添加锁🔐"></a>添加锁🔐</h3><p>但是我们还是想要懒加载要怎么改？一般方法是添加锁来保护Singleton实例化过程，保证只有一个线程可以进入实例化流程（enter crtical section），实现如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    acquire_lock();</span><br><span class="line">    <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">        _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    &#125;</span><br><span class="line">    release_lock();</span><br><span class="line">       </span><br><span class="line">    <span class="keyword">return</span> _instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个实现也可以保证线程安全，<strong>线程B</strong>不可能在<strong>线程A</strong>完成Singleton实例化之前接触到if判断分支，即使<strong>线程A</strong>在if分支里被切换，其他线程也因为等待锁都被阻挡在<code>if (_instance == null)</code>之前。但是这个实现的致命弱点是对性能影响很大，因为每一次调用<code>getInstance()</code>时都要获取锁，特别是当多个线程一起调用<code>getInstance()</code>的情况下，线程之间会因为竞争锁而被阻塞，当调用足够频繁的时候，系统对外的表现可会是经常卡一会没响应，或者整体的运行效率降低，看起来这样的实现也不太好。</p>
+<h3 id="添加锁之前先check"><a href="#添加锁之前先check" class="headerlink" title="添加锁之前先check"></a>添加锁之前先check</h3><p>认真观察添加锁的实现会发现，其实添加锁只是为了安全地进行对象实例化，一旦<code>_instace</code>被实例化后，这把锁🔐就再也不需要了，但是上面的实现是每一次获取实例都去获取一次锁。有没有办法只让锁获取一次就好了？我们意识到锁只是在第一次获取的时候（第一次调用，实例化对象时）才产生意义，所以if判断可以提前到获取锁之前：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">        acquire_lock();</span><br><span class="line">        _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        release_lock();</span><br><span class="line">    &#125;</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> _instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>看起来好像很机智的样子🎉，我们可以只在首次调用<code>getInstance()</code>时才获取锁，往后因为<code>_instance</code>不为<code>null</code>所以都不用获取锁了，然而实际上行不通，为什么呢？当线程A进入if判断但是在获取锁之前被切换线程，线程B此时也可以进入if判断，会发生两个线程进入if判断的情况，后面就会生成多个Singleton实例，没错，坑就坑在线程可能随时被切换。</p>
+<h3 id="double-check"><a href="#double-check" class="headerlink" title="double-check"></a>double-check</h3><p>能解决上面的问题吗？还是可以的，我们可以额外添加一个if判断来防止重复进入实例化代码块：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">        acquire_lock();</span><br><span class="line">        <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        release_lock();</span><br><span class="line">    &#125;</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> _instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个代码估计是最常见的double-check单例模式实现了，看起来可以有效防止上面提到的问题，即使有多个线程同时进入第一个if判断，在Singleton实例首次被生成之后，后面的线程在critical section里也不会再重复实例化对象了，因为还有第二个if判断在里面。</p>
+<p>真的是这样吗？就这样完了？并不是🙃，还有坑。</p>
+<h3 id="编译器优化问题"><a href="#编译器优化问题" class="headerlink" title="编译器优化问题"></a>编译器优化问题</h3><p>上面的实现不能保证100%的线程安全，原因是存在编译器优化。现代编译器都太先进了，它们会按照效率更高的方式进行指令重排，会充分利用寄存器和流水线以最高并行度去运行指令（现在已经是多核时代，一台机器上不再是一个CPU而是多个CPU，多个CPU在数据不互相干扰的情况下可以也同时独立运行指令）。一个具体例子：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span> c = a + b;</span><br></pre></td></tr></table></figure>
+
+<p>我们人眼认为a是先于b被声明初始化的，最后c再被计算，但是对于编译器，它可以向我们保证c最后计算出来等于30，也会保证在c计算出来之前a和b都被正确声明和赋值即a肯定等于10，b肯定等于20，但是它不保证的是<strong><em>到底a先被声明赋值还是b先被声明赋值</em></strong>，有可能是先b再a，也有可能是先a再b，我们无从猜测，所以我们也不能指望它可靠。</p>
+<blockquote>
+<p>这里引申出另一个问题，<code>_instance = new Singleton();</code>实例化操作到底是怎么被运行的？</p>
+</blockquote>
+<p><code>_instance = new Singleton();</code>并不是一个原子操作，它被执行时是分为3个步骤的：</p>
+<ol>
+<li><p>一块特定的内存被分配出来给Singleton对象使用。</p>
+</li>
+<li><p>这块内存会被赋值初始化，此时Singletom对象已经能用了。</p>
+</li>
+<li><p>这块内存（Singleton对象）的引用赋值给<code>_instance</code>。</p>
+<p><code>_instance</code>指向Singleton实例的内存，实际上只有这块内存被完整初始化之后，<code>_instance</code>才是一个正确可用的实例（<code>_instance</code> is valid only when the initialization is complete）。这里可能出现的问题是编译器将这3个步骤打混了，假如<strong>线程A先执行步骤1和3，在没来得及执行步骤2的时候发生线程切换</strong>，对于线程B来说，<code>_instance</code>已经不为<code>null</code>了，就屁颠屁颠拿去用了，但是实际上<code>_instance</code>指向一块还没有被初始化的内存，如果线程B拿这个对象去使用会引发各种谜之bug甚至出现系统崩溃。</p>
+</li>
+</ol>
+<blockquote>
+<p>如何解决这个问题？</p>
+</blockquote>
+<p>我们只需要将实例化对象那一行代码的运行顺序摆正就好了，换个说法就是避免编译器的优化：</p>
+<ol>
+<li><p>在C++和Java中存在关键字<code>volatile</code>，也就是<code>private volatile Singleton _instance = new Singleton();</code>，它可以使编译器不去做激进的优化，保持原来的执行顺序不变，不过这个关键字某种程度上也会影响整个系统的性能，毕竟变量变成<code>volatile</code>后即使实例化完成后，每次去对象都不去寄存器快速取出来而要去内存取。（<code>volatile</code>这个关键字坑很多，最好还是不要乱用）</p>
+</li>
+<li><p>使用<a href="https://en.wikipedia.org/wiki/Memory_barrier" target="_blank" rel="noopener">内存屏障</a>来迫使完全实例化之后再改变flag的值：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton _instance = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> bool flag = <span class="keyword">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!flag) &#123;</span><br><span class="line">            acquire_lock();</span><br><span class="line">            <span class="keyword">if</span> (!flag) &#123;</span><br><span class="line">                _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">                memory_barrier();</span><br><span class="line">                flag = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            release_lock();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> _instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为有内存屏障的存在，可以保证<code>flag = true;</code>这句代码不会被编译器优化执行顺序，也就是一定会完成<code>_instance = new Singleton();</code>之后，flag变量才会变为true，所以flag就是<code>_instance</code>已经被正确初始化的标志，if直接判断flag变量即可。如果将<code>flag = true;</code>放在内存屏障前面行不行呢？那是不行的，因为可能被编译器优化之后flag变量甚至会在<code>_instance</code>正确实例化之前就被置为true。然而内存屏障也需要编译器的支持，否则可能很难使用内存屏障，甚至需要写上汇编代码。</p>
+</li>
+<li><p>最后一种是针对Java的实现，详见<a href="https://en.wikipedia.org/wiki/Initialization-on-demand_holder_idiom" target="_blank" rel="noopener">Initialization-on-demand holder idiom</a>。</p>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>上面提到的所有实现，都没有找到尽善尽美可以运行在所有平台/编译器的方式。可能最后的解决方案就是放弃懒加载，权衡性能和安全。如果我们想坚持使用懒加载同时保证线程安全，性能会因为锁的获取受到影响（<a href="#添加锁🔐">full locking</a>版本），当然还是有一点小手段可以优化——尽量减少<code>getInstance()</code>的调用次数：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 调用三次getInstance函数，也就获取了三次锁</span></span><br><span class="line">Singleton.getInstance().method1();</span><br><span class="line">Singleton.getInstance().method2();</span><br><span class="line">Singleton.getInstance().method3();</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 只调用一次getInstance函数，获取一次锁，性能更好</span></span><br><span class="line">Singleton instance = Singleton.getInstance();</span><br><span class="line">instance.method1();</span><br><span class="line">instance.method2();</span><br><span class="line">instance.method3();</span><br></pre></td></tr></table></figure>
+
+<p>虽然这并没有解决问题，但是确实可以在性能上有所提高。</p>
+<p>Singleton设计模式从来就不是一个简简单单的设计模式，在不同场景下，每一种设计模式都需要进行演变来应用，分清每一种实现的好坏，挑一种最合适业务场景的实现进行应用，这才是代码功力和业务理解能力💪。</p>
+<h1 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h1><p>violate关键字对单例的影响</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://taskinoor.wordpress.com/2011/04/18/singleton_multithreaded/" target="_blank" rel="noopener">墙裂推荐阅读：Singleton in multi-threaded environment</a></p>
+<p><a href="https://www.cnblogs.com/god-of-death/p/7852394.html" target="_blank" rel="noopener">C/C++ volatile关键字深度剖析</a></p>
+<p><a href="https://www.kernel.org/doc/Documentation/memory-barriers.txt" target="_blank" rel="noopener">LINUX KERNEL MEMORY BARRIERS</a></p>
+<p><a href="http://ifeve.com/disruptor-memory-barriers/" target="_blank" rel="noopener">Dissecting the Disruptor: Demystifying Memory Barriers</a></p>
+]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>单例模式</tag>
+        <tag>多线程</tag>
+        <tag>代码实现</tag>
+        <tag>翻译</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>性能测试初探</title>
+    <url>/2017/12/18/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%88%9D%E6%8E%A2/</url>
+    <content><![CDATA[<p>目前已经对两个不同的C/S架构产品的Server端进分别进行过一次性能测试，慢慢开始对性能测试有了初步的认识，下面大概分享一下我们小组的性能测试过程。</p>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p>性能测试开始之前会和开发讨论，目的就是要确定真实业务场景下的各种相关数据的量级，最终计算出预期多少<strong>QPS</strong>才可以应付业务场景的需要。当有了预期的<strong>QPS</strong>作为一个性能目标后，就可以开展性能测试了（根据业务需求不同会有各种不同的指标要求，可能是一个，也可能是多个）。</p>
+<p>这里性能测试使用的是<strong>Jmeter</strong>，<strong>Jmeter</strong>的优点很明显，就是简单易用，可以快速搭建分布式测试环境，通过水平扩展增加测试机器来增加对Server的请求压力，把Server推向它的性能转折点。</p>
+<p>机器资源在性能测试中是一个比较重要的东西，因为机器配置的好坏或者机器的多少就已经决定了你能对Server造成多大的压力，不同机器之间的配置是越接近越好，因为<strong>Jmeter</strong>的分布式测试是不存在调度一说的，只是简单地通过一个Master对配置好的所有Slave发送测试计划<code>jmx文件</code>，然后Slave会去执行测试计划（Slave也可以是Master自己）。如果Slave机器之间的性能差距太大，那么性能差的机器就会成为短板，导致性能相对好的机器无法最大程度发挥性能。</p>
+<a id="more"></a>
+
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p><strong>1. 机器资源</strong></p>
+<p>继续上面说的机器性能，为什么说性能差的机器会成为分布式测试环境中的短板呢？因为每一台Slave执行的测试计划都是一样的，都要发那么多请求，起那么多线程，一旦消耗的资源超过机器承受范围，该机器发送的请求数量和质量就无法达到预期，总请求数势必变少，也就无法知道并发数等重要指标是否满足，从严谨的角度出发，这一次测试结果是作废了。</p>
+<p>所以，分布式环境中性能差的机器会成为测试计划里的短板，使得测试计划的各项参数被遏制在某条线之下。另外，Jmeter的分布式环境应该选用性能最好的机器作为Master，Master所做的工作肯定是比Slave要多的，如果Master性能不好，会造成Jmeter客户端的假死，导致本次压测数据作废，甚至可能得到一些偏差较大的数据。</p>
+<p>个人真实经验：用了一台很谜的机器做Master，导致多次测试无法正常结束，浪费时间，后面换了一台好的机器做Master，压测都是一次过，在调到更大请求压力后看到的响应时间甚至比没换Master之前相对更低压力的响应时间更快，所以Master也会对测试数据有影响，应该谨慎挑选。</p>
+<p><strong>2. 通过重复测试来分散风险</strong></p>
+<p>道理非常明显，单次的测试结果存在较大的偶然性，这些偶然性可能来自于你的测试数据，可能来自于Slave的资源状态，也可能来自于网络……为了降低各个方面的风险，重复测试当然是必须的，至少重复三次取一个平均值，而且要特别关注明显异常的数据，比如某个数据突然变高或变低，要思考一下可能的原因，而不是直接舍弃这一次结果鲁莽地开始下一次测试，谁也说不准里面是否就有一个bug。</p>
+<p><strong>3. 调整测试计划</strong></p>
+<p>性能测试本身不仅仅是为了验证Server的性能指标是否达到预期，找到Server的性能转折点也是一件重要的事情，需不需要准确定位这个转折点就要看业务需要了。</p>
+<p><strong>如何通过调整测试计划来发现这个转折点？</strong>以<strong>Jmeter</strong>来举例子。</p>
+<ol>
+<li>线程数<code>n</code></li>
+<li>发送请求的时间区间<code>t</code>——我理解为在<code>t</code>时间区间内，会逐步启动共<code>n</code>个线程并发出请求</li>
+<li>线程循环次数<code>i</code>——也就是总共多少个区间<code>t</code>，因为循环<code>i</code>次，总共就会发<code>n*i</code>个请求</li>
+</ol>
+<p>以单个请求的平均响应时间为标准，由于线程在t区间内就会全部启动造成并发（可以粗略看成并发数为<code>n/t</code>），如果单请求平均响应时间大于区间t，则代表代表Server在区间t内已经处理不过来这么多请求了，就会造成请求的堆积。</p>
+<p><strong><em>为什么说Server处理不过来？</em></strong></p>
+<p>拿第一个启动起来的线程来看，本身预期该线程的请求在t区间内返回是没有问题的。但是，假如该线程发出的请求对应的响应时间大于t，则代表该响应在一个大于t的区间内依然算一个并发数，也就会影响到下一个区间t，结果是下一个区间t的并发数会受到来自上一个区间的叠加，最后导致在某个不知道的时间区间内，并发数会大于<code>n/t</code>，这对我们来说既不准确也不可控。</p>
+<p>除了以响应时间作为判断转折点的依据之外，<strong><em>Througput</em></strong>也可以作为参考。</p>
+<p>另外，应该特别注意一下总请求量，一旦发现总请求量不足预期，很大可能是机器资源不够了，此时只能把参数调低，继续往上压已经不现实。如果请求量比预期要多（这个我们遇到，谜之问题），可以先检查csv配置文件是否正确，csv里的数据是否充足，可以看看<strong>Jmeter</strong>发出的不同请求有没有发生内容的重复，再根据这些已知条件去排查。</p>
+<p><strong>4. 测试数据的准备</strong></p>
+<p>很多时候构造请求是需要数据的，可以根据数据库的运作特征来构造数据，从而相应地验证数据库的增删改性能，也可以根据Server逻辑来构造，从而触发Server的不同业务路径。但是构造数据务必要合理，以真实业务场景为依据。</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>应该对一次性能测试怎样进行记录呢？可以有如下点：</p>
+<ul>
+<li>核心测试计划的各种指标数据</li>
+<li>存在性能问题的方案</li>
+<li>优化修改后的方案</li>
+<li>优化前的指标数据和优化后的对比指标数据</li>
+</ul>
+<p>拿到上面的数据，就可以分析得出性能测试的结论，清晰可观地知道这一次性能测试产生一些什么样的积极意义了。</p>
+]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+        <tag>性能测试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cvechecker调研分享</title>
     <url>/2018/08/02/cvechecker%E8%B0%83%E7%A0%94%E5%88%86%E4%BA%AB/</url>
     <content><![CDATA[<h2 id="cvechecker"><a href="#cvechecker" class="headerlink" title="cvechecker"></a><strong>cvechecker</strong></h2><h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a><strong>简述</strong></h3><p>cvechecker是一个工具，会根据你提供的软件列表自动确认装在本机的软件的相应版本，然后跟网上的在线数据库（database of potential vulnerable software）进行漏洞与软件版本的匹配，发现可疑漏洞会报告。</p>
@@ -383,187 +564,6 @@
       </tags>
   </entry>
   <entry>
-    <title>多线程下的单例模式</title>
-    <url>/2019/04/11/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8B%E7%9A%84%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<p>单例模式可能是应用得最广泛的设计模式之一，也是学习设计模式必学、面试必问的模式之一🤣，那么就很有必要搞清楚单例模式是一个什么东西了。这里着重讨论一下多线程下的单例模式，<a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noopener">Singleton（单例模式）</a>的基本概念就不再展开了。一般来说，应用单例模式的场景为要求全局只存在一个单例类的实例，如果该单例类产生了多个实例可能会对系统造成影响或损害，需要限制为1个。</p>
-<blockquote>
-<p> It ensures that the Singleton class has only one instance and provides a global access point for it. We can use a Singleton when the presence of multiple instances can potentially damage the system, and we need global access to the single instance. </p>
-</blockquote>
-<a id="more"></a>
-
-<h3 id="单例模式的经典实现"><a href="#单例模式的经典实现" class="headerlink" title="单例模式的经典实现"></a>单例模式的经典实现</h3><p>我们可以来看一下最经典的例子，以伪代码（接近java，get到意思就好😂）展示：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton _instance = <span class="keyword">null</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> _instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这可以说是单例模式最直接的实现了，private修饰构造函数导致外部无法通过<code>new</code>关键字来实例化对象，需要实例化Singleton或者获取Singleton实例必须调用提供的唯一接口<code>getInstance()</code>，对外界调用起到限制。调用<code>getInstance()</code>时首先会检查Singleton对象是否已被初始化，再返回对象实例，另外，Singleton实例只有在第一次调用<code>getInstance()</code>时才会真正初始化，也就是说只有在真正使用的时候才生成实例，这叫做<code>懒加载(lazy initialization)</code>，可以提高系统启动速度，也更加适合在资源有限的系统中运行。</p>
-<p>上面的经典实现有十分明显的问题，<strong>它不是线程安全的（not thread safe）</strong>，具体可以看下面的场景：</p>
-<ol>
-<li>在需要实例化Singleton时，<strong>线程A</strong>进入<code>getInstance()</code>，此时<code>_instance == null</code>为<code>True</code>，<strong>线程A</strong>会进入if分支。</li>
-<li>在<strong>线程A</strong>执行初始化代码<code>_instance = new Singleton()</code>之前，发生一次线程切换，<strong>线程A</strong>挂起，切换到<strong>线程B</strong>，并且<strong>线程B</strong>也调用<code>getInstance()</code>。</li>
-<li>对于<strong>线程B</strong>来说<code>_instance == null</code>也是为<code>True</code>，因为<strong>线程A</strong>根本还没生成Singleton实例，<strong>线程B</strong>进入if分支。</li>
-<li>最终结果就是<strong>线程A</strong>与<strong>线程B</strong>都在if分支里，两个线程都会生成一个Singleton实例，此时系统就有两个Singleton实例。</li>
-</ol>
-<h3 id="简单粗暴地解决"><a href="#简单粗暴地解决" class="headerlink" title="简单粗暴地解决"></a>简单粗暴地解决</h3><p>怎么样可以防止生成多个Singleton实例呢？很容易，把懒加载去掉就好：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> _instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>放弃懒加载的特性，这种实现会在类加载的时候就生成Singleton实例，并且保证线程安全。如果Singleton实例生成的代价低、性能影响小，或者这是最合适的一种实现，因为它简单并且安全。</p>
-<h3 id="添加锁🔐"><a href="#添加锁🔐" class="headerlink" title="添加锁🔐"></a>添加锁🔐</h3><p>但是我们还是想要懒加载要怎么改？一般方法是添加锁来保护Singleton实例化过程，保证只有一个线程可以进入实例化流程（enter crtical section），实现如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    acquire_lock();</span><br><span class="line">    <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">        _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    &#125;</span><br><span class="line">    release_lock();</span><br><span class="line">       </span><br><span class="line">    <span class="keyword">return</span> _instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这个实现也可以保证线程安全，<strong>线程B</strong>不可能在<strong>线程A</strong>完成Singleton实例化之前接触到if判断分支，即使<strong>线程A</strong>在if分支里被切换，其他线程也因为等待锁都被阻挡在<code>if (_instance == null)</code>之前。但是这个实现的致命弱点是对性能影响很大，因为每一次调用<code>getInstance()</code>时都要获取锁，特别是当多个线程一起调用<code>getInstance()</code>的情况下，线程之间会因为竞争锁而被阻塞，当调用足够频繁的时候，系统对外的表现可会是经常卡一会没响应，或者整体的运行效率降低，看起来这样的实现也不太好。</p>
-<h3 id="添加锁之前先check"><a href="#添加锁之前先check" class="headerlink" title="添加锁之前先check"></a>添加锁之前先check</h3><p>认真观察添加锁的实现会发现，其实添加锁只是为了安全地进行对象实例化，一旦<code>_instace</code>被实例化后，这把锁🔐就再也不需要了，但是上面的实现是每一次获取实例都去获取一次锁。有没有办法只让锁获取一次就好了？我们意识到锁只是在第一次获取的时候（第一次调用，实例化对象时）才产生意义，所以if判断可以提前到获取锁之前：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">        acquire_lock();</span><br><span class="line">        _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        release_lock();</span><br><span class="line">    &#125;</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> _instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>看起来好像很机智的样子🎉，我们可以只在首次调用<code>getInstance()</code>时才获取锁，往后因为<code>_instance</code>不为<code>null</code>所以都不用获取锁了，然而实际上行不通，为什么呢？当线程A进入if判断但是在获取锁之前被切换线程，线程B此时也可以进入if判断，会发生两个线程进入if判断的情况，后面就会生成多个Singleton实例，没错，坑就坑在线程可能随时被切换。</p>
-<h3 id="double-check"><a href="#double-check" class="headerlink" title="double-check"></a>double-check</h3><p>能解决上面的问题吗？还是可以的，我们可以额外添加一个if判断来防止重复进入实例化代码块：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">        acquire_lock();</span><br><span class="line">        <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        release_lock();</span><br><span class="line">    &#125;</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> _instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这个代码估计是最常见的double-check单例模式实现了，看起来可以有效防止上面提到的问题，即使有多个线程同时进入第一个if判断，在Singleton实例首次被生成之后，后面的线程在critical section里也不会再重复实例化对象了，因为还有第二个if判断在里面。</p>
-<p>真的是这样吗？就这样完了？并不是🙃，还有坑。</p>
-<h3 id="编译器优化问题"><a href="#编译器优化问题" class="headerlink" title="编译器优化问题"></a>编译器优化问题</h3><p>上面的实现不能保证100%的线程安全，原因是存在编译器优化。现代编译器都太先进了，它们会按照效率更高的方式进行指令重排，会充分利用寄存器和流水线以最高并行度去运行指令（现在已经是多核时代，一台机器上不再是一个CPU而是多个CPU，多个CPU在数据不互相干扰的情况下可以也同时独立运行指令）。一个具体例子：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span> c = a + b;</span><br></pre></td></tr></table></figure>
-
-<p>我们人眼认为a是先于b被声明初始化的，最后c再被计算，但是对于编译器，它可以向我们保证c最后计算出来等于30，也会保证在c计算出来之前a和b都被正确声明和赋值即a肯定等于10，b肯定等于20，但是它不保证的是<strong><em>到底a先被声明赋值还是b先被声明赋值</em></strong>，有可能是先b再a，也有可能是先a再b，我们无从猜测，所以我们也不能指望它可靠。</p>
-<blockquote>
-<p>这里引申出另一个问题，<code>_instance = new Singleton();</code>实例化操作到底是怎么被运行的？</p>
-</blockquote>
-<p><code>_instance = new Singleton();</code>并不是一个原子操作，它被执行时是分为3个步骤的：</p>
-<ol>
-<li><p>一块特定的内存被分配出来给Singleton对象使用。</p>
-</li>
-<li><p>这块内存会被赋值初始化，此时Singletom对象已经能用了。</p>
-</li>
-<li><p>这块内存（Singleton对象）的引用赋值给<code>_instance</code>。</p>
-<p><code>_instance</code>指向Singleton实例的内存，实际上只有这块内存被完整初始化之后，<code>_instance</code>才是一个正确可用的实例（<code>_instance</code> is valid only when the initialization is complete）。这里可能出现的问题是编译器将这3个步骤打混了，假如<strong>线程A先执行步骤1和3，在没来得及执行步骤2的时候发生线程切换</strong>，对于线程B来说，<code>_instance</code>已经不为<code>null</code>了，就屁颠屁颠拿去用了，但是实际上<code>_instance</code>指向一块还没有被初始化的内存，如果线程B拿这个对象去使用会引发各种谜之bug甚至出现系统崩溃。</p>
-</li>
-</ol>
-<blockquote>
-<p>如何解决这个问题？</p>
-</blockquote>
-<p>我们只需要将实例化对象那一行代码的运行顺序摆正就好了，换个说法就是避免编译器的优化：</p>
-<ol>
-<li><p>在C++和Java中存在关键字<code>volatile</code>，也就是<code>private volatile Singleton _instance = new Singleton();</code>，它可以使编译器不去做激进的优化，保持原来的执行顺序不变，不过这个关键字某种程度上也会影响整个系统的性能，毕竟变量变成<code>volatile</code>后即使实例化完成后，每次去对象都不去寄存器快速取出来而要去内存取。（<code>volatile</code>这个关键字坑很多，最好还是不要乱用）</p>
-</li>
-<li><p>使用<a href="https://en.wikipedia.org/wiki/Memory_barrier" target="_blank" rel="noopener">内存屏障</a>来迫使完全实例化之后再改变flag的值：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton _instance = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> bool flag = <span class="keyword">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!flag) &#123;</span><br><span class="line">            acquire_lock();</span><br><span class="line">            <span class="keyword">if</span> (!flag) &#123;</span><br><span class="line">                _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">                memory_barrier();</span><br><span class="line">                flag = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            release_lock();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> _instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>因为有内存屏障的存在，可以保证<code>flag = true;</code>这句代码不会被编译器优化执行顺序，也就是一定会完成<code>_instance = new Singleton();</code>之后，flag变量才会变为true，所以flag就是<code>_instance</code>已经被正确初始化的标志，if直接判断flag变量即可。如果将<code>flag = true;</code>放在内存屏障前面行不行呢？那是不行的，因为可能被编译器优化之后flag变量甚至会在<code>_instance</code>正确实例化之前就被置为true。然而内存屏障也需要编译器的支持，否则可能很难使用内存屏障，甚至需要写上汇编代码。</p>
-</li>
-<li><p>最后一种是针对Java的实现，详见<a href="https://en.wikipedia.org/wiki/Initialization-on-demand_holder_idiom" target="_blank" rel="noopener">Initialization-on-demand holder idiom</a>。</p>
-</li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>上面提到的所有实现，都没有找到尽善尽美可以运行在所有平台/编译器的方式。可能最后的解决方案就是放弃懒加载，权衡性能和安全。如果我们想坚持使用懒加载同时保证线程安全，性能会因为锁的获取受到影响（<a href="#添加锁🔐">full locking</a>版本），当然还是有一点小手段可以优化——尽量减少<code>getInstance()</code>的调用次数：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 调用三次getInstance函数，也就获取了三次锁</span></span><br><span class="line">Singleton.getInstance().method1();</span><br><span class="line">Singleton.getInstance().method2();</span><br><span class="line">Singleton.getInstance().method3();</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 只调用一次getInstance函数，获取一次锁，性能更好</span></span><br><span class="line">Singleton instance = Singleton.getInstance();</span><br><span class="line">instance.method1();</span><br><span class="line">instance.method2();</span><br><span class="line">instance.method3();</span><br></pre></td></tr></table></figure>
-
-<p>虽然这并没有解决问题，但是确实可以在性能上有所提高。</p>
-<p>Singleton设计模式从来就不是一个简简单单的设计模式，在不同场景下，每一种设计模式都需要进行演变来应用，分清每一种实现的好坏，挑一种最合适业务场景的实现进行应用，这才是代码功力和业务理解能力💪。</p>
-<h1 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h1><p>violate关键字对单例的影响</p>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://taskinoor.wordpress.com/2011/04/18/singleton_multithreaded/" target="_blank" rel="noopener">墙裂推荐阅读：Singleton in multi-threaded environment</a></p>
-<p><a href="https://www.cnblogs.com/god-of-death/p/7852394.html" target="_blank" rel="noopener">C/C++ volatile关键字深度剖析</a></p>
-<p><a href="https://www.kernel.org/doc/Documentation/memory-barriers.txt" target="_blank" rel="noopener">LINUX KERNEL MEMORY BARRIERS</a></p>
-<p><a href="http://ifeve.com/disruptor-memory-barriers/" target="_blank" rel="noopener">Dissecting the Disruptor: Demystifying Memory Barriers</a></p>
-]]></content>
-      <categories>
-        <category>设计模式</category>
-      </categories>
-      <tags>
-        <tag>单例模式</tag>
-        <tag>多线程</tag>
-        <tag>代码实现</tag>
-        <tag>翻译</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>功能测试小感</title>
-    <url>/2018/02/28/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B0%8F%E6%84%9F/</url>
-    <content><![CDATA[<p>功能测试某种意义上确实是有套路规律的。所谓的测试经验，在我看来就是把套路运用在不同场景的能力，也就是灵活运用的能力。其实这里的<code>套路</code>，换种说法就是<code>测试理论</code>。</p>
-<p>从黑盒角度来说，<code>边界值、等价类</code>，这些应该都是软件测试人员的基本知识，应该深入思维信手拈来而不是刻意为之。<code>边界值</code>帮助我们发现比较好找的bug，改善软件最下限的质量（还别说这些边界校验真的是bug的重灾区，具体数量依赖开发自测水平），<code>等价类</code>帮助我们精简用例数量，提高执行效率。这些可以说是脱离业务场景单独针对代码逻辑的用例设计，可以在不理解业务的前提下直接开测。</p>
-<a id="more"></a>
-
-<p>除此之外，<code>场景法</code>也是非常重要的手段。<code>场景法</code> 简单理解就是根据不同的用户场景来设计用例，这里没有什么一套一套的测试理论，唯一的要求就是理解业务场景，从用户角度出发。<strong>一些不是bug的问题，在这样的要求下可能就会变成bug，因为它们有悖于业务场景，削弱了用户体验</strong>。</p>
-<p>另外，一些更加工程类的bug，比如多线程竞争、变量缺少正确初始化、数据库死锁等问题偏白盒，从黑盒角度看有时症状会比较奇怪。这些问题我觉得更加适合在白盒的角度来发现，这往往也是code review必要性的体现。很多时候，如资源竞争这类问题需要的业务场景比较复杂，场景触发所需要的成本相对更高，甚至靠线下测试环境的机器资源根本无法触发。所以如果什么问题都想着从黑盒角度来发现，那是不靠谱的。<strong>这也正是一个好的QA与普通QA拉开差距的地方——除了理解业务场景、熟练地从黑盒发现功能问题外，还要求可以白盒通读代码，在脑海模拟业务场景，从而去发现逻辑问题。</strong></p>
-<h3 id="如何设计测试用例"><a href="#如何设计测试用例" class="headerlink" title="如何设计测试用例"></a>如何设计测试用例</h3><p>这里并不打算写一篇全面的教程，只是分享个人对某些点的一些看法。</p>
-<p>测试的最高目的，是<strong><em>验证代码产出是否符合需求</em></strong>。那可能会问：“既然只需要符合需求，那为什么还要考虑那么多的边界、异常值呢？”，道理很简单，因为<strong>这些都是隐藏在需求之下的情景</strong>。需求，本身是服务于用户体验的，而不是凭空出来的产品功能约束。那么为了一个完整的用户体验，肯定要包含一定程度的容错操作，这就是边界值、异常值考虑的缘由。</p>
-<p>既然已经有了一个测试的最终目的，那么具体如何设计用例就好办了。</p>
-<ol>
-<li><p>根据代码逻辑进行用例设计，以代码覆盖率作为衡量标准。</p>
-<blockquote>
-<p>所以一些明显覆盖相同逻辑、相同代码路径的用例，就可以去掉。比如新增功能点是支持连续升级，如果连续升级2次和连续升级3次这两个case覆盖的代码逻辑没有差异，后者完全没有存在的必要。</p>
-</blockquote>
-</li>
-<li><p>结合需求进行用例设计。</p>
-<blockquote>
-<p>QA必须对一切保持怀疑，故不能认为RD已经完全按照需求进行开发。另外，这种方式可能会有bonus——发现RD与QA对需求点理解的差异，从而推动确认真正的需求到底是什么，这样无疑对产品有积极的帮助。</p>
-</blockquote>
-</li>
-<li><p>异常情景用例设计。</p>
-<blockquote>
-<p>异常测试可以被放在一大块里面，这样更加方便归纳整理、查漏补缺。异常包括很多情况，具体根据不同业务类型来定义什么是 “异常” ，安装失败、升级失败、解析配置失败、网络请求失败、用户高频操作等等，这些都是异常。</p>
-</blockquote>
-</li>
-<li><p>提高用户体验的用例设计。</p>
-<blockquote>
-<p>这里本身不应该单独分出来的，但是我觉得很重要。用户体验其实不一定会有具体的用例，很多时候往往只是一种主观感受，比如色调、操作流程顺序、功能的作用大小等。一个具体例子就是根据订单号的订单搜索，订单搜索使用模糊匹配效果往往要比精确匹配好，原因很简单，因为根本不可能由用户去记住冗长没有规律的订单号。</p>
-</blockquote>
-</li>
-</ol>
-<p>扯一点题外话，一个好的QA，还应该要熟练掌握各种对自己有帮助的工具。除了发现bug外，还应该有定位bug、调试代码的能力。定位某些bug，比如常见却又难发现的内存泄漏，就需要特定工具帮忙。</p>
-]]></content>
-      <categories>
-        <category>测试</category>
-      </categories>
-      <tags>
-        <tag>功能测试</tag>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>性能测试初探</title>
-    <url>/2017/12/18/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%88%9D%E6%8E%A2/</url>
-    <content><![CDATA[<p>目前已经对两个不同的C/S架构产品的Server端进分别进行过一次性能测试，慢慢开始对性能测试有了初步的认识，下面大概分享一下我们小组的性能测试过程。</p>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p>性能测试开始之前会和开发讨论，目的就是要确定真实业务场景下的各种相关数据的量级，最终计算出预期多少<strong>QPS</strong>才可以应付业务场景的需要。当有了预期的<strong>QPS</strong>作为一个性能目标后，就可以开展性能测试了（根据业务需求不同会有各种不同的指标要求，可能是一个，也可能是多个）。</p>
-<p>这里性能测试使用的是<strong>Jmeter</strong>，<strong>Jmeter</strong>的优点很明显，就是简单易用，可以快速搭建分布式测试环境，通过水平扩展增加测试机器来增加对Server的请求压力，把Server推向它的性能转折点。</p>
-<p>机器资源在性能测试中是一个比较重要的东西，因为机器配置的好坏或者机器的多少就已经决定了你能对Server造成多大的压力，不同机器之间的配置是越接近越好，因为<strong>Jmeter</strong>的分布式测试是不存在调度一说的，只是简单地通过一个Master对配置好的所有Slave发送测试计划<code>jmx文件</code>，然后Slave会去执行测试计划（Slave也可以是Master自己）。如果Slave机器之间的性能差距太大，那么性能差的机器就会成为短板，导致性能相对好的机器无法最大程度发挥性能。</p>
-<a id="more"></a>
-
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p><strong>1. 机器资源</strong></p>
-<p>继续上面说的机器性能，为什么说性能差的机器会成为分布式测试环境中的短板呢？因为每一台Slave执行的测试计划都是一样的，都要发那么多请求，起那么多线程，一旦消耗的资源超过机器承受范围，该机器发送的请求数量和质量就无法达到预期，总请求数势必变少，也就无法知道并发数等重要指标是否满足，从严谨的角度出发，这一次测试结果是作废了。</p>
-<p>所以，分布式环境中性能差的机器会成为测试计划里的短板，使得测试计划的各项参数被遏制在某条线之下。另外，Jmeter的分布式环境应该选用性能最好的机器作为Master，Master所做的工作肯定是比Slave要多的，如果Master性能不好，会造成Jmeter客户端的假死，导致本次压测数据作废，甚至可能得到一些偏差较大的数据。</p>
-<p>个人真实经验：用了一台很谜的机器做Master，导致多次测试无法正常结束，浪费时间，后面换了一台好的机器做Master，压测都是一次过，在调到更大请求压力后看到的响应时间甚至比没换Master之前相对更低压力的响应时间更快，所以Master也会对测试数据有影响，应该谨慎挑选。</p>
-<p><strong>2. 通过重复测试来分散风险</strong></p>
-<p>道理非常明显，单次的测试结果存在较大的偶然性，这些偶然性可能来自于你的测试数据，可能来自于Slave的资源状态，也可能来自于网络……为了降低各个方面的风险，重复测试当然是必须的，至少重复三次取一个平均值，而且要特别关注明显异常的数据，比如某个数据突然变高或变低，要思考一下可能的原因，而不是直接舍弃这一次结果鲁莽地开始下一次测试，谁也说不准里面是否就有一个bug。</p>
-<p><strong>3. 调整测试计划</strong></p>
-<p>性能测试本身不仅仅是为了验证Server的性能指标是否达到预期，找到Server的性能转折点也是一件重要的事情，需不需要准确定位这个转折点就要看业务需要了。</p>
-<p><strong>如何通过调整测试计划来发现这个转折点？</strong>以<strong>Jmeter</strong>来举例子。</p>
-<ol>
-<li>线程数<code>n</code></li>
-<li>发送请求的时间区间<code>t</code>——我理解为在<code>t</code>时间区间内，会逐步启动共<code>n</code>个线程并发出请求</li>
-<li>线程循环次数<code>i</code>——也就是总共多少个区间<code>t</code>，因为循环<code>i</code>次，总共就会发<code>n*i</code>个请求</li>
-</ol>
-<p>以单个请求的平均响应时间为标准，由于线程在t区间内就会全部启动造成并发（可以粗略看成并发数为<code>n/t</code>），如果单请求平均响应时间大于区间t，则代表代表Server在区间t内已经处理不过来这么多请求了，就会造成请求的堆积。</p>
-<p><strong><em>为什么说Server处理不过来？</em></strong></p>
-<p>拿第一个启动起来的线程来看，本身预期该线程的请求在t区间内返回是没有问题的。但是，假如该线程发出的请求对应的响应时间大于t，则代表该响应在一个大于t的区间内依然算一个并发数，也就会影响到下一个区间t，结果是下一个区间t的并发数会受到来自上一个区间的叠加，最后导致在某个不知道的时间区间内，并发数会大于<code>n/t</code>，这对我们来说既不准确也不可控。</p>
-<p>除了以响应时间作为判断转折点的依据之外，<strong><em>Througput</em></strong>也可以作为参考。</p>
-<p>另外，应该特别注意一下总请求量，一旦发现总请求量不足预期，很大可能是机器资源不够了，此时只能把参数调低，继续往上压已经不现实。如果请求量比预期要多（这个我们遇到，谜之问题），可以先检查csv配置文件是否正确，csv里的数据是否充足，可以看看<strong>Jmeter</strong>发出的不同请求有没有发生内容的重复，再根据这些已知条件去排查。</p>
-<p><strong>4. 测试数据的准备</strong></p>
-<p>很多时候构造请求是需要数据的，可以根据数据库的运作特征来构造数据，从而相应地验证数据库的增删改性能，也可以根据Server逻辑来构造，从而触发Server的不同业务路径。但是构造数据务必要合理，以真实业务场景为依据。</p>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>应该对一次性能测试怎样进行记录呢？可以有如下点：</p>
-<ul>
-<li>核心测试计划的各种指标数据</li>
-<li>存在性能问题的方案</li>
-<li>优化修改后的方案</li>
-<li>优化前的指标数据和优化后的对比指标数据</li>
-</ul>
-<p>拿到上面的数据，就可以分析得出性能测试的结论，清晰可观地知道这一次性能测试产生一些什么样的积极意义了。</p>
-]]></content>
-      <categories>
-        <category>测试</category>
-      </categories>
-      <tags>
-        <tag>测试</tag>
-        <tag>性能测试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>感情问题的小总结</title>
     <url>/2019/03/29/%E6%84%9F%E6%83%85%E9%97%AE%E9%A2%98%E7%9A%84%E5%B0%8F%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>这是8个多月来我记录下的第16次较大的矛盾了，不包括一些及时解决的小问题。你懂的，大矛盾时时伴随着泪水，我的也好她的也好，我这流眼泪的次数远远大于初中+高中+大学的总和了，现在回头总结一下，其实归根到底都是一个原因：<font color="red"><strong>沟通不充分</strong></font>。</p>
@@ -603,115 +603,6 @@
       </categories>
       <tags>
         <tag>感情</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的2018总结</title>
-    <url>/2019/01/02/%E6%88%91%E7%9A%842018%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h2><p>已经工作一年半了，以QA的身份入职到现在，前半年跟后半年还是有不少变化的，看着一批老同事离职，包括自己的导师，有的QA同事转型成RD，有的跳槽去了更大更好的平台继续做测试，有的为了工作能轻松一些好带小孩去了传统公司，也有一些RD感觉到自己在这里到了瓶颈跳槽寻求发展。慢慢地自己变成了团队里一个老人了，开始独立负责一些项目的测试工作，角色开始从一个单纯的执行者稍稍往上走了一点，要自己出测试方案，要自己叫人一起来review，然后自己执行。以前在导师的荫蔽下，几乎把一切RD对接的沟通工作都省去了，自己安心做基础测试工作。那时候的自己浑然不觉，自以为完全handle了自己负责的那一部分，现在看来甚是傻逼。</p>
-<p>前半年就是这样子的一个状态，接触了几个小型项目，有客户端的，有web平台的，也有后台的，前半年对于自己来说，这些不同的项目并没有什么根本区别，唯一的区别可能也就是功能和测试场景不一样吧，或者说仅仅局限于实现方式的不一样，现在回头看一下，这些项目从需求背景就完全不是一码事。以前自己好奇技术细节的实现，具体到单个功能的几个函数是怎么写的，用到了什么样的技术，而现在自己更好奇的是用什么方案来解决一个问题，其次才是具体的代码实现细节或者技巧。从环境上来前半年跟后半年是有明显区别的，增加了不少新同学只后测试工作负担少了很多，也终于拿到了一些对接项目的代码可读权限了，当自己对具体实现细节感兴趣或者遇到bug想自己排一下的时候就可以看一看。</p>
-<a id="more"></a>
-
-<h3 id="白天求生存，晚上谋发展"><a href="#白天求生存，晚上谋发展" class="headerlink" title="白天求生存，晚上谋发展"></a>白天求生存，晚上谋发展</h3><p>前半年跟着导师干活，后半年导师离职后隔壁组的QA leader过来一起管理我们的测试工作，客观评价一下两个人的工作作风区别。</p>
-<ul>
-<li>导师（女）属于那种雷厉风行，做事情不吭声，测试效率高的人，但是她不会去看项目源码，没有足够强的自动化意愿，在我看来是一个相对传统的QA。<ul>
-<li>优点：<ol>
-<li>一切的工作都是为了快速完成项目测试并保证基础质量，测试效率真的很高，测试速度得到对接RD一致好评。</li>
-<li>场景覆盖较为全面，QA思维清晰缜密，相关类型的项目测试经验丰富（7年经验），可以及时发现RD的方案设计的不足之处。</li>
-<li>工作真的负责认真，该周末加班时毫不含糊（有小孩的人）。</li>
-</ol>
-</li>
-<li>缺点：<ol>
-<li>更加愿意通过手工测试来完成工作，对于项目逻辑单纯听RD口述即可，从没听过她追究代码，100%黑盒测试，自动化的想法不足，更不要说最后落地的自动化方案，几乎为零。</li>
-<li>对项目的owner精神不足，测试完一个提测（这边的项目迭代速度十分慢，一点都不敏捷）后基本不闻不问。</li>
-<li>对复杂项目流程有着一定的厌恶，不主动推合适的测试开发流程。</li>
-<li>对隔壁组QA测试的项目没有展现出任何兴趣（相反我倒是超级感兴趣的）。</li>
-</ol>
-</li>
-</ul>
-</li>
-<li>新QA leader（男）RD出身，只负责在我们这边推流程，自动化意愿和想法极高（当然还是我们自己来落地），推动力较强，经常在RD之间游说新流程。<ul>
-<li>优点：<ol>
-<li>push我们落地新流程，包括详细设计评审会、case评审会、迭代分析会，提测流程等，虽然不是每个项目组都能接受所有流程，但是帮我们在RD leader层面解决了很多流程上的推动障碍，让QA有了更多可以介入的空间。</li>
-<li>push我们做自动化，虽然没有强制我们做，但是一直给我们灌输想法，最后我自己做了起来。</li>
-<li>一直push我们给项目做各个维度的质量保障，从基础的监控到CI到单测（emmmmm我没有去做）。</li>
-</ol>
-</li>
-<li>缺点<ol>
-<li>站着说话不腰痛，不了解项目的具体情况，按照他那边大项目的<strong>重型流程</strong>在我们这边的小项目组里做无意义的推动，搞得RD有点抵触情绪。</li>
-<li>只说不做，给我们想法，具体落地完全只能靠我们自己。</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<p>可能因为一开始只有我和导师两个人扛二十多个RD的测试任务，所以一直没有时间从各个维度去完善质量保障，那一段时间一个项目还没测试完就已经有两个项目在后面排着队，RD都让我的经理给我们加人力，确实没有时间去考虑什么自动化，只要保证项目上线不出问题就已经很不错了。但是这样测试得越久，我自己越来越难以提升，像一个测试机器一样来一个提测就测一个，这根本就不是我自己想要的发展道路。我尝试去向RD要项目源码来看，答复都是拒绝，都是让我去跟RD leader沟通，我tm怎么敢直接跟比我高几个级别的RD leader说我想看源码……导师自己本身对源码丝毫不感兴趣，所以也没帮过我。那时候的测试流程确实很原始，RD发一个提测邮件，导师再开一个测试方案评审会就可以开始测试，很多东西都是一边测试一边沟通，测试完一个项目还没来得及总结一下就下一个，日复一日这样我真的厌倦了，可能这种心情很多新人QA都可以体会到——发现让自己成长的平台并不如一开始想象得那么光鲜亮丽。</p>
-<p>新QA leader对于我们的测试工作管得很松，所以后面基本上是我一个人去handle项目测试，多了一些新同学，测试工作也没那么恐怖了，大多数时间完全可以实现每天9点下班，甚至实现了<strong>白天求生存，晚上谋发展</strong>的理想状态。我开始给自己排期更多的时间，以了解项目同时自己积累其他方面的知识，后半年下来慢慢地觉得工作节凑开始走上正规了，在其位谋其职，测试工作当然依然有保证，那是职业道德，但是不能让自己的发展局限于目前的岗位职责，尽可能将自己的能力往上下游蔓延🤔。慢慢地自己对项目的owner精神开始加深，主动跟进项目各种情况，开始考虑项目测试的痛点，深入了解项目的各种细节，也感受到了自己跟以前有不一样的地方。</p>
-<p>常常说程序需要健壮需要鲁棒性，后端不能相信前端传过来的东西，agent也不能相信server下发的东西，QA方肯定是需要测试这些边边角角的东西。然而问题是RD很抗拒添加这种健壮性的代码，如果项目赶工期的话可以理解，但是普通迭代并没有忙成什么样而且他们还有时间玩手机刷网页都不愿意改，虽然我有点站着说话不腰疼，但如果我是RD，我肯定愿意把自己的东西做得更好，况且还是别人给自己发现的问题。隔壁组有个93年的同事，传闻是高中毕业就出来打工，做过保安、在电影院做过检票人，最后自学了编程，在<code>吾爱破解</code>里做了一个模块的版主，最后被公司安全部门的人挖过来做开发，简直是励志。他是一个相对的完美主义者，自己写的代码，隔几天想到一种更好的实现方式就会自己重构一遍，跟他合作沟通都很顺畅，这类型的同事永远都是学习榜样。</p>
-<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/office.png" alt="我的工位"></p>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>QA的工作内容相对来说都比较同质化，所有的工作内容无非围绕着项目的质量保障来做，细分包括流程、功能测试、性能测试、监控、自动化等几大类。</p>
-<p>项目组里需要QA去推的流程可能包括各类评审会、CI、单测准入、上线会议、迭代分析等，可以看到这些流程其实都是给QA创造更多介入项目的机会。流程能否推动，QA只是一部分的因素，毕竟多数情况QA都不是跟着产品一起走的，是一个流动团队，体系跟RD数不一样的，所以你说的别人不一定听，推流程如果RD leader都不合作，那就不要想了。</p>
-<p>功能测试是基础，重点是对项目功能的理解程度和场景的覆盖是否充分，QA做功能测试的目的不是要完整地覆盖各种代码分支，这些应该交由RD保证，我觉得更重要的是发现RD没考虑的逻辑分支和覆盖一些稀有、异常场景，需要的不是100%的覆盖而是针锋相对的用例设计，这样才能用尽量少的时间尽量多地发现问题，当然如果知道具体代码，就可以把预先知道一定pass的多余的用例去掉，这样会节省时间，叫合理的偷懒。QA做的是集成测试，很多时候到手的模块已经是一个整体，而不是一个一个给输入得输出的函数，很多东西会更加模糊，同时由于复杂度的提高，场景也会更加复杂，能否尽可能多覆盖到这些场景，而不是顺着正常数据流程一路走，这才是功能测试的重点（当然正常流程也要测试）。</p>
-<p>性能测试我接触的实在太少了，只有寥寥几次，用Jmeter在多台电脑上搭建主从测试环境，一起发请求给sever压测接口，得出一些请求响应时间的数据做简单分析。性能测试我觉得主要是看三个方面，一是你会用多少工具来实现你的性能测试方案，二是你能设计出什么样的性能场景，三是你拿到性能数据之后如何分析得出结论。我感觉我三个方面都很菜，没啥实战经验……</p>
-<p>监控、自动化属于一个QA其他层面的能力，一般大公司内部有监控平台可以直接对接，如果没有就要自己想监控方案，确定监控指标，从最原始的进程在不在、进程号有没有改变、cpu内存IO是否过高，到接口是否可用，响应时间是否合理等都是监控的指标。自动化就是业界经常拿来吹嘘的点，说我们的团队对业务做了多少百分比的自动化什么的，自动化也分半自动化和全自动化，半自动化可能是自动生成数据人工验证结果，如生成数据的工具；或者人工生成数据自动验证结果。这写我觉得都不算自动化，因为还是需要人为干预。全自动化在我对接的项目组里是0，也是我19年重点建设的东西，对接不同的端就有不同的自动化，web前端自动化可能要去到像素级别（这个估计业界做得不多），web后端或者server的自动化多数是生成数据发送接口然后验证数据库或者接口返回，agent端的自动化就繁杂一些，需要看具体的业务场景，比如我对接的一个内部macbook安全监控agent就需要通过GUI（操作鼠标点击拖拽）来实现自动化，麻烦多了。不过说到底，自动化的能力是衡量一个QA开发水平的重要指标，毕竟 <code>talk is cheap, show me the code</code>。</p>
-<p>更好的QA，那可以是在项目架构上产生影响，审视的不再是项目的单个具体功能而是项目的不同模块如何协调、架构是否能承受未来多少时间内的业务量、是否具备足够的扩展性和维护性……越说越飘，还没到这个境界，</p>
-<h3 id="关于代码"><a href="#关于代码" class="headerlink" title="关于代码"></a>关于代码</h3><p>说起源码，我对接的开发组也是够奇葩的，我了解到的很多业务线的QA都能有完整可读的源码权限，而在我这边RD就说代码要保密，QA对于RD来说仿佛只是一个工具，从心智上看RD就觉得QA只是支持作用，他们只应该黑盒测试，有需要就告诉他们业务逻辑而不是代码细节，RD不理解QA为什么非要拿源码看，为什么要参与debug，为什么要了解一个bug从出现到修复等等。QA为什么要这样，答案应该就是一个——更好地改善产品质量。很多东西，没有代码都是空谈，当然我自己有一颗日后转型RD的心，所以一直想多了解具体实现好让自己积累更多的代码基础，这里是有私心存在的，但是更多时候直接原因是QA需要完整知道一个bug的产生到修复甚至到预防的过程，以更好地覆盖测试不同场景，去发现和积累一些之前都没有想到的点，推动RD改进提测质量，从而保证项目质量。不仅很多老RD质疑QA做白盒测试的意义，也有应届跟我一起入职的RD不明白我对项目源码的执着。</p>
-<p>对代码观念的改变，有一个小故事。当时测试一个agent端的时候，一个3年的RD让我别看他们项目源码，说他们的代码一点技术含量都没有，他自己都懒得看，让我还不如去<code>github</code>上找代码看，上面的代码强多了。这一个agent端是内网IDC上保证主机安全的，他说，项目真正值钱的地方往往不是代码实现，因为网上一搜多得是，值钱的是这个agent做的安全方案，它解决安全问题的思路和方法，它是如何将一些安全概念以代码的形式落地的。当时我没有理解，但是现在回想简直茅塞顿开，是的，其实最后的代码实现都是业务逻辑 if else for while 那种东西嘛，<strong>关键应该是这个项目背景是什么，安全概念是怎么来的。有什么样的安全意义，概念如何转化成具体可执行的安全方案，方案如何转化成需求，而最后一个环节才是代码实现需求，所以应该花更多精力去了解学习的是前面的环节，而不是最后的代码实现</strong>✨。</p>
-<p>要深入理解一个项目，要能做到打破砂锅问到底，不要怕尴尬一定要问清楚，虽然真的会有RD觉得自己问的问题很低级，没办法自己掌握的信息实在很少。一开始接触项目代码的时候一脸懵逼，甚至连语法都看不懂，对接的项目开发语言有php、js、go、object-c、python，也只能硬着头皮快速过一遍语法后直接看，根据自己对项目的了解先从核心的代码模块和业务流程开始看，比较nice的RD会主动跟我讲一遍不同的代码模块和其实现的功能。边看边梳理自己已掌握的信息，最后将一个一个零碎的点整合在一起，整一个项目的业务和架构就会明朗很多。这里特别建议的一点就是根据问题去看代码，要有目的地看才会有收获，可以根据一个典型的bug来看，看bug是如何产生如何修复，足够典型的bug往往会涉及到多个模块之间的交互，这样走下来让人印象十分深刻🤔。</p>
-<p>还有一件事一直让我十分惶恐，自从当上了QA之后，我就很少写代码了，或者说成体系写结构化的代码，而不是写那种辅助工作的只有百十来行的零碎的测试工具脚本。既然我心念念未来要转RD，代码能力就不能太弱，相比于天天写代码的RD，我们QA很多时候半年的代码量还不够别人一月多（虽然代码量不能代表代码水平，但至少是开发效率的一个参考指标），毕竟各有分工，这个是无法改变的事实，除非做的是测试工具研发类的测试岗位。我现在的岗位叫测试开发工程师，但是很多时候由于多个项目测试进度的压力，很多想法都来不及去实现，毕竟测试质量是最优先的，其次才是自动化。这个困境过了一年多，在这一个多月里终于开始改变了，因为项目空档期我差不多3周的时间闲下来思考项目测试的痛点，然后去实现我的自动化。我下定决心再也不接那么多测试工作了，相反，将更多的时间投入到开发维护自动化程序中去，虽然只是我的个人代码，没办法体会到团队合作开发的流程，但是我可以用更规范的形式去要求自己完善这个工具，代码库要有相对完备的<code>README.md</code>和<code>CHANGELOG.md</code>，代码要有适当的注释，文件结构和模块要整理封装，有好的想法出来就要去重构替换掉老的代码，即使未来可能并不会有人用，我也要以面向用户的标准去打磨它，把开发、维护这个自动化程序当成是我自己的一次修炼。</p>
-<h3 id="汇报"><a href="#汇报" class="headerlink" title="汇报"></a>汇报</h3><p>12月份因为需要对上头的上头做一个业务分享会，分享我自己负责的一个相对成熟的项目。为了满足上头的口味，我那小段时间经常拉着将要离职的RD去会议室单独开小灶给我讲这个项目，幸好RD哥们也够义气，给我讲了业务的大流程、每个模块的功能、项目的基础架构、一些以前发现的重点bug和这个项目存在的一些问题，然后我自己再仔细理了理，把几个重要的代码模块通读了一下，在短时间内就对这个几万行代码的项目有了相对清晰的认识，然后再去做个ppt，根据需要自己再理了一下，发现以前自己完全不了解的地方原来是那么那么的多，可见以前的自己眼光是多么地狭隘，这是我这个阶段里一次很宝贵的历练了。</p>
-<p>说起ppt，不得不说，我在的组对于汇报工作有着非同一般的“执着”追求，ppt稍微做差一些做得随意一些，就会在会议上受尽指点，跟同组同事精美的ppt一对比，简直惭愧得无法做人。还记得一个已离职的QA同事说，她的ppt能力在现在的公司排不上用场哈哈哈哈。会叫的鸟儿有虫吃，ppt只是一种汇报手段，无论什么途径最终还是要向别人展示自己的工作，要量化指标，要对比，要有逻辑，汇报得清晰才能证明自己的价值。在这个组呆了一年半真可谓把我的汇报能力强行拉了一个等级，还是得多感谢这个组这样疯狂地push我们😓（虽然很多汇报工作明显是多余的）。</p>
-<blockquote>
-<p>总结一句话，这一年来心态和思维成熟了很多，知道自己想要什么、缺什么、讨厌什么，开始明确自己的追求。</p>
-</blockquote>
-<h3 id="2019的FLAG"><a href="#2019的FLAG" class="headerlink" title="2019的FLAG"></a><strong><em>2019的FLAG</em></strong></h3><ol>
-<li>亟需提升的是代码量，在2019年平均每个月可以产出<code>500行</code>结构化的代码，无论是工作代码还是个人代码都好，那种小脚本小工具不包括在内。</li>
-<li>最高优的是<code>在安全方面打好基础</code>，熟悉web安全、Linux安全、汇编和各种工具的使用；另外Linux内核、游戏开发、二进制分析、渗透、病毒分析等需要入门。</li>
-<li>一个一直都想点亮的技能就是学会1个web开发框架，自己写一个博客的前后端，或者搞一点有意思的小需求。确定选中<code>flask</code>，自己未来的主力语言应该是python，备选是go。</li>
-<li>阅读至少<code>2个</code>大型开源项目的代码（python源码已经在清单之内）。</li>
-</ol>
-<hr>
-<h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><h3 id="爱情"><a href="#爱情" class="headerlink" title="爱情"></a>爱情</h3><p>一定要说这一年最大的变化，那就是<strong>爱情</strong>。</p>
-<p>自己的生活片段都是记录在微信朋友圈上，18年已经再也没有学校的片段了，自己只身来到深圳，本以为没什么朋友，自己一个人过着普普通通的假期和周末，很偶尔出去跟同事玩一下。结果一个大学时期隔壁班一起上课的同学开始约我出来玩，后面又有一个在深圳宝安中医院实习高中时期非常要好的老乡时不时叫我出去玩，最后是我的女朋友出现在了深圳。我们是小学同学，当时知道她在深圳，我以地主之谊请她出来吃饭，到慢慢爱上她表白，再到现在一起走了快半年的时光，她还会说我们两个人这样走在一起，她觉得很神奇。我自己单身了20多年突然生活里多了一个自己如此在乎的异性，生活也发生了翻天复地的改变。我开始为了引导她往好的方向走，为了让她可以过得更充实，教她python编程，科普她不少知识，给她工作上的建议，监督她改正坏毛病，这么多年来从未有一个人让我如此在意。为了记录我跟她的点滴，我多了写相处日记的习惯，将我们每一次见面都记录下来，从一开始的单纯流水账记录，到慢慢假如越来越多的细节，单篇日记可以四五千字以上，这占用了我大量的时间，极大地压缩了我的学习和锻炼的空间，她也讲了好几次，说我们每次见面其次都是重重复复那些事情而已，没必要一直写日记。然而，我认为这一切的牺牲都是值得的，这样的日记写到我们同居之后就不会再写了，约摸还可以写个小半年吧，到时候我要打印成小册子保存下来留念呢，想想我们以后还可以翻翻，就觉得很甜美~</p>
-<p>常常说<code>work life balance</code>，在我的三观里我不认可为了工作把一切东西都放在其次，工作可以放在第一位，但是那只会在特定的时间段里（比如晋升期间）。对于我来说，爱情才是第一位，她才是第一位。她陪我度过了很多我的第一次，比如第一次有人关心我工作晋升情况、第一次有人专门为我庆祝生日（生日送fc游戏机你敢信）、第一次有人为我准备出游计划、第一次有人带着我到处吃吃吃，各种第一次多得我自己都记不清了，那种被她安排得明明白白的感觉真是太棒了……我们都为对方做出了不少积极的改变，我也不再像以前那样不修边幅了哈哈哈哈哈，我们会越来越好的！</p>
-<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/play_games.png" alt="一起打游戏"></p>
-<p>半年来虽然我们没有去过多少什么远方，说得上是出游的，就是国庆假去HK走了一天见了朋友，元旦假一起回广州玩了两天两夜，带她见了我的一个好朋友。本来国庆假是计划去湖南的，由于我们都很懒最后买不到高铁只能放弃，即便这样，每一次出游我们都十分珍惜，在出发前简单定一下行程，去到一个地方再定下一个行程，虽然十分粗糙，但是往往会在路上遇到惊喜。回想起来，正式表白后的一天出来见面她主动给我机会让我签她的手，在情人节那天交换了双方的初吻，还有很多甜蜜的回忆，也有一些争吵和阴暗面，各自都有自己的时间，精神上互相依赖缺不会一直粘着对方。从正式表白那天算起，我就在日历上勾出我们见面的每一天，现在一统计，原来<code>53.4%</code>的日子我们都有见面啊，意料之外的频繁呢~两人一路走来，虽然开心也少不了大大小小的矛盾，哭也哭过不少次，想不到我堂堂男子汉也会哭得稀里哗啦的，半年时间很不容易，倍加珍惜，<font color="red"><strong>感谢你</strong></font>☺️。</p>
-<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/she.png" alt="女王大人"></p>
-<h3 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h3><p>2017年我在豆瓣上标记读过43本书，而2018年我在豆瓣标记的是看过20部电影，读过8本书。从18年开始我第一次在豆瓣上标记看过的电影，以前的我上是基本都不会去电影院看电影的，认知上就觉得为什么网上有高清资源还非要去电影院花钱看这么傻，然而有她之后就知道区别是什么了。自从恋爱之后，我的周末时间就再也不是单纯的看书学习，更多的是跟她见面约会一起去玩，最后一本书是我在8月份标记的，可以说我已经有4个月没有完整地看完一本书了，尤其是硬核技术书，一直没法坚持完整安心地看一本书，不少书反反复复看了一点就停了然后再看再停，自从毕业以后很多非常硬核的技术书就很难静下来心去啃了，也没有一个成小规模的个人代码学习项目，这让我很不踏实，害怕自己落后于别人😞。</p>
-<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/douban.jpeg" alt="豆瓣读书报告"></p>
-<h3 id="健身"><a href="#健身" class="headerlink" title="健身"></a>健身</h3><p>健身习惯也有点变化，今年的最大变化是基本离开了健身房，走上了户外徒手锻炼的道路。10月份我的健身频率开始下降，在11月末脚踝痛风中断了整整4周的锻炼，整个12月份我几乎都没锻炼过！真是意想不到，对于痴迷健身的我竟然会中断锻炼如此之长的时间，手上的老茧都开始掉了。公司饭堂吃得也不好，营养跟不上导致体重还破天荒跌破大学时期最瘦的体重，这一切让我觉得我的力量和肌肉在日益萎缩，还有右肩的反反复复受伤，也使我偶尔不安。唯一值得开心的是，在8-9月份我终于完成了相对完整的<code>muscle up</code>，虽然要靠双腿摆动借力，不过算是有很大突破了，回想以前做个单力臂都要死要活的非常sloppy，自己一直在踏踏实实做引体向上慢慢积累基础力量和熟悉技巧，到最后完成完整动作的那一霎那，真的是有捶打胸口大吼出来的那种兴奋😆。</p>
-<p>18年身体最好的状态，7月出差北京参加培训，在酒店的沙雕自拍 。</p>
-<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/body_best_of_2018.png" alt="沙雕自拍"></p>
-<h3 id="老家"><a href="#老家" class="headerlink" title="老家"></a>老家</h3><p>2018这一年跟父母之间的关系也有了微妙的升级，明白父母为什么老是会想念我这个独生子（老家小镇独生子真的不多），为什么每次我回家他们都可以这么开心，以前以为自己本身就是个比较逗的人，所以回去后撩他们开心也是很正常的，其实远不止这个原因，最重要还是我是他们儿子的这个身份。每次回家都会和老妈晚上一起在小镇的河边散一次步，聊一聊我未来的打算，解释我为什么不愿意回老家买房子，我未来会在哪里发展定居，我的生活工作感情情况，我对生孩子的看法……每一次这样的对话，都感觉自己给老妈开拓了一些眼界，同时也能感受到老妈一辈子活在小镇，没出过省去过大城市见识的局限性，自己的担子不轻，为了美好的未来自己必须要成为一个相对优秀的人。</p>
-<p>自从上了初中就一直寄宿在学校，在老家的朋友越来越少有联系。小学初中高中都是在老家上的，现在每次回到老家，小镇里就是那几个小学同学可以叫出来玩一下，初中同学除了继续成为高中同学的那些人外，全部断了联系（初中就是一段黑历史，宿舍里有个小混混头，把年级其他小混混招过来宿舍聚众吸烟，整天喊打喊杀讲江湖义气，也造就了我不沾烟酒的好品质🙂），高中也只剩下几个比较好的同学会叫出来一起浪。当然让我很欣慰的是，18年过年的时候一部分高中同学终于出来约了一顿晚饭，上一次约是15年了，还是那群比较活跃的人出来见面，大家还是很能聊，都是老样子。</p>
-<p>回到老家很多时候需要帮父母干点重活，搬搬扛扛的，还记得高中还是大学的某一次回家，老爸让我扛了一袋很重的大米上楼，后来被老妈痛骂了他一顿说要是我的腰因为扛米扛坏了就绕不过我老爸，emmmmm作为一个初中就开始健身的人，我老妈待我如宝呢……自己一个人没事干的时候就会去镇里小公园锻炼一下，以前还有一点老年人保健器材在那里，勉强可以用来做一下臂屈伸，悬挂收腹等等基本动作，现在公园改造了，啥都没了，除了水泥路🙂。还有就是骑单车（自行车，粤语叫单车），两年多三年前花800收了一辆原价2k的二手Giant，有空就是拼命往深山老林踩，才知道老家虽然落后，但是好就好在自然风光还不错，自己方圆七八公里都踩过了，以前一点方向感都没有，现在脑里有点整合出一张小地图的感觉。特别喜欢在没人的路上狂奔，跟着耳机一震一震的鼓点，感受着从双腿蔓延出来的疲软，大口大口急促热辣地呼吸，真的是feel到自己很实在地活着。</p>
-<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/bike.jpeg" alt="小路与单车"></p>
-<h3 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h3><p>18年后半年我几乎脱离了游戏。从小玩红警、CS、魔兽、各类网游，中学玩CF、DNF、各种单机、魔兽dota，大学还常常跟舍友一起魔兽，跟隔壁宿舍的肥韬开黑dota2打到深夜1点多的我，现在竟然对游戏如此佛性。手游玩着我觉得很不舒服，单机游戏越来越吃配置，我大学买的老神舟也跑不动了，关键是没有什么游戏的游戏性让我动心（玩起来还比较high的估计只有COD和Crysis了），还发现自己但凡玩游戏刷手机花的时间多了，会有一种恐惧想要尽快摆脱它们，于是乎这样也就渐渐告别了游戏吧，活得越来越不像个年轻人了，不过却有未来跟妹子一起合作开发点小游戏的想法。</p>
-<blockquote>
-<p>总结一句话，有了爱情，活得更完整，生活上虽然作了一些牺牲，但是都是为了更好的未来。</p>
-</blockquote>
-<h3 id="2019的FLAG-1"><a href="#2019的FLAG-1" class="headerlink" title="2019的FLAG"></a><strong><em>2019的FLAG</em></strong></h3><ol>
-<li>结束目前奔波操劳的爱情生活，跟她一起同居，再也不用为了见面花时间在路上。</li>
-<li>单次<code>pull up</code>达到25个，单次<code>dips</code>达到50个，<code>muscle up</code>脱离腰腿借力，完成<code>free handstand</code>、<code>front level</code>、<code>human flag</code>，体脂降到14%以下；带着她锻炼，让她获得川字腹肌。</li>
-<li>豆瓣标记完成至少24本书，其中硬核技术书至少10本。</li>
-<li>跟她一起远途出游一次。</li>
-<li>工作日我可以12:30前入睡。</li>
-<li>祈求痘痘再见😭。</li>
-</ol>
-<hr>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>这个世界上钱不是最重要的，这个大家都知道。亲情爱情生活工作都很重要，但这个还不是最终的源头，最重要的只有一种东西，那就是<strong><em>时间</em></strong>。每一个人可以在各方面都有所不用，唯独相同的就是手上的时间上限，所以，给家人更多交流的时间，给她更多陪伴的时间，给自己的未来更多的学习和锻炼时间，最后的最后，其实都是为了一个更加美好的未来，这些愿望，全部都来源于一颗不甘落后的心❤️。</p>
-<p>好在自己还有点自知之明，深知自己水平有多菜，自己大学4年，碍于狭隘见识和浅薄认知，没能把握好这个关键的蜕变时期，前2年半几乎都是做一个乖乖学生，完全束缚在二流学校的三流教学体系里面，只是在最后的1年才知道自己应该干些什么，然而都来不及了。<strong>努力最好的时间是前十年，其次是现在</strong>，B乎上不缺各种鸡血成才例子，别人是可谓下足了功夫吃透苦头才在4-7年内拿到令人羡慕的成就。</p>
-<blockquote>
-<p>不要用战术上的勤奋来掩盖战略上的懒惰。</p>
-</blockquote>
-<p>2019年年末再见，稀饭兄dei👋。</p>
-]]></content>
-      <categories>
-        <category>总结</category>
-      </categories>
-      <tags>
-        <tag>年终总结</tag>
-        <tag>总结</tag>
       </tags>
   </entry>
   <entry>
@@ -877,6 +768,115 @@
         <tag>装机</tag>
         <tag>电脑配件</tag>
         <tag>图拉丁</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的2018总结</title>
+    <url>/2019/01/02/%E6%88%91%E7%9A%842018%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h2><p>已经工作一年半了，以QA的身份入职到现在，前半年跟后半年还是有不少变化的，看着一批老同事离职，包括自己的导师，有的QA同事转型成RD，有的跳槽去了更大更好的平台继续做测试，有的为了工作能轻松一些好带小孩去了传统公司，也有一些RD感觉到自己在这里到了瓶颈跳槽寻求发展。慢慢地自己变成了团队里一个老人了，开始独立负责一些项目的测试工作，角色开始从一个单纯的执行者稍稍往上走了一点，要自己出测试方案，要自己叫人一起来review，然后自己执行。以前在导师的荫蔽下，几乎把一切RD对接的沟通工作都省去了，自己安心做基础测试工作。那时候的自己浑然不觉，自以为完全handle了自己负责的那一部分，现在看来甚是傻逼。</p>
+<p>前半年就是这样子的一个状态，接触了几个小型项目，有客户端的，有web平台的，也有后台的，前半年对于自己来说，这些不同的项目并没有什么根本区别，唯一的区别可能也就是功能和测试场景不一样吧，或者说仅仅局限于实现方式的不一样，现在回头看一下，这些项目从需求背景就完全不是一码事。以前自己好奇技术细节的实现，具体到单个功能的几个函数是怎么写的，用到了什么样的技术，而现在自己更好奇的是用什么方案来解决一个问题，其次才是具体的代码实现细节或者技巧。从环境上来前半年跟后半年是有明显区别的，增加了不少新同学只后测试工作负担少了很多，也终于拿到了一些对接项目的代码可读权限了，当自己对具体实现细节感兴趣或者遇到bug想自己排一下的时候就可以看一看。</p>
+<a id="more"></a>
+
+<h3 id="白天求生存，晚上谋发展"><a href="#白天求生存，晚上谋发展" class="headerlink" title="白天求生存，晚上谋发展"></a>白天求生存，晚上谋发展</h3><p>前半年跟着导师干活，后半年导师离职后隔壁组的QA leader过来一起管理我们的测试工作，客观评价一下两个人的工作作风区别。</p>
+<ul>
+<li>导师（女）属于那种雷厉风行，做事情不吭声，测试效率高的人，但是她不会去看项目源码，没有足够强的自动化意愿，在我看来是一个相对传统的QA。<ul>
+<li>优点：<ol>
+<li>一切的工作都是为了快速完成项目测试并保证基础质量，测试效率真的很高，测试速度得到对接RD一致好评。</li>
+<li>场景覆盖较为全面，QA思维清晰缜密，相关类型的项目测试经验丰富（7年经验），可以及时发现RD的方案设计的不足之处。</li>
+<li>工作真的负责认真，该周末加班时毫不含糊（有小孩的人）。</li>
+</ol>
+</li>
+<li>缺点：<ol>
+<li>更加愿意通过手工测试来完成工作，对于项目逻辑单纯听RD口述即可，从没听过她追究代码，100%黑盒测试，自动化的想法不足，更不要说最后落地的自动化方案，几乎为零。</li>
+<li>对项目的owner精神不足，测试完一个提测（这边的项目迭代速度十分慢，一点都不敏捷）后基本不闻不问。</li>
+<li>对复杂项目流程有着一定的厌恶，不主动推合适的测试开发流程。</li>
+<li>对隔壁组QA测试的项目没有展现出任何兴趣（相反我倒是超级感兴趣的）。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>新QA leader（男）RD出身，只负责在我们这边推流程，自动化意愿和想法极高（当然还是我们自己来落地），推动力较强，经常在RD之间游说新流程。<ul>
+<li>优点：<ol>
+<li>push我们落地新流程，包括详细设计评审会、case评审会、迭代分析会，提测流程等，虽然不是每个项目组都能接受所有流程，但是帮我们在RD leader层面解决了很多流程上的推动障碍，让QA有了更多可以介入的空间。</li>
+<li>push我们做自动化，虽然没有强制我们做，但是一直给我们灌输想法，最后我自己做了起来。</li>
+<li>一直push我们给项目做各个维度的质量保障，从基础的监控到CI到单测（emmmmm我没有去做）。</li>
+</ol>
+</li>
+<li>缺点<ol>
+<li>站着说话不腰痛，不了解项目的具体情况，按照他那边大项目的<strong>重型流程</strong>在我们这边的小项目组里做无意义的推动，搞得RD有点抵触情绪。</li>
+<li>只说不做，给我们想法，具体落地完全只能靠我们自己。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p>可能因为一开始只有我和导师两个人扛二十多个RD的测试任务，所以一直没有时间从各个维度去完善质量保障，那一段时间一个项目还没测试完就已经有两个项目在后面排着队，RD都让我的经理给我们加人力，确实没有时间去考虑什么自动化，只要保证项目上线不出问题就已经很不错了。但是这样测试得越久，我自己越来越难以提升，像一个测试机器一样来一个提测就测一个，这根本就不是我自己想要的发展道路。我尝试去向RD要项目源码来看，答复都是拒绝，都是让我去跟RD leader沟通，我tm怎么敢直接跟比我高几个级别的RD leader说我想看源码……导师自己本身对源码丝毫不感兴趣，所以也没帮过我。那时候的测试流程确实很原始，RD发一个提测邮件，导师再开一个测试方案评审会就可以开始测试，很多东西都是一边测试一边沟通，测试完一个项目还没来得及总结一下就下一个，日复一日这样我真的厌倦了，可能这种心情很多新人QA都可以体会到——发现让自己成长的平台并不如一开始想象得那么光鲜亮丽。</p>
+<p>新QA leader对于我们的测试工作管得很松，所以后面基本上是我一个人去handle项目测试，多了一些新同学，测试工作也没那么恐怖了，大多数时间完全可以实现每天9点下班，甚至实现了<strong>白天求生存，晚上谋发展</strong>的理想状态。我开始给自己排期更多的时间，以了解项目同时自己积累其他方面的知识，后半年下来慢慢地觉得工作节凑开始走上正规了，在其位谋其职，测试工作当然依然有保证，那是职业道德，但是不能让自己的发展局限于目前的岗位职责，尽可能将自己的能力往上下游蔓延🤔。慢慢地自己对项目的owner精神开始加深，主动跟进项目各种情况，开始考虑项目测试的痛点，深入了解项目的各种细节，也感受到了自己跟以前有不一样的地方。</p>
+<p>常常说程序需要健壮需要鲁棒性，后端不能相信前端传过来的东西，agent也不能相信server下发的东西，QA方肯定是需要测试这些边边角角的东西。然而问题是RD很抗拒添加这种健壮性的代码，如果项目赶工期的话可以理解，但是普通迭代并没有忙成什么样而且他们还有时间玩手机刷网页都不愿意改，虽然我有点站着说话不腰疼，但如果我是RD，我肯定愿意把自己的东西做得更好，况且还是别人给自己发现的问题。隔壁组有个93年的同事，传闻是高中毕业就出来打工，做过保安、在电影院做过检票人，最后自学了编程，在<code>吾爱破解</code>里做了一个模块的版主，最后被公司安全部门的人挖过来做开发，简直是励志。他是一个相对的完美主义者，自己写的代码，隔几天想到一种更好的实现方式就会自己重构一遍，跟他合作沟通都很顺畅，这类型的同事永远都是学习榜样。</p>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/office.png" alt="我的工位"></p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>QA的工作内容相对来说都比较同质化，所有的工作内容无非围绕着项目的质量保障来做，细分包括流程、功能测试、性能测试、监控、自动化等几大类。</p>
+<p>项目组里需要QA去推的流程可能包括各类评审会、CI、单测准入、上线会议、迭代分析等，可以看到这些流程其实都是给QA创造更多介入项目的机会。流程能否推动，QA只是一部分的因素，毕竟多数情况QA都不是跟着产品一起走的，是一个流动团队，体系跟RD数不一样的，所以你说的别人不一定听，推流程如果RD leader都不合作，那就不要想了。</p>
+<p>功能测试是基础，重点是对项目功能的理解程度和场景的覆盖是否充分，QA做功能测试的目的不是要完整地覆盖各种代码分支，这些应该交由RD保证，我觉得更重要的是发现RD没考虑的逻辑分支和覆盖一些稀有、异常场景，需要的不是100%的覆盖而是针锋相对的用例设计，这样才能用尽量少的时间尽量多地发现问题，当然如果知道具体代码，就可以把预先知道一定pass的多余的用例去掉，这样会节省时间，叫合理的偷懒。QA做的是集成测试，很多时候到手的模块已经是一个整体，而不是一个一个给输入得输出的函数，很多东西会更加模糊，同时由于复杂度的提高，场景也会更加复杂，能否尽可能多覆盖到这些场景，而不是顺着正常数据流程一路走，这才是功能测试的重点（当然正常流程也要测试）。</p>
+<p>性能测试我接触的实在太少了，只有寥寥几次，用Jmeter在多台电脑上搭建主从测试环境，一起发请求给sever压测接口，得出一些请求响应时间的数据做简单分析。性能测试我觉得主要是看三个方面，一是你会用多少工具来实现你的性能测试方案，二是你能设计出什么样的性能场景，三是你拿到性能数据之后如何分析得出结论。我感觉我三个方面都很菜，没啥实战经验……</p>
+<p>监控、自动化属于一个QA其他层面的能力，一般大公司内部有监控平台可以直接对接，如果没有就要自己想监控方案，确定监控指标，从最原始的进程在不在、进程号有没有改变、cpu内存IO是否过高，到接口是否可用，响应时间是否合理等都是监控的指标。自动化就是业界经常拿来吹嘘的点，说我们的团队对业务做了多少百分比的自动化什么的，自动化也分半自动化和全自动化，半自动化可能是自动生成数据人工验证结果，如生成数据的工具；或者人工生成数据自动验证结果。这写我觉得都不算自动化，因为还是需要人为干预。全自动化在我对接的项目组里是0，也是我19年重点建设的东西，对接不同的端就有不同的自动化，web前端自动化可能要去到像素级别（这个估计业界做得不多），web后端或者server的自动化多数是生成数据发送接口然后验证数据库或者接口返回，agent端的自动化就繁杂一些，需要看具体的业务场景，比如我对接的一个内部macbook安全监控agent就需要通过GUI（操作鼠标点击拖拽）来实现自动化，麻烦多了。不过说到底，自动化的能力是衡量一个QA开发水平的重要指标，毕竟 <code>talk is cheap, show me the code</code>。</p>
+<p>更好的QA，那可以是在项目架构上产生影响，审视的不再是项目的单个具体功能而是项目的不同模块如何协调、架构是否能承受未来多少时间内的业务量、是否具备足够的扩展性和维护性……越说越飘，还没到这个境界，</p>
+<h3 id="关于代码"><a href="#关于代码" class="headerlink" title="关于代码"></a>关于代码</h3><p>说起源码，我对接的开发组也是够奇葩的，我了解到的很多业务线的QA都能有完整可读的源码权限，而在我这边RD就说代码要保密，QA对于RD来说仿佛只是一个工具，从心智上看RD就觉得QA只是支持作用，他们只应该黑盒测试，有需要就告诉他们业务逻辑而不是代码细节，RD不理解QA为什么非要拿源码看，为什么要参与debug，为什么要了解一个bug从出现到修复等等。QA为什么要这样，答案应该就是一个——更好地改善产品质量。很多东西，没有代码都是空谈，当然我自己有一颗日后转型RD的心，所以一直想多了解具体实现好让自己积累更多的代码基础，这里是有私心存在的，但是更多时候直接原因是QA需要完整知道一个bug的产生到修复甚至到预防的过程，以更好地覆盖测试不同场景，去发现和积累一些之前都没有想到的点，推动RD改进提测质量，从而保证项目质量。不仅很多老RD质疑QA做白盒测试的意义，也有应届跟我一起入职的RD不明白我对项目源码的执着。</p>
+<p>对代码观念的改变，有一个小故事。当时测试一个agent端的时候，一个3年的RD让我别看他们项目源码，说他们的代码一点技术含量都没有，他自己都懒得看，让我还不如去<code>github</code>上找代码看，上面的代码强多了。这一个agent端是内网IDC上保证主机安全的，他说，项目真正值钱的地方往往不是代码实现，因为网上一搜多得是，值钱的是这个agent做的安全方案，它解决安全问题的思路和方法，它是如何将一些安全概念以代码的形式落地的。当时我没有理解，但是现在回想简直茅塞顿开，是的，其实最后的代码实现都是业务逻辑 if else for while 那种东西嘛，<strong>关键应该是这个项目背景是什么，安全概念是怎么来的。有什么样的安全意义，概念如何转化成具体可执行的安全方案，方案如何转化成需求，而最后一个环节才是代码实现需求，所以应该花更多精力去了解学习的是前面的环节，而不是最后的代码实现</strong>✨。</p>
+<p>要深入理解一个项目，要能做到打破砂锅问到底，不要怕尴尬一定要问清楚，虽然真的会有RD觉得自己问的问题很低级，没办法自己掌握的信息实在很少。一开始接触项目代码的时候一脸懵逼，甚至连语法都看不懂，对接的项目开发语言有php、js、go、object-c、python，也只能硬着头皮快速过一遍语法后直接看，根据自己对项目的了解先从核心的代码模块和业务流程开始看，比较nice的RD会主动跟我讲一遍不同的代码模块和其实现的功能。边看边梳理自己已掌握的信息，最后将一个一个零碎的点整合在一起，整一个项目的业务和架构就会明朗很多。这里特别建议的一点就是根据问题去看代码，要有目的地看才会有收获，可以根据一个典型的bug来看，看bug是如何产生如何修复，足够典型的bug往往会涉及到多个模块之间的交互，这样走下来让人印象十分深刻🤔。</p>
+<p>还有一件事一直让我十分惶恐，自从当上了QA之后，我就很少写代码了，或者说成体系写结构化的代码，而不是写那种辅助工作的只有百十来行的零碎的测试工具脚本。既然我心念念未来要转RD，代码能力就不能太弱，相比于天天写代码的RD，我们QA很多时候半年的代码量还不够别人一月多（虽然代码量不能代表代码水平，但至少是开发效率的一个参考指标），毕竟各有分工，这个是无法改变的事实，除非做的是测试工具研发类的测试岗位。我现在的岗位叫测试开发工程师，但是很多时候由于多个项目测试进度的压力，很多想法都来不及去实现，毕竟测试质量是最优先的，其次才是自动化。这个困境过了一年多，在这一个多月里终于开始改变了，因为项目空档期我差不多3周的时间闲下来思考项目测试的痛点，然后去实现我的自动化。我下定决心再也不接那么多测试工作了，相反，将更多的时间投入到开发维护自动化程序中去，虽然只是我的个人代码，没办法体会到团队合作开发的流程，但是我可以用更规范的形式去要求自己完善这个工具，代码库要有相对完备的<code>README.md</code>和<code>CHANGELOG.md</code>，代码要有适当的注释，文件结构和模块要整理封装，有好的想法出来就要去重构替换掉老的代码，即使未来可能并不会有人用，我也要以面向用户的标准去打磨它，把开发、维护这个自动化程序当成是我自己的一次修炼。</p>
+<h3 id="汇报"><a href="#汇报" class="headerlink" title="汇报"></a>汇报</h3><p>12月份因为需要对上头的上头做一个业务分享会，分享我自己负责的一个相对成熟的项目。为了满足上头的口味，我那小段时间经常拉着将要离职的RD去会议室单独开小灶给我讲这个项目，幸好RD哥们也够义气，给我讲了业务的大流程、每个模块的功能、项目的基础架构、一些以前发现的重点bug和这个项目存在的一些问题，然后我自己再仔细理了理，把几个重要的代码模块通读了一下，在短时间内就对这个几万行代码的项目有了相对清晰的认识，然后再去做个ppt，根据需要自己再理了一下，发现以前自己完全不了解的地方原来是那么那么的多，可见以前的自己眼光是多么地狭隘，这是我这个阶段里一次很宝贵的历练了。</p>
+<p>说起ppt，不得不说，我在的组对于汇报工作有着非同一般的“执着”追求，ppt稍微做差一些做得随意一些，就会在会议上受尽指点，跟同组同事精美的ppt一对比，简直惭愧得无法做人。还记得一个已离职的QA同事说，她的ppt能力在现在的公司排不上用场哈哈哈哈。会叫的鸟儿有虫吃，ppt只是一种汇报手段，无论什么途径最终还是要向别人展示自己的工作，要量化指标，要对比，要有逻辑，汇报得清晰才能证明自己的价值。在这个组呆了一年半真可谓把我的汇报能力强行拉了一个等级，还是得多感谢这个组这样疯狂地push我们😓（虽然很多汇报工作明显是多余的）。</p>
+<blockquote>
+<p>总结一句话，这一年来心态和思维成熟了很多，知道自己想要什么、缺什么、讨厌什么，开始明确自己的追求。</p>
+</blockquote>
+<h3 id="2019的FLAG"><a href="#2019的FLAG" class="headerlink" title="2019的FLAG"></a><strong><em>2019的FLAG</em></strong></h3><ol>
+<li>亟需提升的是代码量，在2019年平均每个月可以产出<code>500行</code>结构化的代码，无论是工作代码还是个人代码都好，那种小脚本小工具不包括在内。</li>
+<li>最高优的是<code>在安全方面打好基础</code>，熟悉web安全、Linux安全、汇编和各种工具的使用；另外Linux内核、游戏开发、二进制分析、渗透、病毒分析等需要入门。</li>
+<li>一个一直都想点亮的技能就是学会1个web开发框架，自己写一个博客的前后端，或者搞一点有意思的小需求。确定选中<code>flask</code>，自己未来的主力语言应该是python，备选是go。</li>
+<li>阅读至少<code>2个</code>大型开源项目的代码（python源码已经在清单之内）。</li>
+</ol>
+<hr>
+<h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><h3 id="爱情"><a href="#爱情" class="headerlink" title="爱情"></a>爱情</h3><p>一定要说这一年最大的变化，那就是<strong>爱情</strong>。</p>
+<p>自己的生活片段都是记录在微信朋友圈上，18年已经再也没有学校的片段了，自己只身来到深圳，本以为没什么朋友，自己一个人过着普普通通的假期和周末，很偶尔出去跟同事玩一下。结果一个大学时期隔壁班一起上课的同学开始约我出来玩，后面又有一个在深圳宝安中医院实习高中时期非常要好的老乡时不时叫我出去玩，最后是我的女朋友出现在了深圳。我们是小学同学，当时知道她在深圳，我以地主之谊请她出来吃饭，到慢慢爱上她表白，再到现在一起走了快半年的时光，她还会说我们两个人这样走在一起，她觉得很神奇。我自己单身了20多年突然生活里多了一个自己如此在乎的异性，生活也发生了翻天复地的改变。我开始为了引导她往好的方向走，为了让她可以过得更充实，教她python编程，科普她不少知识，给她工作上的建议，监督她改正坏毛病，这么多年来从未有一个人让我如此在意。为了记录我跟她的点滴，我多了写相处日记的习惯，将我们每一次见面都记录下来，从一开始的单纯流水账记录，到慢慢假如越来越多的细节，单篇日记可以四五千字以上，这占用了我大量的时间，极大地压缩了我的学习和锻炼的空间，她也讲了好几次，说我们每次见面其次都是重重复复那些事情而已，没必要一直写日记。然而，我认为这一切的牺牲都是值得的，这样的日记写到我们同居之后就不会再写了，约摸还可以写个小半年吧，到时候我要打印成小册子保存下来留念呢，想想我们以后还可以翻翻，就觉得很甜美~</p>
+<p>常常说<code>work life balance</code>，在我的三观里我不认可为了工作把一切东西都放在其次，工作可以放在第一位，但是那只会在特定的时间段里（比如晋升期间）。对于我来说，爱情才是第一位，她才是第一位。她陪我度过了很多我的第一次，比如第一次有人关心我工作晋升情况、第一次有人专门为我庆祝生日（生日送fc游戏机你敢信）、第一次有人为我准备出游计划、第一次有人带着我到处吃吃吃，各种第一次多得我自己都记不清了，那种被她安排得明明白白的感觉真是太棒了……我们都为对方做出了不少积极的改变，我也不再像以前那样不修边幅了哈哈哈哈哈，我们会越来越好的！</p>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/play_games.png" alt="一起打游戏"></p>
+<p>半年来虽然我们没有去过多少什么远方，说得上是出游的，就是国庆假去HK走了一天见了朋友，元旦假一起回广州玩了两天两夜，带她见了我的一个好朋友。本来国庆假是计划去湖南的，由于我们都很懒最后买不到高铁只能放弃，即便这样，每一次出游我们都十分珍惜，在出发前简单定一下行程，去到一个地方再定下一个行程，虽然十分粗糙，但是往往会在路上遇到惊喜。回想起来，正式表白后的一天出来见面她主动给我机会让我签她的手，在情人节那天交换了双方的初吻，还有很多甜蜜的回忆，也有一些争吵和阴暗面，各自都有自己的时间，精神上互相依赖缺不会一直粘着对方。从正式表白那天算起，我就在日历上勾出我们见面的每一天，现在一统计，原来<code>53.4%</code>的日子我们都有见面啊，意料之外的频繁呢~两人一路走来，虽然开心也少不了大大小小的矛盾，哭也哭过不少次，想不到我堂堂男子汉也会哭得稀里哗啦的，半年时间很不容易，倍加珍惜，<font color="red"><strong>感谢你</strong></font>☺️。</p>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/she.png" alt="女王大人"></p>
+<h3 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h3><p>2017年我在豆瓣上标记读过43本书，而2018年我在豆瓣标记的是看过20部电影，读过8本书。从18年开始我第一次在豆瓣上标记看过的电影，以前的我上是基本都不会去电影院看电影的，认知上就觉得为什么网上有高清资源还非要去电影院花钱看这么傻，然而有她之后就知道区别是什么了。自从恋爱之后，我的周末时间就再也不是单纯的看书学习，更多的是跟她见面约会一起去玩，最后一本书是我在8月份标记的，可以说我已经有4个月没有完整地看完一本书了，尤其是硬核技术书，一直没法坚持完整安心地看一本书，不少书反反复复看了一点就停了然后再看再停，自从毕业以后很多非常硬核的技术书就很难静下来心去啃了，也没有一个成小规模的个人代码学习项目，这让我很不踏实，害怕自己落后于别人😞。</p>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/douban.jpeg" alt="豆瓣读书报告"></p>
+<h3 id="健身"><a href="#健身" class="headerlink" title="健身"></a>健身</h3><p>健身习惯也有点变化，今年的最大变化是基本离开了健身房，走上了户外徒手锻炼的道路。10月份我的健身频率开始下降，在11月末脚踝痛风中断了整整4周的锻炼，整个12月份我几乎都没锻炼过！真是意想不到，对于痴迷健身的我竟然会中断锻炼如此之长的时间，手上的老茧都开始掉了。公司饭堂吃得也不好，营养跟不上导致体重还破天荒跌破大学时期最瘦的体重，这一切让我觉得我的力量和肌肉在日益萎缩，还有右肩的反反复复受伤，也使我偶尔不安。唯一值得开心的是，在8-9月份我终于完成了相对完整的<code>muscle up</code>，虽然要靠双腿摆动借力，不过算是有很大突破了，回想以前做个单力臂都要死要活的非常sloppy，自己一直在踏踏实实做引体向上慢慢积累基础力量和熟悉技巧，到最后完成完整动作的那一霎那，真的是有捶打胸口大吼出来的那种兴奋😆。</p>
+<p>18年身体最好的状态，7月出差北京参加培训，在酒店的沙雕自拍 。</p>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/body_best_of_2018.png" alt="沙雕自拍"></p>
+<h3 id="老家"><a href="#老家" class="headerlink" title="老家"></a>老家</h3><p>2018这一年跟父母之间的关系也有了微妙的升级，明白父母为什么老是会想念我这个独生子（老家小镇独生子真的不多），为什么每次我回家他们都可以这么开心，以前以为自己本身就是个比较逗的人，所以回去后撩他们开心也是很正常的，其实远不止这个原因，最重要还是我是他们儿子的这个身份。每次回家都会和老妈晚上一起在小镇的河边散一次步，聊一聊我未来的打算，解释我为什么不愿意回老家买房子，我未来会在哪里发展定居，我的生活工作感情情况，我对生孩子的看法……每一次这样的对话，都感觉自己给老妈开拓了一些眼界，同时也能感受到老妈一辈子活在小镇，没出过省去过大城市见识的局限性，自己的担子不轻，为了美好的未来自己必须要成为一个相对优秀的人。</p>
+<p>自从上了初中就一直寄宿在学校，在老家的朋友越来越少有联系。小学初中高中都是在老家上的，现在每次回到老家，小镇里就是那几个小学同学可以叫出来玩一下，初中同学除了继续成为高中同学的那些人外，全部断了联系（初中就是一段黑历史，宿舍里有个小混混头，把年级其他小混混招过来宿舍聚众吸烟，整天喊打喊杀讲江湖义气，也造就了我不沾烟酒的好品质🙂），高中也只剩下几个比较好的同学会叫出来一起浪。当然让我很欣慰的是，18年过年的时候一部分高中同学终于出来约了一顿晚饭，上一次约是15年了，还是那群比较活跃的人出来见面，大家还是很能聊，都是老样子。</p>
+<p>回到老家很多时候需要帮父母干点重活，搬搬扛扛的，还记得高中还是大学的某一次回家，老爸让我扛了一袋很重的大米上楼，后来被老妈痛骂了他一顿说要是我的腰因为扛米扛坏了就绕不过我老爸，emmmmm作为一个初中就开始健身的人，我老妈待我如宝呢……自己一个人没事干的时候就会去镇里小公园锻炼一下，以前还有一点老年人保健器材在那里，勉强可以用来做一下臂屈伸，悬挂收腹等等基本动作，现在公园改造了，啥都没了，除了水泥路🙂。还有就是骑单车（自行车，粤语叫单车），两年多三年前花800收了一辆原价2k的二手Giant，有空就是拼命往深山老林踩，才知道老家虽然落后，但是好就好在自然风光还不错，自己方圆七八公里都踩过了，以前一点方向感都没有，现在脑里有点整合出一张小地图的感觉。特别喜欢在没人的路上狂奔，跟着耳机一震一震的鼓点，感受着从双腿蔓延出来的疲软，大口大口急促热辣地呼吸，真的是feel到自己很实在地活着。</p>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/bike.jpeg" alt="小路与单车"></p>
+<h3 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h3><p>18年后半年我几乎脱离了游戏。从小玩红警、CS、魔兽、各类网游，中学玩CF、DNF、各种单机、魔兽dota，大学还常常跟舍友一起魔兽，跟隔壁宿舍的肥韬开黑dota2打到深夜1点多的我，现在竟然对游戏如此佛性。手游玩着我觉得很不舒服，单机游戏越来越吃配置，我大学买的老神舟也跑不动了，关键是没有什么游戏的游戏性让我动心（玩起来还比较high的估计只有COD和Crysis了），还发现自己但凡玩游戏刷手机花的时间多了，会有一种恐惧想要尽快摆脱它们，于是乎这样也就渐渐告别了游戏吧，活得越来越不像个年轻人了，不过却有未来跟妹子一起合作开发点小游戏的想法。</p>
+<blockquote>
+<p>总结一句话，有了爱情，活得更完整，生活上虽然作了一些牺牲，但是都是为了更好的未来。</p>
+</blockquote>
+<h3 id="2019的FLAG-1"><a href="#2019的FLAG-1" class="headerlink" title="2019的FLAG"></a><strong><em>2019的FLAG</em></strong></h3><ol>
+<li>结束目前奔波操劳的爱情生活，跟她一起同居，再也不用为了见面花时间在路上。</li>
+<li>单次<code>pull up</code>达到25个，单次<code>dips</code>达到50个，<code>muscle up</code>脱离腰腿借力，完成<code>free handstand</code>、<code>front level</code>、<code>human flag</code>，体脂降到14%以下；带着她锻炼，让她获得川字腹肌。</li>
+<li>豆瓣标记完成至少24本书，其中硬核技术书至少10本。</li>
+<li>跟她一起远途出游一次。</li>
+<li>工作日我可以12:30前入睡。</li>
+<li>祈求痘痘再见😭。</li>
+</ol>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>这个世界上钱不是最重要的，这个大家都知道。亲情爱情生活工作都很重要，但这个还不是最终的源头，最重要的只有一种东西，那就是<strong><em>时间</em></strong>。每一个人可以在各方面都有所不用，唯独相同的就是手上的时间上限，所以，给家人更多交流的时间，给她更多陪伴的时间，给自己的未来更多的学习和锻炼时间，最后的最后，其实都是为了一个更加美好的未来，这些愿望，全部都来源于一颗不甘落后的心❤️。</p>
+<p>好在自己还有点自知之明，深知自己水平有多菜，自己大学4年，碍于狭隘见识和浅薄认知，没能把握好这个关键的蜕变时期，前2年半几乎都是做一个乖乖学生，完全束缚在二流学校的三流教学体系里面，只是在最后的1年才知道自己应该干些什么，然而都来不及了。<strong>努力最好的时间是前十年，其次是现在</strong>，B乎上不缺各种鸡血成才例子，别人是可谓下足了功夫吃透苦头才在4-7年内拿到令人羡慕的成就。</p>
+<blockquote>
+<p>不要用战术上的勤奋来掩盖战略上的懒惰。</p>
+</blockquote>
+<p>2019年年末再见，稀饭兄dei👋。</p>
+]]></content>
+      <categories>
+        <category>总结</category>
+      </categories>
+      <tags>
+        <tag>年终总结</tag>
+        <tag>总结</tag>
       </tags>
   </entry>
 </search>
