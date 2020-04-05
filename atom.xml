@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Zingphoy</title>
+  
+  <subtitle>Thoughts &amp; Techs</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://zingphoy.github.io/"/>
+  <updated>2020-04-05T09:52:01.596Z</updated>
+  <id>https://zingphoy.github.io/</id>
+  
+  <author>
+    <name>Zingphoy Han</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DIY装机小白科普-cpu篇</title>
+    <link href="https://zingphoy.github.io/2019/06/30/DIY%E8%A3%85%E6%9C%BA%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AE-cpu%E7%AF%87/"/>
+    <id>https://zingphoy.github.io/2019/06/30/DIY装机小白科普-cpu篇/</id>
+    <published>2019-06-30T02:00:00.000Z</published>
+    <updated>2020-04-05T09:52:01.596Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;电脑是这个年代的刚需，笔记本便携固然好，但是性能有限，当各位上班族的住所稳定下来之后，购买一台配置跟上时代的台式机的需求自然而然就有了，为什么需要台式机，我用一台笔记本不就够了吗？&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;台式机性价比高，同样的价格买回来的配置性能比笔记本高一到两个档次，同样的配置买回来价格分分钟比笔记本低25-40%。&lt;/li&gt;
+&lt;li&gt;台式机灵活性好，配置更换方便，基本上任何部分都可以随意升级更换，坏了自己修方便。&lt;/li&gt;
+&lt;li&gt;台式机容易上 RGB Buff 😆！（RGB灯：五颜六色的灯光效果）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;好吧，第3点其实是半开玩笑的，前2点已经解释了为什么选择台式机了，但是购买台式机也有要注意的地方：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;不买品牌机，因为品牌机配置没什么选择性，想要升级配置还得定制，价格贵配置差捆绑售后服务，基本上是交智商税[^1]。&lt;/li&gt;
+&lt;li&gt;不买电商平台上面看到的整主机（如x美国度），里面的配置缩水得看不下去[^2]。&lt;/li&gt;
+&lt;li&gt;不去实体店买配件，要网购，请认真看这个链接[^3]，引用别人的话：实体店价格高、不专业、套路多、型号老、售后差。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;好了，正文准备开始了，这篇文章的用意是指导小白入门，所以尽量做到基础知识上的面面俱到同时将没必要的细节屏蔽，图文会比较多，同时附上较多有价值的参考链接，如果是pc端看的话建议一起看了。建议先收藏，有空就看一个部分😏。注意本文有时效性哦~&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="DIY" scheme="https://zingphoy.github.io/categories/DIY/"/>
+    
+    
+      <category term="装机" scheme="https://zingphoy.github.io/tags/%E8%A3%85%E6%9C%BA/"/>
+    
+      <category term="电脑配件" scheme="https://zingphoy.github.io/tags/%E7%94%B5%E8%84%91%E9%85%8D%E4%BB%B6/"/>
+    
+      <category term="科普" scheme="https://zingphoy.github.io/tags/%E7%A7%91%E6%99%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记一次e3装机心得</title>
+    <link href="https://zingphoy.github.io/2019/06/11/%E8%AE%B0%E4%B8%80%E6%AC%A1e3%E8%A3%85%E6%9C%BA%E5%BF%83%E5%BE%97/"/>
+    <id>https://zingphoy.github.io/2019/06/11/记一次e3装机心得/</id>
+    <published>2019-06-11T15:00:00.000Z</published>
+    <updated>2020-04-05T10:14:58.736Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;小学六年级升初中的假期家里买了一台台式机，还记得主机+屏幕+外设+电脑桌整一套下来一共5700+，奔腾cpu，具体啥型号也不懂，内存1g，硬盘不足200g，完全不知道是什么独立显卡，在大学的时候50块钱除了电脑桌外整套卖给了亲戚。大一依然没有自己的电脑，拿的是表弟玩剩的三星笔记本，只记得是2g内存，拿来玩dota2都时不时掉帧，可是相对我以前的台式机来说性能已经好很多了。到了大二终于买了自己的第一台电脑——服役到现在的神舟战神K650D-i7。又是几个年头了，也给老神舟加了120g的msata的SSD和4g内存，虽然胜任日常工作，但是畅快一点的影音娱乐依然有心无力。&lt;/p&gt;
+&lt;p&gt;出来工作两年了，搬家也稳定下来，终于打算自己DIY一套配置出来，这是一件很让人兴奋的事情，还是说男生总是喜欢折腾乱七八糟的电子产品😂。刚开始是打算正儿八经在6.18组一个中高性能主机的，配置是 &lt;code&gt;r5 2600x + 微星迫击炮B450m + 迪兰rx588 2048sp + 8g*2 十铨 + 酷冷至尊550w + 大霜塔散热器 + 西数黑盘500g&lt;/code&gt;，在JD和Tmall上看配件就好像一些人经常喜欢翻淘宝一样，一看不可收拾，有空就会拿出来看一下，彷佛马上就要买一样。后来看的资料多了，慢慢意识到二手配置性价比有多高，又接触了一些矿卡的资讯，来到了图拉丁吧，在公司内网发个帖子收二手配置还来了一位高级垃圾佬聊天，最终成功误入歧途……贪便宜的心越来越重😄，虽然没有DIY过主机，没真是踩过坑，但是却想花更少的钱来达到更高的性能。&lt;/p&gt;
+&lt;p&gt;于是重新审视自己的需求，其实&lt;code&gt;e3 1230v2&lt;/code&gt;即可满足我的需求——写写代码轻度影视娱乐游戏，开始了我的菜鸟装机历程。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="DIY" scheme="https://zingphoy.github.io/categories/DIY/"/>
+    
+    
+      <category term="装机" scheme="https://zingphoy.github.io/tags/%E8%A3%85%E6%9C%BA/"/>
+    
+      <category term="电脑配件" scheme="https://zingphoy.github.io/tags/%E7%94%B5%E8%84%91%E9%85%8D%E4%BB%B6/"/>
+    
+      <category term="图拉丁" scheme="https://zingphoy.github.io/tags/%E5%9B%BE%E6%8B%89%E4%B8%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>多线程下的单例模式</title>
+    <link href="https://zingphoy.github.io/2019/04/11/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8B%E7%9A%84%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://zingphoy.github.io/2019/04/11/多线程下的单例模式/</id>
+    <published>2019-04-11T07:06:29.000Z</published>
+    <updated>2020-04-05T09:32:13.827Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;单例模式可能是应用得最广泛的设计模式之一，也是学习设计模式必学、面试必问的模式之一🤣，那么就很有必要搞清楚单例模式是一个什么东西了。这里着重讨论一下多线程下的单例模式，&lt;a href=&quot;https://en.wikipedia.org/wiki/Singleton_pattern&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Singleton（单例模式）&lt;/a&gt;的基本概念就不再展开了。一般来说，应用单例模式的场景为要求全局只存在一个单例类的实例，如果该单例类产生了多个实例可能会对系统造成影响或损害，需要限制为1个。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; It ensures that the Singleton class has only one instance and provides a global access point for it. We can use a Singleton when the presence of multiple instances can potentially damage the system, and we need global access to the single instance. &lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="设计模式" scheme="https://zingphoy.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="单例模式" scheme="https://zingphoy.github.io/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="多线程" scheme="https://zingphoy.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+      <category term="代码实现" scheme="https://zingphoy.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/"/>
+    
+      <category term="翻译" scheme="https://zingphoy.github.io/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2019清明节</title>
+    <link href="https://zingphoy.github.io/2019/04/05/2019%E6%B8%85%E6%98%8E%E8%8A%82/"/>
+    <id>https://zingphoy.github.io/2019/04/05/2019清明节/</id>
+    <published>2019-04-05T13:25:24.000Z</published>
+    <updated>2020-04-05T09:28:48.180Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;2019年第一个假期，一年一度的清明节，我妈提前告诉我要周四休假回家，周五一定要爬山祭祖不能再拖，最晚清明节当天扫墓，一再强调传统里没有人会清明节之后才扫墓。在这样的”命令”下，周四我从深圳坐大巴出发，在路上折腾了7.5小时后才到家里，睡一晚在清明节当天中午12点多就回村子准备爬山锄草扫墓。&lt;/p&gt;
+&lt;p&gt;老家这边还是相当传统的，只是一个小镇，老人去世了都会选择回到乡下下葬，提前找看风水的挑一个山头找个位子当自己的坟墓，去世之后火化将骨灰埋在乡下山头。清明节放假之前还跟来自五湖四海的同事说了我们这边的传统，估计现在还会爬山亲手用锄头镰刀锄草割草扫墓拜祭的人已经不多了，城里的都会选择公墓，去到直接放点花啊水果啊烧个纸钱就可以了，这边可不会这么简单。传统流程是要爬山，山里的墓（或者称为坟头）过了一年遍地是草，可别说草可以长到膝盖那么高，要扛着锄头镰刀爬上山头找到坟墓，把所有的草除掉，然后摆好蜡烛、香、各种拜祭用的食物，拜祭完再烧纸钱，最后放一个鞭炮，这才算结束，最后得收拾和检查鞭炮是否彻底熄灭，&lt;strong&gt;&lt;em&gt;谨防山火，要不牢底坐穿&lt;/em&gt;&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;多图预警。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="生活" scheme="https://zingphoy.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="假期" scheme="https://zingphoy.github.io/tags/%E5%81%87%E6%9C%9F/"/>
+    
+      <category term="感想" scheme="https://zingphoy.github.io/tags/%E6%84%9F%E6%83%B3/"/>
+    
+      <category term="记录" scheme="https://zingphoy.github.io/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="家乡" scheme="https://zingphoy.github.io/tags/%E5%AE%B6%E4%B9%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>感情问题的小总结</title>
+    <link href="https://zingphoy.github.io/2019/03/29/%E6%84%9F%E6%83%85%E9%97%AE%E9%A2%98%E7%9A%84%E5%B0%8F%E6%80%BB%E7%BB%93/"/>
+    <id>https://zingphoy.github.io/2019/03/29/感情问题的小总结/</id>
+    <published>2019-03-29T12:04:01.000Z</published>
+    <updated>2020-04-05T09:35:08.232Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是8个多月来我记录下的第16次较大的矛盾了，不包括一些及时解决的小问题。你懂的，大矛盾时时伴随着泪水，我的也好她的也好，我这流眼泪的次数远远大于初中+高中+大学的总和了，现在回头总结一下，其实归根到底都是一个原因：&lt;font color=&quot;red&quot;&gt;&lt;strong&gt;沟通不充分&lt;/strong&gt;&lt;/font&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="生活" scheme="https://zingphoy.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="感情" scheme="https://zingphoy.github.io/tags/%E6%84%9F%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的2018总结</title>
+    <link href="https://zingphoy.github.io/2019/01/02/%E6%88%91%E7%9A%842018%E6%80%BB%E7%BB%93/"/>
+    <id>https://zingphoy.github.io/2019/01/02/我的2018总结/</id>
+    <published>2019-01-02T12:23:09.000Z</published>
+    <updated>2020-04-05T09:43:58.968Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;工作&quot;&gt;&lt;a href=&quot;#工作&quot; class=&quot;headerlink&quot; title=&quot;工作&quot;&gt;&lt;/a&gt;工作&lt;/h2&gt;&lt;p&gt;已经工作一年半了，以QA的身份入职到现在，前半年跟后半年还是有不少变化的，看着一批老同事离职，包括自己的导师，有的QA同事转型成RD，有的跳槽去了更大更好的平台继续做测试，有的为了工作能轻松一些好带小孩去了传统公司，也有一些RD感觉到自己在这里到了瓶颈跳槽寻求发展。慢慢地自己变成了团队里一个老人了，开始独立负责一些项目的测试工作，角色开始从一个单纯的执行者稍稍往上走了一点，要自己出测试方案，要自己叫人一起来review，然后自己执行。以前在导师的荫蔽下，几乎把一切RD对接的沟通工作都省去了，自己安心做基础测试工作。那时候的自己浑然不觉，自以为完全handle了自己负责的那一部分，现在看来甚是傻逼。&lt;/p&gt;
+&lt;p&gt;前半年就是这样子的一个状态，接触了几个小型项目，有客户端的，有web平台的，也有后台的，前半年对于自己来说，这些不同的项目并没有什么根本区别，唯一的区别可能也就是功能和测试场景不一样吧，或者说仅仅局限于实现方式的不一样，现在回头看一下，这些项目从需求背景就完全不是一码事。以前自己好奇技术细节的实现，具体到单个功能的几个函数是怎么写的，用到了什么样的技术，而现在自己更好奇的是用什么方案来解决一个问题，其次才是具体的代码实现细节或者技巧。从环境上来前半年跟后半年是有明显区别的，增加了不少新同学只后测试工作负担少了很多，也终于拿到了一些对接项目的代码可读权限了，当自己对具体实现细节感兴趣或者遇到bug想自己排一下的时候就可以看一看。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="总结" scheme="https://zingphoy.github.io/categories/%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="年终总结" scheme="https://zingphoy.github.io/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="总结" scheme="https://zingphoy.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cvechecker调研分享</title>
+    <link href="https://zingphoy.github.io/2018/08/02/cvechecker%E8%B0%83%E7%A0%94%E5%88%86%E4%BA%AB/"/>
+    <id>https://zingphoy.github.io/2018/08/02/cvechecker调研分享/</id>
+    <published>2018-08-02T08:42:00.000Z</published>
+    <updated>2019-03-24T08:55:37.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;cvechecker&quot;&gt;&lt;a href=&quot;#cvechecker&quot; class=&quot;headerlink&quot; title=&quot;cvechecker&quot;&gt;&lt;/a&gt;&lt;strong&gt;cvechecker&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&quot;简述&quot;&gt;&lt;a href=&quot;#简述&quot; class=&quot;headerlink&quot; title=&quot;简述&quot;&gt;&lt;/a&gt;&lt;strong&gt;简述&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;cvechecker是一个工具，会根据你提供的软件列表自动确认装在本机的软件的相应版本，然后跟网上的在线数据库（database of potential vulnerable software）进行漏洞与软件版本的匹配，发现可疑漏洞会报告。&lt;/p&gt;
+&lt;br&gt;
+
+&lt;h3 id=&quot;术语&quot;&gt;&lt;a href=&quot;#术语&quot; class=&quot;headerlink&quot; title=&quot;术语&quot;&gt;&lt;/a&gt;&lt;strong&gt;术语&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;CVE&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;C&lt;/strong&gt;ommon &lt;strong&gt;V&lt;/strong&gt;ulnerabilities and &lt;strong&gt;E&lt;/strong&gt;xposures：通用漏洞披露（维基百科）&lt;/p&gt;
+&lt;p&gt;CVE：A list of entries — each containing an identification number, a description, and at least one public reference — for publicly known cybersecurity vulnerabilities. &lt;/p&gt;
+&lt;p&gt;格式：CVE-YYYY-NNNN；YYYY为西元纪念，NNNN为流水编号&lt;/p&gt;
+&lt;p&gt;例子：2014年发现的心脏出血漏洞（Heartbleed bug）编号为 CVE-2014-0160&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;CPE&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;C&lt;/strong&gt;ommon &lt;strong&gt;P&lt;/strong&gt;latform &lt;strong&gt;E&lt;/strong&gt;numeration&lt;/p&gt;
+&lt;p&gt;一种结构化的命名规范/标准。&lt;/p&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;p&gt;规范的版本较多，对于一个这样的信息：&lt;br&gt;[part=”a”,vendor=”microsoft”,product=”internet_explorer”,version=”8.0.6001”,update=”beta”]&lt;/p&gt;
+&lt;p&gt;CPE格式可以如下：&lt;/p&gt;
+&lt;p&gt;cpe:2.3: a:microsoft:internet_explorer:8.0.6001:beta:*:*:*:*:*:*&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;CVSS&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;C&lt;/strong&gt;ommon &lt;strong&gt;V&lt;/strong&gt;ulnerability &lt;strong&gt;S&lt;/strong&gt;coring &lt;strong&gt;S&lt;/strong&gt;ystem：通用漏洞评分系统&lt;/p&gt;
+&lt;p&gt;它是工业标准，用于描述安全漏洞严重程度的统一评分方案。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="调研" scheme="https://zingphoy.github.io/categories/%E8%B0%83%E7%A0%94/"/>
+    
+    
+      <category term="开源" scheme="https://zingphoy.github.io/tags/%E5%BC%80%E6%BA%90/"/>
+    
+      <category term="调研" scheme="https://zingphoy.github.io/tags/%E8%B0%83%E7%A0%94/"/>
+    
+      <category term="安全" scheme="https://zingphoy.github.io/tags/%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>功能测试小感</title>
+    <link href="https://zingphoy.github.io/2018/02/28/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B0%8F%E6%84%9F/"/>
+    <id>https://zingphoy.github.io/2018/02/28/功能测试小感/</id>
+    <published>2018-02-28T10:02:00.000Z</published>
+    <updated>2020-04-05T09:31:38.655Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;功能测试某种意义上确实是有套路规律的。所谓的测试经验，在我看来就是把套路运用在不同场景的能力，也就是灵活运用的能力。其实这里的&lt;code&gt;套路&lt;/code&gt;，换种说法就是&lt;code&gt;测试理论&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;从黑盒角度来说，&lt;code&gt;边界值、等价类&lt;/code&gt;，这些应该都是软件测试人员的基本知识，应该深入思维信手拈来而不是刻意为之。&lt;code&gt;边界值&lt;/code&gt;帮助我们发现比较好找的bug，改善软件最下限的质量（还别说这些边界校验真的是bug的重灾区，具体数量依赖开发自测水平），&lt;code&gt;等价类&lt;/code&gt;帮助我们精简用例数量，提高执行效率。这些可以说是脱离业务场景单独针对代码逻辑的用例设计，可以在不理解业务的前提下直接开测。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="功能测试" scheme="https://zingphoy.github.io/tags/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="测试" scheme="https://zingphoy.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>性能测试初探</title>
+    <link href="https://zingphoy.github.io/2017/12/18/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%88%9D%E6%8E%A2/"/>
+    <id>https://zingphoy.github.io/2017/12/18/性能测试初探/</id>
+    <published>2017-12-18T13:01:00.000Z</published>
+    <updated>2020-04-05T09:31:02.610Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;目前已经对两个不同的C/S架构产品的Server端进分别进行过一次性能测试，慢慢开始对性能测试有了初步的认识，下面大概分享一下我们小组的性能测试过程。&lt;/p&gt;
+&lt;h3 id=&quot;过程&quot;&gt;&lt;a href=&quot;#过程&quot; class=&quot;headerlink&quot; title=&quot;过程&quot;&gt;&lt;/a&gt;过程&lt;/h3&gt;&lt;p&gt;性能测试开始之前会和开发讨论，目的就是要确定真实业务场景下的各种相关数据的量级，最终计算出预期多少&lt;strong&gt;QPS&lt;/strong&gt;才可以应付业务场景的需要。当有了预期的&lt;strong&gt;QPS&lt;/strong&gt;作为一个性能目标后，就可以开展性能测试了（根据业务需求不同会有各种不同的指标要求，可能是一个，也可能是多个）。&lt;/p&gt;
+&lt;p&gt;这里性能测试使用的是&lt;strong&gt;Jmeter&lt;/strong&gt;，&lt;strong&gt;Jmeter&lt;/strong&gt;的优点很明显，就是简单易用，可以快速搭建分布式测试环境，通过水平扩展增加测试机器来增加对Server的请求压力，把Server推向它的性能转折点。&lt;/p&gt;
+&lt;p&gt;机器资源在性能测试中是一个比较重要的东西，因为机器配置的好坏或者机器的多少就已经决定了你能对Server造成多大的压力，不同机器之间的配置是越接近越好，因为&lt;strong&gt;Jmeter&lt;/strong&gt;的分布式测试是不存在调度一说的，只是简单地通过一个Master对配置好的所有Slave发送测试计划&lt;code&gt;jmx文件&lt;/code&gt;，然后Slave会去执行测试计划（Slave也可以是Master自己）。如果Slave机器之间的性能差距太大，那么性能差的机器就会成为短板，导致性能相对好的机器无法最大程度发挥性能。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="测试" scheme="https://zingphoy.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="性能测试" scheme="https://zingphoy.github.io/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+</feed>
