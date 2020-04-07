@@ -30,6 +30,60 @@
       </tags>
   </entry>
   <entry>
+    <title>个人目标管理</title>
+    <url>/2020/02/20/%E4%B8%AA%E4%BA%BA%E7%9B%AE%E6%A0%87%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<p>最近任务接得比较多，甚至交了一些智商税浪费了大半天做一件吃力不讨好的事情，由此引发了一些对个人进度管理的思考。日常工作听到的更多是团队的项目管理，网上有大把的文章介绍方法论、工具、计划模板，依葫芦画瓢我也能学来一点手段，但似乎总是没法get到实在的点，这个星期的经历似乎有所收获。</p>
+<p>为什么每次定OKR都很痛苦，review OKR时更痛苦？因为定OKR的时候想得好痛苦，review OKR的时候又很多目标没有完成甚至没有开始做，中间穿插了很多OKR之外的事情。这些计划之外的事情我们也不能说它没有意义，它可能是一些紧急不重要的事，也可能也是紧急且重要我们必须得做的事，包括但不仅限于别人突如其来的合作、上司突然排下来的额外工作、当前状况必须马上着手的建设。跟OKR冲突的时候应该怎么做？这个就设计个人进度管理或时间管理。</p>
+<p>我也没什么特别好的术语可以表达，在我的理念里应该有下面4个点（简化场景，不讨论项目维度的成本、质量等问题）：</p>
+<table>
+<thead>
+<tr>
+<th>目标</th>
+<th>细分任务</th>
+<th>里程碑</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>要做什么，做到多少分？<br>SMART原则</td>
+<td>目标拆解，细分到每周每日需要完成的任务<br>周期性check</td>
+<td>短期进度deadline<br>灵活松紧</td>
+<td>很多任务前，理智挑拣</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>目标</strong></li>
+</ul>
+<p>这个应该是最经常跟别人讨论交流的点，某种形式上目标的制定个人独立思考的时间会更少，经常是跟别人一起商量讨论得出，或者自己有思路有跟别人一起细化，就不多说了，SMART原则来指导目标的制定，不会太差。</p>
+<ul>
+<li><strong>细分任务</strong></li>
+</ul>
+<p>往大目标的方向，往下拆解，为了完成目标，需要达成什么什么样的条件，细化到每周要完成什么工作，甚至是每天要完成什么工作，这样才是更加【可把控】的进度，可以更直观地感受到进度的压力，防止潜在的进度失控风险。</p>
+<ul>
+<li><strong>里程碑</strong></li>
+</ul>
+<p>更好的做法应该以里程碑作为短期的目标，一个一个达成，无论在自己抑或是关心项目的其他人的感官上，都有很好的项目管理效果。里程碑可以是一个or多个细分任务的deadline，或者我们不应当把里程碑只理解成deadline，它更大的作用还是进度把控而不是进度压力（虽然往往进度压力来源于进度把控🤣）。</p>
+<ul>
+<li><strong>优先级</strong></li>
+</ul>
+<p>你不用去找事情，事情自然会来找你，工作是永远都做不完的，这个就是优先级产生的背景。工作做不完，但是工作有轻重缓急之分，不是来一个任务就要做一个，有时候为了支持别人随口说的一个想法，莽撞地撸起袖子就是埋头干，做了好些工作后发现其实做出来意义没有想象那么大，投入的时间精力就白白浪费了，反而还会拖累核心任务的进度。应对办法就是识别出任务的优先级，不要轻易开始一个没经思考和讨论的工作。别人可能是随口说一句表达一个不成熟的想法，也许ta也不清楚事情的难易，自己马上接过来热火朝天干是不理智的。最终要的效果应该是在保证核心任务的进展下，我们拿出余力去完成计划之外的事情。</p>
+<p>某天突然看到了这个视频【<a href="https://mp.weixin.qq.com/s/CETheAYqXcRHwOzV01PDiw" target="_blank" rel="noopener">时间管理，除了紧急度和重要度，还有什么？</a>】，然后自己本周马上中招了，原因是自己接任务的时候没有留buffer，突发插入若干高优任务导致排期失控，最终某个需求没能赶上当周版本，幸好是对上线时间不敏感的技术需求，不然就要酿成大错了😶。让我再一次怀疑是这套方法论的有效性不够，还是我根本没好好实践这套方法论。概括视频的意思，就是告诉我们要考虑事情是否有深远的意义，再判断是否需要我们自己做，决定是否将事情委托给别人。事情除了紧急、重要两个维度外，还有长远的意义。life is short，尽量只做自己该做的事情，原话就是：</p>
+<ul>
+<li>How <strong>soon</strong> does it matter</li>
+<li>How <strong>much</strong> does it matter</li>
+<li>How <strong>long</strong> does it matter</li>
+</ul>
+<p>（我简直是渣翻……）</p>
+]]></content>
+      <categories>
+        <category>自我管理</category>
+      </categories>
+      <tags>
+        <tag>目标管理</tag>
+        <tag>OKR</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2019清明节</title>
     <url>/2019/04/05/2019%E6%B8%85%E6%98%8E%E8%8A%82/</url>
     <content><![CDATA[<p>2019年第一个假期，一年一度的清明节，我妈提前告诉我要周四休假回家，周五一定要爬山祭祖不能再拖，最晚清明节当天扫墓，一再强调传统里没有人会清明节之后才扫墓。在这样的”命令”下，周四我从深圳坐大巴出发，在路上折腾了7.5小时后才到家里，睡一晚在清明节当天中午12点多就回村子准备爬山锄草扫墓。</p>
@@ -87,6 +141,45 @@
         <tag>感想</tag>
         <tag>记录</tag>
         <tag>家乡</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>QA要看代码吗？</title>
+    <url>/2019/12/12/QA%E8%A6%81%E7%9C%8B%E4%BB%A3%E7%A0%81%E5%90%97%EF%BC%9F/</url>
+    <content><![CDATA[<p>以前有个RD同事问过我，为什么你做测试还要看代码，看代码干嘛！？</p>
+<p>还有个RD在提测会议上当场说，QA不应该看代码，避免思维跟RD一样，那就测不出问题了（这个同学还是个准百度T7）……</p>
+<p>必须得评价一下，对QA这样的认知应该是QA的职能存在一定误解。</p>
+<p>假如需求在文档层面能描述清楚，功能实现的思路和细节在文档里写得明明白白，贴上关键代码及相关解释，当然可以省掉QA测试看代码的环节，只是RD习惯输出从简，或者并不了解QA的想法或工作方法。看代码的作用就是为了填补QA对细节实现上信息不对称的gap，有时这种gap会浪费QA长达几个小时的时间。举个例子：有些较为繁琐的嵌套判断逻辑，或者一些corner case，RD懒得在文档写得这么清楚，当QA测试到这里后看到程序表现在文档中没有说明，往往无法确认该现象是否符合预期，随之而来就是沟通的时间成本。</p>
+<p>在实际测试中，真的经常碰到类似的情况，在测试过程中随着对功能理解的越发细致，会突然想到某个corner case，但是文档没有体现相关的处理逻辑，此时我一般会选择走读代码check是否有对应处理，找不到或者看不懂再问RD，这样对RD也会友好一些。</p>
+<p>产品本身是由一个一个功能模块组成的，我们可以对产品的功能十分熟悉，在手上把玩自如，这是在黑盒层面上去理解一个产品，或许可以把玩出一些味道，明白产品为什么在功能和UI细节上如此这般设计、产品为什么能吸引用户留住用户、产品如何做选择来支撑它的发展壮大，又或者通过用户数据和指标的分析，找出用户增长点，这是pm的方式。</p>
+<p>pm的方式对于技术人员是性不太通，产品的设计和产品的实现，总是会存在gap，这也就是为什么pm认为合理的需求有时候在技术实现上十分困难（技术也有技术债或历史包袱！）。要真真实实摸清产品，就不能只停留在宏观层面，得深入到技术层面。每一个功能模块，它在代码层面映射出来的是多个代码模块，不同的代码模块提供什么能力支撑，互相如何合作，甚至是产品技术选型的初衷和优劣势及其演进，这些都是理解产品生命周期的重要线索。同时在产品背后，支撑产品的一整套周边系统，要足够清晰，花的时间一点也少不得。</p>
+<p>当然还是要补充一个观点，深入到代码，有时可以让我们掌握更多信息，但是有时又会让人陷入细节失去大局观，各有不同应用场景。</p>
+<p>我觉得上面这个理由已经足够支撑QA去看代码了，如果是真的想好好融入到这个产品的建设中去添砖加瓦，而不是单纯的【我只是来打工】的心态。</p>
+<p>最后，QA很多时候就是充当一个打破规律的人，拿着一些奇奇怪怪的case和问题去挑战RD的脾气🤣，有些代码实现本身就导致corner case无法修复，看代码来提前只细问题有没有可能被修复，可以大大降低RD心态爆炸的概率。或者自己就可以找到修复方案给RD提点意见，蹭蹭蹭在RD心中提高一下地位，还是不错的~</p>
+]]></content>
+      <categories>
+        <category>思考</category>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>白盒</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>你的需求是什么</title>
+    <url>/2019/12/15/%E4%BD%A0%E7%9A%84%E9%9C%80%E6%B1%82%E6%98%AF%E4%BB%80%E4%B9%88/</url>
+    <content><![CDATA[<p>以前遇到过一些RD，喜欢上来就问：你现在的需求是什么？</p>
+<p>我不太明白ta说的这句话，是为了提高沟通效率，引导话题到正确的方向上去？还是单纯只是想知道自己需要干一些什么，省得还要动脑？</p>
+<p>在现实世界，除非是pm给提需求，事先梳理得清清楚楚明明白白，否则多数人的需求可能都是含糊的，得用一段话来描述一个场景并给出预期结果，然后希望你来帮忙解决（特别是peer合作）。</p>
+<p>我觉得嘛，不要一上来就只会问你的需求是什么，死抓这一个对理清需求没有什么帮助。有时候是别人单纯有一点灵光，还没能总结出一个精炼、可理解、甚至可复述的（讲了一遍，第二遍就再也讲不清楚）需求，就需要自己清楚一下背景和痛点，跟别人的思路走，帮别人梳理出实际需求。最忌讳的是，还没确定需求，你就已经引导别人去聊详细的代码实现问题，需求还被讲完，你就说这个无法实现打断别人的思路。这只会是一个死循环，别人表述本就不一定准确，莽撞定论无法实现进行否定，这怎么能让人好好梳理清楚思路呢？</p>
+<p>另一个问题，就是高姿态。作为peer合作方，有句话叫【谁受益，谁推动】。己方可能是被拉进来的人，配合别人输出，这时更容易发展成高姿态，因为受益方过来推动多了，己方有时会产生【我很重要我是关键节点世界需要我】的错觉，腰杆儿就开始直起来了……emmmmmm，这个应该挺常见的。</p>
+]]></content>
+      <categories>
+        <category>思考</category>
+        <category>合作</category>
+      </categories>
+      <tags>
+        <tag>产品</tag>
       </tags>
   </entry>
   <entry>
@@ -283,38 +376,151 @@
       </tags>
   </entry>
   <entry>
-    <title>QA要看代码吗？</title>
-    <url>/2019/12/12/QA%E8%A6%81%E7%9C%8B%E4%BB%A3%E7%A0%81%E5%90%97%EF%BC%9F/</url>
-    <content><![CDATA[<p>以前有个RD同事问过我，为什么你做测试还要看代码，看代码干嘛！？</p>
-<p>还有个RD在提测会议上当场说，QA不应该看代码，避免思维跟RD一样，那就测不出问题了（这个同学还是个准百度T7）……</p>
-<p>必须得评价一下，对QA这样的认知应该是QA的职能存在一定误解。</p>
-<p>假如需求在文档层面能描述清楚，功能实现的思路和细节在文档里写得明明白白，贴上关键代码及相关解释，当然可以省掉QA测试看代码的环节，只是RD习惯输出从简，或者并不了解QA的想法或工作方法。看代码的作用就是为了填补QA对细节实现上信息不对称的gap，有时这种gap会浪费QA长达几个小时的时间。举个例子：有些较为繁琐的嵌套判断逻辑，或者一些corner case，RD懒得在文档写得这么清楚，当QA测试到这里后看到程序表现在文档中没有说明，往往无法确认该现象是否符合预期，随之而来就是沟通的时间成本。</p>
-<p>在实际测试中，真的经常碰到类似的情况，在测试过程中随着对功能理解的越发细致，会突然想到某个corner case，但是文档没有体现相关的处理逻辑，此时我一般会选择走读代码check是否有对应处理，找不到或者看不懂再问RD，这样对RD也会友好一些。</p>
-<p>产品本身是由一个一个功能模块组成的，我们可以对产品的功能十分熟悉，在手上把玩自如，这是在黑盒层面上去理解一个产品，或许可以把玩出一些味道，明白产品为什么在功能和UI细节上如此这般设计、产品为什么能吸引用户留住用户、产品如何做选择来支撑它的发展壮大，又或者通过用户数据和指标的分析，找出用户增长点，这是pm的方式。</p>
-<p>pm的方式对于技术人员是性不太通，产品的设计和产品的实现，总是会存在gap，这也就是为什么pm认为合理的需求有时候在技术实现上十分困难（技术也有技术债或历史包袱！）。要真真实实摸清产品，就不能只停留在宏观层面，得深入到技术层面。每一个功能模块，它在代码层面映射出来的是多个代码模块，不同的代码模块提供什么能力支撑，互相如何合作，甚至是产品技术选型的初衷和优劣势及其演进，这些都是理解产品生命周期的重要线索。同时在产品背后，支撑产品的一整套周边系统，要足够清晰，花的时间一点也少不得。</p>
-<p>当然还是要补充一个观点，深入到代码，有时可以让我们掌握更多信息，但是有时又会让人陷入细节失去大局观，各有不同应用场景。</p>
-<p>我觉得上面这个理由已经足够支撑QA去看代码了，如果是真的想好好融入到这个产品的建设中去添砖加瓦，而不是单纯的【我只是来打工】的心态。</p>
-<p>最后，QA很多时候就是充当一个打破规律的人，拿着一些奇奇怪怪的case和问题去挑战RD的脾气🤣，有些代码实现本身就导致corner case无法修复，看代码来提前只细问题有没有可能被修复，可以大大降低RD心态爆炸的概率。或者自己就可以找到修复方案给RD提点意见，蹭蹭蹭在RD心中提高一下地位，还是不错的~</p>
+    <title>功能测试小感</title>
+    <url>/2018/02/28/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B0%8F%E6%84%9F/</url>
+    <content><![CDATA[<p>功能测试某种意义上确实是有套路规律的。所谓的测试经验，在我看来就是把套路运用在不同场景的能力，也就是灵活运用的能力。其实这里的<code>套路</code>，换种说法就是<code>测试理论</code>。</p>
+<p>从黑盒角度来说，<code>边界值、等价类</code>，这些应该都是软件测试人员的基本知识，应该深入思维信手拈来而不是刻意为之。<code>边界值</code>帮助我们发现比较好找的bug，改善软件最下限的质量（还别说这些边界校验真的是bug的重灾区，具体数量依赖开发自测水平），<code>等价类</code>帮助我们精简用例数量，提高执行效率。这些可以说是脱离业务场景单独针对代码逻辑的用例设计，可以在不理解业务的前提下直接开测。</p>
+<a id="more"></a>
+
+<p>除此之外，<code>场景法</code>也是非常重要的手段。<code>场景法</code> 简单理解就是根据不同的用户场景来设计用例，这里没有什么一套一套的测试理论，唯一的要求就是理解业务场景，从用户角度出发。<strong>一些不是bug的问题，在这样的要求下可能就会变成bug，因为它们有悖于业务场景，削弱了用户体验</strong>。</p>
+<p>另外，一些更加工程类的bug，比如多线程竞争、变量缺少正确初始化、数据库死锁等问题偏白盒，从黑盒角度看有时症状会比较奇怪。这些问题我觉得更加适合在白盒的角度来发现，这往往也是code review必要性的体现。很多时候，如资源竞争这类问题需要的业务场景比较复杂，场景触发所需要的成本相对更高，甚至靠线下测试环境的机器资源根本无法触发。所以如果什么问题都想着从黑盒角度来发现，那是不靠谱的。<strong>这也正是一个好的QA与普通QA拉开差距的地方——除了理解业务场景、熟练地从黑盒发现功能问题外，还要求可以白盒通读代码，在脑海模拟业务场景，从而去发现逻辑问题。</strong></p>
+<h3 id="如何设计测试用例"><a href="#如何设计测试用例" class="headerlink" title="如何设计测试用例"></a>如何设计测试用例</h3><p>这里并不打算写一篇全面的教程，只是分享个人对某些点的一些看法。</p>
+<p>测试的最高目的，是<strong><em>验证代码产出是否符合需求</em></strong>。那可能会问：“既然只需要符合需求，那为什么还要考虑那么多的边界、异常值呢？”，道理很简单，因为<strong>这些都是隐藏在需求之下的情景</strong>。需求，本身是服务于用户体验的，而不是凭空出来的产品功能约束。那么为了一个完整的用户体验，肯定要包含一定程度的容错操作，这就是边界值、异常值考虑的缘由。</p>
+<p>既然已经有了一个测试的最终目的，那么具体如何设计用例就好办了。</p>
+<ol>
+<li><p>根据代码逻辑进行用例设计，以代码覆盖率作为衡量标准。</p>
+<blockquote>
+<p>所以一些明显覆盖相同逻辑、相同代码路径的用例，就可以去掉。比如新增功能点是支持连续升级，如果连续升级2次和连续升级3次这两个case覆盖的代码逻辑没有差异，后者完全没有存在的必要。</p>
+</blockquote>
+</li>
+<li><p>结合需求进行用例设计。</p>
+<blockquote>
+<p>QA必须对一切保持怀疑，故不能认为RD已经完全按照需求进行开发。另外，这种方式可能会有bonus——发现RD与QA对需求点理解的差异，从而推动确认真正的需求到底是什么，这样无疑对产品有积极的帮助。</p>
+</blockquote>
+</li>
+<li><p>异常情景用例设计。</p>
+<blockquote>
+<p>异常测试可以被放在一大块里面，这样更加方便归纳整理、查漏补缺。异常包括很多情况，具体根据不同业务类型来定义什么是 “异常” ，安装失败、升级失败、解析配置失败、网络请求失败、用户高频操作等等，这些都是异常。</p>
+</blockquote>
+</li>
+<li><p>提高用户体验的用例设计。</p>
+<blockquote>
+<p>这里本身不应该单独分出来的，但是我觉得很重要。用户体验其实不一定会有具体的用例，很多时候往往只是一种主观感受，比如色调、操作流程顺序、功能的作用大小等。一个具体例子就是根据订单号的订单搜索，订单搜索使用模糊匹配效果往往要比精确匹配好，原因很简单，因为根本不可能由用户去记住冗长没有规律的订单号。</p>
+</blockquote>
+</li>
+</ol>
+<p>扯一点题外话，一个好的QA，还应该要熟练掌握各种对自己有帮助的工具。除了发现bug外，还应该有定位bug、调试代码的能力。定位某些bug，比如常见却又难发现的内存泄漏，就需要特定工具帮忙。</p>
 ]]></content>
       <categories>
-        <category>思考</category>
         <category>测试</category>
       </categories>
       <tags>
-        <tag>白盒</tag>
+        <tag>功能测试</tag>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>多线程下的单例模式</title>
+    <url>/2019/04/11/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8B%E7%9A%84%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<p>单例模式可能是应用得最广泛的设计模式之一，也是学习设计模式必学、面试必问的模式之一🤣，那么就很有必要搞清楚单例模式是一个什么东西了。这里着重讨论一下多线程下的单例模式，<a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noopener">Singleton（单例模式）</a>的基本概念就不再展开了。一般来说，应用单例模式的场景为要求全局只存在一个单例类的实例，如果该单例类产生了多个实例可能会对系统造成影响或损害，需要限制为1个。</p>
+<blockquote>
+<p> It ensures that the Singleton class has only one instance and provides a global access point for it. We can use a Singleton when the presence of multiple instances can potentially damage the system, and we need global access to the single instance. </p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="单例模式的经典实现"><a href="#单例模式的经典实现" class="headerlink" title="单例模式的经典实现"></a>单例模式的经典实现</h3><p>我们可以来看一下最经典的例子，以伪代码（接近java，get到意思就好😂）展示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton _instance = <span class="keyword">null</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> _instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这可以说是单例模式最直接的实现了，private修饰构造函数导致外部无法通过<code>new</code>关键字来实例化对象，需要实例化Singleton或者获取Singleton实例必须调用提供的唯一接口<code>getInstance()</code>，对外界调用起到限制。调用<code>getInstance()</code>时首先会检查Singleton对象是否已被初始化，再返回对象实例，另外，Singleton实例只有在第一次调用<code>getInstance()</code>时才会真正初始化，也就是说只有在真正使用的时候才生成实例，这叫做<code>懒加载(lazy initialization)</code>，可以提高系统启动速度，也更加适合在资源有限的系统中运行。</p>
+<p>上面的经典实现有十分明显的问题，<strong>它不是线程安全的（not thread safe）</strong>，具体可以看下面的场景：</p>
+<ol>
+<li>在需要实例化Singleton时，<strong>线程A</strong>进入<code>getInstance()</code>，此时<code>_instance == null</code>为<code>True</code>，<strong>线程A</strong>会进入if分支。</li>
+<li>在<strong>线程A</strong>执行初始化代码<code>_instance = new Singleton()</code>之前，发生一次线程切换，<strong>线程A</strong>挂起，切换到<strong>线程B</strong>，并且<strong>线程B</strong>也调用<code>getInstance()</code>。</li>
+<li>对于<strong>线程B</strong>来说<code>_instance == null</code>也是为<code>True</code>，因为<strong>线程A</strong>根本还没生成Singleton实例，<strong>线程B</strong>进入if分支。</li>
+<li>最终结果就是<strong>线程A</strong>与<strong>线程B</strong>都在if分支里，两个线程都会生成一个Singleton实例，此时系统就有两个Singleton实例。</li>
+</ol>
+<h3 id="简单粗暴地解决"><a href="#简单粗暴地解决" class="headerlink" title="简单粗暴地解决"></a>简单粗暴地解决</h3><p>怎么样可以防止生成多个Singleton实例呢？很容易，把懒加载去掉就好：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> _instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>放弃懒加载的特性，这种实现会在类加载的时候就生成Singleton实例，并且保证线程安全。如果Singleton实例生成的代价低、性能影响小，或者这是最合适的一种实现，因为它简单并且安全。</p>
+<h3 id="添加锁🔐"><a href="#添加锁🔐" class="headerlink" title="添加锁🔐"></a>添加锁🔐</h3><p>但是我们还是想要懒加载要怎么改？一般方法是添加锁来保护Singleton实例化过程，保证只有一个线程可以进入实例化流程（enter crtical section），实现如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    acquire_lock();</span><br><span class="line">    <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">        _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    &#125;</span><br><span class="line">    release_lock();</span><br><span class="line">       </span><br><span class="line">    <span class="keyword">return</span> _instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个实现也可以保证线程安全，<strong>线程B</strong>不可能在<strong>线程A</strong>完成Singleton实例化之前接触到if判断分支，即使<strong>线程A</strong>在if分支里被切换，其他线程也因为等待锁都被阻挡在<code>if (_instance == null)</code>之前。但是这个实现的致命弱点是对性能影响很大，因为每一次调用<code>getInstance()</code>时都要获取锁，特别是当多个线程一起调用<code>getInstance()</code>的情况下，线程之间会因为竞争锁而被阻塞，当调用足够频繁的时候，系统对外的表现可会是经常卡一会没响应，或者整体的运行效率降低，看起来这样的实现也不太好。</p>
+<h3 id="添加锁之前先check"><a href="#添加锁之前先check" class="headerlink" title="添加锁之前先check"></a>添加锁之前先check</h3><p>认真观察添加锁的实现会发现，其实添加锁只是为了安全地进行对象实例化，一旦<code>_instace</code>被实例化后，这把锁🔐就再也不需要了，但是上面的实现是每一次获取实例都去获取一次锁。有没有办法只让锁获取一次就好了？我们意识到锁只是在第一次获取的时候（第一次调用，实例化对象时）才产生意义，所以if判断可以提前到获取锁之前：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">        acquire_lock();</span><br><span class="line">        _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        release_lock();</span><br><span class="line">    &#125;</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> _instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>看起来好像很机智的样子🎉，我们可以只在首次调用<code>getInstance()</code>时才获取锁，往后因为<code>_instance</code>不为<code>null</code>所以都不用获取锁了，然而实际上行不通，为什么呢？当线程A进入if判断但是在获取锁之前被切换线程，线程B此时也可以进入if判断，会发生两个线程进入if判断的情况，后面就会生成多个Singleton实例，没错，坑就坑在线程可能随时被切换。</p>
+<h3 id="double-check"><a href="#double-check" class="headerlink" title="double-check"></a>double-check</h3><p>能解决上面的问题吗？还是可以的，我们可以额外添加一个if判断来防止重复进入实例化代码块：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">        acquire_lock();</span><br><span class="line">        <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        release_lock();</span><br><span class="line">    &#125;</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> _instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个代码估计是最常见的double-check单例模式实现了，看起来可以有效防止上面提到的问题，即使有多个线程同时进入第一个if判断，在Singleton实例首次被生成之后，后面的线程在critical section里也不会再重复实例化对象了，因为还有第二个if判断在里面。</p>
+<p>真的是这样吗？就这样完了？并不是🙃，还有坑。</p>
+<h3 id="编译器优化问题"><a href="#编译器优化问题" class="headerlink" title="编译器优化问题"></a>编译器优化问题</h3><p>上面的实现不能保证100%的线程安全，原因是存在编译器优化。现代编译器都太先进了，它们会按照效率更高的方式进行指令重排，会充分利用寄存器和流水线以最高并行度去运行指令（现在已经是多核时代，一台机器上不再是一个CPU而是多个CPU，多个CPU在数据不互相干扰的情况下可以也同时独立运行指令）。一个具体例子：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span> c = a + b;</span><br></pre></td></tr></table></figure>
+
+<p>我们人眼认为a是先于b被声明初始化的，最后c再被计算，但是对于编译器，它可以向我们保证c最后计算出来等于30，也会保证在c计算出来之前a和b都被正确声明和赋值即a肯定等于10，b肯定等于20，但是它不保证的是<strong><em>到底a先被声明赋值还是b先被声明赋值</em></strong>，有可能是先b再a，也有可能是先a再b，我们无从猜测，所以我们也不能指望它可靠。</p>
+<blockquote>
+<p>这里引申出另一个问题，<code>_instance = new Singleton();</code>实例化操作到底是怎么被运行的？</p>
+</blockquote>
+<p><code>_instance = new Singleton();</code>并不是一个原子操作，它被执行时是分为3个步骤的：</p>
+<ol>
+<li><p>一块特定的内存被分配出来给Singleton对象使用。</p>
+</li>
+<li><p>这块内存会被赋值初始化，此时Singletom对象已经能用了。</p>
+</li>
+<li><p>这块内存（Singleton对象）的引用赋值给<code>_instance</code>。</p>
+<p><code>_instance</code>指向Singleton实例的内存，实际上只有这块内存被完整初始化之后，<code>_instance</code>才是一个正确可用的实例（<code>_instance</code> is valid only when the initialization is complete）。这里可能出现的问题是编译器将这3个步骤打混了，假如<strong>线程A先执行步骤1和3，在没来得及执行步骤2的时候发生线程切换</strong>，对于线程B来说，<code>_instance</code>已经不为<code>null</code>了，就屁颠屁颠拿去用了，但是实际上<code>_instance</code>指向一块还没有被初始化的内存，如果线程B拿这个对象去使用会引发各种谜之bug甚至出现系统崩溃。</p>
+</li>
+</ol>
+<blockquote>
+<p>如何解决这个问题？</p>
+</blockquote>
+<p>我们只需要将实例化对象那一行代码的运行顺序摆正就好了，换个说法就是避免编译器的优化：</p>
+<ol>
+<li><p>在C++和Java中存在关键字<code>volatile</code>，也就是<code>private volatile Singleton _instance = new Singleton();</code>，它可以使编译器不去做激进的优化，保持原来的执行顺序不变，不过这个关键字某种程度上也会影响整个系统的性能，毕竟变量变成<code>volatile</code>后即使实例化完成后，每次去对象都不去寄存器快速取出来而要去内存取。（<code>volatile</code>这个关键字坑很多，最好还是不要乱用）</p>
+</li>
+<li><p>使用<a href="https://en.wikipedia.org/wiki/Memory_barrier" target="_blank" rel="noopener">内存屏障</a>来迫使完全实例化之后再改变flag的值：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton _instance = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> bool flag = <span class="keyword">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!flag) &#123;</span><br><span class="line">            acquire_lock();</span><br><span class="line">            <span class="keyword">if</span> (!flag) &#123;</span><br><span class="line">                _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">                memory_barrier();</span><br><span class="line">                flag = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            release_lock();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> _instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为有内存屏障的存在，可以保证<code>flag = true;</code>这句代码不会被编译器优化执行顺序，也就是一定会完成<code>_instance = new Singleton();</code>之后，flag变量才会变为true，所以flag就是<code>_instance</code>已经被正确初始化的标志，if直接判断flag变量即可。如果将<code>flag = true;</code>放在内存屏障前面行不行呢？那是不行的，因为可能被编译器优化之后flag变量甚至会在<code>_instance</code>正确实例化之前就被置为true。然而内存屏障也需要编译器的支持，否则可能很难使用内存屏障，甚至需要写上汇编代码。</p>
+</li>
+<li><p>最后一种是针对Java的实现，详见<a href="https://en.wikipedia.org/wiki/Initialization-on-demand_holder_idiom" target="_blank" rel="noopener">Initialization-on-demand holder idiom</a>。</p>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>上面提到的所有实现，都没有找到尽善尽美可以运行在所有平台/编译器的方式。可能最后的解决方案就是放弃懒加载，权衡性能和安全。如果我们想坚持使用懒加载同时保证线程安全，性能会因为锁的获取受到影响（<a href="#添加锁🔐">full locking</a>版本），当然还是有一点小手段可以优化——尽量减少<code>getInstance()</code>的调用次数：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 调用三次getInstance函数，也就获取了三次锁</span></span><br><span class="line">Singleton.getInstance().method1();</span><br><span class="line">Singleton.getInstance().method2();</span><br><span class="line">Singleton.getInstance().method3();</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 只调用一次getInstance函数，获取一次锁，性能更好</span></span><br><span class="line">Singleton instance = Singleton.getInstance();</span><br><span class="line">instance.method1();</span><br><span class="line">instance.method2();</span><br><span class="line">instance.method3();</span><br></pre></td></tr></table></figure>
+
+<p>虽然这并没有解决问题，但是确实可以在性能上有所提高。</p>
+<p>Singleton设计模式从来就不是一个简简单单的设计模式，在不同场景下，每一种设计模式都需要进行演变来应用，分清每一种实现的好坏，挑一种最合适业务场景的实现进行应用，这才是代码功力和业务理解能力💪。</p>
+<h1 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h1><p>violate关键字对单例的影响</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://taskinoor.wordpress.com/2011/04/18/singleton_multithreaded/" target="_blank" rel="noopener">墙裂推荐阅读：Singleton in multi-threaded environment</a></p>
+<p><a href="https://www.cnblogs.com/god-of-death/p/7852394.html" target="_blank" rel="noopener">C/C++ volatile关键字深度剖析</a></p>
+<p><a href="https://www.kernel.org/doc/Documentation/memory-barriers.txt" target="_blank" rel="noopener">LINUX KERNEL MEMORY BARRIERS</a></p>
+<p><a href="http://ifeve.com/disruptor-memory-barriers/" target="_blank" rel="noopener">Dissecting the Disruptor: Demystifying Memory Barriers</a></p>
+]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>单例模式</tag>
+        <tag>多线程</tag>
+        <tag>代码实现</tag>
+        <tag>翻译</tag>
       </tags>
   </entry>
   <entry>
     <title>产品小感</title>
     <url>/2020/01/22/%E4%BA%A7%E5%93%81%E5%B0%8F%E6%84%9F/</url>
-    <content><![CDATA[<p>我以前觉得做个产品，其实就是解决一个问题，把这个问题拆分成一堆需求，需求、功能之间不论有无相关性，其代码实现凑在一起了，代码量变庞大之后，量变到质变，就成为了一个真正意义上的大产品。</p>
+    <content><![CDATA[<p>以前觉得做产品，就是解决一个问题，把这个问题拆分成一堆需求，需求、功能之间不论有无相关性，其代码实现凑在一起了，代码量变庞大之后，量变到质变，就成为了一个真正意义上的大产品。</p>
 <p>这样的想法比较幼稚，产品并不是单一要素的产物，毕竟除了技术实现外，它往往包含了一系列的调研、设计、策略、抉择，除了肉眼可见的代码，背后还有很多不为人知的细节、理念、历史。如果看产品只从技术角度来看，从实现的难易来衡量，是本末倒置的。产品生而解决问题，首先要发现问题，其次是找到解决方案，最后一步才是代码实现。可能在日常中接触到产品的形态更多是一个可用的实体软件程序，而不是一行行代码，代码实现上的神秘会催生这种代码唯上的片面思维，嗯，要戒掉。</p>
-<p>PM的工作是很有技术含量的，可能平时我们看啥产品发布会，产品布道者会在公众场合发表定性的观点，它具有概括性、逻辑演绎和思辨色彩，他说一个产品怎么怎么好，是听他描绘的画面，是靠人自己去感受，当然这种【可感觉出来的好】，一般是真的已经很好，才会给人这样的感受。对于PM，产品分析不是一个定性的任务，而是要定量的，好与不好，用户不一定在感官上体会到，但是在数据下却能发指标正向还是负向（当然不能直接用数字刻划的，还可以做访谈，做横向对比等）。这种正向在若干的迭代的update之后会被慢慢放大，最后大众可能就突然觉得【哇，这是真的好】，特别是长久不升级的用户，从旧版突然更新到新版，一个跳板级的新体验，真是 critical hit。</p>
-<p>很多时候产品也会憋大招，比如apple每年更新一次的macOS或者iOS系统，每次更新总会使人眼前一亮，这里扯到系统层面的更新了；可以看看微信更新频率，以月甚至双月为单位，每次都会掀起一阵小高潮，这种更新频率是在于这个产品已经被认可并且难以替代的前提下才会有的，正如张小龙说每天有上1亿人教他做产品。</p>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/product_manager.jpg" alt="Product Manager"></p>
+<p>PM的工作是技术含量的，可能平时我们看啥产品发布会，产品布道者会在公众场合发表定性的观点，它具有概括性、逻辑演绎和思辨色彩，他说一个产品怎么怎么好，是听他描绘的画面，是靠人自己去感受，当然这种【可感觉出来的好】，一般是产品真的好，才会给人这样的感受。对于PM，产品分析不是一个定性的任务，而是要定量的，好与不好，用户不一定在感官上体会到，而在数据下就能发先指标正向还是负向（不能直接用数字刻划的，还可以做访谈，做横向对比等）。这种正向在若干的迭代的update之后会被慢慢放大，最后大众可能突然觉得【哇，这产品是真的好】，特别是长久不升级的用户，从旧版突然更新到新版，一个跳板级的新体验，是 critical hit。</p>
+<p>很多时候产品也会憋大招，比如apple每年更新一次的macOS或者iOS系统，每次更新总会使人眼前一亮，这里牵扯到操作系统层面的更新，有点庞大；可以看看微信的更新频率，以月甚至双月为单位，每次都会掀起一阵小高潮，这种更新频率是在于这个产品已经被认可并且难以替代的前提下才会有的，正如张小龙说每天有上1亿人教他做产品，反过来反映了微信的不可或缺。</p>
 <p>技术壁垒是产品护城河，应用生态也是产品护城河，点子是产品生命力。</p>
-<p>为什么强调提高交付效率，完善质量保障体系，这就是在建立自己的技术壁垒，技术壁垒除了在代码实现难度上比别人高使得别人抄不了外，还可以通过交付效率、质量保障进行压制。想想看，同样的功能，我比你提前三天发布，我就先赢得了一大批用户，赢在了起跑线；同样的功能，用户用我的一切正常符合预期，用你的就bug百出各种卡、闪退、发烫耗电烧流量，高下立判。</p>
-<p>至于应用生态，那就是产品布局，从小的角度来说，我们希望把app里探索验证后反响好的功能拆分出来孵化成一个独立app，一部分原因是抢夺下沉市场份额，因为单一产品一直做下去就会有产品的惯性，也就出现了枷锁，即使有更好的点子，但是产品不适合上这样的功能，独立出来，就使得新的app可以脱离缘由产品框架形态和交互模式的束缚，去走它自己的风格。另一部分原因也是丰富自己的应用生态。从大的角度来说，以小米为例子，雷军除了做手机，还要贴牌家电，整得像个杂货铺一样，但是假如一个用户真的用上了小米全套，那他脱离这个生态的成本将会非常大以至于在可以忍受的前提下依然苟在里面不肯出来，因为生态与生态之间互不兼容（不知未来会不会继续各家割裂）。</p>
-<p>好产品有它自己的短期中期长期规划，细到单个迭代我要做什么功能，然后是中期我要给一个什么会心一击的大招，长到产品彻底完善后我希望它及周边是一个什么样子，用户习惯是如何如何。其实也是一个目标往下拆分的过程，所做的一切最终都是为了更靠近目标。字节跳动，群众喜欢叫它app工厂，这样的称呼听起来似乎公司就是app流水线，快速看结果、快速试错、快速占领市场。这样的风格更贴切当前的社会节奏，人们每天接触这么多产品，经历有限的情况下如何在竞品中脱颖而出，靠的是求变。反过来看，技术人也应该求变，技术更新迭代，我们要跟上步伐，掌握核心原理的前提下多方拓展，打出竞争力来！</p>
+<p>为什么强调提高交付效率，完善质量保障体系，这就是在建立自己的技术壁垒，技术壁垒除了在代码实现难度上比别人高使得别人抄不了外，还可以通过交付效率、质量保障进行压制。想想看，同样的功能，我比你提前三天发布，我就先赢得了一大批用户，赢在了起跑线；同样的功能，我的产品做出来bug free，你的产品就各种闪退发烫耗电烧流量，高下立判。</p>
+<p>至于应用生态，那就是产品布局，从小的角度来说，我们希望把app里探索验证后反响好的功能拆分出来孵化成一个独立app，一部分原因是抢夺下沉市场份额，因为单一产品一直做下去就会有产品的惯性，也就出现了枷锁，新点子不一定适合在当前产品框架上做，比如资讯类的头条app去做小说阅读器。这种时候，会在原先app上试验这个点子，如果ok，就把功能抽离出来做成一个app，新app可以脱离原有产品框架形态、交互模式、代码实现的束缚，去走它自己的风格，做好深度用户体验；另一部分原因也是丰富应用生态，从大的角度来说，以小米为例子，雷军除了做手机，还要贴牌家电，整得像个杂货铺一样，但是假如一个用户真的用上了小米全套，那他脱离这个生态的成本将会非常大以至于在可以忍受的前提下依然苟在里面不肯出来，因为生态与生态之间互不兼容（不知未来会不会继续各家割裂）。</p>
+<p>好产品有它自己的短期中期长期规划，细到单个迭代要做什么功能，然后中期要给一个什么会心一击的大招，再到长期产品彻底完善后我希望它及周边是一个什么样子，用户习惯是如何如何。这还是一个目标往下拆分的过程，所做的一切最终都是为了更靠近目标。字节跳动，群众喜欢叫它app工厂，这样的称呼听起来似乎公司就是app流水线，快速看结果、快速试错、快速占领市场。这样的风格更贴切当前的社会节奏，人们每天接触这么多产品，经历有限的情况下如何在竞品中脱颖而出，靠的是求变。反过来看，技术人也应该求变，技术更新迭代，我们要跟上步伐，掌握核心原理的前提下多方拓展，打出竞争力来！</p>
 ]]></content>
       <categories>
         <category>思考</category>
@@ -455,208 +661,45 @@
       </tags>
   </entry>
   <entry>
-    <title>你的需求是什么</title>
-    <url>/2019/12/15/%E4%BD%A0%E7%9A%84%E9%9C%80%E6%B1%82%E6%98%AF%E4%BB%80%E4%B9%88/</url>
-    <content><![CDATA[<p>以前遇到过一些RD，喜欢上来就问：你现在的需求是什么？</p>
-<p>我不太明白ta说的这句话，是为了提高沟通效率，引导话题到正确的方向上去？还是单纯只是想知道自己需要干一些什么，省得还要动脑？</p>
-<p>在现实世界，除非是pm给提需求，事先梳理得清清楚楚明明白白，否则多数人的需求可能都是含糊的，得用一段话来描述一个场景并给出预期结果，然后希望你来帮忙解决（特别是peer合作）。</p>
-<p>我觉得嘛，不要一上来就只会问你的需求是什么，死抓这一个对理清需求没有什么帮助。有时候是别人单纯有一点灵光，还没能总结出一个精炼、可理解、甚至可复述的（讲了一遍，第二遍就再也讲不清楚）需求，就需要自己清楚一下背景和痛点，跟别人的思路走，帮别人梳理出实际需求。最忌讳的是，还没确定需求，你就已经引导别人去聊详细的代码实现问题，需求还被讲完，你就说这个无法实现打断别人的思路。这只会是一个死循环，别人表述本就不一定准确，莽撞定论无法实现进行否定，这怎么能让人好好梳理清楚思路呢？</p>
-<p>另一个问题，就是高姿态。作为peer合作方，有句话叫【谁受益，谁推动】。己方可能是被拉进来的人，配合别人输出，这时更容易发展成高姿态，因为受益方过来推动多了，己方有时会产生【我很重要我是关键节点世界需要我】的错觉，腰杆儿就开始直起来了……emmmmmm，这个应该挺常见的。</p>
-]]></content>
-      <categories>
-        <category>思考</category>
-        <category>合作</category>
-      </categories>
-      <tags>
-        <tag>产品</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>个人目标管理</title>
-    <url>/2020/02/20/%E4%B8%AA%E4%BA%BA%E7%9B%AE%E6%A0%87%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<p>最近任务接得比较多，甚至交了一些智商税浪费了大半天做一件吃力不讨好的事情，由此引发了一些对个人进度管理的思考。日常工作听到的更多是团队的项目管理，网上有大把的文章介绍方法论、工具、计划模板，依葫芦画瓢我也能学来一点手段，但似乎总是没法get到实在的点，这个星期的经历似乎有所收获。</p>
-<p>为什么每次定OKR都很痛苦，review OKR时更痛苦？因为定OKR的时候想得好痛苦，review OKR的时候又很多目标没有完成甚至没有开始做，中间穿插了很多OKR之外的事情。这些计划之外的事情我们也不能说它没有意义，它可能是一些紧急不重要的事，也可能也是紧急且重要我们必须得做的事，包括但不仅限于别人突如其来的合作、上司突然排下来的额外工作、当前状况必须马上着手的建设。跟OKR冲突的时候应该怎么做？这个就设计个人进度管理或时间管理。</p>
-<p>我也没什么特别好的术语可以表达，在我的理念里应该有下面4个点（简化场景，不讨论项目维度的成本、质量等问题）：</p>
-<table>
-<thead>
-<tr>
-<th>目标</th>
-<th>细分任务</th>
-<th>里程碑</th>
-<th>优先级</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>要做什么，做到多少分？<br>SMART原则</td>
-<td>目标拆解，细分到每周每日需要完成的任务<br>周期性check</td>
-<td>短期进度deadline<br>灵活松紧</td>
-<td>很多任务前，理智挑拣</td>
-</tr>
-</tbody></table>
-<ul>
-<li><strong>目标</strong></li>
-</ul>
-<p>这个应该是最经常跟别人讨论交流的点，某种形式上目标的制定个人独立思考的时间会更少，经常是跟别人一起商量讨论得出，或者自己有思路有跟别人一起细化，就不多说了，SMART原则来指导目标的制定，不会太差。</p>
-<ul>
-<li><strong>细分任务</strong></li>
-</ul>
-<p>往大目标的方向，往下拆解，为了完成目标，需要达成什么什么样的条件，细化到每周要完成什么工作，甚至是每天要完成什么工作，这样才是更加【可把控】的进度，可以更直观地感受到进度的压力，防止潜在的进度失控风险。</p>
-<ul>
-<li><strong>里程碑</strong></li>
-</ul>
-<p>更好的做法应该以里程碑作为短期的目标，一个一个达成，无论在自己抑或是关心项目的其他人的感官上，都有很好的项目管理效果。里程碑可以是一个or多个细分任务的deadline，或者我们不应当把里程碑只理解成deadline，它更大的作用还是进度把控而不是进度压力（虽然往往进度压力来源于进度把控🤣）。</p>
-<ul>
-<li><strong>优先级</strong></li>
-</ul>
-<p>你不用去找事情，事情自然会来找你，工作是永远都做不完的，这个就是优先级产生的背景。工作做不完，但是工作有轻重缓急之分，不是来一个任务就要做一个，有时候为了支持别人随口说的一个想法，莽撞地撸起袖子就是埋头干，做了好些工作后发现其实做出来意义没有想象那么大，投入的时间精力就白白浪费了，反而还会拖累核心任务的进度。应对办法就是识别出任务的优先级，不要轻易开始一个没经思考和讨论的工作。别人可能是随口说一句表达一个不成熟的想法，也许ta也不清楚事情的难易，自己马上接过来热火朝天干是不理智的。最终要的效果应该是在保证核心任务的进展下，我们拿出余力去完成计划之外的事情。</p>
-<p>某天突然看到了这个视频【<a href="https://mp.weixin.qq.com/s/CETheAYqXcRHwOzV01PDiw" target="_blank" rel="noopener">时间管理，除了紧急度和重要度，还有什么？</a>】，然后自己本周马上中招了，原因是自己接任务的时候没有留buffer，突发插入若干高优任务导致排期失控，最终某个需求没能赶上当周版本，幸好是对上线时间不敏感的技术需求，不然就要酿成大错了😶。让我再一次怀疑是这套方法论的有效性不够，还是我根本没好好实践这套方法论。概括视频的意思，就是告诉我们要考虑事情是否有深远的意义，再判断是否需要我们自己做，决定是否将事情委托给别人。事情除了紧急、重要两个维度外，还有长远的意义。life is short，尽量只做自己该做的事情，原话就是：</p>
-<ul>
-<li>How <strong>soon</strong> does it matter</li>
-<li>How <strong>much</strong> does it matter</li>
-<li>How <strong>long</strong> does it matter</li>
-</ul>
-<p>（我简直是渣翻……）</p>
-]]></content>
-      <categories>
-        <category>自我管理</category>
-      </categories>
-      <tags>
-        <tag>目标管理</tag>
-        <tag>OKR</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>功能测试小感</title>
-    <url>/2018/02/28/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B0%8F%E6%84%9F/</url>
-    <content><![CDATA[<p>功能测试某种意义上确实是有套路规律的。所谓的测试经验，在我看来就是把套路运用在不同场景的能力，也就是灵活运用的能力。其实这里的<code>套路</code>，换种说法就是<code>测试理论</code>。</p>
-<p>从黑盒角度来说，<code>边界值、等价类</code>，这些应该都是软件测试人员的基本知识，应该深入思维信手拈来而不是刻意为之。<code>边界值</code>帮助我们发现比较好找的bug，改善软件最下限的质量（还别说这些边界校验真的是bug的重灾区，具体数量依赖开发自测水平），<code>等价类</code>帮助我们精简用例数量，提高执行效率。这些可以说是脱离业务场景单独针对代码逻辑的用例设计，可以在不理解业务的前提下直接开测。</p>
+    <title>感情问题的小总结</title>
+    <url>/2019/03/29/%E6%84%9F%E6%83%85%E9%97%AE%E9%A2%98%E7%9A%84%E5%B0%8F%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>这是8个多月来我记录下的第16次较大的矛盾了，不包括一些及时解决的小问题。你懂的，大矛盾时时伴随着泪水，我的也好她的也好，我这流眼泪的次数远远大于初中+高中+大学的总和了，现在回头总结一下，其实归根到底都是一个原因：<font color="red"><strong>沟通不充分</strong></font>。</p>
 <a id="more"></a>
 
-<p>除此之外，<code>场景法</code>也是非常重要的手段。<code>场景法</code> 简单理解就是根据不同的用户场景来设计用例，这里没有什么一套一套的测试理论，唯一的要求就是理解业务场景，从用户角度出发。<strong>一些不是bug的问题，在这样的要求下可能就会变成bug，因为它们有悖于业务场景，削弱了用户体验</strong>。</p>
-<p>另外，一些更加工程类的bug，比如多线程竞争、变量缺少正确初始化、数据库死锁等问题偏白盒，从黑盒角度看有时症状会比较奇怪。这些问题我觉得更加适合在白盒的角度来发现，这往往也是code review必要性的体现。很多时候，如资源竞争这类问题需要的业务场景比较复杂，场景触发所需要的成本相对更高，甚至靠线下测试环境的机器资源根本无法触发。所以如果什么问题都想着从黑盒角度来发现，那是不靠谱的。<strong>这也正是一个好的QA与普通QA拉开差距的地方——除了理解业务场景、熟练地从黑盒发现功能问题外，还要求可以白盒通读代码，在脑海模拟业务场景，从而去发现逻辑问题。</strong></p>
-<h3 id="如何设计测试用例"><a href="#如何设计测试用例" class="headerlink" title="如何设计测试用例"></a>如何设计测试用例</h3><p>这里并不打算写一篇全面的教程，只是分享个人对某些点的一些看法。</p>
-<p>测试的最高目的，是<strong><em>验证代码产出是否符合需求</em></strong>。那可能会问：“既然只需要符合需求，那为什么还要考虑那么多的边界、异常值呢？”，道理很简单，因为<strong>这些都是隐藏在需求之下的情景</strong>。需求，本身是服务于用户体验的，而不是凭空出来的产品功能约束。那么为了一个完整的用户体验，肯定要包含一定程度的容错操作，这就是边界值、异常值考虑的缘由。</p>
-<p>既然已经有了一个测试的最终目的，那么具体如何设计用例就好办了。</p>
+<h3 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h3><p>回顾最近跟妹子发生的一个矛盾，事件背景是我们打算一到两个月后开始同居生活，按照想法准备找一室一厅的房子租下来，期间也到现场看过两次，矛盾的导火索是之前我同事介绍的一个房子我们都喜欢，但是最后被别人放了鸽子，因为全程都是我对接沟通的，她看起来几乎没有怎么贡献过，让我觉得她一点积极性都没有，派不上用场。</p>
+<p>当然她要反驳，毕竟我说的是有点夸张，她期间也会在app看房子，跟我讨论房子好不好，也一起商量出找房子的范围，还有跟进中介发出来的房源，被我这样说得分文不值，开心是不可能的。</p>
+<p>在我的立场，最近学习劲头特别足，我越来越不想被其他乱七八糟的事情打扰我的学习计划，但是从开始找房子到现在我都感觉是我自己lead整个流程，沟通、安排、跟进几乎都是我一个人在做，让我的怨气积累得越来越多，最后在她面前释放了出来（当然这里有个问题就是房子是我的同事介绍的，对接工作我来完成也是理所当然）。</p>
+<p>周日晚上我坐了40分钟的地铁过去找她吃饭，她提起房子被放鸽子的事情，让我的情绪和不满爆发了出来，矛盾出现之后一路上都不说话，两个人虽然并排走路，但是气氛死僵很难受，人在身边心在千里，一刻都不想呆，我有种立马想调头回去的冲动。最后一起随便吃了个沙县继续散步一点一点把压在心里的怨气互相发泄出来后矛盾才算解决了。</p>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/sorrow.jpg" alt="sorrow"></p>
+<h3 id="侃大山"><a href="#侃大山" class="headerlink" title="侃大山"></a>侃大山</h3><p>矛盾不是第一次了，这么多次下来，我和她的脾性其实都已经掌握得七七八八了。我在有情绪的时候往往不喜欢说话，她也是，所以两个人都不会先挑起话匣子解决气氛问题，在这样的氛围下两个人都会十分难受，所以每次解决矛盾之前总要经历一下这样的痛苦😔，时间从十几分钟到几十分钟不等，贼蛋疼。</p>
+<p>我虽然是个男生，而且以前没有恋爱经历，然而在感情上却是一个极限容易感受到细节的人，有时候因为爱得深所以也想的多，往往就会想歪了自己伤自己，而她是认为自己没错就跟你死倔的类型，在某些时候脾气会十分暴躁，我曾经被她莫名其妙凶了一两次。怎么说都好，两个人在感情方面毕竟经验都十分有限，我是初恋，她的感情经历也没多少，所以两个处理手法极其原始的人在矛盾下往往都会手足无措只能互相生闷气，沟通不知道怎么沟通，安慰也不擅长，更加可怕的是一些很危险的时刻随便说一句话可能对方就当真然后立马翻脸。</p>
+<p>她说，很多时候我们两个人的角色仿佛互换，我更像一个女生，整天嘤嘤嘤动不动就流眼泪，她就扮演男性角色来安慰我。想不到我光明磊落堂堂猛男竟然在感情面前是这个死样🤣。我的爱情观不知道是不是特别奇怪，反正就跟其他男生不太一样吧（以下只是为了说明清楚才加上序号的，并不代表我斤斤计较）。</p>
 <ol>
-<li><p>根据代码逻辑进行用例设计，以代码覆盖率作为衡量标准。</p>
-<blockquote>
-<p>所以一些明显覆盖相同逻辑、相同代码路径的用例，就可以去掉。比如新增功能点是支持连续升级，如果连续升级2次和连续升级3次这两个case覆盖的代码逻辑没有差异，后者完全没有存在的必要。</p>
-</blockquote>
-</li>
-<li><p>结合需求进行用例设计。</p>
-<blockquote>
-<p>QA必须对一切保持怀疑，故不能认为RD已经完全按照需求进行开发。另外，这种方式可能会有bonus——发现RD与QA对需求点理解的差异，从而推动确认真正的需求到底是什么，这样无疑对产品有积极的帮助。</p>
-</blockquote>
-</li>
-<li><p>异常情景用例设计。</p>
-<blockquote>
-<p>异常测试可以被放在一大块里面，这样更加方便归纳整理、查漏补缺。异常包括很多情况，具体根据不同业务类型来定义什么是 “异常” ，安装失败、升级失败、解析配置失败、网络请求失败、用户高频操作等等，这些都是异常。</p>
-</blockquote>
-</li>
-<li><p>提高用户体验的用例设计。</p>
-<blockquote>
-<p>这里本身不应该单独分出来的，但是我觉得很重要。用户体验其实不一定会有具体的用例，很多时候往往只是一种主观感受，比如色调、操作流程顺序、功能的作用大小等。一个具体例子就是根据订单号的订单搜索，订单搜索使用模糊匹配效果往往要比精确匹配好，原因很简单，因为根本不可能由用户去记住冗长没有规律的订单号。</p>
-</blockquote>
-</li>
+<li>这个社会给男女恋爱定下来太多规则，特别是网络上一些歪歪扭扭的爱情观，凭什么男生在感情面前一定要无条件大气、包容女方？</li>
+<li>爱情讲究什么？互相付出。男生比女生付出多一些无所谓，但是为什么男生总要先付出才能获得回报，为什么一定事事都要男生主动？</li>
+<li>女生是不是看霸道总裁看狗血爱情剧多了，总爱矫情还以为这是有深度？</li>
+<li>一个劲追求浪漫？爱情与面包我选择面包，没有物质的爱情是假的。</li>
+<li><a href="https://www.zhihu.com/question/264976486" target="_blank" rel="noopener">舔狗舔到最后一无所有</a>。</li>
 </ol>
-<p>扯一点题外话，一个好的QA，还应该要熟练掌握各种对自己有帮助的工具。除了发现bug外，还应该有定位bug、调试代码的能力。定位某些bug，比如常见却又难发现的内存泄漏，就需要特定工具帮忙。</p>
+<blockquote>
+<p>总结出来就是：男女生而平等，也许为了表现男子气概男方可以适度大气一些，但性别差异并不是一个要求男方必须得大气包容的理由。</p>
+</blockquote>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/%E8%88%94%E7%8B%97-1.jpeg" alt="舔狗-1"></p>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/%E8%88%94%E7%8B%97-2.jpeg" alt="舔狗-2"></p>
+<p>基于以上爱情观，偶尔在发生矛盾的时候我会被她说我小气一点都不大方，当然这句话还伤不了我，往往最伤我的是在矛盾中她时而表现的破罐子破摔的态度，比如这一次同居事件，她说我在跟她斤斤计较，那就不要同居了。她可能意识不到这话多么伤，但是为了不加深矛盾，我也就没有接着反驳什么气话，做一个男生要理智，关键一击要扛得下来，撑过去了就好了，深呼吸一口，把情绪附着在二氧化碳上从口腔中一起排出去，呼~</p>
+<p>以前的我，是一个比较享受独处的人，因为总有自己的方式可以娱乐，包括但不仅限于健身艹单双杠、打游戏、泡图书馆，工作之后一个人来到深圳，下班依然会经常锻炼健身，时不时看看书写写很low的代码，周末自己去图书馆逛逛，有时出远门到深圳其他地方感受一下，也很愉快。有了她之后，生活慢慢改变，独处的时间明显减少，爱情带来甜蜜的同时也带来了责任，意识到自己需要花时间好好珍惜维护爱情，有时候自己比较烦躁，就会把在爱情上需要投入时间这件事当成是一种负担。世界上哪里有呼之则来挥之则去的爱情，等价交换，想获得足够滋润自己一生的宝物，就得需要将自己最重要的东西<code>时间</code>投入进去，其实要考察自己是否真的爱惜一段感情，就看自己是否愿意随时投入时间去维护它就可以了。当然有些情侣相处的方式不一样，小别胜新婚，经受得了长期异地的情侣，自然也会发展处他们之间相爱的方式，这些我是真的很佩服，因为我不知道假使我和她突然长期异地，我要怎么做才能继续保持爱情的陪伴感和新鲜感。</p>
+<h3 id="银弹？"><a href="#银弹？" class="headerlink" title="银弹？"></a>银弹？</h3><p>上面瞎说了一通，下面继续瞎说。</p>
+<p>这一次矛盾的尾声，我跟她说，既然我们在发生矛盾之后都无法控制自己的情绪，要不尝试引进一些规则来硬性限制我们的行为吧？毕竟人的理性总有靠不住的时候，规则的介入可以给一个破冰的借口和处理问题的指导方针。</p>
+<p>这个被她笑话了，因为我们最终也没有得出一个能够100%可执行的方案，我能想到的也只是我们两人一人轮流一次主动解决问题，下一次发生矛盾我先说话放下尊严和情绪解决问题，下一次是她……看起来似乎很可笑🤣，先试一下吧，沟通是解决问题<code>最有效而且成本最低</code>的手段，但是难也就难在如何沟通，希望这个规则能管用。</p>
+<p>这次矛盾下来，我开始寻找一个问题的答案：<code>有没有可以解决情侣/夫妻矛盾的银弹？</code></p>
+<p>之前在豆瓣搜过一次，其中两本引起了我的兴趣：<a href="https://book.douban.com/subject/5952488/" target="_blank" rel="noopener">《亲密关系（第5版）》</a>，<a href="https://book.douban.com/subject/6052834/" target="_blank" rel="noopener">《亲密关系（克里斯多福·孟 ）》</a>，前面那本已经买下来了，最近打算认真研习一翻，希望能学习到一些手段和理念吧。</p>
+<p><strong>愿认真看完我这篇废话的人都能找到自己真正喜欢的伴侣。</strong></p>
 ]]></content>
       <categories>
-        <category>测试</category>
+        <category>生活</category>
       </categories>
       <tags>
-        <tag>功能测试</tag>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>多线程下的单例模式</title>
-    <url>/2019/04/11/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8B%E7%9A%84%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<p>单例模式可能是应用得最广泛的设计模式之一，也是学习设计模式必学、面试必问的模式之一🤣，那么就很有必要搞清楚单例模式是一个什么东西了。这里着重讨论一下多线程下的单例模式，<a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noopener">Singleton（单例模式）</a>的基本概念就不再展开了。一般来说，应用单例模式的场景为要求全局只存在一个单例类的实例，如果该单例类产生了多个实例可能会对系统造成影响或损害，需要限制为1个。</p>
-<blockquote>
-<p> It ensures that the Singleton class has only one instance and provides a global access point for it. We can use a Singleton when the presence of multiple instances can potentially damage the system, and we need global access to the single instance. </p>
-</blockquote>
-<a id="more"></a>
-
-<h3 id="单例模式的经典实现"><a href="#单例模式的经典实现" class="headerlink" title="单例模式的经典实现"></a>单例模式的经典实现</h3><p>我们可以来看一下最经典的例子，以伪代码（接近java，get到意思就好😂）展示：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton _instance = <span class="keyword">null</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> _instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这可以说是单例模式最直接的实现了，private修饰构造函数导致外部无法通过<code>new</code>关键字来实例化对象，需要实例化Singleton或者获取Singleton实例必须调用提供的唯一接口<code>getInstance()</code>，对外界调用起到限制。调用<code>getInstance()</code>时首先会检查Singleton对象是否已被初始化，再返回对象实例，另外，Singleton实例只有在第一次调用<code>getInstance()</code>时才会真正初始化，也就是说只有在真正使用的时候才生成实例，这叫做<code>懒加载(lazy initialization)</code>，可以提高系统启动速度，也更加适合在资源有限的系统中运行。</p>
-<p>上面的经典实现有十分明显的问题，<strong>它不是线程安全的（not thread safe）</strong>，具体可以看下面的场景：</p>
-<ol>
-<li>在需要实例化Singleton时，<strong>线程A</strong>进入<code>getInstance()</code>，此时<code>_instance == null</code>为<code>True</code>，<strong>线程A</strong>会进入if分支。</li>
-<li>在<strong>线程A</strong>执行初始化代码<code>_instance = new Singleton()</code>之前，发生一次线程切换，<strong>线程A</strong>挂起，切换到<strong>线程B</strong>，并且<strong>线程B</strong>也调用<code>getInstance()</code>。</li>
-<li>对于<strong>线程B</strong>来说<code>_instance == null</code>也是为<code>True</code>，因为<strong>线程A</strong>根本还没生成Singleton实例，<strong>线程B</strong>进入if分支。</li>
-<li>最终结果就是<strong>线程A</strong>与<strong>线程B</strong>都在if分支里，两个线程都会生成一个Singleton实例，此时系统就有两个Singleton实例。</li>
-</ol>
-<h3 id="简单粗暴地解决"><a href="#简单粗暴地解决" class="headerlink" title="简单粗暴地解决"></a>简单粗暴地解决</h3><p>怎么样可以防止生成多个Singleton实例呢？很容易，把懒加载去掉就好：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> _instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>放弃懒加载的特性，这种实现会在类加载的时候就生成Singleton实例，并且保证线程安全。如果Singleton实例生成的代价低、性能影响小，或者这是最合适的一种实现，因为它简单并且安全。</p>
-<h3 id="添加锁🔐"><a href="#添加锁🔐" class="headerlink" title="添加锁🔐"></a>添加锁🔐</h3><p>但是我们还是想要懒加载要怎么改？一般方法是添加锁来保护Singleton实例化过程，保证只有一个线程可以进入实例化流程（enter crtical section），实现如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    acquire_lock();</span><br><span class="line">    <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">        _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    &#125;</span><br><span class="line">    release_lock();</span><br><span class="line">       </span><br><span class="line">    <span class="keyword">return</span> _instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这个实现也可以保证线程安全，<strong>线程B</strong>不可能在<strong>线程A</strong>完成Singleton实例化之前接触到if判断分支，即使<strong>线程A</strong>在if分支里被切换，其他线程也因为等待锁都被阻挡在<code>if (_instance == null)</code>之前。但是这个实现的致命弱点是对性能影响很大，因为每一次调用<code>getInstance()</code>时都要获取锁，特别是当多个线程一起调用<code>getInstance()</code>的情况下，线程之间会因为竞争锁而被阻塞，当调用足够频繁的时候，系统对外的表现可会是经常卡一会没响应，或者整体的运行效率降低，看起来这样的实现也不太好。</p>
-<h3 id="添加锁之前先check"><a href="#添加锁之前先check" class="headerlink" title="添加锁之前先check"></a>添加锁之前先check</h3><p>认真观察添加锁的实现会发现，其实添加锁只是为了安全地进行对象实例化，一旦<code>_instace</code>被实例化后，这把锁🔐就再也不需要了，但是上面的实现是每一次获取实例都去获取一次锁。有没有办法只让锁获取一次就好了？我们意识到锁只是在第一次获取的时候（第一次调用，实例化对象时）才产生意义，所以if判断可以提前到获取锁之前：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">        acquire_lock();</span><br><span class="line">        _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        release_lock();</span><br><span class="line">    &#125;</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> _instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>看起来好像很机智的样子🎉，我们可以只在首次调用<code>getInstance()</code>时才获取锁，往后因为<code>_instance</code>不为<code>null</code>所以都不用获取锁了，然而实际上行不通，为什么呢？当线程A进入if判断但是在获取锁之前被切换线程，线程B此时也可以进入if判断，会发生两个线程进入if判断的情况，后面就会生成多个Singleton实例，没错，坑就坑在线程可能随时被切换。</p>
-<h3 id="double-check"><a href="#double-check" class="headerlink" title="double-check"></a>double-check</h3><p>能解决上面的问题吗？还是可以的，我们可以额外添加一个if判断来防止重复进入实例化代码块：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">        acquire_lock();</span><br><span class="line">        <span class="keyword">if</span> (_instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        release_lock();</span><br><span class="line">    &#125;</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> _instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这个代码估计是最常见的double-check单例模式实现了，看起来可以有效防止上面提到的问题，即使有多个线程同时进入第一个if判断，在Singleton实例首次被生成之后，后面的线程在critical section里也不会再重复实例化对象了，因为还有第二个if判断在里面。</p>
-<p>真的是这样吗？就这样完了？并不是🙃，还有坑。</p>
-<h3 id="编译器优化问题"><a href="#编译器优化问题" class="headerlink" title="编译器优化问题"></a>编译器优化问题</h3><p>上面的实现不能保证100%的线程安全，原因是存在编译器优化。现代编译器都太先进了，它们会按照效率更高的方式进行指令重排，会充分利用寄存器和流水线以最高并行度去运行指令（现在已经是多核时代，一台机器上不再是一个CPU而是多个CPU，多个CPU在数据不互相干扰的情况下可以也同时独立运行指令）。一个具体例子：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span> c = a + b;</span><br></pre></td></tr></table></figure>
-
-<p>我们人眼认为a是先于b被声明初始化的，最后c再被计算，但是对于编译器，它可以向我们保证c最后计算出来等于30，也会保证在c计算出来之前a和b都被正确声明和赋值即a肯定等于10，b肯定等于20，但是它不保证的是<strong><em>到底a先被声明赋值还是b先被声明赋值</em></strong>，有可能是先b再a，也有可能是先a再b，我们无从猜测，所以我们也不能指望它可靠。</p>
-<blockquote>
-<p>这里引申出另一个问题，<code>_instance = new Singleton();</code>实例化操作到底是怎么被运行的？</p>
-</blockquote>
-<p><code>_instance = new Singleton();</code>并不是一个原子操作，它被执行时是分为3个步骤的：</p>
-<ol>
-<li><p>一块特定的内存被分配出来给Singleton对象使用。</p>
-</li>
-<li><p>这块内存会被赋值初始化，此时Singletom对象已经能用了。</p>
-</li>
-<li><p>这块内存（Singleton对象）的引用赋值给<code>_instance</code>。</p>
-<p><code>_instance</code>指向Singleton实例的内存，实际上只有这块内存被完整初始化之后，<code>_instance</code>才是一个正确可用的实例（<code>_instance</code> is valid only when the initialization is complete）。这里可能出现的问题是编译器将这3个步骤打混了，假如<strong>线程A先执行步骤1和3，在没来得及执行步骤2的时候发生线程切换</strong>，对于线程B来说，<code>_instance</code>已经不为<code>null</code>了，就屁颠屁颠拿去用了，但是实际上<code>_instance</code>指向一块还没有被初始化的内存，如果线程B拿这个对象去使用会引发各种谜之bug甚至出现系统崩溃。</p>
-</li>
-</ol>
-<blockquote>
-<p>如何解决这个问题？</p>
-</blockquote>
-<p>我们只需要将实例化对象那一行代码的运行顺序摆正就好了，换个说法就是避免编译器的优化：</p>
-<ol>
-<li><p>在C++和Java中存在关键字<code>volatile</code>，也就是<code>private volatile Singleton _instance = new Singleton();</code>，它可以使编译器不去做激进的优化，保持原来的执行顺序不变，不过这个关键字某种程度上也会影响整个系统的性能，毕竟变量变成<code>volatile</code>后即使实例化完成后，每次去对象都不去寄存器快速取出来而要去内存取。（<code>volatile</code>这个关键字坑很多，最好还是不要乱用）</p>
-</li>
-<li><p>使用<a href="https://en.wikipedia.org/wiki/Memory_barrier" target="_blank" rel="noopener">内存屏障</a>来迫使完全实例化之后再改变flag的值：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton _instance = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> bool flag = <span class="keyword">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!flag) &#123;</span><br><span class="line">            acquire_lock();</span><br><span class="line">            <span class="keyword">if</span> (!flag) &#123;</span><br><span class="line">                _instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">                memory_barrier();</span><br><span class="line">                flag = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            release_lock();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> _instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>因为有内存屏障的存在，可以保证<code>flag = true;</code>这句代码不会被编译器优化执行顺序，也就是一定会完成<code>_instance = new Singleton();</code>之后，flag变量才会变为true，所以flag就是<code>_instance</code>已经被正确初始化的标志，if直接判断flag变量即可。如果将<code>flag = true;</code>放在内存屏障前面行不行呢？那是不行的，因为可能被编译器优化之后flag变量甚至会在<code>_instance</code>正确实例化之前就被置为true。然而内存屏障也需要编译器的支持，否则可能很难使用内存屏障，甚至需要写上汇编代码。</p>
-</li>
-<li><p>最后一种是针对Java的实现，详见<a href="https://en.wikipedia.org/wiki/Initialization-on-demand_holder_idiom" target="_blank" rel="noopener">Initialization-on-demand holder idiom</a>。</p>
-</li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>上面提到的所有实现，都没有找到尽善尽美可以运行在所有平台/编译器的方式。可能最后的解决方案就是放弃懒加载，权衡性能和安全。如果我们想坚持使用懒加载同时保证线程安全，性能会因为锁的获取受到影响（<a href="#添加锁🔐">full locking</a>版本），当然还是有一点小手段可以优化——尽量减少<code>getInstance()</code>的调用次数：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 调用三次getInstance函数，也就获取了三次锁</span></span><br><span class="line">Singleton.getInstance().method1();</span><br><span class="line">Singleton.getInstance().method2();</span><br><span class="line">Singleton.getInstance().method3();</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 只调用一次getInstance函数，获取一次锁，性能更好</span></span><br><span class="line">Singleton instance = Singleton.getInstance();</span><br><span class="line">instance.method1();</span><br><span class="line">instance.method2();</span><br><span class="line">instance.method3();</span><br></pre></td></tr></table></figure>
-
-<p>虽然这并没有解决问题，但是确实可以在性能上有所提高。</p>
-<p>Singleton设计模式从来就不是一个简简单单的设计模式，在不同场景下，每一种设计模式都需要进行演变来应用，分清每一种实现的好坏，挑一种最合适业务场景的实现进行应用，这才是代码功力和业务理解能力💪。</p>
-<h1 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h1><p>violate关键字对单例的影响</p>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://taskinoor.wordpress.com/2011/04/18/singleton_multithreaded/" target="_blank" rel="noopener">墙裂推荐阅读：Singleton in multi-threaded environment</a></p>
-<p><a href="https://www.cnblogs.com/god-of-death/p/7852394.html" target="_blank" rel="noopener">C/C++ volatile关键字深度剖析</a></p>
-<p><a href="https://www.kernel.org/doc/Documentation/memory-barriers.txt" target="_blank" rel="noopener">LINUX KERNEL MEMORY BARRIERS</a></p>
-<p><a href="http://ifeve.com/disruptor-memory-barriers/" target="_blank" rel="noopener">Dissecting the Disruptor: Demystifying Memory Barriers</a></p>
-]]></content>
-      <categories>
-        <category>设计模式</category>
-      </categories>
-      <tags>
-        <tag>单例模式</tag>
-        <tag>多线程</tag>
-        <tag>代码实现</tag>
-        <tag>翻译</tag>
+        <tag>感想</tag>
       </tags>
   </entry>
   <entry>
@@ -807,45 +850,33 @@
       </tags>
   </entry>
   <entry>
-    <title>感情问题的小总结</title>
-    <url>/2019/03/29/%E6%84%9F%E6%83%85%E9%97%AE%E9%A2%98%E7%9A%84%E5%B0%8F%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>这是8个多月来我记录下的第16次较大的矛盾了，不包括一些及时解决的小问题。你懂的，大矛盾时时伴随着泪水，我的也好她的也好，我这流眼泪的次数远远大于初中+高中+大学的总和了，现在回头总结一下，其实归根到底都是一个原因：<font color="red"><strong>沟通不充分</strong></font>。</p>
-<a id="more"></a>
-
-<h3 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h3><p>回顾最近跟妹子发生的一个矛盾，事件背景是我们打算一到两个月后开始同居生活，按照想法准备找一室一厅的房子租下来，期间也到现场看过两次，矛盾的导火索是之前我同事介绍的一个房子我们都喜欢，但是最后被别人放了鸽子，因为全程都是我对接沟通的，她看起来几乎没有怎么贡献过，让我觉得她一点积极性都没有，派不上用场。</p>
-<p>当然她要反驳，毕竟我说的是有点夸张，她期间也会在app看房子，跟我讨论房子好不好，也一起商量出找房子的范围，还有跟进中介发出来的房源，被我这样说得分文不值，开心是不可能的。</p>
-<p>在我的立场，最近学习劲头特别足，我越来越不想被其他乱七八糟的事情打扰我的学习计划，但是从开始找房子到现在我都感觉是我自己lead整个流程，沟通、安排、跟进几乎都是我一个人在做，让我的怨气积累得越来越多，最后在她面前释放了出来（当然这里有个问题就是房子是我的同事介绍的，对接工作我来完成也是理所当然）。</p>
-<p>周日晚上我坐了40分钟的地铁过去找她吃饭，她提起房子被放鸽子的事情，让我的情绪和不满爆发了出来，矛盾出现之后一路上都不说话，两个人虽然并排走路，但是气氛死僵很难受，人在身边心在千里，一刻都不想呆，我有种立马想调头回去的冲动。最后一起随便吃了个沙县继续散步一点一点把压在心里的怨气互相发泄出来后矛盾才算解决了。</p>
-<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/sorrow.jpg" alt="sorrow"></p>
-<h3 id="侃大山"><a href="#侃大山" class="headerlink" title="侃大山"></a>侃大山</h3><p>矛盾不是第一次了，这么多次下来，我和她的脾性其实都已经掌握得七七八八了。我在有情绪的时候往往不喜欢说话，她也是，所以两个人都不会先挑起话匣子解决气氛问题，在这样的氛围下两个人都会十分难受，所以每次解决矛盾之前总要经历一下这样的痛苦😔，时间从十几分钟到几十分钟不等，贼蛋疼。</p>
-<p>我虽然是个男生，而且以前没有恋爱经历，然而在感情上却是一个极限容易感受到细节的人，有时候因为爱得深所以也想的多，往往就会想歪了自己伤自己，而她是认为自己没错就跟你死倔的类型，在某些时候脾气会十分暴躁，我曾经被她莫名其妙凶了一两次。怎么说都好，两个人在感情方面毕竟经验都十分有限，我是初恋，她的感情经历也没多少，所以两个处理手法极其原始的人在矛盾下往往都会手足无措只能互相生闷气，沟通不知道怎么沟通，安慰也不擅长，更加可怕的是一些很危险的时刻随便说一句话可能对方就当真然后立马翻脸。</p>
-<p>她说，很多时候我们两个人的角色仿佛互换，我更像一个女生，整天嘤嘤嘤动不动就流眼泪，她就扮演男性角色来安慰我。想不到我光明磊落堂堂猛男竟然在感情面前是这个死样🤣。我的爱情观不知道是不是特别奇怪，反正就跟其他男生不太一样吧（以下只是为了说明清楚才加上序号的，并不代表我斤斤计较）。</p>
+    <title>技术驱动？</title>
+    <url>/2019/12/03/%E6%8A%80%E6%9C%AF%E9%A9%B1%E5%8A%A8%EF%BC%9F/</url>
+    <content><![CDATA[<p>💻互联网公司招聘技术人，总喜欢自诩为技术驱动的团队，以此来吸引各路技术人才，技术驱动是什么定义？</p>
+<p>参考知乎的一个<a href="https://www.zhihu.com/question/27455407" target="_blank" rel="noopener">回答</a>：</p>
 <ol>
-<li>这个社会给男女恋爱定下来太多规则，特别是网络上一些歪歪扭扭的爱情观，凭什么男生在感情面前一定要无条件大气、包容女方？</li>
-<li>爱情讲究什么？互相付出。男生比女生付出多一些无所谓，但是为什么男生总要先付出才能获得回报，为什么一定事事都要男生主动？</li>
-<li>女生是不是看霸道总裁看狗血爱情剧多了，总爱矫情还以为这是有深度？</li>
-<li>一个劲追求浪漫？爱情与面包我选择面包，没有物质的爱情是假的。</li>
-<li><a href="https://www.zhihu.com/question/264976486" target="_blank" rel="noopener">舔狗舔到最后一无所有</a>。</li>
+<li>能自动化的东西绝对不用人堆。</li>
+<li>效率提升重过业务增长。</li>
+<li>跑得比别人快，哪怕你放开来让人抄，抄的了你的产品，抄不出你的发展速度。</li>
 </ol>
-<blockquote>
-<p>总结出来就是：男女生而平等，也许为了表现男子气概男方可以适度大气一些，但性别差异并不是一个要求男方必须得大气包容的理由。</p>
-</blockquote>
-<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/%E8%88%94%E7%8B%97-1.jpeg" alt="舔狗-1"></p>
-<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/%E8%88%94%E7%8B%97-2.jpeg" alt="舔狗-2"></p>
-<p>基于以上爱情观，偶尔在发生矛盾的时候我会被她说我小气一点都不大方，当然这句话还伤不了我，往往最伤我的是在矛盾中她时而表现的破罐子破摔的态度，比如这一次同居事件，她说我在跟她斤斤计较，那就不要同居了。她可能意识不到这话多么伤，但是为了不加深矛盾，我也就没有接着反驳什么气话，做一个男生要理智，关键一击要扛得下来，撑过去了就好了，深呼吸一口，把情绪附着在二氧化碳上从口腔中一起排出去，呼~</p>
-<p>以前的我，是一个比较享受独处的人，因为总有自己的方式可以娱乐，包括但不仅限于健身艹单双杠、打游戏、泡图书馆，工作之后一个人来到深圳，下班依然会经常锻炼健身，时不时看看书写写很low的代码，周末自己去图书馆逛逛，有时出远门到深圳其他地方感受一下，也很愉快。有了她之后，生活慢慢改变，独处的时间明显减少，爱情带来甜蜜的同时也带来了责任，意识到自己需要花时间好好珍惜维护爱情，有时候自己比较烦躁，就会把在爱情上需要投入时间这件事当成是一种负担。世界上哪里有呼之则来挥之则去的爱情，等价交换，想获得足够滋润自己一生的宝物，就得需要将自己最重要的东西<code>时间</code>投入进去，其实要考察自己是否真的爱惜一段感情，就看自己是否愿意随时投入时间去维护它就可以了。当然有些情侣相处的方式不一样，小别胜新婚，经受得了长期异地的情侣，自然也会发展处他们之间相爱的方式，这些我是真的很佩服，因为我不知道假使我和她突然长期异地，我要怎么做才能继续保持爱情的陪伴感和新鲜感。</p>
-<h3 id="银弹？"><a href="#银弹？" class="headerlink" title="银弹？"></a>银弹？</h3><p>上面瞎说了一通，下面继续瞎说。</p>
-<p>这一次矛盾的尾声，我跟她说，既然我们在发生矛盾之后都无法控制自己的情绪，要不尝试引进一些规则来硬性限制我们的行为吧？毕竟人的理性总有靠不住的时候，规则的介入可以给一个破冰的借口和处理问题的指导方针。</p>
-<p>这个被她笑话了，因为我们最终也没有得出一个能够100%可执行的方案，我能想到的也只是我们两人一人轮流一次主动解决问题，下一次发生矛盾我先说话放下尊严和情绪解决问题，下一次是她……看起来似乎很可笑🤣，先试一下吧，沟通是解决问题<code>最有效而且成本最低</code>的手段，但是难也就难在如何沟通，希望这个规则能管用。</p>
-<p>这次矛盾下来，我开始寻找一个问题的答案：<code>有没有可以解决情侣/夫妻矛盾的银弹？</code></p>
-<p>之前在豆瓣搜过一次，其中两本引起了我的兴趣：<a href="https://book.douban.com/subject/5952488/" target="_blank" rel="noopener">《亲密关系（第5版）》</a>，<a href="https://book.douban.com/subject/6052834/" target="_blank" rel="noopener">《亲密关系（克里斯多福·孟 ）》</a>，前面那本已经买下来了，最近打算认真研习一翻，希望能学习到一些手段和理念吧。</p>
-<p><strong>愿认真看完我这篇废话的人都能找到自己真正喜欢的伴侣。</strong></p>
+<p>这个知乎<a href="https://www.zhihu.com/question/312019918/answer/608965942" target="_blank" rel="noopener">回答</a>也很到位。</p>
+<p>公司可以有完备的工程师文化，内部可以崇尚技术，技术人员的数量可以占大头，但是技术最终是不能创造收益的，它需要落地到业务才有价值，它需要被应用到实际场景才能输出，技术并不是学术研究（学术研究有较强的前瞻性，但是在大范畴下，学术也是被应用目标所指导的，还不是彻底的技术驱动，只不过学术的过程更加数理逻辑化，十分硬核）。</p>
+<p>前两三年各大厂纷纷建立XX实验室，本质是希望技术可以走在业务前面，解决一些未来可预见的问题，甚至开创一个新领域，这包含很多的前沿技术研究，同时他们也要为公司积累技术影响力，吸引更好的技术人才来解决问题。但是归根到底，实验室本身也是为了业务线服务的，产出最终还是要落地到具体业务线，只是实验室可以更安静地研究技术而不必投入到一线业务，估计没有多少家公司愿意花几倍于普通工程师的钱去养活一群只看论文发论文参加学术会议的专家。</p>
+<p>现在有很多to B技术解决方案的公司，如各种安全服务、数据存储服务、虚拟环境服务、持续集成服务等，它们已经便捷到只要按照文档的说明调几个接口，甚至是在web平台上配置一下一键点击就能run，看起来好像很黑科技，你就能说他们是技术驱动的公司吗？同理，不少大公司内部同样有很多提供技术解决方案的团队，做了很多公司内部的产品平台，推广宣传时也会说用到什么什么🐂🍺的技术，你能说他们就是技术驱动的团队吗？不要忘了他们绝对会讲他们这个方案解决了什么问题！这就是他们的业务。他们做的一切其实都是在服务客户，而这个客户可能是外头真实的用户，也有可能是内部员工，只不过在提供这些服务或做这些产品时，团队可以选择更好更火更高大上的技术。</p>
+<p>技术驱动对于公司来说是不存在的，即便是世界级的Google、Apple、Facebook等。公司的本质是一个商业组织，如果认清了这一点，那么就不存在技术驱动还是产品驱动的公司了，不论是技术还是产品还是设计等，一定都是为了业务服务的，只是说在业务的后面，谁的能量发挥的更大一些而已。比如华为、阿里等不少技术大企业的文化都包含为【客户第一】，本身就说明了很多道理。</p>
+<p>对于个人来说，确实存在技术驱动，但是对于公司来说，永远都会是业务驱动。</p>
+<p>产品、技术、运营，这几块才是构成公司的主要模块。</p>
+<p>产品，设计别人想不到的创意；</p>
+<p>技术，构建起技术壁垒让别人抄不了产品；</p>
+<p>运营，让别人抄得了产品抄不了流量。</p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>思考</category>
+        <category>文化</category>
       </categories>
       <tags>
-        <tag>感想</tag>
+        <tag>技术驱动</tag>
+        <tag>文化</tag>
       </tags>
   </entry>
   <entry>
@@ -958,36 +989,6 @@
       </tags>
   </entry>
   <entry>
-    <title>技术驱动？</title>
-    <url>/2019/12/03/%E6%8A%80%E6%9C%AF%E9%A9%B1%E5%8A%A8%EF%BC%9F/</url>
-    <content><![CDATA[<p>💻公司招聘技术团队，总喜欢自诩为技术驱动的团队，以此来吸引各路技术人才，技术驱动是什么定义？</p>
-<p>参考知乎的一个<a href="https://www.zhihu.com/question/27455407" target="_blank" rel="noopener">回答</a>：</p>
-<ol>
-<li>能自动化的东西绝对不用人堆。</li>
-<li>效率提升重过业务增长。</li>
-<li>跑得比别人快，哪怕你放开来让人抄，抄的了你的产品，抄不出你的发展速度。</li>
-</ol>
-<p>这个知乎<a href="https://www.zhihu.com/question/312019918/answer/608965942" target="_blank" rel="noopener">回答</a>也很到位。</p>
-<p>公司可以有完备的工程师文化，内部可以崇尚技术，技术人员的数量可以占大头，但是技术最终是不能创造收益的，它需要落地到业务才有价值，它需要被应用到实际场景才能输出，技术并不是学术研究（学术研究有较强的前瞻性，但是在大范畴下，学术也是被应用目标所指导的，还不是彻底的技术驱动，只不过学术的过程更加数理逻辑化，十分硬核）。</p>
-<p>前两三年各大厂纷纷建立XX实验室，本质是希望技术可以走在业务前面，解决一些未来可预见的问题，甚至开创一个新领域，这包含很多的前沿技术研究，同时他们也要为公司积累技术影响力，吸引更好的技术人才来解决问题。但是归根到底，实验室本身也是为了业务线服务的，产出最终还是要落地到具体业务线，只是实验室可以更安静地研究技术而不必投入到一线业务，估计没有多少家公司愿意花几倍于普通工程师的钱去养活一群只看论文发论文参加学术会议的专家。</p>
-<p>现在有很多to B技术解决方案的公司，如各种安全服务、数据存储服务、虚拟环境服务、持续集成服务等，它们已经便捷到只要按照文档的说明调几个接口，甚至是在web平台上配置一下一键点击就能run，看起来好像很黑科技，你就能说他们是技术驱动的公司吗？同理，不少大公司内部同样有很多提供技术解决方案的团队，做了很多公司内部的产品平台，推广宣传时也会说用到什么什么🐂🍺的技术，你能说他们就是技术驱动的团队吗？不要忘了他们绝对会讲他们这个方案解决了什么问题！这就是他们的业务。他们做的一切其实都是在服务客户，而这个客户可能是外头真实的用户，也有可能是内部员工，只不过在提供这些服务或做这些产品时，团队可以选择更好更火更高大上的技术。</p>
-<p>技术驱动对于公司来说是不存在的，即便是世界级的Google、Apple、Facebook等。公司的本质是一个商业组织，如果认清了这一点，那么就不存在技术驱动还是产品驱动的公司了，不论是技术还是产品还是设计等，一定都是为了业务服务的，只是说在业务的后面，谁的能量发挥的更大一些而已。比如华为、阿里等不少技术大企业的文化都包含为【客户第一】，本身就说明了很多道理。</p>
-<p>对于个人来说，确实存在技术驱动，但是对于公司来说，永远都会是业务驱动。</p>
-<p>产品、技术、运营，这几块才是构成公司的主要模块。</p>
-<p>产品，设计别人想不到的创意；</p>
-<p>技术，构建起技术壁垒让别人抄不了产品；</p>
-<p>运营，让别人抄得了产品抄不了流量。</p>
-]]></content>
-      <categories>
-        <category>思考</category>
-        <category>文化</category>
-      </categories>
-      <tags>
-        <tag>技术驱动</tag>
-        <tag>文化</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据是万能的吗</title>
     <url>/2020/04/04/%E6%95%B0%E6%8D%AE%E6%98%AF%E4%B8%87%E8%83%BD%E7%9A%84%E5%90%97/</url>
     <content><![CDATA[<p>不久前更新了安卓微信，昨天用微信的时候突然发现表情包可以在聊天窗口里直接删除或者置顶，当真眼前一亮，我本来就是个表情包重度用户，同时还有点表情包洁癖，表情包用厌了就喜欢删删删，现在终于发现一个好的入口让我管理自己的表情包了。</p>
@@ -1005,17 +1006,47 @@
       </tags>
   </entry>
   <entry>
+    <title>文档解决什么问题</title>
+    <url>/2019/11/19/%E6%96%87%E6%A1%A3%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>📄今早组里的同事一直在问某个工具怎么用（内部的一个工具平台），这个工具对接到头条这边，目前只有三个员工有正式了解过，其他人是不知道的。而它的官方使用手册着实写得差强人意，又长又臭😂，于是花了二十分钟随手写了个科普帖子从自己的认知角度来解释该工具的作用，感觉上应该解决了大家对工具的疑问。</p>
+<p>想了想，到底什么时候需要来写文档呢？</p>
+<p>写文档的目的，本身是为了解决需要某些反复沟通反复确认的问题，因为人脑永远是不可靠的，毕竟自己写的代码，过一个月回来看就已经需要刻意去回忆和理解了，文档正是以最简单明了的方式来唤醒人的记忆，或者直接并且不丢信息地传达思想。</p>
+<p>给你一份文档你可以反复看，你可以过几天再看，反正你变着花式看都无所谓，有问题看文档，不用去打端别人的工作，这是文档的好处。</p>
+<p>可能正是因为这个原因，文档有时候会发展成一种教条。你凡是做出了什么东西，你都给我写个文档出来，我不看你做的东西是什么样的，我就看文档，我只需要通过文档去了解你的东西怎么用，有什么价值……文档提供的信息毕竟有限，希望通过文档去获取到超越文档直至整个项目的信息量，是不存在的，这就是典型的本末倒置了。</p>
+<p>记得以前一个同事说过，文档只能反映当时那一刻的状态，并不能随着项目去保持更新。这句话是对的，如果人不参与进来，文档永远只能表达项目的历史状态，创作维护文档是需要成本的。各种工作经历告诉我，RD修改了代码，是不会同步修改文档的，看文档不如看代码，看代码不如直接当面撕逼😂。同时文档还存在另外一个问题，就是它可能被一个不知情的人改坏了，或者瞧瞧把什么东西改了不通知大家，企图瞒天过海（功能有bug，我把功能文档改过来，那这就不是bug而是feature了🤔）。</p>
+<p>为了解决上面的问题，文档系统开始出现文档历史快照功能；出现文档保存的hook点一经修改就通知特定人群；开始提倡代码即文档，用代码生成文档，更新代码的时候也应该更新文档等相关理念。这些东西都让文档越来越正规化，但是他们并没有增加文档的价值，只是在保持文档的价值不被各种骚操作抵消。</p>
+<p>好像已经严重偏题了……</p>
+<p>那什么时候需要写文档呢？</p>
+<ol>
+<li>项目前期沟通，将想法落地成可阅读可理解的文档，这样才具备多人可讨论性。</li>
+<li>项目稳定时，应该把稳定的部分抽取出来整理成文档减少沟通成本。</li>
+<li>需要大面积沟通同步时，传阅文档应该比开群会效果更好。</li>
+<li>文档可以提前梳理好各种疑问，有时候比口头更加全面一点。</li>
+<li>已经确认拍版的结论，最好让它变成文档成为证据。</li>
+</ol>
+<p>文档永远是个灵活的东西，不要给它的使用场景设限……</p>
+<p>但是切记文档与手册的区别，就像书籍也分精读书、略读书、工具书一样，文档如果过大过全失去重点，也就失去了它本身的意义，甚至没有人再愿意提前阅读它。</p>
+]]></content>
+      <categories>
+        <category>思考</category>
+        <category>流程</category>
+      </categories>
+      <tags>
+        <tag>文档</tag>
+        <tag>流程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>程序可测性</title>
     <url>/2019/12/06/%E7%A8%8B%E5%BA%8F%E5%8F%AF%E6%B5%8B%E6%80%A7/</url>
-    <content><![CDATA[<p>什么是可测性？我的理解，可测性可以指代一个功能的测试切入点、验证点的多与寡，测试过程的简单与复杂。</p>
-<p>测试切入点简单点说，就是能否更加全面地掌控数据的流转，举个例子，现有有一个类要测试，整个类</p>
-<p>只给你暴露一个接口，你只能针对这一个接口给它输入验证它的输出，除此之外你无法获取更多信息，你不知道数据运算中间状态对不对、不知道过程有没有异常被错误捕捉、不知道数据有无完整落盘、不知道资源消耗是否不符预期……尤其是中间出现ABA的问题，是完全无法辨别的。这就是一个十分没有可测性的例子，是测试切入点太少。</p>
-<p>再举个例子，如果测试一个功能，你通过N步前置操作终于触发了这个功能，此时你还需要N步操作才能去验证这个功能是否正确，然而这个只是一个比较简单的功能，没有包含太多的复杂流程逻辑，那也是没有可测性，这是测试过程过于复杂。</p>
+    <content><![CDATA[<p>什么是可测性？我的理解，可测性可以指代一个功能的测试切入点的多与寡，测试过程的简单与复杂。</p>
+<p>测试切入点简单点说，就是能否更加全面地掌控数据的流转，举个例子，现有有一个类要测试，整个类只给你暴露一个接口，只能针对这一个接口给它输入验证它的输出，除此之外你无法获取更多信息，你不知道数据运算中间状态对不对、不知道过程有没有异常被错误捕捉、不知道数据有无完整落盘、不知道资源消耗是否符合预期……尤其是中间出现<a href="https://juejin.im/post/5c87afa06fb9a049f1550b04" target="_blank" rel="noopener">ABA问题</a>，是完全无法辨别的。这就是一个十分没有可测性的例子，测试切入点太少。</p>
+<p>再举个例子，如果测试一个功能，你通过N步前置操作终于触发了这个功能，此时你还需要N步操作才能去验证这个功能是否正确，尤其是被测对象还只是个简单的功能，没有包复杂流程逻辑，那也是没有可测性，测试过程过于复杂不可操作。</p>
 <p>其实上面说的，都可以叫测试手段。不同的需求会导致不同的产品形态，不同的产品形态又会有不同的测试手段，测试手段的多与少就会影响可测性。</p>
-<p>改一下，对于一开始的那个类，如果它从只暴露单一接口改为提供多个debug接口，或者拆包让我们自己调用中间过程，或者提供了详细日志跟踪中间状态，可测性就有明显提高，这就是增加测试切入点；如果还是只暴露单一接口，有了自动化框架只需要简单添加配置文件就能自动灌数据验证结果，这就是降低测试过程复杂度。</p>
-<p>QA拿到测试需求，在了解完需求背景和功能点后，最先要明白的就是可测性，尽量在case评审之前摆平可测性低的问题，这样测试过程才流畅。所以，反过来往往需要我们在case编写时就对被测对象有清晰的了解，才知道要怎么测它，而不是模模糊糊只有个概念，或者到了评审完case真正开始测试时发现不少case因为自己不了解细节而写得不到位（必须要抛弃觉得RD会指出case遗漏的侥幸心理）。</p>
+<p>改一下，对于一开始的那个类，如果它从只暴露单一接口改为提供多个debug接口，或者拆分过程让我们自己调用中间过程，或者提供了详细日志跟踪中间状态，可测性就有明显提高，这就是增加测试切入点；如果还是只暴露单一接口，有了自动化框架只需要简单添加配置文件就能自动灌数据自动验证结果，或者提前mock好数据一键跑起在界面上直接看到返回结果，这就是降低测试过程复杂度。</p>
+<p>QA拿到测试需求，在了解完需求背景和功能点后，最先要明白的就是可测性，尽量在case评审之前摆平可测性低的问题，这样测试过程就会流畅。所以，反过来往往需要我们在case编写时就对被测对象有清晰的了解，才知道要怎么测它，而不是模模糊糊只有个概念，或者到了评审完case真正开始测试时发现不少case因为自己不了解细节而写得不到位（觉得RD会指出case遗漏点的侥幸心理必须要抛弃）。</p>
 <p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/wangjinze_test.gif" alt="不测完我不吃饭"></p>
-<p>当然可测性还有更多的拓展意义，比如文档友好、接口清晰、模块解耦、数据可控blabla，某种感觉上是<strong>软件工程在QA视角的映射</strong>。</p>
+<p>当然可测性还有更多的拓展意义，比如文档友好、接口清晰、模块解耦、数据可控blabla，甚至可以反过来指导RD编写具备可测性的代码，存在有效的中间过程记录，复杂流程适度拆分，让功能模块之间尽量做到职责单一，某种感觉上是<strong>软件工程在QA视角的映射</strong>。</p>
 ]]></content>
       <categories>
         <category>测试</category>
@@ -1198,6 +1229,22 @@
       </tags>
   </entry>
   <entry>
+    <title>转测流程</title>
+    <url>/2019/11/20/%E8%BD%AC%E6%B5%8B%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<p>以前的团队推的流程是一轮一轮的测试，举个例子，提前写好了30个case，第一轮先把30个case执行一遍，然后就有相应的bug出来，case哪些pass哪些fail，以邮件的形式通知相关人士结束第一轮测试，RD此时去统一修复bug，再次转测QA继续对接……</p>
+<p>这样的流程显然是又笨又重的，它假设了RD不能灵活支持bug解决，并且QA可以短时间内完成case执行。如果QA把case执行一轮的周期从一个早上变成一天甚至两天，那这个流程对于项目进度来说简直是毁灭性的，并且在RD统一修bug的时候，QA将会无事可做。这种流程大概只适合在需求被拆分得很小的情况下才能有效率地开展。 </p>
+<p>目前团队在推流程，需求沟通期QA都需要参与进去，然而（貌似）并没有机会参加详细设计评审，也不知道RD内部有没有这种正式评审。QA对于需求具体实现的疑惑，就会推迟到case评审甚至是测试执行的阶段才会暴露出来，增加了这两个阶段的沟通耗时和case返修量（往往在case评审里RD也不会很认真），不测试到一些细节将问题暴露出来时根本不知道RD的实现方式，这本身就是一个测试风险，会拖长测试周期。我个人觉得详细设计评审对QA很重要，除非只想停留在黑盒层面测试，但是这里的团队没有详细设计流程，比较可惜，可能跟UI需求数量大无需做重评审有很大关系。</p>
+<p>转测流程的推行，我觉得除了规范操作外，一个更重要的作用在于保护QA，让QA可以腾出更多的时间于业务测试之外，建设更多的质量保障工程。QA规范了流程保护了自己，踩低级坑所消耗的时间就去到了RD和PM身上，也就是为什么QA喜欢拥护流程并主导流程建设，RD和PM多数是配合。</p>
+<p>当然，转测流程特指的是QA与RD、PM的合作关系，而RD与PM之间一般也存在需求流程，不过总体来说消耗更多时间的部分还是在QA测试这一块，所以RD与PM之间的流程往往不需要刻意地去建设也能轻松运转起来。</p>
+<p>流程之所以存在，之所以有必要，是为了组织团队的运转可以是高效的，一般流程在刚施行的时候需要理解成本，这里需要一波推动力，当流程良好run起来之后，组织就已经可以内部自动维护这个流程了，也就是当流程深入人心的时候每个人都会是流程的拥护者。</p>
+<p>然而实际上除了【要推动什么流程】外，【怎么去推动流程】也是一个难点，梳理一套流程，业界大把大把的方案可以参考，但是要怎么推动流程，为了让流程顺下去要配套什么样的工具链，各个环节如何打通使得每个信息孤岛串联在一起，我觉得这才是更难的问题。</p>
+]]></content>
+      <categories>
+        <category>思考</category>
+        <category>流程</category>
+      </categories>
+  </entry>
+  <entry>
     <title>阅读代码小感</title>
     <url>/2019/11/24/%E9%98%85%E8%AF%BB%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%84%9F/</url>
     <content><![CDATA[<p>📚入职几周以来主要对接了两个技术需求，为了测试两个技术需求（当然也为了满足我的好奇心），有去看过他们的一些代码。第一个需求是个sdk，跟头条app相对独立，所以代码看得比较轻松，第二个需求是一个二期技术需求，还得把一期的一些代码甚至头条app的一些基础lib了解一下，看得就比较广，印象浅。</p>
@@ -1250,52 +1297,5 @@
         <tag>白盒</tag>
         <tag>源码阅读</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>文档解决什么问题</title>
-    <url>/2019/11/19/%E6%96%87%E6%A1%A3%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>📄今早组里的同事一直在问某个工具怎么用（内部的一个工具平台），这个工具对接到头条这边，目前只有三个员工有正式了解过，其他人是不知道的。而它的官方使用手册着实写得差强人意，又长又臭😂，于是花了二十分钟随手写了个科普帖子从自己的认知角度来解释该工具的作用，感觉上应该解决了大家对工具的疑问。</p>
-<p>想了想，到底什么时候需要来写文档呢？</p>
-<p>写文档的目的，本身是为了解决需要某些反复沟通反复确认的问题，因为人脑永远是不可靠的，毕竟自己写的代码，过一个月回来看就已经需要刻意去回忆和理解了，文档正是以最简单明了的方式来唤醒人的记忆，或者直接并且不丢信息地传达思想。</p>
-<p>给你一份文档你可以反复看，你可以过几天再看，反正你变着花式看都无所谓，有问题看文档，不用去打端别人的工作，这是文档的好处。</p>
-<p>可能正是因为这个原因，文档有时候会发展成一种教条。你凡是做出了什么东西，你都给我写个文档出来，我不看你做的东西是什么样的，我就看文档，我只需要通过文档去了解你的东西怎么用，有什么价值……文档提供的信息毕竟有限，希望通过文档去获取到超越文档直至整个项目的信息量，是不存在的，这就是典型的本末倒置了。</p>
-<p>记得以前一个同事说过，文档只能反映当时那一刻的状态，并不能随着项目去保持更新。这句话是对的，如果人不参与进来，文档永远只能表达项目的历史状态，创作维护文档是需要成本的。各种工作经历告诉我，RD修改了代码，是不会同步修改文档的，看文档不如看代码，看代码不如直接当面撕逼😂。同时文档还存在另外一个问题，就是它可能被一个不知情的人改坏了，或者瞧瞧把什么东西改了不通知大家，企图瞒天过海（功能有bug，我把功能文档改过来，那这就不是bug而是feature了🤔）。</p>
-<p>为了解决上面的问题，文档系统开始出现文档历史快照功能；出现文档保存的hook点一经修改就通知特定人群；开始提倡代码即文档，用代码生成文档，更新代码的时候也应该更新文档等相关理念。这些东西都让文档越来越正规化，但是他们并没有增加文档的价值，只是在保持文档的价值不被各种骚操作抵消。</p>
-<p>好像已经严重偏题了……</p>
-<p>那什么时候需要写文档呢？</p>
-<ol>
-<li>项目前期沟通，将想法落地成可阅读可理解的文档，这样才具备多人可讨论性。</li>
-<li>项目稳定时，应该把稳定的部分抽取出来整理成文档减少沟通成本。</li>
-<li>需要大面积沟通同步时，传阅文档应该比开群会效果更好。</li>
-<li>文档可以提前梳理好各种疑问，有时候比口头更加全面一点。</li>
-<li>已经确认拍版的结论，最好让它变成文档成为证据。</li>
-</ol>
-<p>文档永远是个灵活的东西，不要给它的使用场景设限……</p>
-<p>但是切记文档与手册的区别，就像书籍也分精读书、略读书、工具书一样，文档如果过大过全失去重点，也就失去了它本身的意义，甚至没有人再愿意提前阅读它。</p>
-]]></content>
-      <categories>
-        <category>思考</category>
-        <category>流程</category>
-      </categories>
-      <tags>
-        <tag>文档</tag>
-        <tag>流程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>转测流程</title>
-    <url>/2019/11/20/%E8%BD%AC%E6%B5%8B%E6%B5%81%E7%A8%8B/</url>
-    <content><![CDATA[<p>以前的团队推的流程是一轮一轮的测试，举个例子，提前写好了30个case，第一轮先把30个case执行一遍，然后就有相应的bug出来，case哪些pass哪些fail，以邮件的形式通知相关人士结束第一轮测试，RD此时去统一修复bug，再次转测QA继续对接……</p>
-<p>这样的流程显然是又笨又重的，它假设了RD不能灵活支持bug解决，并且QA可以短时间内完成case执行。如果QA把case执行一轮的周期从一个早上变成一天甚至两天，那这个流程对于项目进度来说简直是毁灭性的，并且在RD统一修bug的时候，QA将会无事可做。这种流程大概只适合在需求被拆分得很小的情况下才能有效率地开展。 </p>
-<p>目前团队在推流程，需求沟通期QA都需要参与进去，然而（貌似）并没有机会参加详细设计评审，也不知道RD内部有没有这种正式评审。QA对于需求具体实现的疑惑，就会推迟到case评审甚至是测试执行的阶段才会暴露出来，增加了这两个阶段的沟通耗时和case返修量（往往在case评审里RD也不会很认真），不测试到一些细节将问题暴露出来时根本不知道RD的实现方式，这本身就是一个测试风险，会拖长测试周期。我个人觉得详细设计评审对QA很重要，除非只想停留在黑盒层面测试，但是这里的团队没有详细设计流程，比较可惜，可能跟UI需求数量大无需做重评审有很大关系。</p>
-<p>转测流程的推行，我觉得除了规范操作外，一个更重要的作用在于保护QA，让QA可以腾出更多的时间于业务测试之外，建设更多的质量保障工程。QA规范了流程保护了自己，踩低级坑所消耗的时间就去到了RD和PM身上，也就是为什么QA喜欢拥护流程并主导流程建设，RD和PM多数是配合。</p>
-<p>当然，转测流程特指的是QA与RD、PM的合作关系，而RD与PM之间一般也存在需求流程，不过总体来说消耗更多时间的部分还是在QA测试这一块，所以RD与PM之间的流程往往不需要刻意地去建设也能轻松运转起来。</p>
-<p>流程之所以存在，之所以有必要，是为了组织团队的运转可以是高效的，一般流程在刚施行的时候需要理解成本，这里需要一波推动力，当流程良好run起来之后，组织就已经可以内部自动维护这个流程了，也就是当流程深入人心的时候每个人都会是流程的拥护者。</p>
-<p>然而实际上除了【要推动什么流程】外，【怎么去推动流程】也是一个难点，梳理一套流程，业界大把大把的方案可以参考，但是要怎么推动流程，为了让流程顺下去要配套什么样的工具链，各个环节如何打通使得每个信息孤岛串联在一起，我觉得这才是更难的问题。</p>
-]]></content>
-      <categories>
-        <category>思考</category>
-        <category>流程</category>
-      </categories>
   </entry>
 </search>
