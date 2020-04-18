@@ -44,7 +44,7 @@
     <link href="https://zingphoy.github.io/2020/04/05/%E6%88%91%E7%9A%842020%E6%80%BB%E7%BB%93/"/>
     <id>https://zingphoy.github.io/2020/04/05/我的2020总结/</id>
     <published>2020-04-05T10:46:30.000Z</published>
-    <updated>2020-04-06T10:42:27.235Z</updated>
+    <updated>2020-04-18T16:45:00.173Z</updated>
     
     <summary type="html">
     
@@ -72,7 +72,7 @@
     <link href="https://zingphoy.github.io/2020/04/04/%E6%95%B0%E6%8D%AE%E6%98%AF%E4%B8%87%E8%83%BD%E7%9A%84%E5%90%97/"/>
     <id>https://zingphoy.github.io/2020/04/04/数据是万能的吗/</id>
     <published>2020-04-04T04:30:00.000Z</published>
-    <updated>2020-04-06T16:14:26.832Z</updated>
+    <updated>2020-04-18T16:47:21.508Z</updated>
     
     <summary type="html">
     
@@ -87,12 +87,10 @@
     
     </summary>
     
-      <category term="思考" scheme="https://zingphoy.github.io/categories/%E6%80%9D%E8%80%83/"/>
-    
-      <category term="产品" scheme="https://zingphoy.github.io/categories/%E6%80%9D%E8%80%83/%E4%BA%A7%E5%93%81/"/>
+      <category term="产品" scheme="https://zingphoy.github.io/categories/%E4%BA%A7%E5%93%81/"/>
     
     
-      <category term="产品" scheme="https://zingphoy.github.io/tags/%E4%BA%A7%E5%93%81/"/>
+      <category term="思考" scheme="https://zingphoy.github.io/tags/%E6%80%9D%E8%80%83/"/>
     
   </entry>
   
@@ -101,7 +99,7 @@
     <link href="https://zingphoy.github.io/2020/03/26/Code-review%E7%9A%84%E6%80%9D%E8%80%83/"/>
     <id>https://zingphoy.github.io/2020/03/26/Code-review的思考/</id>
     <published>2020-03-26T04:30:00.000Z</published>
-    <updated>2020-04-06T16:15:01.500Z</updated>
+    <updated>2020-04-18T16:48:15.293Z</updated>
     
     <summary type="html">
     
@@ -115,12 +113,14 @@
     
     </summary>
     
-      <category term="思考" scheme="https://zingphoy.github.io/categories/%E6%80%9D%E8%80%83/"/>
-    
-      <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%80%9D%E8%80%83/%E6%B5%8B%E8%AF%95/"/>
+      <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
       <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
+    
+      <category term="测试" scheme="https://zingphoy.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
     
   </entry>
   
@@ -129,7 +129,7 @@
     <link href="https://zingphoy.github.io/2020/02/20/%E4%B8%AA%E4%BA%BA%E7%9B%AE%E6%A0%87%E7%AE%A1%E7%90%86/"/>
     <id>https://zingphoy.github.io/2020/02/20/个人目标管理/</id>
     <published>2020-02-20T14:26:17.000Z</published>
-    <updated>2020-04-06T14:36:43.701Z</updated>
+    <updated>2020-04-18T11:06:07.306Z</updated>
     
     <summary type="html">
     
@@ -137,7 +137,7 @@
       
         
         
-          &lt;p&gt;最近任务接得比较多，甚至交了一些智商税浪费了大半天做一件吃力不讨好的事情，由此引发了一些对个人进度管理的思考。日常工作听到的更多是团队的项目管理，网上有大把的文章介绍方法论、工具、计划模板，依葫芦画瓢我也能学来一点手段，但似乎总是没法get到实在的点，这个星期的经历似乎有所
+          &lt;p&gt;最近任务接得比较多，甚至交了智商税浪费了大半天做一件吃力不讨好的事情，由此引发出对个人进度管理的思考。日常工作接触到更多的是团队目标管理，网上有大把的文章介绍团队管理方法论、工具、计划模板，依葫芦画瓢我也能学来一点手段，但似乎总是没法get到实在的点，这个星期的经历似乎有所
         
       
     
@@ -157,7 +157,7 @@
     <link href="https://zingphoy.github.io/2020/01/22/%E4%BA%A7%E5%93%81%E5%B0%8F%E6%84%9F/"/>
     <id>https://zingphoy.github.io/2020/01/22/产品小感/</id>
     <published>2020-01-21T16:17:12.000Z</published>
-    <updated>2020-04-07T15:28:00.848Z</updated>
+    <updated>2020-04-18T11:02:55.577Z</updated>
     
     <summary type="html">
     
@@ -172,12 +172,12 @@
     
     </summary>
     
-      <category term="思考" scheme="https://zingphoy.github.io/categories/%E6%80%9D%E8%80%83/"/>
-    
-      <category term="产品" scheme="https://zingphoy.github.io/categories/%E6%80%9D%E8%80%83/%E4%BA%A7%E5%93%81/"/>
+      <category term="产品" scheme="https://zingphoy.github.io/categories/%E4%BA%A7%E5%93%81/"/>
     
     
       <category term="产品" scheme="https://zingphoy.github.io/tags/%E4%BA%A7%E5%93%81/"/>
+    
+      <category term="认知" scheme="https://zingphoy.github.io/tags/%E8%AE%A4%E7%9F%A5/"/>
     
   </entry>
   
@@ -186,7 +186,7 @@
     <link href="https://zingphoy.github.io/2019/12/15/%E4%BD%A0%E7%9A%84%E9%9C%80%E6%B1%82%E6%98%AF%E4%BB%80%E4%B9%88/"/>
     <id>https://zingphoy.github.io/2019/12/15/你的需求是什么/</id>
     <published>2019-12-15T04:30:00.000Z</published>
-    <updated>2020-04-06T16:15:38.813Z</updated>
+    <updated>2020-04-18T16:47:03.407Z</updated>
     
     <summary type="html">
     
@@ -194,29 +194,29 @@
       
         
         
-          &lt;p&gt;以前遇到过一些RD，喜欢上来就问：你现在的需求是什么？&lt;/p&gt;
-&lt;p&gt;我不太明白ta说的这句话，是为了提高沟通效率，引导话题到正确的方向上去？还是单纯只是想知道自己需要干一些什么，省得还要动脑？&lt;/p&gt;
-&lt;p&gt;在现实世界，除非是pm给提需求，事先梳理得清清楚楚明明白白，否则
+          &lt;p&gt;遇到过一些RD，喜欢上来就问：你现在的需求是什么？&lt;/p&gt;
+&lt;p&gt;我不太明白ta说的这句话，是为了提高沟通效率，引导话题到正确的方向上去？还是单纯只是想知道自己需要干一些什么，省得去动脑思考协商？&lt;/p&gt;
+&lt;p&gt;&lt;img
         
       
     
     </summary>
     
-      <category term="思考" scheme="https://zingphoy.github.io/categories/%E6%80%9D%E8%80%83/"/>
-    
-      <category term="合作" scheme="https://zingphoy.github.io/categories/%E6%80%9D%E8%80%83/%E5%90%88%E4%BD%9C/"/>
+      <category term="合作" scheme="https://zingphoy.github.io/categories/%E5%90%88%E4%BD%9C/"/>
     
     
-      <category term="产品" scheme="https://zingphoy.github.io/tags/%E4%BA%A7%E5%93%81/"/>
+      <category term="需求" scheme="https://zingphoy.github.io/tags/%E9%9C%80%E6%B1%82/"/>
+    
+      <category term="思考" scheme="https://zingphoy.github.io/tags/%E6%80%9D%E8%80%83/"/>
     
   </entry>
   
   <entry>
-    <title>QA要看代码吗？</title>
-    <link href="https://zingphoy.github.io/2019/12/12/QA%E8%A6%81%E7%9C%8B%E4%BB%A3%E7%A0%81%E5%90%97%EF%BC%9F/"/>
-    <id>https://zingphoy.github.io/2019/12/12/QA要看代码吗？/</id>
+    <title>QA要看代码吗</title>
+    <link href="https://zingphoy.github.io/2019/12/12/QA%E8%A6%81%E7%9C%8B%E4%BB%A3%E7%A0%81%E5%90%97/"/>
+    <id>https://zingphoy.github.io/2019/12/12/QA要看代码吗/</id>
     <published>2019-12-12T04:30:00.000Z</published>
-    <updated>2020-04-06T15:57:36.991Z</updated>
+    <updated>2020-04-18T16:47:45.446Z</updated>
     
     <summary type="html">
     
@@ -232,12 +232,12 @@
     
     </summary>
     
-      <category term="思考" scheme="https://zingphoy.github.io/categories/%E6%80%9D%E8%80%83/"/>
-    
-      <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%80%9D%E8%80%83/%E6%B5%8B%E8%AF%95/"/>
+      <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
       <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
+    
+      <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
     
   </entry>
   
@@ -246,7 +246,7 @@
     <link href="https://zingphoy.github.io/2019/12/06/%E7%A8%8B%E5%BA%8F%E5%8F%AF%E6%B5%8B%E6%80%A7/"/>
     <id>https://zingphoy.github.io/2019/12/06/程序可测性/</id>
     <published>2019-12-06T04:30:48.000Z</published>
-    <updated>2020-04-07T15:44:46.748Z</updated>
+    <updated>2020-04-18T11:02:54.130Z</updated>
     
     <summary type="html">
     
@@ -263,10 +263,10 @@
     
       <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="软件工程" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
-    
     
       <category term="可测性" scheme="https://zingphoy.github.io/tags/%E5%8F%AF%E6%B5%8B%E6%80%A7/"/>
+    
+      <category term="软件工程" scheme="https://zingphoy.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
     
   </entry>
   
@@ -275,7 +275,7 @@
     <link href="https://zingphoy.github.io/2019/12/03/%E6%8A%80%E6%9C%AF%E9%A9%B1%E5%8A%A8%EF%BC%9F/"/>
     <id>https://zingphoy.github.io/2019/12/03/技术驱动？/</id>
     <published>2019-12-03T04:30:36.000Z</published>
-    <updated>2020-04-07T15:45:34.647Z</updated>
+    <updated>2020-04-18T14:41:43.711Z</updated>
     
     <summary type="html">
     
@@ -290,14 +290,12 @@
     
     </summary>
     
-      <category term="思考" scheme="https://zingphoy.github.io/categories/%E6%80%9D%E8%80%83/"/>
+      <category term="文化" scheme="https://zingphoy.github.io/categories/%E6%96%87%E5%8C%96/"/>
     
-      <category term="文化" scheme="https://zingphoy.github.io/categories/%E6%80%9D%E8%80%83/%E6%96%87%E5%8C%96/"/>
     
+      <category term="思考" scheme="https://zingphoy.github.io/tags/%E6%80%9D%E8%80%83/"/>
     
       <category term="技术驱动" scheme="https://zingphoy.github.io/tags/%E6%8A%80%E6%9C%AF%E9%A9%B1%E5%8A%A8/"/>
-    
-      <category term="文化" scheme="https://zingphoy.github.io/tags/%E6%96%87%E5%8C%96/"/>
     
   </entry>
   
@@ -306,7 +304,7 @@
     <link href="https://zingphoy.github.io/2019/11/24/%E9%98%85%E8%AF%BB%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%84%9F/"/>
     <id>https://zingphoy.github.io/2019/11/24/阅读代码小感/</id>
     <published>2019-11-24T04:30:00.000Z</published>
-    <updated>2020-04-06T14:51:34.146Z</updated>
+    <updated>2020-04-18T16:43:15.808Z</updated>
     
     <summary type="html">
     
@@ -320,12 +318,12 @@
     
     </summary>
     
-      <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="源码" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/%E6%BA%90%E7%A0%81/"/>
+      <category term="源码" scheme="https://zingphoy.github.io/categories/%E6%BA%90%E7%A0%81/"/>
     
     
       <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
+    
+      <category term="测试" scheme="https://zingphoy.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
     
       <category term="源码阅读" scheme="https://zingphoy.github.io/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
     
@@ -336,7 +334,7 @@
     <link href="https://zingphoy.github.io/2019/11/20/%E8%BD%AC%E6%B5%8B%E6%B5%81%E7%A8%8B/"/>
     <id>https://zingphoy.github.io/2019/11/20/转测流程/</id>
     <published>2019-11-20T04:30:00.000Z</published>
-    <updated>2020-04-06T14:47:47.414Z</updated>
+    <updated>2020-04-18T16:44:50.265Z</updated>
     
     <summary type="html">
     
@@ -351,10 +349,10 @@
     
     </summary>
     
-      <category term="思考" scheme="https://zingphoy.github.io/categories/%E6%80%9D%E8%80%83/"/>
+      <category term="流程" scheme="https://zingphoy.github.io/categories/%E6%B5%81%E7%A8%8B/"/>
     
-      <category term="流程" scheme="https://zingphoy.github.io/categories/%E6%80%9D%E8%80%83/%E6%B5%81%E7%A8%8B/"/>
     
+      <category term="流程" scheme="https://zingphoy.github.io/tags/%E6%B5%81%E7%A8%8B/"/>
     
   </entry>
   
@@ -363,7 +361,7 @@
     <link href="https://zingphoy.github.io/2019/11/19/%E6%96%87%E6%A1%A3%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98/"/>
     <id>https://zingphoy.github.io/2019/11/19/文档解决什么问题/</id>
     <published>2019-11-19T14:37:58.000Z</published>
-    <updated>2020-04-06T14:42:11.843Z</updated>
+    <updated>2020-04-18T16:35:48.069Z</updated>
     
     <summary type="html">
     
@@ -371,20 +369,18 @@
       
         
         
-          &lt;p&gt;📄今早组里的同事一直在问某个工具怎么用（内部的一个工具平台），这个工具对接到头条这边，目前只有三个员工有正式了解过，其他人是不知道的。而它的官方使用手册着实写得差强人意，又长又臭😂，于是花了二十分钟随手写了个科普帖子从自己的认知角度来解释该工具的作用，感觉上应该解决了大
+          &lt;p&gt;📄今早组里的同事一直在问某个工具怎么用（内部的一个工具平台），这个工具对接到头条这边，目前只有三个员工有正式了解过，其他人是不知道的。工具的官方使用手册也着实写得差强人意，又长又臭😂，于是花了二十分钟写个科普文档从自己的认知角度来解释工具的作用，解决大家对工具的疑问。&lt;
         
       
     
     </summary>
     
-      <category term="思考" scheme="https://zingphoy.github.io/categories/%E6%80%9D%E8%80%83/"/>
+      <category term="流程" scheme="https://zingphoy.github.io/categories/%E6%B5%81%E7%A8%8B/"/>
     
-      <category term="流程" scheme="https://zingphoy.github.io/categories/%E6%80%9D%E8%80%83/%E6%B5%81%E7%A8%8B/"/>
     
+      <category term="思考" scheme="https://zingphoy.github.io/tags/%E6%80%9D%E8%80%83/"/>
     
       <category term="文档" scheme="https://zingphoy.github.io/tags/%E6%96%87%E6%A1%A3/"/>
-    
-      <category term="流程" scheme="https://zingphoy.github.io/tags/%E6%B5%81%E7%A8%8B/"/>
     
   </entry>
   
@@ -393,7 +389,7 @@
     <link href="https://zingphoy.github.io/2019/06/30/DIY%E8%A3%85%E6%9C%BA%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AE-cpu%E7%AF%87/"/>
     <id>https://zingphoy.github.io/2019/06/30/DIY装机小白科普-cpu篇/</id>
     <published>2019-06-30T02:00:00.000Z</published>
-    <updated>2020-04-06T14:44:41.711Z</updated>
+    <updated>2020-04-18T16:44:24.756Z</updated>
     
     <summary type="html">
     
@@ -413,16 +409,14 @@
     
     </summary>
     
-      <category term="DIY" scheme="https://zingphoy.github.io/categories/DIY/"/>
-    
-      <category term="科普" scheme="https://zingphoy.github.io/categories/DIY/%E7%A7%91%E6%99%AE/"/>
+      <category term="科普" scheme="https://zingphoy.github.io/categories/%E7%A7%91%E6%99%AE/"/>
     
     
       <category term="装机" scheme="https://zingphoy.github.io/tags/%E8%A3%85%E6%9C%BA/"/>
     
       <category term="电脑配件" scheme="https://zingphoy.github.io/tags/%E7%94%B5%E8%84%91%E9%85%8D%E4%BB%B6/"/>
     
-      <category term="科普" scheme="https://zingphoy.github.io/tags/%E7%A7%91%E6%99%AE/"/>
+      <category term="DIY" scheme="https://zingphoy.github.io/tags/DIY/"/>
     
   </entry>
   
@@ -431,7 +425,7 @@
     <link href="https://zingphoy.github.io/2019/06/11/%E8%AE%B0%E4%B8%80%E6%AC%A1e3%E8%A3%85%E6%9C%BA%E5%BF%83%E5%BE%97/"/>
     <id>https://zingphoy.github.io/2019/06/11/记一次e3装机心得/</id>
     <published>2019-06-11T15:00:00.000Z</published>
-    <updated>2020-04-06T14:44:47.463Z</updated>
+    <updated>2020-04-18T14:41:57.212Z</updated>
     
     <summary type="html">
     
@@ -441,14 +435,14 @@
     
     </summary>
     
-      <category term="DIY" scheme="https://zingphoy.github.io/categories/DIY/"/>
-    
-      <category term="科普" scheme="https://zingphoy.github.io/categories/DIY/%E7%A7%91%E6%99%AE/"/>
+      <category term="科普" scheme="https://zingphoy.github.io/categories/%E7%A7%91%E6%99%AE/"/>
     
     
       <category term="装机" scheme="https://zingphoy.github.io/tags/%E8%A3%85%E6%9C%BA/"/>
     
       <category term="电脑配件" scheme="https://zingphoy.github.io/tags/%E7%94%B5%E8%84%91%E9%85%8D%E4%BB%B6/"/>
+    
+      <category term="DIY" scheme="https://zingphoy.github.io/tags/DIY/"/>
     
       <category term="图拉丁" scheme="https://zingphoy.github.io/tags/%E5%9B%BE%E6%8B%89%E4%B8%81/"/>
     
@@ -516,7 +510,7 @@
     <link href="https://zingphoy.github.io/2019/03/29/%E6%84%9F%E6%83%85%E9%97%AE%E9%A2%98%E7%9A%84%E5%B0%8F%E6%80%BB%E7%BB%93/"/>
     <id>https://zingphoy.github.io/2019/03/29/感情问题的小总结/</id>
     <published>2019-03-29T12:04:01.000Z</published>
-    <updated>2020-04-06T11:01:43.811Z</updated>
+    <updated>2020-04-18T11:03:11.064Z</updated>
     
     <summary type="html">
     
@@ -527,7 +521,7 @@
       <category term="生活" scheme="https://zingphoy.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="感想" scheme="https://zingphoy.github.io/tags/%E6%84%9F%E6%83%B3/"/>
+      <category term="感情" scheme="https://zingphoy.github.io/tags/%E6%84%9F%E6%83%85/"/>
     
   </entry>
   
