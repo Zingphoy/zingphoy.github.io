@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    转测流程 |  Zingphoy
+    提测流程 |  Zingphoy
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -59,7 +59,7 @@ var _hmt = _hmt || [];
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-转测流程" class="article article-type-post" itemscope
+  <article id="post-提测流程" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -67,7 +67,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  转测流程
+  提测流程
 </h1>
  
 
@@ -76,7 +76,7 @@ var _hmt = _hmt || [];
 
     
     <div class="article-meta">
-      <a href="/2019/11/20/转测流程/" class="article-date">
+      <a href="/2019/11/20/提测流程/" class="article-date">
   <time datetime="2019-11-20T04:30:00.000Z" itemprop="datePublished">2019-11-20</time>
 </a>
       
@@ -91,7 +91,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">867</span>
+            <span class="post-count">856</span>
         </span>
     </span>
 
@@ -124,9 +124,9 @@ var _hmt = _hmt || [];
 
       
       <p>以前的团队推的流程是一轮一轮的测试，举个例子，提前写好了30个case，第一轮先把30个case执行一遍，然后就有相应的bug出来，case哪些pass哪些fail，以邮件的形式通知相关人士结束第一轮测试，RD此时去统一修复bug，再次转测QA继续对接……</p>
-<p>这样的流程显然是又笨又重的，它假设了RD不能灵活支持bug解决，并且QA可以短时间内完成case执行。如果QA把case执行一轮的周期从一个早上变成一天甚至两天，那这个流程对于项目进度来说简直是毁灭性的，并且在RD统一修bug的时候，QA将会无事可做。这种流程大概只适合在需求被拆分得很小的情况下才能有效率地开展。 </p>
-<p>目前团队在推流程，需求沟通期QA都需要参与进去，然而（貌似）并没有机会参加详细设计评审，也不知道RD内部有没有这种正式评审。QA对于需求具体实现的疑惑，就会推迟到case评审甚至是测试执行的阶段才会暴露出来，增加了这两个阶段的沟通耗时和case返修量（往往在case评审里RD也不会很认真），不测试到一些细节将问题暴露出来时根本不知道RD的实现方式，这本身就是一个测试风险，会拖长测试周期。我个人觉得详细设计评审对QA很重要，除非只想停留在黑盒层面测试，但是这里的团队没有详细设计流程，比较可惜，可能跟UI需求数量大无需做重评审有很大关系。</p>
-<p>转测流程的推行，我觉得除了规范操作外，一个更重要的作用在于保护QA，让QA可以腾出更多的时间于业务测试之外，建设更多的质量保障工程。QA规范了流程保护了自己，踩低级坑所消耗的时间就去到了RD和PM身上，也就是为什么QA喜欢拥护流程并主导流程建设，RD和PM多数是配合。</p>
+<p>这样的流程显然是又笨又重的，它假设了RD不能灵活支持bug解决，并且QA可以短时间内完成case执行，抹杀了RD与QA之间并行的可能性。如果QA把case执行一轮的周期从一个早上变成一天甚至两天，那这个流程对于项目进度来说简直是毁灭性的，大概只适合在需求被拆分得很小的情况下才能有效率地开展。 </p>
+<p>目前团队在推流程，需求沟通期QA都需要参与进去，然而（貌似）并没有机会参加详细设计评审，也不知道RD内部有没有这种正式评审。QA对于需求具体实现的疑惑，就会推迟到case评审甚至是测试执行的阶段才会暴露出来，增加了这两个阶段的沟通耗时和case返修量（往往在case评审时RD也不会很认真）。在测试阶段暴露出细节问题时才知道RD的实现方式，这本身就是一个测试风险，会拖长测试周期。我个人觉得详细设计评审对QA很重要，除非只想停留在黑盒层面测试，但是这里的团队没有详细设计流程，比较可惜，可能跟UI需求数量大无需做重评审有很大关系。</p>
+<p>转测流程的推行，我觉得除了规范操作外，一个更重要的作用在于保护QA，让QA可以腾出更多的时间于常规业务测试之外，建设更多的质量保障工程。QA规范了流程保护了自己，踩低级坑所消耗的时间就去到了RD和PM身上，也就是为什么QA喜欢拥护流程并主导流程建设，RD和PM多数是配合。</p>
 <p>当然，转测流程特指的是QA与RD、PM的合作关系，而RD与PM之间一般也存在需求流程，不过总体来说消耗更多时间的部分还是在QA测试这一块，所以RD与PM之间的流程往往不需要刻意地去建设也能轻松运转起来。</p>
 <p>流程之所以存在，之所以有必要，是为了组织团队的运转可以是高效的，一般流程在刚施行的时候需要理解成本，这里需要一波推动力，当流程良好run起来之后，组织就已经可以内部自动维护这个流程了，也就是当流程深入人心的时候每个人都会是流程的拥护者。</p>
 <p>然而实际上除了【要推动什么流程】外，【怎么去推动流程】也是一个难点，梳理一套流程，业界大把大把的方案可以参考，但是要怎么推动流程，为了让流程顺下去要配套什么样的工具链，各个环节如何打通使得每个信息孤岛串联在一起，我觉得这才是更难的问题。</p>
@@ -198,7 +198,7 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zingphoy.github.io/2019/11/20/转测流程/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zingphoy.github.io/2019/11/20/提测流程/" alt="微信分享二维码">
     </div>
 </div>
 

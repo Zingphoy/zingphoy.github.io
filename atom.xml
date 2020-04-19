@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zingphoy.github.io/"/>
-  <updated>2020-04-06T16:19:10.461Z</updated>
+  <updated>2020-04-18T16:45:00.173Z</updated>
   <id>https://zingphoy.github.io/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>文章缺少图片润色，本周重新整理</title>
-    <link href="https://zingphoy.github.io/2020/04/07/%E6%96%87%E7%AB%A0%E7%BC%BA%E5%B0%91%E5%9B%BE%E7%89%87%E6%B6%A6%E8%89%B2%EF%BC%8C%E6%9C%AC%E5%91%A8%E9%87%8D%E6%96%B0%E6%95%B4%E7%90%86/"/>
-    <id>https://zingphoy.github.io/2020/04/07/文章缺少图片润色，本周重新整理/</id>
-    <published>2020-04-06T16:18:46.000Z</published>
-    <updated>2020-04-06T16:19:10.461Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;如题昂！&lt;/p&gt;
-
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>我的2020总结</title>
@@ -99,7 +76,7 @@
     <link href="https://zingphoy.github.io/2020/03/26/Code-review%E7%9A%84%E6%80%9D%E8%80%83/"/>
     <id>https://zingphoy.github.io/2020/03/26/Code-review的思考/</id>
     <published>2020-03-26T04:30:00.000Z</published>
-    <updated>2020-04-18T16:48:15.293Z</updated>
+    <updated>2020-04-19T04:11:46.808Z</updated>
     
     <summary type="html">
     
@@ -107,7 +84,7 @@
       
         
         
-          &lt;p&gt;最近出了一个广告物料展示错误的P0线上事故。背景是RD在做视屏流畅度优化时，针对广告视频在滑动出屏幕瞬间出现卡顿的反馈，将资源释放时机延迟到滑动停止后。这个改动埋下了潜在问题——连续出现两个视频广告时，第一个视频开始自动播放，滑动出现第二个视频后，如果两个卡片cell资源复
+          &lt;p&gt;最近出了一个广告物料展示错误的P0线上事故。背景是RD在做视屏流畅度优化时，针对广告视频在滑动出屏幕瞬间出现卡顿的反馈，将资源释放时机延迟到滑动停止后。这个改动埋下了潜在问题——连续刷出两个视频广告时，滑出第一个视频开始自动播放，在滑出现第二个视频后，如果两个卡片cell资
         
       
     
@@ -304,7 +281,7 @@
     <link href="https://zingphoy.github.io/2019/11/24/%E9%98%85%E8%AF%BB%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%84%9F/"/>
     <id>https://zingphoy.github.io/2019/11/24/阅读代码小感/</id>
     <published>2019-11-24T04:30:00.000Z</published>
-    <updated>2020-04-18T16:43:15.808Z</updated>
+    <updated>2020-04-19T04:25:39.901Z</updated>
     
     <summary type="html">
     
@@ -312,7 +289,7 @@
       
         
         
-          &lt;p&gt;📚入职几周以来主要对接了两个技术需求，为了测试两个技术需求（当然也为了满足我的好奇心），有去看过他们的一些代码。第一个需求是个sdk，跟头条app相对独立，所以代码看得比较轻松，第二个需求是一个二期技术需求，还得把一期的一些代码甚至头条app的一些基础lib了解一下，看得
+          &lt;p&gt;📚入职几周以来主要对接了两个技术需求，为了测试两个技术需求（也为了满足我的好奇心），有去看过相关的代码。第一个需求是sdk，跟头条app相对独立，所以代码看得比较舒服，第二个需求是一个二期技术需求，还得把一期的一些代码甚至头条app的一些基础lib了解一下，看得就比较广，
         
       
     
@@ -330,11 +307,11 @@
   </entry>
   
   <entry>
-    <title>转测流程</title>
-    <link href="https://zingphoy.github.io/2019/11/20/%E8%BD%AC%E6%B5%8B%E6%B5%81%E7%A8%8B/"/>
-    <id>https://zingphoy.github.io/2019/11/20/转测流程/</id>
+    <title>提测流程</title>
+    <link href="https://zingphoy.github.io/2019/11/20/%E6%8F%90%E6%B5%8B%E6%B5%81%E7%A8%8B/"/>
+    <id>https://zingphoy.github.io/2019/11/20/提测流程/</id>
     <published>2019-11-20T04:30:00.000Z</published>
-    <updated>2020-04-18T16:44:50.265Z</updated>
+    <updated>2020-04-19T04:33:52.945Z</updated>
     
     <summary type="html">
     
@@ -592,6 +569,27 @@
       <category term="调研" scheme="https://zingphoy.github.io/tags/%E8%B0%83%E7%A0%94/"/>
     
       <category term="安全" scheme="https://zingphoy.github.io/tags/%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>功能测试小感</title>
+    <link href="https://zingphoy.github.io/2018/02/28/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B0%8F%E6%84%9F/"/>
+    <id>https://zingphoy.github.io/2018/02/28/功能测试小感/</id>
+    <published>2018-02-28T10:02:00.000Z</published>
+    <updated>2020-04-18T16:46:48.252Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;功能测试某种意义上确实是有套路规律的。所谓的测试经验，在我看来就是把套路运用在不同场景的能力，也就是灵活运用的能力。其实这里的&lt;code&gt;套路&lt;/code&gt;，换种说法就是&lt;code&gt;测试理论&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;从黑盒角度来说，&lt;code&gt;边界值、等价类&lt;/code&gt;，这些应该都是软件测试人员的基本知识，应该深入思维信手拈来而不是刻意为之。&lt;code&gt;边界值&lt;/code&gt;帮助我们发现比较好找的bug，改善软件最下限的质量（还别说边界校验真的是bug的重灾区，具体依赖RD自测水平），&lt;code&gt;等价类&lt;/code&gt;帮助我们精简用例数量，提高执行效率。这些方法论使得我们可以脱离具体业务场景对代码逻辑针对性设计用例。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="功能测试" scheme="https://zingphoy.github.io/tags/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
