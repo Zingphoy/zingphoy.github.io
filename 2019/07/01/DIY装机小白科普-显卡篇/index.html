@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="computer science, blog, life, techique" />
+   
+  <meta name="description" content="一名QA，缺不甘于只做QA" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    DIY装机小白科普-显卡篇 |  Zingphoy
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <link rel="stylesheet" href="/dist/main.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  
+  
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-127980698-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?b1b2a6b0e5bb9dd4408632cb65ab0a45";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-DIY装机小白科普-显卡篇" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  DIY装机小白科普-显卡篇
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/07/01/DIY装机小白科普-显卡篇/" class="article-date">
+  <time datetime="2019-07-01T02:00:00.000Z" itemprop="datePublished">2019-07-01</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/科普/">科普</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">5k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">17 分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <blockquote>
+<h4 id="显卡有哪些牌子？"><a href="#显卡有哪些牌子？" class="headerlink" title="显卡有哪些牌子？"></a>显卡有哪些牌子？</h4></blockquote>
+<p>显卡芯片可以粗略认为只有两家大厂：NVIDIA (英伟达) 和 AMD。是的，又是我们的AMD。</p>
+<p>你可能会说，我们平时不是见到很多其他品牌的显卡吗，什么华硕、技嘉、微星、影驰、七彩虹、蓝宝石、迪兰……其实这些只是显卡厂商而已，显卡芯片才是显卡的核心，但是只有显卡芯片是没用的，一块完整的显卡还需要由显存、PCB板、散热设备、供电设备等其他配置共同组成，板卡厂商生产显卡如果要用NVIDIA的芯片，是要得到授权的。</p>
+<p>芯片厂商只要用心设计芯片就好了（设计出来也是由别的厂商代工生产芯片），而板卡厂商则是在显卡芯片所能达到的性能范围内，通过设计不同的供电方案、PCB板、散热方案等等，提高显卡的整体性能，并且设计出厂家独特的风格。这就是社会的专业化分工结果。</p>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/zhuangbi_1.jpg" alt="装逼大图"></p>
+<blockquote>
+<h4 id="显卡参数如何识别？"><a href="#显卡参数如何识别？" class="headerlink" title="显卡参数如何识别？"></a>显卡参数如何识别？</h4></blockquote>
+<p>显卡类型一般分三种：集成显卡、核心显卡、独立显卡。这个年代pc显卡已经淘汰集显了，都是核显和独显的时代了。不懂的小白可能不明白，为什么有的电脑没有显卡也可以跑，那是因为cpu中有核显，核显的性能肯定不如独显好，但是胜在功耗低，适合不需要独显的需求，省下买独立显卡的钱 ，比如普通办公上网、代码编程等均不需要独立显卡。</p>
+<p>来看看JD上迪兰rx590的参数，一项项说明显卡参数。</p>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/jd_rx590_param.png" alt="迪兰rx590京东参数"></p>
+<p><code>显示芯片</code>：显示芯片是N卡还是A卡，芯片具体是什么型号，芯片的性能直接决定显卡性能的好坏，一般板卡商的整块显卡命名也会带上芯片的型号，比如<code>AMD蓝宝石RX590 8G超白金极光特别版</code>，这里能获取的信息就是板卡商是蓝宝石，芯片是AMD的rx590，显存是8G。至于芯片的好坏，这里就要祭出显卡芯片天梯图了，百度搜索<a href="https://www.baidu.com/s?wd=显卡天梯图" target="_blank" rel="noopener">显卡天梯图</a>，跟cpu天梯图同理，显卡天梯图也是有时效性的，注意图的日期：</p>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/graphical_card_ladder.jpg" alt="显卡天梯图，转载自 http://www.365pcbuy.com/article-398.html"></p>
+<p><code>流处理单元</code>：简称SP (Stream Processor)单元，直接影响显卡的处理能力，是显卡的核心之一，网上的资料都是干巴巴的，反正是<code>越多越好</code>了。</p>
+<p><code>显存容量</code>：显存容量一般称为显存，显存是用来存储芯片处理过或者即将读取的渲染数据。在显示器上显示出的画面是由一个个的像素点构成的，而每个像素点都以4至64位的数据来控制它的亮度和色彩，这些点构成一帧的图形画面，为了保持画面流畅，要输出和要处理的多幅帧的像素数据必须通过显存来保存，达到缓冲效果，比如画面里的草草木木、房屋建筑、车辆人流，细节越多数据量就越大，显存就越重要。玩游戏的画面参数如分辨率、<a href="https://zh.wikipedia.org/wiki/反鋸齒" target="_blank" rel="noopener">抗锯齿</a>、<a href="https://baike.baidu.com/item/各向异性过滤/662077" target="_blank" rel="noopener">各向异性过滤</a>、物理效果模拟等选项都是需要显存容量的，显卡芯片越强，能提供越好的画面，就需要更多的显存来配合。在win10系统下，如果显存不够用，系统会挪用部分内存提供给显卡使用的，所以显存如果很捉急，内存够大还可以来抢救。最后，显存当然越大越好，不过<code>要看搭配的显示芯片的性能</code>是什么等级，给你一个垃圾芯片，你拿32G显存都毫无卵用。</p>
+<p><code>核心频率</code>：是一个有参考意义的参数，同一型号的芯片，因为体质问题 (厂家成品芯片出厂时只要芯片频率在一个可以接受的范围即可，并不是精准的频率)导致频率有高有低，在相同的显示芯片下，<code>频率越高性能越强</code>。但是显卡的性能还受到其他因素的印象，如果显示芯片不一样，核心频率比较起来没有太大意义。</p>
+<p><code>显存类型</code>：目前市面上主流显存类型都是GDDR5，G=Graphical，DDR=Double Data Rate，数字代表第几代，越高越好。要是想正儿八经而自己买个显卡，肯定是<code>买GDDR5</code>了，GDDR3已经是垃圾，GDDR4市面上很少见。</p>
+<p><code>显存位宽</code>：<code>越大越好</code>，每一个时钟周期显卡与显存之间的数据传输量，目前最顶级的显卡可以高达1024GB/s，中高端显卡普遍是256GB/s。</p>
+<p><code>显存频率</code>：显存在显卡上的工作频率，以MHz (兆赫兹)为单位，意思是一秒可以完成多少个显存时钟周期，一定程度表现了显存的速度。</p>
+<p><code>显存带宽</code>：显存与显卡芯片之间的的数据传输量，也就是显存的吞吐量，计算公式：<code>显存带宽=显存频率*显存位宽/8</code>；</p>
+<p><code>显示器接口</code>：具体接口有什么用，我们留到<code>显示器</code>的环节再说。VGA接口已经很古老了，在如今的中高端显卡&amp;显示器中慢慢淘汰，它传输的是模拟信号，在这个数字信号时代已经不合适了。DVI接口仍然是传输模拟信号，体积大同事不支持音频信号，也慢慢被淘汰。HDMI支持音频输出 (你会见到一些有HDMI接口的显示器支持播放声音就是这个原理)，是目前最主流的视频输出口，接口也不大。DP可以理解为HDMI的升级版，传输带宽更高，可以传输更高分辨率的画面，在超高清4K下优于HDMI。总的来说，<code>DP &gt; HDMI &gt; DVI &gt; VGA</code>。</p>
+<p><code>TDP</code>：Thermal Design Power (热设计功耗)，作为一项十分重要的功耗参考数据，让你知道你要<code>搭配什么样的电源</code>才能良好支持这块显卡。但是TDP不等于实际功耗，官方参数往往有各种水分。</p>
+<p><code>电源接口</code>：我对于这块也很懵逼，网上资料也不好找，下面的内容是从<a href="https://www.gamersky.com/hardware/201409/468317.shtml" target="_blank" rel="noopener">辅助供电真有必要？从供电接口看显卡发展</a>搬过来的。显卡性能越来越强，需要电源给显卡进行独立供电，目前多数独显都是6pin+8pin的规格，pin的意思就是针口，简单理解起来，同样的牌子，性能越强越强的显卡一般功耗越大，所以供电要求也越高，供电不足会导致降频，也就是性能发挥不出来，一般用来参考电源的选择，关于更多供电问题会在主板部分说明。</p>
+<p><code>Crossfire</code>：双卡交火，也就是一台电脑怼上两块独立显卡，但是不要以为有两站显卡就代表性能是单张显卡的200%，双卡交火的提升其实是很有限的，一般提升130%，具体看计算任务类型，毕竟不是所有的计算任务都能分个并行在两张显卡上独立运行的。</p>
+<p>照旧，官方数据图放上来做一下对比：</p>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/rx590_param.png" alt="AMD的rx590官方参数"></p>
+<p>总结一下：</p>
+<ol>
+<li><strong>显存位宽</strong>：显存对显示芯片的通道，决定显存在一个运算周期瞬间的吞吐量；<br>位宽不足会引起高分辨率下画面不流畅，或帧数不稳定现象，原因是显卡芯片没有充足 的数据来计算， 基本上128 Bit可以应付主流的高分辨率。</li>
+<li><strong>显存频率</strong>显存的数据传输速度。</li>
+<li><strong>显存容量</strong>显存可缓冲存储数据的容量。</li>
+<li>1与2是决定性能的关键。</li>
+</ol>
+<blockquote>
+<h4 id="公版与非公版是什么？"><a href="#公版与非公版是什么？" class="headerlink" title="公版与非公版是什么？"></a>公版与非公版是什么？</h4></blockquote>
+<p>显卡还会涉及一个问题：什么是公版卡和非公版卡，到底买哪个？</p>
+<p>公版卡是芯片厂商自己设计的整块显卡，因为在芯片生产出来后，各个合作板卡商都还没来得及为芯片设计电路板和散热，于是芯片厂商会自己设计一个方案让代工厂把整块显卡做出来（芯片厂商自己没有生产线，一般需要代工厂）给自己的新芯片做宣传和测试，所以当芯片面向市场发布的时候，公版卡永远是第一个上市的”新货”。</p>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/NVIDIA_2080ti.jpg" alt="公版卡一般外观并不炫酷甚至有点朴素，公版gtx2080ti"></p>
+<p>非公版卡就是板卡商拿到芯片之后自己设计方案生产出来的整块显卡，这里要注意，公版卡并不是芯片厂商才能生产的，板卡商拿到芯片的时候也会拿到芯片厂商原先设计的一套显卡设计方案，只是看板卡商是否采用而已。对于一款刚刚发布的显示芯片，更多板卡商需要详细了解其性能、功耗等诸多信息，才能为其量身定做，自行研发非公版板卡，所以通常他们会选择先投产少量公版显卡以抢占市场先机，然后用这些时间去研发非公版。</p>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/ROG_2080ti.png" alt="非公版，花里胡哨的华硕gtx2080ti"></p>
+<p>公版和非公版的概念清楚了，我们来看看两者的优劣，参考自<a href="https://www.zhihu.com/question/37170991" target="_blank" rel="noopener">到底显卡买公版还是非公？</a>和<a href="https://zhuanlan.zhihu.com/p/45816942" target="_blank" rel="noopener">公版显卡和非公版显卡有啥区别？</a>。</p>
+<p>公版卡所谓的官方方案体现在性能稳定、自身保守 (低频或不能超频)以及豪华的用料上。一般公版卡默认频率低，超频空间小，可玩性差，散热差，而且价格昂贵，投产数量也十分有限，所以公版卡还会有人去收藏。另外公版卡还起到了定价的作用，非公版会围绕着公版卡的定价上下变动，但是不会偏得太厉害。最后，公版卡外观千篇一律，同一代显卡基本长得阿妈都分不清。</p>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/meiqizao.jpeg" alt="gtx2080ti煤气灶，男人拿到会流泪的"></p>
+<p>非公版分3种。一种是公版同款设计，在公版的电路上换个更好的散热，价格和公版持平；一种是超公版，加强供电，提高频率（帮你超频），加强散热（频率高发热就高），加大显存，价格在公版之上的土豪选择；一种是缩水阉割版，由于相对低端的芯片不需要那么好的供电的散热，板卡商会在这方面缩水，价格会降低。另外，非公版卡外观各有各家特点，想多炫酷就有多炫酷。</p>
+<p>那么到底是买公版还是非公版？</p>
+<p>公版的质量有着绝对的保障，但是价格过高令人望而却步。非公版的市场鱼龙混杂，有些厂商为公版卡换个散热器或者外壳就佯称非公版、超公版，从而卖出高价，又有一些厂家偷工减料，疯狂阉割，然后在型号后面加上一代二代、静音版等字样来混淆消费者。</p>
+<p>公版一般与非公版的性能差距小于10%，在PCB、散热上做出较大改变，有些非公版是成本妥协的产物，有的则是加强了公版卡明显不足的地方。一般非公版确实存在明显的价格优势，性价比确实更高，同时有更多的外形选择，所以一般来说消费者会更偏向选择非公版，当然必须选大牌非公版，如微星、华硕、技嘉、蓝宝石等会稳很多。</p>
+<blockquote>
+<h4 id="不同显卡的优缺点"><a href="#不同显卡的优缺点" class="headerlink" title="不同显卡的优缺点"></a>不同显卡的优缺点</h4></blockquote>
+<p>A卡和N卡目前最大的区别是“能效比不同”，能效比是衡量处理器（包括CPU和GPU）最重要参数，含义是每瓦性能对比，这方面N卡比A卡出色太多，这也是大多数人用N卡的原因之一（另外N卡知名度在圈子外的人眼里会更高），实际上N卡的技术某种程度确实比A卡好。有个梗是<code>A卡电表倒着走</code>，就是调侃A卡的功耗问题。举例：N卡的GTX1060 6G和A卡的RX580 8GB，性能上RX580还比GTX1060高大约3%，但满载功耗却要高大约70-80W，这是个非常巨大的差距，更高的功耗，并不是仅仅是多用点电费，而是更高的工作温度（长期高温的副作用是故障率会升高，缩短显卡寿命）。一分钱一分货，性价比高的同时换来其他的缺点。</p>
+<p>其实也不能说死了两者的显卡就是有什么优缺点，市场定位不一样，每个价格区间都有N卡和A卡在竞争，从低端到高端市场无一例外，引用一篇文章的结论：</p>
+<blockquote>
+<p>The bottom line is, AMD is still a better choice for low-end and mid-range gaming setups, as it has been for a while now. Radeon cards simply present much better value for your money in this range. On the other hand, if you are ambitious and aiming for high framerates in QHD or even 4K , then Nvidia is the only real choice.</p>
+<p>But of course, as already mentioned in the article, things might very well change in the near future.</p>
+<p>—<a href="https://www.gamingscan.com/nvidia-vs-amd/" target="_blank" rel="noopener">NVIDIA vs AMD – Which Graphics Cards Are Better In 2019?</a></p>
+</blockquote>
+<blockquote>
+<h4 id="矿卡潮？垃圾佬？三天回本，七天血赚！"><a href="#矿卡潮？垃圾佬？三天回本，七天血赚！" class="headerlink" title="矿卡潮？垃圾佬？三天回本，七天血赚！"></a>矿卡潮？垃圾佬？三天回本，七天血赚！</h4></blockquote>
+<p>首先要知道什么叫<code>矿卡</code>，所谓矿卡就是专门用来挖矿的独立显卡，现在是19年了，18年是比特币最火爆的一年，批量显卡被拿去当做比特币挖矿计算的算力。旷工为了尽可能多尽可能快地挖矿，这些矿卡是非常惨的，被迫一天到晚24小时不间断满载计算，每一天都有一批矿卡熬不住部分损坏导致性能下降甚至永久损坏只能废掉，就是这样一批又一批矿卡顶着上，到18年后半年比特币泡沫爆炸，比特币的价值一落千丈，挖矿成本（电费、管理费、硬件费）已经比挖矿收益还要大了，矿工纷纷退场，矿卡便被低价甩卖流入市场，然后玩家们就可以用正常价的40%-60%将卡收进来，分分钟以垃圾卡的价格买到中高端显卡。当然矿卡有风险，流传的梗是<code>三天回本，七天血赚</code>😂，你运气不咋样，分分钟买回来的矿卡还没用上一两个月就报废了，而且还是正常使用的那种，毕竟矿卡本身的寿命已经被极度压缩了，运气好而且懂得怎么挑，比如在矿卡潮末期挑到那种只上岗两三个月的矿卡，那真的是血赚不亏了。</p>
+<p>而A卡更是矿卡重灾区，原因可参考<a href="https://zhuanlan.zhihu.com/p/27644114" target="_blank" rel="noopener">显卡太贵？聊聊挖矿潮的正确避难姿势</a>，主要因为A卡的流处理器数量更多，并行运算量更大，穷举计算效率更高。A卡的RX480、470以及470的各个版本，是矿卡的重灾区。</p>
+<p>然而现在已经矿卡潮基本已经过去了，市面上的矿卡逐渐变少，想买矿卡也不好买，买二手显卡也没那么担心买到差不多报废的矿卡，果然还是上车要趁早，机会不等人啊。</p>
+<p><a href="http://tieba.baidu.com/p/5930641877" target="_blank" rel="noopener">小白扫盲向-矿卡入门知识</a></p>
+<blockquote>
+<h4 id="什么是马甲卡和甜品卡？"><a href="#什么是马甲卡和甜品卡？" class="headerlink" title="什么是马甲卡和甜品卡？"></a>什么是马甲卡和甜品卡？</h4></blockquote>
+<p><a href="[https://baike.baidu.com/item/%E9%A9%AC%E7%94%B2/2611954?fr=aladdin](https://baike.baidu.com/item/马甲/2611954?fr=aladdin)">马甲</a>可是有百度百科词条的😂，定义：为了让认识你的人猜不到是你，在常用的用户名外再注册的其他名字，叫穿马甲，一般论坛明令禁止使用马甲 (也就是小号)闹事这种现象。顾名思义，马甲卡就是旧版显卡上套了个马甲，也就是换一个包装重新推到市面上，一般只是单纯将原的显卡主频或者其他参数微微提高而已，工艺制程等其他因素跟原显卡几乎没有什么实质性差别，性能也没有多大提升。</p>
+<p>马甲卡是芯片厂商在不同价格互相竞争的产物，是争夺市场的一种手段，是市场策略而不是技术原因。芯片被研制出来，只有最大化规模生产，利润才会更大，对于厂商来说，追求的无非是利益最大化，而要想达到这个目标，就是要芯片最大程度利用起来，有两种方式可以利用好这些芯片，马甲和阉割，马甲可能就是挑一些生产过程中经过测试发现的体质好的芯片做另一次包装来吸引人，而阉割就是将GPU（显卡核心）的参数往下降，比如阉割显存位宽，降低显存容量等。</p>
+<p><code>甜品卡</code>一般指千元价位，主打中端市场，性能适中性价比较高的显卡，以后你见到网上说什么卡是甜品卡的时候，你应该要明白这张卡是千元上下，性价比较高，适合普通玩家的意思了。</p>
+<blockquote>
+<h4 id="堆料的豪华版和阉割的乞丐版有多大差距"><a href="#堆料的豪华版和阉割的乞丐版有多大差距" class="headerlink" title="堆料的豪华版和阉割的乞丐版有多大差距"></a>堆料的豪华版和阉割的乞丐版有多大差距</h4></blockquote>
+<p>看到网上同一个型号的显卡，有超多显卡厂商的产品，价格差别从一两百到大几百不等，是不是觉得很迷惑？明明显卡核心都一样，怎么价差就这么大呢？举个例子，A卡一线厂商和二线厂商同一个显卡核心的不同产品，可以查查<strong>蓝宝石 和 迪兰 的rx590</strong>价格对比。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/42960555" target="_blank" rel="noopener">为什么芯片型号相同的显卡，不同品牌会有那么大的差价</a></p>
+<p>点亮机器实际上并不需要显卡的存在，不过图形界面的显示会很蛋疼（我没试过）。</p>
+<blockquote>
+<h4 id="其他趣事"><a href="#其他趣事" class="headerlink" title="其他趣事"></a>其他趣事</h4></blockquote>
+<p>4G狂牛，8G疯牛，16G牛魔王，显示芯片要与显存匹配才有价值，否则就是搞笑。</p>
+<p>咸鱼的二手显卡为什么如此便宜？一没保修，二可能是矿卡，三可能是，毕竟一分钱一分货，没有那个眼光不是老司机就不要作死。</p>
+<p>GTX1050Ti这张显卡现在在圈子里绰号<font color="red">智商检测卡</font> ，只有傻子才去买它，因为同等价位的A卡性价比已经完全吊打它，有人在这个时候还去买GTX1050Ti，那证明绝对是小白。</p>
+<p>还有个<code>最高级别认证伙伴</code>的概念，也就是被Nvidia和AMD官宣授予的称号，有得天独厚的质量保证。</p>
+<hr>
+<p>这篇博文烂尾了，在写作过程因为工作变更的原因，被中断了若干个月，再回来时发现写作思路已经无法衔接。本文写自2019年6月，实际上是在2020年4月才发出来，下面是我收集到的一些参考资料，感兴趣可以点进去看看。真的很想把它写好，但是博主对装机的三分钟热度已经结束😣，本来是打算写一个完整系列，包括cpu、显卡、内存、主板、机箱散热、电源、硬盘，相关的资料都收集了好多，未来如果心血来潮就让它们重见天日吧。</p>
+<p>历史上还出现过<strong><a href="https://zhidao.baidu.com/question/65055866.html" target="_blank" rel="noopener">五虎显卡</a></strong>。</p>
+<p>引用知乎的一个帖子：<a href="https://www.zhihu.com/question/42110806" target="_blank" rel="noopener">各个牌子的显卡有什么特点，哪些系列好？</a></p>
+<p><a href="https://www.pc841.com/article/20160506-65859_all.html" target="_blank" rel="noopener">显卡参数知识扫盲：教你怎么看显卡好坏 (全文)</a></p>
+<p><a href="https://www.pc841.com/article/20180412-88865_all.html" target="_blank" rel="noopener">显卡参数知识科普：避免这些显卡参数骗局！ (全文)</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/20600228" target="_blank" rel="noopener">消费陷阱——超大显存显卡你心动了么？</a></p>
+<p><a href="http://tieba.baidu.com/photo/p?kw=图拉丁&ie=utf-8&flux=1&tid=4297521484&pic_id=befce61190ef76c630515c349a16fdfaae5167cb&pn=1&fp=2&see_lz=0" target="_blank" rel="noopener">超大显存骗小白 - 疯牛病显卡</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/28892355" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/28892355</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/28892355" target="_blank" rel="noopener">二手9系卡购买指北（1/30修改）</a></p>
+<p><a href="https://www.bilibili.com/video/av20730054/" target="_blank" rel="noopener">视屏：”矿卡”如何弄成”箱说全”的”自用卡”</a></p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong>
+              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zingphoy.github.io/2019/07/01/DIY装机小白科普-显卡篇/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIY/">DIY</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电脑配件/">电脑配件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/装机/">装机</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2019/11/19/文档解决什么问题/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            文档解决什么问题
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2019/06/30/DIY装机小白科普-cpu篇/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">DIY装机小白科普-cpu篇</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: 'lEXlYo1CeMpXzh2xpIltjyfz-gzGzoHsz',
+        app_key: 'cFRtsPTW0nzHu7wC21T3FXtH',
+        path: window.location.pathname,
+        notify: 'true',
+        verify: 'true',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2017-2020
+        Zingphoy Han
+      </li>
+      <li>
+        
+        Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+      </li>
+      
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/Me.png" alt="Zingphoy"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>一块钱一个俯卧撑 O_O</p>
+  <div class="reward-box">
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/WechatPay.jpeg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['技术、健身、欢乐', '一名QA，却不甘于只做QA', '梦想是拥有一间自己的健身房'],
+      startDelay: 500,
+      typeSpeed: 150,
+      loop: false,
+      backSpeed: 50,
+      showCursor: true
+    });
+  } catch (err) {
+  }
+
+</script>
+
+
+
+<script src="/js/tocbot.min.js"></script>
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+<script src="/dist/main.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+  <script src="/js/clickLove.js"></script>
+
+
+    
+  </div>
+</body>
+
+</html>
