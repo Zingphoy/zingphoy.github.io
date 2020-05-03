@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zingphoy.github.io/"/>
-  <updated>2020-04-20T11:10:40.729Z</updated>
+  <updated>2020-05-03T10:23:58.600Z</updated>
   <id>https://zingphoy.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>服务端压测怎么做</title>
+    <link href="https://zingphoy.github.io/2020/04/26/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8E%8B%E6%B5%8B%E6%80%8E%E4%B9%88%E5%81%9A/"/>
+    <id>https://zingphoy.github.io/2020/04/26/服务端压测怎么做/</id>
+    <published>2020-04-26T14:30:00.000Z</published>
+    <updated>2020-05-03T10:23:58.600Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;博文的内容并不都是我原创的，行文思路来源于一次内部分享，再结合网上众多参考资料总结出来的，算是一个学习笔记。&lt;/p&gt;
+&lt;p&gt;可能很多QA、RD同学跟我都一样，对服务端压测一直没有系统的认知，印象停留在使用压测工具如Jmeter对单接口发压，调整线程数和循环数来制造不同压力，
+        
+      
+    
+    </summary>
+    
+      <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="性能测试" scheme="https://zingphoy.github.io/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="压测" scheme="https://zingphoy.github.io/tags/%E5%8E%8B%E6%B5%8B/"/>
+    
+      <category term="服务端" scheme="https://zingphoy.github.io/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>【python源码探究】dict的key不能是list</title>
@@ -251,7 +282,7 @@
     <link href="https://zingphoy.github.io/2019/12/06/%E7%A8%8B%E5%BA%8F%E5%8F%AF%E6%B5%8B%E6%80%A7/"/>
     <id>https://zingphoy.github.io/2019/12/06/程序可测性/</id>
     <published>2019-12-06T04:30:48.000Z</published>
-    <updated>2020-04-20T14:51:21.176Z</updated>
+    <updated>2020-04-20T14:53:33.796Z</updated>
     
     <summary type="html">
     
@@ -559,29 +590,6 @@
     
     
       <category term="感情" scheme="https://zingphoy.github.io/tags/%E6%84%9F%E6%83%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我的2018总结</title>
-    <link href="https://zingphoy.github.io/2019/01/02/%E6%88%91%E7%9A%842018%E6%80%BB%E7%BB%93/"/>
-    <id>https://zingphoy.github.io/2019/01/02/我的2018总结/</id>
-    <published>2019-01-02T12:23:09.000Z</published>
-    <updated>2020-04-05T09:43:58.968Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;工作&quot;&gt;&lt;a href=&quot;#工作&quot; class=&quot;headerlink&quot; title=&quot;工作&quot;&gt;&lt;/a&gt;工作&lt;/h2&gt;&lt;p&gt;已经工作一年半了，以QA的身份入职到现在，前半年跟后半年还是有不少变化的，看着一批老同事离职，包括自己的导师，有的QA同事转型成RD，有的跳槽去了更大更好的平台继续做测试，有的为了工作能轻松一些好带小孩去了传统公司，也有一些RD感觉到自己在这里到了瓶颈跳槽寻求发展。慢慢地自己变成了团队里一个老人了，开始独立负责一些项目的测试工作，角色开始从一个单纯的执行者稍稍往上走了一点，要自己出测试方案，要自己叫人一起来review，然后自己执行。以前在导师的荫蔽下，几乎把一切RD对接的沟通工作都省去了，自己安心做基础测试工作。那时候的自己浑然不觉，自以为完全handle了自己负责的那一部分，现在看来甚是傻逼。&lt;/p&gt;
-&lt;p&gt;前半年就是这样子的一个状态，接触了几个小型项目，有客户端的，有web平台的，也有后台的，前半年对于自己来说，这些不同的项目并没有什么根本区别，唯一的区别可能也就是功能和测试场景不一样吧，或者说仅仅局限于实现方式的不一样，现在回头看一下，这些项目从需求背景就完全不是一码事。以前自己好奇技术细节的实现，具体到单个功能的几个函数是怎么写的，用到了什么样的技术，而现在自己更好奇的是用什么方案来解决一个问题，其次才是具体的代码实现细节或者技巧。从环境上来前半年跟后半年是有明显区别的，增加了不少新同学只后测试工作负担少了很多，也终于拿到了一些对接项目的代码可读权限了，当自己对具体实现细节感兴趣或者遇到bug想自己排一下的时候就可以看一看。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="总结" scheme="https://zingphoy.github.io/categories/%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="年终总结" scheme="https://zingphoy.github.io/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
-    
-      <category term="总结" scheme="https://zingphoy.github.io/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
