@@ -216,13 +216,13 @@ var _hmt = _hmt || [];
 <p><strong>脏数据问题</strong></p>
 <ul>
 <li>如果是在独立的一套环境中操作，不存在该问题</li>
-<li>影子表：如果是在线上操作，一般将数据写入影子表（与原数据表在schema上一致的不同名表）而非原数据表，实现压测数据与线上数据隔离</li>
+<li>影子表：线上压测一般将数据写入影子表（在schema上与原数据表一致的不同名表，如user表对应影子表user_stress）而非原数据表，实现压测数据与线上数据隔离</li>
 <li>白名单：指定测试id或者测试账号，在入库后通过统一id区分压测数据，统一处理</li>
 <li>各类存储层的压测改造，包括缓存层、消息队列、离线数据库等隔离问题。常规方法在压测链路中<strong>透传压测标记</strong>（也叫流量染色，挺形象的），比如json数据中加<code>is_stress</code>标记，存储层根据标记区分压测流量，对压测数据添加指定前后缀再入库等特殊处理</li>
 </ul>
 <p><strong>不参与压测的服务如何处理</strong></p>
 <ul>
-<li>mock server：通过录制request和response的方式，对业务的代码实现无侵入</li>
+<li>mock server：mock服务返回响应的时长应该遵循线上时延分布，对业务的代码实现无侵入</li>
 <li>服务stub：针对压测流量做处理，类似单测stub，代码stub模拟服务返回response，需要修改代码</li>
 </ul>
 <p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/pressure.png" alt="主流的业务架构压测图，引用自：https://lishoubo.github.io/2018/07/15/全链路压测的大概思路/"></p>
@@ -397,6 +397,15 @@ var _hmt = _hmt || [];
   
   
   <nav class="article-nav">
+    
+      <a href="/2020/05/17/我的童年记忆/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            我的童年记忆
+          
+        </div>
+      </a>
     
     
       <a href="/2020/04/19/为什么dict的key不能是list/" class="article-nav-link">

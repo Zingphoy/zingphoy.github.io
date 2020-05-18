@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zingphoy.github.io/"/>
-  <updated>2020-05-07T09:34:00.260Z</updated>
+  <updated>2020-05-18T16:27:33.758Z</updated>
   <id>https://zingphoy.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>我的童年记忆</title>
+    <link href="https://zingphoy.github.io/2020/05/17/%E6%88%91%E7%9A%84%E7%AB%A5%E5%B9%B4%E8%AE%B0%E5%BF%86/"/>
+    <id>https://zingphoy.github.io/2020/05/17/我的童年记忆/</id>
+    <published>2020-05-17T14:55:17.000Z</published>
+    <updated>2020-05-18T16:27:33.758Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;元气爆发伏魔金刚&lt;/strong&gt;，日本动画蓝光人系列的第二部，可能知道或者对这一类东西感兴趣的同龄人不多了，花了399在闲鱼上掏回来的童年回忆，这部动漫虽然没在香港电视台看过（我是地道广东娃），但小时候有见过或曾拥有过其中部分机体。买回来当天黄色狮子初次变
+        
+      
+    
+    </summary>
+    
+      <category term="生活" scheme="https://zingphoy.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="回忆" scheme="https://zingphoy.github.io/tags/%E5%9B%9E%E5%BF%86/"/>
+    
+      <category term="童年" scheme="https://zingphoy.github.io/tags/%E7%AB%A5%E5%B9%B4/"/>
+    
+  </entry>
+  
+  <entry>
     <title>服务端压测怎么做</title>
     <link href="https://zingphoy.github.io/2020/04/26/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8E%8B%E6%B5%8B%E6%80%8E%E4%B9%88%E5%81%9A/"/>
     <id>https://zingphoy.github.io/2020/04/26/服务端压测怎么做/</id>
     <published>2020-04-26T14:30:00.000Z</published>
-    <updated>2020-05-07T09:34:00.260Z</updated>
+    <updated>2020-05-07T12:02:45.651Z</updated>
     
     <summary type="html">
     
@@ -572,34 +600,6 @@
       <category term="代码实现" scheme="https://zingphoy.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/"/>
     
       <category term="翻译" scheme="https://zingphoy.github.io/tags/%E7%BF%BB%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2019清明节</title>
-    <link href="https://zingphoy.github.io/2019/04/05/2019%E6%B8%85%E6%98%8E%E8%8A%82/"/>
-    <id>https://zingphoy.github.io/2019/04/05/2019清明节/</id>
-    <published>2019-04-05T13:25:24.000Z</published>
-    <updated>2020-04-05T09:28:48.180Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;2019年第一个假期，一年一度的清明节，我妈提前告诉我要周四休假回家，周五一定要爬山祭祖不能再拖，最晚清明节当天扫墓，一再强调传统里没有人会清明节之后才扫墓。在这样的”命令”下，周四我从深圳坐大巴出发，在路上折腾了7.5小时后才到家里，睡一晚在清明节当天中午12点多就回村子准备爬山锄草扫墓。&lt;/p&gt;
-&lt;p&gt;老家这边还是相当传统的，只是一个小镇，老人去世了都会选择回到乡下下葬，提前找看风水的挑一个山头找个位子当自己的坟墓，去世之后火化将骨灰埋在乡下山头。清明节放假之前还跟来自五湖四海的同事说了我们这边的传统，估计现在还会爬山亲手用锄头镰刀锄草割草扫墓拜祭的人已经不多了，城里的都会选择公墓，去到直接放点花啊水果啊烧个纸钱就可以了，这边可不会这么简单。传统流程是要爬山，山里的墓（或者称为坟头）过了一年遍地是草，可别说草可以长到膝盖那么高，要扛着锄头镰刀爬上山头找到坟墓，把所有的草除掉，然后摆好蜡烛、香、各种拜祭用的食物，拜祭完再烧纸钱，最后放一个鞭炮，这才算结束，最后得收拾和检查鞭炮是否彻底熄灭，&lt;strong&gt;&lt;em&gt;谨防山火，要不牢底坐穿&lt;/em&gt;&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;多图预警。&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="生活" scheme="https://zingphoy.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="假期" scheme="https://zingphoy.github.io/tags/%E5%81%87%E6%9C%9F/"/>
-    
-      <category term="感想" scheme="https://zingphoy.github.io/tags/%E6%84%9F%E6%83%B3/"/>
-    
-      <category term="记录" scheme="https://zingphoy.github.io/tags/%E8%AE%B0%E5%BD%95/"/>
-    
-      <category term="家乡" scheme="https://zingphoy.github.io/tags/%E5%AE%B6%E4%B9%A1/"/>
     
   </entry>
   
