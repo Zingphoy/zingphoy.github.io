@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="computer science, blog, life, techique" />
+   
+  <meta name="description" content="一名QA，缺不甘于只做QA" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Code Review落地方案 |  Zingphoy
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <link rel="stylesheet" href="/dist/main.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  
+  
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-127980698-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?b1b2a6b0e5bb9dd4408632cb65ab0a45";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-Code Review落地方案" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Code Review落地方案
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/05/31/Code Review落地方案/" class="article-date">
+  <time datetime="2020-05-31T05:32:31.000Z" itemprop="datePublished">2020-05-31</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/研发效率/">研发效率</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">5.7k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">20 分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>之前的博文也写过两篇关于Code Review的文章，出发点的各不相同：</p>
+<ul>
+<li><p><a href="https://zingphoy.github.io/2019/12/12/QA测试是否要看代码/"><strong>QA测试是否要看代码</strong></a>——QA读产品代码的必要性</p>
+</li>
+<li><p><a href="https://zingphoy.github.io/2020/03/26/Code-review的思考/"><strong>Code Review的思考</strong></a>——Code Review存在的必要性</p>
+</li>
+<li><p><a href="https://zingphoy.github.io/2019/11/24/阅读代码小感/"><strong>阅读代码小感</strong></a>——阅读代码的一些方法论</p>
+</li>
+</ul>
+<p>似乎Code Review相关的话题特别容易水文章😅。其实网上有很多介绍Code Review的流程介绍，中英资料都不缺少，但是并没有一个更加系统的文章来阐述一个完整可行的Code Review方案，具体到流程的每一个环节。</p>
+<p>相比于再水一篇烂大街的《如何做Code Review》，梳理一篇更系统的Code Review落地方案，给有需要的同学提供参考似乎更有趣也更有意义。本着这样的想法，我从QA的视野，尝试从研发效率的角度整理一些经验以及想法，其中有不少灵感是来源于当前所在的研发团队正在落地的Code Review方案，Code Review后面简称CR。</p>
+<hr>
+<h2 id="Code-Review-背景"><a href="#Code-Review-背景" class="headerlink" title="Code Review 背景"></a>Code Review 背景</h2><p>大家都知道Bug越早被发现，修复成本越低，各种自动化检查就是尽可能地让测试左移，在研发流程早期发现Bug。按照这个思路从研发流程的角度看，先有RD自测，然后是RD的提交代码前后的单元测试，接下来是代码合入主干分支触发的自动化测试以及CR。先抛开RD的自测与单测不说，这两个点想要做好时常难度较大，需要很强的推动力。那从这个角度看，代码合入主干分支的时间点基本上是外界介入测试的最早阶段，而CR正是一种早期发现Bug的手段，自然而然可以融合进来。</p>
+<p>另一方面，CR落地情况体现了一个研发团队的工程氛围，新人很容易通过CR获得技术提升；同时，CR提升了大家对同一个模块的熟悉度，避免一个模块只有单一同学了解，防止人员流动导致代码开发维护上的真空期，好比分布式系统是不希望出现单点，master节点要随时可被替代一样，否则系统出现故障的概率就变高。</p>
+<p>更进一步，线上事故经常有，我们的QA联合RD对一系列线上事故做分析之后，发现很多造成事故的Bug都具备在CR阶段被发现的可能性（当然不是100%能被发现）。</p>
+<p>综上三点，已经阐述了Code Review的必要性。</p>
+<hr>
+<h2 id="QA如何做-Code-Review"><a href="#QA如何做-Code-Review" class="headerlink" title="QA如何做 Code Review"></a>QA如何做 Code Review</h2><p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/communicate.jpg" alt="Code Review"></p>
+<h3 id="QA为何难以参与CR"><a href="#QA为何难以参与CR" class="headerlink" title="QA为何难以参与CR"></a>QA为何难以参与CR</h3><p>很多QA可能觉得CR是RD的工作，跟QA没有关系，这是片面的。CR确实是RD主导，但也不失为QA贯彻测试左移原则一个好的切入点，还能顺便看看产品代码从细节上熟悉被测对象，何乐而不为？</p>
+<p>个人感觉QA难以在CR中体现出参与感的一个最关键的点，可能是很多QA本身缺少一定的代码经验或白盒测试思维导致CR参与度低，换句话说，就是缺少做CR经验和方法论，这些都是可以通过实践去积累的。老QA员工就不看重CR，上梁不正下梁歪，新来的QA同学很可能也不会看重CR。另一方面，确实是日常需求测试比较重，尤其是客户端（移动端和Web端）的同学，业务压力大，是客观现象，这就不在这里做讨论了。私以为，一个好QA，除了充当流程规范的把关者外，技术能力是不应该跟RD相差太远的。</p>
+<p>我所在的QA团队做CR也一直有问题，如下：</p>
+<ul>
+<li>业务类需求（泛指常规具备交互因素的功能），大多数都是需求完成测试后才发起CR，CR的时间节点过于滞后，导致CR发现问题改代码后又缺失测试环节。正确做法应该在测试前或者测试中完成CR，或CR修改完后复测</li>
+</ul>
+<ul>
+<li><p>技术类需求（泛指代码优化或UI不好体现的功能），QA没有参与需求前期阶段，在不清楚上下文的情况下被RD拉进去对陌生功能模块进行CR，没有效果</p>
+</li>
+<li><p>鉴于上面两点，QA很难发挥真正的合码卡口质量担保的作用，也没办法建立RD对QA在技术上的认可度，QA的CR流于形式（甚至RD的CR也是）</p>
+</li>
+</ul>
+<h3 id="QA视角的CR目标"><a href="#QA视角的CR目标" class="headerlink" title="QA视角的CR目标"></a>QA视角的CR目标</h3><p>最终目标都是质量保障，CR是一种测试左移的手段，意图在测试前期发现Bug，降低Bug修复的成本。QA视角的CR其实是对RD视角的CR做补充，在关注点上会有区别。<strong>QA是以发现代码中的质量缺陷为首要目标，也就是找Bug，而不是代码是否优雅或代码有无更优实现方式</strong>。</p>
+<h3 id="QA的CR准则"><a href="#QA的CR准则" class="headerlink" title="QA的CR准则"></a>QA的CR准则</h3><p>要明白QA在CR中扮演的角色，CR的关注点可以很多，如：代码设计、可维护性、可扩展性、安全、性能等，但并非要求QA面面俱到，作为质量把控的角色，QA应该更集中在功能实现和代码健壮性上。</p>
+<h4 id="1-不纠结编码风格"><a href="#1-不纠结编码风格" class="headerlink" title="1. 不纠结编码风格"></a>1. <strong>不纠结编码风格</strong></h4><blockquote>
+<ul>
+<li>理想情况下，编码风格的把关应该交由专门工具（各种lint）或RD自己保证，QA的主要精力应该在代码逻辑上而非命名风格、函数长度、函数返回值等这类规范细节上。</li>
+</ul>
+</blockquote>
+<h4 id="2-明确-Change-List"><a href="#2-明确-Change-List" class="headerlink" title="2. 明确 Change List"></a>2. <strong>明确 Change List</strong></h4><blockquote>
+<ul>
+<li>改动范围是QA判断CR策略的核心信息，QA对代码本身以及模块设计的熟悉度肯定不及RD，在CR时需要获取更多辅助信息协助CR。</li>
+<li>知悉改动范围可以在业务知识上先行识别代码风险，然后根据风险点从代码层面上逐个排查——可以理解为QA根据改动先设计 <strong><em>CR用例</em></strong>，再拿具体代码对着 <strong><em>CR用例</em></strong> 来找Bug，如针对一段循环逻辑，QA基于业务知识知道循环的结束条件，再结合具体实现寻找是否存在导致死循环的潜在条件场景。</li>
+<li>Double check附带的说明文档，以防理解错误或遗漏信息。</li>
+</ul>
+</blockquote>
+<h4 id="3-思考Bug在哪里"><a href="#3-思考Bug在哪里" class="headerlink" title="3. 思考Bug在哪里"></a>3. <strong>思考Bug在哪里</strong></h4><blockquote>
+<ul>
+<li>请跟我默念：<strong>什么场景下这块代码会出Bug</strong>。QA CR关键是要做思维切换 —— <strong>尽量刻意遍历、覆盖可能出Bug的场景</strong>。而不是顺着代码逻辑看下去有没有疑点，可能就被RD的思维同化了。比如看到一个if判断，就要思考这个判断变量的边界值、触发场景等。</li>
+<li>得先理解RD的实现思路，可能还是要顺着RD的思路先过一遍，理清功能细节与调用关系，再转换思维重看一遍。</li>
+</ul>
+</blockquote>
+<h4 id="4-疑问找RD解答"><a href="#4-疑问找RD解答" class="headerlink" title="4. 疑问找RD解答"></a>4. <strong>疑问找RD解答</strong></h4><blockquote>
+<ul>
+<li>尤其是对于技术需求，大多数情况下不能保证QA的前期参与，QA不清楚需求背景与代码设计，存在严重信息不对称，无法google解决的疑问不要花太多时间琢磨，直接问RD的效率更高。</li>
+<li>不要觉得问实现相关的问题很羞耻，RD之间review代码都要互相了解实现细节，QA就更不用说了，比如特殊实现手法、语言高级特性、改动点涉及的调用关系等，都能找RD解答。</li>
+<li>如果大范围看不懂且该CR很重要，果断找RD当面了解，或远程语音。</li>
+</ul>
+</blockquote>
+<h4 id="5-严格控制时间花销"><a href="#5-严格控制时间花销" class="headerlink" title="5. 严格控制时间花销"></a>5. <strong>严格控制时间花销</strong></h4><blockquote>
+<ul>
+<li>保证CR的速度，把控时间花销，很重要！！！特别是一个QA对接好多RD的需求这种现状，如果集成代码那天来5个Merge Request，一次CR半小时，那当天就没了快一半的时间（算上任务切换的耗时）。QA做CR以走读为主，关键代码细看即可，不必每行都看懂。</li>
+<li>不同的需求对CR要求不一样，平台强相关的进阶技术、大范围多文件改动、基于复杂功能的调整、UI需求等QA可能较难review，建议粗粒度CR；对于CR更友好的需求，如新增一个依赖少的独立小功能，QA可以获取到完整的上下文，应该多花一些时间CR。</li>
+<li>CR来的时间不合适，考虑换一个具备相关能力的QA同学review。</li>
+</ul>
+</blockquote>
+<h4 id="6-可以给RD提建议"><a href="#6-可以给RD提建议" class="headerlink" title="6. 可以给RD提建议"></a>6. <strong>可以给RD提建议</strong></h4><blockquote>
+<ul>
+<li>觉得存在遗漏的场景或未知风险的代码，应该指出来，可能是不知悉代码上下文带来的误判，也有可能是真的有问题！</li>
+</ul>
+</blockquote>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/do_CR_right.jpg" alt="do CR right"></p>
+<h3 id="QA做CR的一些经验"><a href="#QA做CR的一些经验" class="headerlink" title="QA做CR的一些经验"></a>QA做CR的一些经验</h3><p>RD做CR更多的是从风格、代码设计、注释、功能、性能、安全、可维护性、等各种维度下手，QA做CR更多是从功能、异常处理、性能、可测性方面下手，关注点会比RD少但是更集中。一般可以根据代码Diff，顺着数据流转链路往前后延伸走读，下面列举一些经验性的关注点。</p>
+<p><strong>可以让RD当面解释数据流转过程，有奇效。</strong></p>
+<hr>
+<p><strong>🚨 QA重要考点</strong> </p>
+<blockquote>
+<ul>
+<li>正确初始化</li>
+<li>弱网、断网、失败</li>
+<li>缓存清理、缓存失效</li>
+<li>持久化数据被删</li>
+<li>变量判空</li>
+<li>越界</li>
+<li>循环结束条件</li>
+<li>数据格式与类型非预期（常见服务端线上事故）</li>
+<li>锁获取：饿死、死锁</li>
+<li>阻塞与非阻塞、同步还是异步</li>
+<li>内存/资源泄露，尤其是异常逻辑</li>
+<li>隐式类型转换</li>
+<li>上下游接口明确</li>
+<li>实现方案有缺陷</li>
+<li>安全问题（如关键信息明文持久化）</li>
+<li>ab实验相关代码要了解开实验的详情</li>
+</ul>
+</blockquote>
+<p>一个简单却又经常被忽略的辅助信息：<strong>历史commit message</strong>。</p>
+<hr>
+<h3 id="代码可测性"><a href="#代码可测性" class="headerlink" title="代码可测性"></a>代码可测性</h3><p>如果需要QA做具体测试的需求，还要关注一下<a href="https://zingphoy.github.io/2019/12/06/程序可测性/"><strong>代码程序的可测性</strong></a>。</p>
+<ul>
+<li>可验证性<ul>
+<li>添加必要的日志</li>
+<li>因输入导致变更的点就是输出，输出全部可查看（正例：中间数据的落盘）</li>
+<li>提示信息可读，意义明确且唯一（反例：返回码意义不明确且多个不同错误用同一个返回码）</li>
+</ul>
+</li>
+<li>可操作性<ul>
+<li>简化测试准备和测试清理工作（正例：几个标志组合的判断条件，可一键完成标志设置，不需要人工操作场景完成设置）</li>
+<li>测试过程有易用的配套工具</li>
+</ul>
+</li>
+<li>可控制性<ul>
+<li>所有影响输出的因素都可控（反例：难以构造的死锁现场；难以构造的内部异常）</li>
+<li>可直接控制中间状态的数据</li>
+</ul>
+</li>
+<li>可分解性<ul>
+<li>大系统中可以针对小模块独立测试</li>
+</ul>
+</li>
+<li>可理解性<ul>
+<li>文档明确且随时update</li>
+<li>提供修改背景和影响范围</li>
+</ul>
+</li>
+</ul>
+<h3 id="CR例子"><a href="#CR例子" class="headerlink" title="CR例子"></a>CR例子</h3><p>这里给一些简单例子，可能不严谨，体会到意思即可。</p>
+<p>一、变量没有初始化即使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意java基本类型默认有初始值，但是赋初值还是个好习惯</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">A a;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">uploadData(a);</span><br></pre></td></tr></table></figure>
+
+<br>
+二、代码不符本意
+
+<p>mainDic已经初始化，if 判空逻辑永远为True，应该是 mainDic.count</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSMutableDictionary *mainDic = [NSMutableDictionary dictionary];</span><br><span class="line"></span><br><span class="line">if (mainDic)&#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+三、异常情况遗漏处理 或 处理不完善
+
+<p>如断网弱网重试、异常抛出未catch、变量不判空。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件资源在抛异常时没有close，资源泄露</span></span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">  OutputStream out = <span class="keyword">new</span> FileOutputStream(<span class="string">""</span>);</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  out.close();</span><br><span class="line">&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">  e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+四、循环结束判断条件错误
+
+<p>喜闻乐见你懂的，不用举例了。</p>
+<br>
+五、手误写错变量名、函数名
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rulesForA</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rulesForB</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line">A a = <span class="keyword">new</span> A();</span><br><span class="line">B b = <span class="keyword">new</span> B()</span><br><span class="line">rulesForA(b);   <span class="comment">//  手误写错变量名or函数名</span></span><br><span class="line">rulesForB(a);</span><br></pre></td></tr></table></figure>
+
+<br>
+六、全局变量与局部变量混淆使用
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">9</span>;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    a += <span class="number">1</span>;   <span class="comment">// 可能本意是对全局变量a自增，这里错误把局部变量a自增</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>更多关于做CR的方法论，谷歌也出了一个CR工程师实践，文末参考资料附上链接。</p>
+<hr>
+<h2 id="Code-Review-配套工具"><a href="#Code-Review-配套工具" class="headerlink" title="Code Review 配套工具"></a>Code Review 配套工具</h2><h3 id="流程平台"><a href="#流程平台" class="headerlink" title="流程平台"></a>流程平台</h3><p>想要好好做CR，必须要依托工程平台的支持，你不可能把别人提交的分支代码拉到本地来diff着看吧，所以针对CR环节也对工程平台提出了一些基本要求：</p>
+<ol>
+<li><p>不同的聚合方式来查看diff：</p>
+<ul>
+<li><p>改动涉及的不同仓库（改动涉及多仓，分开看）</p>
+</li>
+<li><p>改动的文件类型（如统一查看.java后缀的文件改动）</p>
+</li>
+<li><p>被修改文件的组成的目录树</p>
+</li>
+</ul>
+</li>
+<li><p>diff代码颜色高亮展示，支持查看diff代码以外的其他代码</p>
+</li>
+<li><p>支持任意代码添加CR评论 以及 展示评论的解决情况</p>
+</li>
+<li><p>展示source分支的历史commit message</p>
+</li>
+<li><p>展示source分支以及要合并到的target分支</p>
+</li>
+<li><p>绑定文档模板，让RD按模板填写相关内容</p>
+</li>
+<li><p>查看所有需要待CR的Merge Request</p>
+</li>
+</ol>
+<h3 id="精准pick人"><a href="#精准pick人" class="headerlink" title="精准pick人"></a>精准pick人</h3><p>相信有参与CR流程的同学都会遇到同一个问题，就是在需求扎堆上车合码的日期，当天会收到大量CR邀请，不说手头工作进度被拖累，收到的CR邀请可能还跟自己负责的模块不相关，尤其是QA同学对接多个RD，可能都会被不同的RD邀请CR。所以这个问题必须要解决：<strong>如何更精确地pick CR候选人</strong>。</p>
+<p>相比于随机选择CR人选，有一个十分简单的解决办法：<strong>通过后台配置，指定某个代码目录匹配相关CR人选</strong>。一个代码目录应该有一到两个负责人，再加上若干候选人，CR的时候自动拉负责人，候选人则随机拉若干个，这样基本上就解决了随机选择CR人选导致CR不相关效果差的问题。</p>
+<p>但是随着模块越来越多，团队越来越大，人员流动与代码变更会变得十分频繁，上面提到的配置名单是否还方便维护呢？答案肯定是No，每来一个新人，就要将这个新人添加到配置里，太麻烦了！还需要一种更精准的自动推荐CR人选的方式，这里我有一个想法：</p>
+<blockquote>
+<p><strong>流程总览</strong></p>
+<ol>
+<li>RD完成代码开发，提交代码发起Merge Request</li>
+<li>根据RD改动的文件，<strong>结合 该文件与其他文件的 关联关系</strong>，获取被修改文件相关的其他文件，层级上下共x层（可配置）</li>
+<li>遍历这些关联文件，逐一找出这些文件模块的RD（如果是子repo，获取repo owner；如果是子文件，根据git blame等git命令获取文件的最新（or最频繁）改动RD，否则兜底到根据配置获取文件负责人）</li>
+<li>pick这些RD进来CR代码，或者推荐给发起CR的RD让ta自己选择拉谁</li>
+</ol>
+<p><strong>一个具体例子</strong></p>
+<ol>
+<li>RD小陈修改了代码文件A.java，提交后发起Merge Request</li>
+<li>分析A.java的改动，发现本次改动中<strong>添加/删除/修改 方法function</strong>，根据A.java的代码进行分析，<strong>方法function属于类Example，类Example在B.java中被定义声明</strong>，被A.java import了进来；<strong>A.java在文件C.java、D.java中也有被使用，而C.java、D.java里定义的类被E.java和F.java调用</strong>。所以最后获取到关联的上下游文件集合有 [ A.java, B.java, C.java, D.java, E.java, F.java ]，下面附一个简单的图来表达这个上下关联关系</li>
+<li>获取 [ A.java, B.java, C.java, D.java, E.java, F.java, G.java ] 这些代码文件的CR候选人（这里可以根据git代码行修改人获取对应RD，也可以配置RD）</li>
+<li>这些候选RD推荐给CR发起人，让他选择拉哪些RD进来CR</li>
+</ol>
+<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/relationship_between_file.png" alt="代码文件的关联关系举例"></p>
+<p><strong>核心问题</strong></p>
+<p>如何抽取出代码文件之间的关联关系？使用什么样的静态代码分析技术？</p>
+<p>以前有接触过类似的项目，通过正则表达式匹配不同的java语法，匹配范围包括：类对象的创建声明、包的引用关系，这样就可以知道<strong>一个文件会对外提供什么类，以及它使用了来自什么包的哪个类</strong>，进一步地，就可以匹配出两个java文件之间是否有关联关系——你调用我还是我调用你，也就是上下游关联关系。比如A.java有类A，B.java引入了类A并进行使用，那么B.java与A.java就存在关联关系。</p>
+<p>基于正则的代码分析方案会有非常多坑，一方面是语法很难通过正则来穷极表达，难免出现语法遗漏覆盖导致关联关系的丢失；另外还需要处理大量代码格式兼容问题，代码格式稍有变动（比如敲多俩空格，代码中间换行展示）就可能导致正则匹配miss，又会出现关联关系丢失，所以不建议采用正则来做分析。</p>
+<p>业界更常见的做法，是基于parser获取的AST（Abstract Syntax Tree）分析文件的关联关系。</p>
+<p>对于移动端代码，本身又有很多系统平台提供的回调函数（比如Android onCreate方法等），这些在关联关系上还需要做特别处理。</p>
+<p><strong>其他可能的问题</strong></p>
+<ol>
+<li>关联关系的分析性能，能否做到实时分析？使用线下分析的关联结果准确率多高？</li>
+<li>大范围的改动，比如代码沉库、代码迁移，是否也适用？</li>
+<li>打通代码库提交历史，具备静态代码分析能力以获取代码文件之间的关联关系，根据修改历史</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="Code-Review-落地"><a href="#Code-Review-落地" class="headerlink" title="Code Review 落地"></a>Code Review 落地</h2><p>Code Review流程大家应该基本清楚，那么CR应该如何落地，下面展开讲述一下。</p>
+<h3 id="理念宣讲"><a href="#理念宣讲" class="headerlink" title="理念宣讲"></a>理念宣讲</h3><p>CR落地，第一件事就要宣讲CR理念，让大家知道这么一件事情的存在。最关键是要讲清楚为什么要做CR、CR如何嵌入当前流程、大家需要比平时额外做一些什么以及如何做CR，最后表达CR正式落地后的预期收益。</p>
+<h3 id="流程试点"><a href="#流程试点" class="headerlink" title="流程试点"></a>流程试点</h3><p>研发流程改动是一件大事，起码CR的加入，涉及到RD与QA的工作流程变动，上上下下就是几十甚至上百人，再不能100%确定可以获取足够的收益前，流程试点是必须的。</p>
+<p>不得不提，CR本身虽然只是一个流程环节，但是CR环节效果的好坏跟前置流程直接相关，比如需求评审的粗细、技术文档的质量、代码注释的多寡等。</p>
+<p>在CR全面推广普及之前，CR可以有多种试点落地形式，比如：</p>
+<ol>
+<li>做一份人员配对名单，几个相关RD为一组，互相review对方的代码</li>
+<li>筛选部分需求放到CR池子，RD选择想要review的需求自行参与CR</li>
+</ol>
+<p>两种形式各有优缺点，但是第二种形式给了更多自由，可能参与度更高，但是也要避免需求的扎堆Review，尤其是技术性很强很高大上的需求，毕竟做工程师很多都会对高深技术有向往，每个需求要设置一个CR上限人数，超过人数后就从CR池子中剔除。</p>
+<h3 id="奖惩机制"><a href="#奖惩机制" class="headerlink" title="奖惩机制"></a>奖惩机制</h3><p>正向鼓励可以加速CR氛围的形成，最终要以实物作为奖励（京东卡？），所以需要一些预算💰，根据大家的产出来授予奖品。至于惩罚理所当然就是事故共担，线上问题责任按比例分配。</p>
+<p>奖励考虑通过积分来兑换，所以可以做一个<strong>CR积分排行榜</strong>，具体分数可由如下几项指标转换过来：</p>
+<ul>
+<li>主动评估<ul>
+<li>reviewer评估本次CR给自身带来的收获打分（对模块的熟悉度、代码技能的提升等）</li>
+<li>CR效果打分（reviewer在CR结束后打分，评估本次review效果）</li>
+</ul>
+</li>
+<li>被动评估<ul>
+<li>CR前置发现的问题数</li>
+<li>千行代码Bug数（可以按不同维度细分：团队、个人、需求等维度）</li>
+<li>单个需求的Bug数</li>
+<li>有效的CR评论（标记为已解决的评论）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>从各种资料看，国外大厂似乎比较流行Code Review，也许这使得国内对Code Review的态度时不时会有种难以言状的推崇或者仰望，错误地认为Code Review可以解决很多问题。Code Review仅仅作为一种质量保障的补充手段，它并不是银弹，不要指望Code Review可以发现多少关键问题，即使投入无限的人力也只能获取有限的收益，它的效果不如测试那么稳定。</p>
+<p>这不代表就不需要Code Review，长期来看一个健康的技术团队是需要实践Code Review的。尤其是大体量产品，体量越大Bug产生的影响也就越大，而Code Review的性价比越高，为什么这么说呢？</p>
+<blockquote>
+<p>试想一下产品的日活从100W变成1000W，同样症状的线上事故，影响的用户量整整相差一个量级，也就代表着100W日活时一个P2级线上事故，在1000W日活时它会上升为P1级甚至P0级。</p>
+<p>产品代码越复杂，Bug就隐藏得越深，问题场景就越构造，线下人工或者自动化测试，碍于工具支持以及建设程度，总有难以覆盖到的点，而Code Review正是一种精细耕作的手段，以弥补测试的不足，特别是很隐晦的Bug，比如资源竞争导致死锁饿死、异常处理分支出错、大流量下的性能问题、技术债的有无（技术债也是一种问题，未来需要成本解决）等……这些就是Code Review独特的作用。</p>
+<p>随着产品体量增大，Code Review能发挥的价值会有所增长。</p>
+</blockquote>
+<p><strong>Code Review做得不好，就说Code Review无用，这样的说法就好比单元测试写得烂，就说单元测试不用做一样</strong>。</p>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://coolshell.cn/articles/11432.html" target="_blank" rel="noopener">从 CODE REVIEW 谈如何做技术</a></p>
+<p><a href="http://szuwest.github.io/code-reviewfang-an.html" target="_blank" rel="noopener">Code Review方案</a></p>
+<p><a href="https://google.github.io/eng-practices/" target="_blank" rel="noopener">Google Engineering Practices Documentation</a></p>
+<p><a href="https://phauer.com/2018/code-review-guidelines/" target="_blank" rel="noopener">Code Review Guidelines for Humans</a></p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong>
+              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zingphoy.github.io/2020/05/31/Code Review落地方案/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/code-review/">code review</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推荐阅读/">推荐阅读</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/白盒/">白盒</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/05/17/我的童年记忆/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">我的童年记忆</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: 'lEXlYo1CeMpXzh2xpIltjyfz-gzGzoHsz',
+        app_key: 'cFRtsPTW0nzHu7wC21T3FXtH',
+        path: window.location.pathname,
+        notify: 'true',
+        verify: 'true',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2017-2020
+        Zingphoy Han
+      </li>
+      <li>
+        
+        Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+      </li>
+      
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/Me.png" alt="Zingphoy"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>一块钱一个俯卧撑 O_O</p>
+  <div class="reward-box">
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/WechatPay.jpeg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['技术、健身、欢乐', '一名QA，却不甘于只做QA', '梦想是拥有一间自己的健身房'],
+      startDelay: 500,
+      typeSpeed: 150,
+      loop: false,
+      backSpeed: 50,
+      showCursor: true
+    });
+  } catch (err) {
+  }
+
+</script>
+
+
+
+<script src="/js/tocbot.min.js"></script>
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+<script src="/dist/main.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+  <script src="/js/clickLove.js"></script>
+
+
+    
+  </div>
+</body>
+
+</html>

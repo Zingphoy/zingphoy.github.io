@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    QA要看代码吗 |  Zingphoy
+    研发效率 |  Zingphoy
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -59,245 +59,56 @@ var _hmt = _hmt || [];
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-QA要看代码吗" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
+  <article class="articles">
     
-    <header class="article-header">
+    
+    <h1 class="page-type-title">研发效率</h1>
+    
+    
+  
+  
+  
+  
+  
+  
+  <div class="archives-wrap">
+    <div class="archive-year-wrap">
+      <a href="/archives/2020" class="archive-year">2020</a>
+    </div>
+    <div class="archives">
+      
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2020/05/31/Code Review落地方案/" class="archive-article-date">
+  <time datetime="2020-05-31T05:32:31.000Z" itemprop="datePublished">05/31</time>
+</a>
        
-<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  QA要看代码吗
-</h1>
+<h2 itemprop="name">
+  <a class="archive-article-title" href="/2020/05/31/Code Review落地方案/"
+    >Code Review落地方案</a> 
+</h2>
  
 
     </header>
     
-
-    
-    <div class="article-meta">
-      <a href="/2019/12/12/QA要看代码吗/" class="article-date">
-  <time datetime="2019-12-12T04:30:00.000Z" itemprop="datePublished">2019-12-12</time>
-</a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/测试/">测试</a>
+    <a class="article-category-link" href="/categories/研发效率/">研发效率</a>
   </div>
 
-      
-      
-<div class="word_count">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="ri-quill-pen-line"></i>
-            <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1k</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="ri-book-open-line"></i>
-            <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
-        </span>
-    </span>
-</div>
-
-      
-    </div>
-    
-
     
     
-
-
-
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>以前有个RD同事问过我，为什么你做测试还要看代码，看代码干嘛！？</p>
-<p>还有个RD在提测会议上当场说，QA不应该看代码，避免思维跟RD一样，那就测不出问题了（这个同学还是个准百度T7）……</p>
-<p>必须得评价一下，对QA这样的认知应该是QA的职能存在一定误解。</p>
-<p>假如需求在文档层面能描述清楚，功能实现的思路和细节在文档里写得明明白白，贴上关键代码及相关解释，当然可以省掉QA测试看代码的环节，只是RD习惯输出从简，或者并不了解QA的想法或工作方法。看代码的作用就是为了填补QA对细节实现上信息不对称的gap，有时这种gap会浪费QA长达几个小时的时间。举个例子：有些较为繁琐的嵌套判断逻辑，或者一些corner case，RD懒得在文档写得这么清楚，当QA测试到这里后看到程序表现在文档中没有说明，往往无法确认该现象是否符合预期，随之而来就是沟通的时间成本。</p>
-<p>在实际测试中，真的经常碰到类似的情况，在测试过程中随着对功能理解的越发细致，会突然想到某个corner case，但是文档没有体现相关的处理逻辑，此时我一般会选择走读代码check是否有对应处理，找不到或者看不懂再问RD，这样对RD也会友好一些。</p>
-<p>产品本身是由一个一个功能模块组成的，我们可以对产品的功能十分熟悉，在手上把玩自如，这是在黑盒层面上去理解一个产品，或许可以把玩出一些味道，明白产品为什么在功能和UI细节上如此这般设计、产品为什么能吸引用户留住用户、产品如何做选择来支撑它的发展壮大，又或者通过用户数据和指标的分析，找出用户增长点，这是pm的方式。</p>
-<p>pm的方式对于技术人员是性不太通，产品的设计和产品的实现，总是会存在gap，这也就是为什么pm认为合理的需求有时候在技术实现上十分困难（技术也有技术债或历史包袱！）。要真真实实摸清产品，就不能只停留在宏观层面，得深入到技术层面。每一个功能模块，它在代码层面映射出来的是多个代码模块，不同的代码模块提供什么能力支撑，互相如何合作，甚至是产品技术选型的初衷和优劣势及其演进，这些都是理解产品生命周期的重要线索。同时在产品背后，支撑产品的一整套周边系统，要足够清晰，花的时间一点也少不得。</p>
-<p>当然还是要补充一个观点，深入到代码，有时可以让我们掌握更多信息，但是有时又会让人陷入细节失去大局观，各有不同应用场景。</p>
-<p>我觉得上面这个理由已经足够支撑QA去看代码了，如果是真的想好好融入到这个产品的建设中去添砖加瓦，而不是单纯的【我只是来打工】的心态。</p>
-<p>最后，QA很多时候就是充当一个打破规律的人，拿着一些奇奇怪怪的case和问题去挑战RD的脾气🤣，有些代码实现本身就导致corner case无法修复，看代码来提前只细问题有没有可能被修复，可以大大降低RD心态爆炸的概率。或者自己就可以找到修复方案给RD提点意见，蹭蹭蹭在RD心中提高一下地位，还是不错的~</p>
-
-      
-      <!-- reward -->
-      
-      <div id="reward-btn">
-        打赏
-      </div>
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-        <div class="declare">
-          <ul class="post-copyright">
-            <li>
-              <i class="ri-copyright-line"></i>
-              <strong>版权声明： </strong>
-              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
-            </li>
-          </ul>
-        </div>
-        
-    <footer class="article-footer">
-      
-          
-<div class="share-btn">
-      <span class="share-sns share-outer">
-        <i class="ri-share-forward-line"></i>
-        分享
-      </span>
-      <div class="share-wrap">
-        <i class="arrow"></i>
-        <div class="share-icons">
-          
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="ri-weibo-fill"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="ri-wechat-fill"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="ri-qq-fill"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="ri-douban-line"></i>
-          </a>
-          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a> -->
-          
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="ri-facebook-circle-fill"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="ri-twitter-fill"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="ri-google-fill"></i>
-          </a>
-        </div>
-      </div>
-</div>
-
-<div class="wx-share-modal">
-    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zingphoy.github.io/2019/12/12/QA要看代码吗/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div id="share-mask"></div>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/code-review/">code review</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/白盒/">白盒</a></li></ul>
-
-
-    </footer>
-
   </div>
-
-  
-  
-  <nav class="article-nav">
-    
-      <a href="/2019/12/15/你的需求是什么/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            你的需求是什么
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2019/12/06/程序可测性/" class="article-nav-link">
-        <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">程序可测性</div>
-      </a>
-    
-  </nav>
-
-
-  
-
-  
-  
-<!-- valine评论 -->
-<div id="vcomments-box">
-    <div id="vcomments">
-    </div>
-</div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
-<script>
-    new Valine({
-        el: '#vcomments',
-        app_id: 'lEXlYo1CeMpXzh2xpIltjyfz-gzGzoHsz',
-        app_key: 'cFRtsPTW0nzHu7wC21T3FXtH',
-        path: window.location.pathname,
-        notify: 'true',
-        verify: 'true',
-        avatar: 'mp',
-        placeholder: '给我的文章加点评论吧~',
-        recordIP: true
-    });
-    const infoEle = document.querySelector('#vcomments .info');
-    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
-        infoEle.childNodes.forEach(function (item) {
-            item.parentNode.removeChild(item);
-        });
-    }
-</script>
-<style>
-    #vcomments-box {
-        padding: 5px 30px;
-    }
-
-    @media screen and (max-width: 800px) {
-        #vcomments-box {
-            padding: 5px 0px;
-        }
-    }
-
-    #vcomments-box #vcomments {
-        background-color: #fff;
-    }
-
-    .v .vlist .vcard .vh {
-        padding-right: 20px;
-    }
-
-    .v .vlist .vcard {
-        padding-left: 10px;
-    }
-</style>
-
-  
-
-  
-  
-  
-
 </article>
+      
+      
+    </div>
+  </div>
+  
+  
+
+  
 </section>
       <footer class="footer">
   <div class="outer">
@@ -435,22 +246,6 @@ var _hmt = _hmt || [];
 </script>
 
 
-
-<script src="/js/tocbot.min.js"></script>
-<script>
-  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
-  tocbot.init({
-    tocSelector: '.tocbot',
-    contentSelector: '.article-entry',
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    hasInnerContainers: true,
-    scrollSmooth: true,
-    scrollContainer: 'main',
-    positionFixedSelector: '.tocbot',
-    positionFixedClass: 'is-position-fixed',
-    fixedSidebarOffset: 'auto'
-  });
-</script>
 
 
 

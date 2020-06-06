@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zingphoy.github.io/"/>
-  <updated>2020-05-18T16:27:33.758Z</updated>
+  <updated>2020-06-06T15:00:29.839Z</updated>
   <id>https://zingphoy.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Code Review落地方案</title>
+    <link href="https://zingphoy.github.io/2020/05/31/Code%20Review%E8%90%BD%E5%9C%B0%E6%96%B9%E6%A1%88/"/>
+    <id>https://zingphoy.github.io/2020/05/31/Code Review落地方案/</id>
+    <published>2020-05-31T05:32:31.000Z</published>
+    <updated>2020-06-06T15:00:29.839Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;之前的博文也写过两篇关于Code Review的文章，出发点的各不相同：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="研发效率" scheme="https://zingphoy.github.io/categories/%E7%A0%94%E5%8F%91%E6%95%88%E7%8E%87/"/>
+    
+    
+      <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
+    
+      <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
+    
+      <category term="推荐阅读" scheme="https://zingphoy.github.io/tags/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>我的童年记忆</title>
@@ -49,7 +81,7 @@
     <link href="https://zingphoy.github.io/2020/04/26/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8E%8B%E6%B5%8B%E6%80%8E%E4%B9%88%E5%81%9A/"/>
     <id>https://zingphoy.github.io/2020/04/26/服务端压测怎么做/</id>
     <published>2020-04-26T14:30:00.000Z</published>
-    <updated>2020-05-07T12:02:45.651Z</updated>
+    <updated>2020-05-29T07:56:36.839Z</updated>
     
     <summary type="html">
     
@@ -67,6 +99,8 @@
       <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
+      <category term="推荐阅读" scheme="https://zingphoy.github.io/tags/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB/"/>
+    
       <category term="性能测试" scheme="https://zingphoy.github.io/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
     
       <category term="压测" scheme="https://zingphoy.github.io/tags/%E5%8E%8B%E6%B5%8B/"/>
@@ -80,7 +114,7 @@
     <link href="https://zingphoy.github.io/2020/04/19/%E4%B8%BA%E4%BB%80%E4%B9%88dict%E7%9A%84key%E4%B8%8D%E8%83%BD%E6%98%AFlist/"/>
     <id>https://zingphoy.github.io/2020/04/19/为什么dict的key不能是list/</id>
     <published>2020-04-19T13:54:07.000Z</published>
-    <updated>2020-04-20T11:10:40.729Z</updated>
+    <updated>2020-05-29T07:57:20.975Z</updated>
     
     <summary type="html">
     
@@ -96,6 +130,8 @@
     
       <category term="python" scheme="https://zingphoy.github.io/categories/python/"/>
     
+    
+      <category term="推荐阅读" scheme="https://zingphoy.github.io/tags/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB/"/>
     
       <category term="源码阅读" scheme="https://zingphoy.github.io/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
     
@@ -180,11 +216,11 @@
       <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
+      <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
+    
       <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
     
       <category term="测试" scheme="https://zingphoy.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
     
   </entry>
   
@@ -193,7 +229,7 @@
     <link href="https://zingphoy.github.io/2020/02/20/%E4%B8%AA%E4%BA%BA%E7%9B%AE%E6%A0%87%E7%AE%A1%E7%90%86/"/>
     <id>https://zingphoy.github.io/2020/02/20/个人目标管理/</id>
     <published>2020-02-20T14:26:17.000Z</published>
-    <updated>2020-04-18T11:06:07.306Z</updated>
+    <updated>2020-05-29T07:57:37.427Z</updated>
     
     <summary type="html">
     
@@ -209,6 +245,8 @@
     
       <category term="自我管理" scheme="https://zingphoy.github.io/categories/%E8%87%AA%E6%88%91%E7%AE%A1%E7%90%86/"/>
     
+    
+      <category term="推荐阅读" scheme="https://zingphoy.github.io/tags/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB/"/>
     
       <category term="目标管理" scheme="https://zingphoy.github.io/tags/%E7%9B%AE%E6%A0%87%E7%AE%A1%E7%90%86/"/>
     
@@ -306,11 +344,11 @@
   </entry>
   
   <entry>
-    <title>QA要看代码吗</title>
-    <link href="https://zingphoy.github.io/2019/12/12/QA%E8%A6%81%E7%9C%8B%E4%BB%A3%E7%A0%81%E5%90%97/"/>
-    <id>https://zingphoy.github.io/2019/12/12/QA要看代码吗/</id>
+    <title>QA测试是否要看代码</title>
+    <link href="https://zingphoy.github.io/2019/12/12/QA%E6%B5%8B%E8%AF%95%E6%98%AF%E5%90%A6%E8%A6%81%E7%9C%8B%E4%BB%A3%E7%A0%81/"/>
+    <id>https://zingphoy.github.io/2019/12/12/QA测试是否要看代码/</id>
     <published>2019-12-12T04:30:00.000Z</published>
-    <updated>2020-04-18T16:47:45.446Z</updated>
+    <updated>2020-06-01T05:23:14.293Z</updated>
     
     <summary type="html">
     
@@ -329,9 +367,9 @@
       <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
-    
       <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
+    
+      <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
     
   </entry>
   
@@ -571,35 +609,6 @@
       <category term="DIY" scheme="https://zingphoy.github.io/tags/DIY/"/>
     
       <category term="图拉丁" scheme="https://zingphoy.github.io/tags/%E5%9B%BE%E6%8B%89%E4%B8%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>多线程下的单例模式</title>
-    <link href="https://zingphoy.github.io/2019/04/11/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8B%E7%9A%84%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://zingphoy.github.io/2019/04/11/多线程下的单例模式/</id>
-    <published>2019-04-11T07:06:29.000Z</published>
-    <updated>2020-04-05T09:32:13.827Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;单例模式可能是应用得最广泛的设计模式之一，也是学习设计模式必学、面试必问的模式之一🤣，那么就很有必要搞清楚单例模式是一个什么东西了。这里着重讨论一下多线程下的单例模式，&lt;a href=&quot;https://en.wikipedia.org/wiki/Singleton_pattern&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Singleton（单例模式）&lt;/a&gt;的基本概念就不再展开了。一般来说，应用单例模式的场景为要求全局只存在一个单例类的实例，如果该单例类产生了多个实例可能会对系统造成影响或损害，需要限制为1个。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt; It ensures that the Singleton class has only one instance and provides a global access point for it. We can use a Singleton when the presence of multiple instances can potentially damage the system, and we need global access to the single instance. &lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="设计模式" scheme="https://zingphoy.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="单例模式" scheme="https://zingphoy.github.io/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="多线程" scheme="https://zingphoy.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    
-      <category term="代码实现" scheme="https://zingphoy.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/"/>
-    
-      <category term="翻译" scheme="https://zingphoy.github.io/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
