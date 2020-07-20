@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zingphoy.github.io/"/>
-  <updated>2020-06-06T15:00:29.839Z</updated>
+  <updated>2020-06-13T06:03:38.324Z</updated>
   <id>https://zingphoy.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zingphoy.github.io/2020/05/31/Code%20Review%E8%90%BD%E5%9C%B0%E6%96%B9%E6%A1%88/"/>
     <id>https://zingphoy.github.io/2020/05/31/Code Review落地方案/</id>
     <published>2020-05-31T05:32:31.000Z</published>
-    <updated>2020-06-06T15:00:29.839Z</updated>
+    <updated>2020-06-13T06:03:38.324Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,8 @@
       
         
         
-          &lt;p&gt;之前的博文也写过两篇关于Code Review的文章，出发点的各不相同：&lt;/p&gt;
+          &lt;p&gt;本文首发于我的&lt;a href=&quot;https://zingphoy.github.io/&quot;&gt;&lt;strong&gt;个人博客&lt;/strong&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;之前的博文也写过两篇关于Code Review的文章，出发点的各不相同：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a
         
@@ -40,9 +41,9 @@
       <category term="研发效率" scheme="https://zingphoy.github.io/categories/%E7%A0%94%E5%8F%91%E6%95%88%E7%8E%87/"/>
     
     
-      <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
-    
       <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
+    
+      <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
     
       <category term="推荐阅读" scheme="https://zingphoy.github.io/tags/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB/"/>
     
@@ -216,11 +217,11 @@
       <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
-    
       <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
     
       <category term="测试" scheme="https://zingphoy.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
     
   </entry>
   
@@ -367,9 +368,9 @@
       <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
-    
       <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
+    
+      <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
     
   </entry>
   
