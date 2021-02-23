@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zingphoy.github.io/"/>
-  <updated>2020-06-13T06:03:38.324Z</updated>
+  <updated>2021-02-23T14:24:41.990Z</updated>
   <id>https://zingphoy.github.io/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>我的2020总结</title>
+    <link href="https://zingphoy.github.io/2021/02/13/%E6%88%91%E7%9A%842020%E6%80%BB%E7%BB%93/"/>
+    <id>https://zingphoy.github.io/2021/02/13/我的2020总结/</id>
+    <published>2021-02-13T10:00:00.000Z</published>
+    <updated>2021-02-23T14:24:41.990Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;2021.02.13 下笔， 2021.02.23 完成。  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;前言废话&quot;&gt;&lt;a href=&quot;#前言废话&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="总结" scheme="https://zingphoy.github.io/categories/%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="年终总结" scheme="https://zingphoy.github.io/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="总结" scheme="https://zingphoy.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Code Review落地方案</title>
     <link href="https://zingphoy.github.io/2020/05/31/Code%20Review%E8%90%BD%E5%9C%B0%E6%96%B9%E6%A1%88/"/>
     <id>https://zingphoy.github.io/2020/05/31/Code Review落地方案/</id>
     <published>2020-05-31T05:32:31.000Z</published>
-    <updated>2020-06-13T06:03:38.324Z</updated>
+    <updated>2020-06-13T06:03:38.000Z</updated>
     
     <summary type="html">
     
@@ -41,9 +72,9 @@
       <category term="研发效率" scheme="https://zingphoy.github.io/categories/%E7%A0%94%E5%8F%91%E6%95%88%E7%8E%87/"/>
     
     
-      <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
-    
       <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
+    
+      <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
     
       <category term="推荐阅读" scheme="https://zingphoy.github.io/tags/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB/"/>
     
@@ -54,7 +85,7 @@
     <link href="https://zingphoy.github.io/2020/05/17/%E6%88%91%E7%9A%84%E7%AB%A5%E5%B9%B4%E8%AE%B0%E5%BF%86/"/>
     <id>https://zingphoy.github.io/2020/05/17/我的童年记忆/</id>
     <published>2020-05-17T14:55:17.000Z</published>
-    <updated>2020-05-18T16:27:33.758Z</updated>
+    <updated>2020-05-18T16:27:33.000Z</updated>
     
     <summary type="html">
     
@@ -82,7 +113,7 @@
     <link href="https://zingphoy.github.io/2020/04/26/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8E%8B%E6%B5%8B%E6%80%8E%E4%B9%88%E5%81%9A/"/>
     <id>https://zingphoy.github.io/2020/04/26/服务端压测怎么做/</id>
     <published>2020-04-26T14:30:00.000Z</published>
-    <updated>2020-05-29T07:56:36.839Z</updated>
+    <updated>2020-05-29T07:56:36.000Z</updated>
     
     <summary type="html">
     
@@ -115,7 +146,7 @@
     <link href="https://zingphoy.github.io/2020/04/19/%E4%B8%BA%E4%BB%80%E4%B9%88dict%E7%9A%84key%E4%B8%8D%E8%83%BD%E6%98%AFlist/"/>
     <id>https://zingphoy.github.io/2020/04/19/为什么dict的key不能是list/</id>
     <published>2020-04-19T13:54:07.000Z</published>
-    <updated>2020-05-29T07:57:20.975Z</updated>
+    <updated>2020-05-29T07:57:20.000Z</updated>
     
     <summary type="html">
     
@@ -141,11 +172,11 @@
   </entry>
   
   <entry>
-    <title>我的2020总结</title>
-    <link href="https://zingphoy.github.io/2020/04/05/%E6%88%91%E7%9A%842020%E6%80%BB%E7%BB%93/"/>
-    <id>https://zingphoy.github.io/2020/04/05/我的2020总结/</id>
+    <title>我的2019总结</title>
+    <link href="https://zingphoy.github.io/2020/04/05/%E6%88%91%E7%9A%842019%E6%80%BB%E7%BB%93/"/>
+    <id>https://zingphoy.github.io/2020/04/05/我的2019总结/</id>
     <published>2020-04-05T10:46:30.000Z</published>
-    <updated>2020-04-18T16:45:00.173Z</updated>
+    <updated>2021-02-21T11:05:04.081Z</updated>
     
     <summary type="html">
     
@@ -173,7 +204,7 @@
     <link href="https://zingphoy.github.io/2020/04/04/%E6%95%B0%E6%8D%AE%E6%98%AF%E4%B8%87%E8%83%BD%E7%9A%84%E5%90%97/"/>
     <id>https://zingphoy.github.io/2020/04/04/数据是万能的吗/</id>
     <published>2020-04-04T04:30:00.000Z</published>
-    <updated>2020-04-18T16:47:21.508Z</updated>
+    <updated>2020-04-18T16:47:21.000Z</updated>
     
     <summary type="html">
     
@@ -200,7 +231,7 @@
     <link href="https://zingphoy.github.io/2020/03/26/Code-review%E7%9A%84%E6%80%9D%E8%80%83/"/>
     <id>https://zingphoy.github.io/2020/03/26/Code-review的思考/</id>
     <published>2020-03-26T04:30:00.000Z</published>
-    <updated>2020-04-19T04:11:46.808Z</updated>
+    <updated>2020-04-19T04:11:46.000Z</updated>
     
     <summary type="html">
     
@@ -217,11 +248,11 @@
       <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
+      <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
+    
       <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
     
       <category term="测试" scheme="https://zingphoy.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
     
   </entry>
   
@@ -230,7 +261,7 @@
     <link href="https://zingphoy.github.io/2020/02/20/%E4%B8%AA%E4%BA%BA%E7%9B%AE%E6%A0%87%E7%AE%A1%E7%90%86/"/>
     <id>https://zingphoy.github.io/2020/02/20/个人目标管理/</id>
     <published>2020-02-20T14:26:17.000Z</published>
-    <updated>2020-05-29T07:57:37.427Z</updated>
+    <updated>2020-05-29T07:57:37.000Z</updated>
     
     <summary type="html">
     
@@ -260,7 +291,7 @@
     <link href="https://zingphoy.github.io/2020/01/22/%E4%BA%A7%E5%93%81%E5%B0%8F%E6%84%9F/"/>
     <id>https://zingphoy.github.io/2020/01/22/产品小感/</id>
     <published>2020-01-21T16:17:12.000Z</published>
-    <updated>2020-04-18T11:02:55.577Z</updated>
+    <updated>2020-04-18T11:02:55.000Z</updated>
     
     <summary type="html">
     
@@ -289,7 +320,7 @@
     <link href="https://zingphoy.github.io/2020/01/04/%E4%B8%80%E4%B8%AA%E9%AB%98%E6%95%88%E7%9A%84%E4%BC%9A%E8%AE%AE/"/>
     <id>https://zingphoy.github.io/2020/01/04/一个高效的会议/</id>
     <published>2020-01-04T04:00:00.000Z</published>
-    <updated>2020-05-04T04:08:19.567Z</updated>
+    <updated>2020-05-04T04:08:19.000Z</updated>
     
     <summary type="html">
     
@@ -317,7 +348,7 @@
     <link href="https://zingphoy.github.io/2019/12/15/%E4%BD%A0%E7%9A%84%E9%9C%80%E6%B1%82%E6%98%AF%E4%BB%80%E4%B9%88/"/>
     <id>https://zingphoy.github.io/2019/12/15/你的需求是什么/</id>
     <published>2019-12-15T04:30:00.000Z</published>
-    <updated>2020-05-04T04:09:09.035Z</updated>
+    <updated>2020-05-04T04:09:09.000Z</updated>
     
     <summary type="html">
     
@@ -349,7 +380,7 @@
     <link href="https://zingphoy.github.io/2019/12/12/QA%E6%B5%8B%E8%AF%95%E6%98%AF%E5%90%A6%E8%A6%81%E7%9C%8B%E4%BB%A3%E7%A0%81/"/>
     <id>https://zingphoy.github.io/2019/12/12/QA测试是否要看代码/</id>
     <published>2019-12-12T04:30:00.000Z</published>
-    <updated>2020-06-01T05:23:14.293Z</updated>
+    <updated>2020-06-01T05:23:14.000Z</updated>
     
     <summary type="html">
     
@@ -368,9 +399,9 @@
       <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
-    
       <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
+    
+      <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
     
   </entry>
   
@@ -379,7 +410,7 @@
     <link href="https://zingphoy.github.io/2019/12/06/%E7%A8%8B%E5%BA%8F%E5%8F%AF%E6%B5%8B%E6%80%A7/"/>
     <id>https://zingphoy.github.io/2019/12/06/程序可测性/</id>
     <published>2019-12-06T04:30:48.000Z</published>
-    <updated>2020-04-20T14:53:33.796Z</updated>
+    <updated>2020-04-20T14:53:33.000Z</updated>
     
     <summary type="html">
     
@@ -409,7 +440,7 @@
     <link href="https://zingphoy.github.io/2019/12/03/%E6%8A%80%E6%9C%AF%E9%A9%B1%E5%8A%A8%EF%BC%9F/"/>
     <id>https://zingphoy.github.io/2019/12/03/技术驱动？/</id>
     <published>2019-12-03T04:30:36.000Z</published>
-    <updated>2020-04-18T14:41:43.711Z</updated>
+    <updated>2020-04-18T14:41:43.000Z</updated>
     
     <summary type="html">
     
@@ -438,7 +469,7 @@
     <link href="https://zingphoy.github.io/2019/11/24/%E9%98%85%E8%AF%BB%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%84%9F/"/>
     <id>https://zingphoy.github.io/2019/11/24/阅读代码小感/</id>
     <published>2019-11-24T04:30:00.000Z</published>
-    <updated>2020-04-19T04:25:39.901Z</updated>
+    <updated>2020-04-19T04:25:39.000Z</updated>
     
     <summary type="html">
     
@@ -468,7 +499,7 @@
     <link href="https://zingphoy.github.io/2019/11/20/%E6%8F%90%E6%B5%8B%E6%B5%81%E7%A8%8B/"/>
     <id>https://zingphoy.github.io/2019/11/20/提测流程/</id>
     <published>2019-11-20T04:30:00.000Z</published>
-    <updated>2020-04-19T04:33:52.945Z</updated>
+    <updated>2020-04-19T04:33:52.000Z</updated>
     
     <summary type="html">
     
@@ -495,7 +526,7 @@
     <link href="https://zingphoy.github.io/2019/11/19/%E6%96%87%E6%A1%A3%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98/"/>
     <id>https://zingphoy.github.io/2019/11/19/文档解决什么问题/</id>
     <published>2019-11-19T14:37:58.000Z</published>
-    <updated>2020-04-18T16:35:48.069Z</updated>
+    <updated>2020-04-18T16:35:48.000Z</updated>
     
     <summary type="html">
     
@@ -523,7 +554,7 @@
     <link href="https://zingphoy.github.io/2019/07/01/DIY%E8%A3%85%E6%9C%BA%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AE-%E6%98%BE%E5%8D%A1%E7%AF%87/"/>
     <id>https://zingphoy.github.io/2019/07/01/DIY装机小白科普-显卡篇/</id>
     <published>2019-07-01T02:00:00.000Z</published>
-    <updated>2020-04-19T07:26:40.868Z</updated>
+    <updated>2020-04-19T07:26:40.000Z</updated>
     
     <summary type="html">
     
@@ -554,7 +585,7 @@
     <link href="https://zingphoy.github.io/2019/06/30/DIY%E8%A3%85%E6%9C%BA%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AE-cpu%E7%AF%87/"/>
     <id>https://zingphoy.github.io/2019/06/30/DIY装机小白科普-cpu篇/</id>
     <published>2019-06-30T02:00:00.000Z</published>
-    <updated>2020-04-18T16:44:24.756Z</updated>
+    <updated>2020-04-18T16:44:24.000Z</updated>
     
     <summary type="html">
     
@@ -582,34 +613,6 @@
       <category term="电脑配件" scheme="https://zingphoy.github.io/tags/%E7%94%B5%E8%84%91%E9%85%8D%E4%BB%B6/"/>
     
       <category term="DIY" scheme="https://zingphoy.github.io/tags/DIY/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>记一次e3装机心得</title>
-    <link href="https://zingphoy.github.io/2019/06/11/%E8%AE%B0%E4%B8%80%E6%AC%A1e3%E8%A3%85%E6%9C%BA%E5%BF%83%E5%BE%97/"/>
-    <id>https://zingphoy.github.io/2019/06/11/记一次e3装机心得/</id>
-    <published>2019-06-11T15:00:00.000Z</published>
-    <updated>2020-04-18T14:41:57.212Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;小学六年级升初中的假期家里买了一台台式机，还记得主机+屏幕+外设+电脑桌整一套下来一共5700+，奔腾cpu，具体啥型号也不懂，内存1g，硬盘不足200g，完全不知道是什么独立显卡，在大学的时候50块钱除了电脑桌外整套卖给了亲戚。大一依然没有自己的电脑，拿的是表弟玩剩的三星笔记本，只记得是2g内存，拿来玩dota2都时不时掉帧，可是相对我以前的台式机来说性能已经好很多了。到了大二终于买了自己的第一台电脑——服役到现在的神舟战神K650D-i7。又是几个年头了，也给老神舟加了120g的msata的SSD和4g内存，虽然胜任日常工作，但是畅快一点的影音娱乐依然有心无力。&lt;/p&gt;
-&lt;p&gt;出来工作两年了，搬家也稳定下来，终于打算自己DIY一套配置出来，这是一件很让人兴奋的事情，还是说男生总是喜欢折腾乱七八糟的电子产品😂。刚开始是打算正儿八经在6.18组一个中高性能主机的，配置是 &lt;code&gt;r5 2600x + 微星迫击炮B450m + 迪兰rx588 2048sp + 8g*2 十铨 + 酷冷至尊550w + 大霜塔散热器 + 西数黑盘500g&lt;/code&gt;，在JD和Tmall上看配件就好像一些人经常喜欢翻淘宝一样，一看不可收拾，有空就会拿出来看一下，彷佛马上就要买一样。后来看的资料多了，慢慢意识到二手配置性价比有多高，又接触了一些矿卡的资讯，来到了图拉丁吧，在公司内网发个帖子收二手配置还来了一位高级垃圾佬聊天，最终成功误入歧途……贪便宜的心越来越重😄，虽然没有DIY过主机，没真是踩过坑，但是却想花更少的钱来达到更高的性能。&lt;/p&gt;
-&lt;p&gt;于是重新审视自己的需求，其实&lt;code&gt;e3 1230v2&lt;/code&gt;即可满足我的需求——写写代码轻度影视娱乐游戏，开始了我的菜鸟装机历程。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="科普" scheme="https://zingphoy.github.io/categories/%E7%A7%91%E6%99%AE/"/>
-    
-    
-      <category term="装机" scheme="https://zingphoy.github.io/tags/%E8%A3%85%E6%9C%BA/"/>
-    
-      <category term="电脑配件" scheme="https://zingphoy.github.io/tags/%E7%94%B5%E8%84%91%E9%85%8D%E4%BB%B6/"/>
-    
-      <category term="DIY" scheme="https://zingphoy.github.io/tags/DIY/"/>
-    
-      <category term="图拉丁" scheme="https://zingphoy.github.io/tags/%E5%9B%BE%E6%8B%89%E4%B8%81/"/>
     
   </entry>
   
