@@ -127,9 +127,9 @@
       <category term="研发效率" scheme="https://zingphoy.github.io/categories/%E7%A0%94%E5%8F%91%E6%95%88%E7%8E%87/"/>
     
     
-      <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
-    
       <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
+    
+      <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
     
       <category term="推荐阅读" scheme="https://zingphoy.github.io/tags/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB/"/>
     
@@ -303,11 +303,11 @@
       <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
+      <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
+    
       <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
     
       <category term="测试" scheme="https://zingphoy.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
     
   </entry>
   
@@ -454,9 +454,9 @@
       <category term="测试" scheme="https://zingphoy.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
-    
       <category term="code review" scheme="https://zingphoy.github.io/tags/code-review/"/>
+    
+      <category term="白盒" scheme="https://zingphoy.github.io/tags/%E7%99%BD%E7%9B%92/"/>
     
   </entry>
   
