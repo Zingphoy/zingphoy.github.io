@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 
 
-<html lang="zh-CN" >
-
-
-<head>
-  <meta charset="utf-8" />
-   
-  <meta name="keywords" content="computer science, blog, life, techique" />
-   
-  <meta name="description" content="一名QA，不甘平庸的QA" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>
-    性能测试初探 |  Zingphoy
-  </title>
-  <meta name="generator" content="hexo-theme-yilia-plus">
-  
-  <link rel="shortcut icon" href="/favicon.ico" />
-  
-  <link rel="stylesheet" href="/dist/main.css">
-  <link rel="stylesheet" href="/css/custom.css">
-  
-  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-  
+<html lang="zh-CN">
   
 
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="computer science, blog, life, technique, quality ensurance" />
+       
+      <meta name="description" content="一名QA，不甘平庸的QA" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>性能测试初探 |  Zingphoy</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
 
-ga('create', 'UA-127980698-1', 'auto');
-ga('send', 'pageview');
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
 
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127980698-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-127980698-1');
 </script>
 
-
-
-  
+ 
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -51,17 +51,49 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
 
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Zingphoy" type="application/atom+xml">
+</head>
+  </html>
 </html>
+
 
 <body>
   <div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
     <main class="content on">
       <section class="outer">
-  <article id="post-性能测试初探" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
+  <article
+  id="post-性能测试初探"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
   <div class="article-inner">
     
     <header class="article-header">
@@ -71,21 +103,17 @@ var _hmt = _hmt || [];
 </h1>
  
 
+      
     </header>
-    
-
-    
+     
     <div class="article-meta">
-      <a href="/2017/12/18/性能测试初探/" class="article-date">
+      <a href="/2017/12/18/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%88%9D%E6%8E%A2/" class="article-date">
   <time datetime="2017-12-18T13:01:00.000Z" itemprop="datePublished">2017-12-18</time>
-</a>
-      
+</a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/测试/">测试</a>
+    <a class="article-category-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a>
   </div>
-
-      
-      
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
@@ -104,32 +132,22 @@ var _hmt = _hmt || [];
         </span>
     </span>
 </div>
-
-      
+ 
     </div>
-    
-
-    
-    
+      
     <div class="tocbot"></div>
 
 
 
 
-
-    
-
-    
+  
     <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>目前已经对两个不同的C/S架构产品的Server端进分别进行过一次性能测试，慢慢开始对性能测试有了初步的认识，下面大概分享一下我们小组的性能测试过程。</p>
+       
+  <p>目前已经对两个不同的C&#x2F;S架构产品的Server端进分别进行过一次性能测试，慢慢开始对性能测试有了初步的认识，下面大概分享一下我们小组的性能测试过程。</p>
 <h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p>性能测试开始之前会和开发讨论，目的就是要确定真实业务场景下的各种相关数据的量级，最终计算出预期多少<strong>QPS</strong>才可以应付业务场景的需要。当有了预期的<strong>QPS</strong>作为一个性能目标后，就可以开展性能测试了（根据业务需求不同会有各种不同的指标要求，可能是一个，也可能是多个）。</p>
 <p>这里性能测试使用的是<strong>Jmeter</strong>，<strong>Jmeter</strong>的优点很明显，就是简单易用，可以快速搭建分布式测试环境，通过水平扩展增加测试机器来增加对Server的请求压力，把Server推向它的性能转折点。</p>
 <p>机器资源在性能测试中是一个比较重要的东西，因为机器配置的好坏或者机器的多少就已经决定了你能对Server造成多大的压力，不同机器之间的配置是越接近越好，因为<strong>Jmeter</strong>的分布式测试是不存在调度一说的，只是简单地通过一个Master对配置好的所有Slave发送测试计划<code>jmx文件</code>，然后Slave会去执行测试计划（Slave也可以是Master自己）。如果Slave机器之间的性能差距太大，那么性能差的机器就会成为短板，导致性能相对好的机器无法最大程度发挥性能。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p><strong>1. 机器资源</strong></p>
 <p>继续上面说的机器性能，为什么说性能差的机器会成为分布式测试环境中的短板呢？因为每一台Slave执行的测试计划都是一样的，都要发那么多请求，起那么多线程，一旦消耗的资源超过机器承受范围，该机器发送的请求数量和质量就无法达到预期，总请求数势必变少，也就无法知道并发数等重要指标是否满足，从严谨的角度出发，这一次测试结果是作废了。</p>
@@ -146,9 +164,9 @@ var _hmt = _hmt || [];
 <li>线程循环次数<code>i</code>——也就是总共多少个区间<code>t</code>，因为循环<code>i</code>次，总共就会发<code>n*i</code>个请求</li>
 </ol>
 <p>以单个请求的平均响应时间为标准，由于线程在t区间内就会全部启动造成并发（可以粗略看成并发数为<code>n/t</code>），如果单请求平均响应时间大于区间t，则代表代表Server在区间t内已经处理不过来这么多请求了，就会造成请求的堆积。</p>
-<p><strong><em>为什么说Server处理不过来？</em></strong></p>
+<p><em><strong>为什么说Server处理不过来？</strong></em></p>
 <p>拿第一个启动起来的线程来看，本身预期该线程的请求在t区间内返回是没有问题的。但是，假如该线程发出的请求对应的响应时间大于t，则代表该响应在一个大于t的区间内依然算一个并发数，也就会影响到下一个区间t，结果是下一个区间t的并发数会受到来自上一个区间的叠加，最后导致在某个不知道的时间区间内，并发数会大于<code>n/t</code>，这对我们来说既不准确也不可控。</p>
-<p>除了以响应时间作为判断转折点的依据之外，<strong><em>Througput</em></strong>也可以作为参考。</p>
+<p>除了以响应时间作为判断转折点的依据之外，<em><strong>Througput</strong></em>也可以作为参考。</p>
 <p>另外，应该特别注意一下总请求量，一旦发现总请求量不足预期，很大可能是机器资源不够了，此时只能把参数调低，继续往上压已经不现实。如果请求量比预期要多（这个我们遇到，谜之问题），可以先检查csv配置文件是否正确，csv里的数据是否充足，可以看看<strong>Jmeter</strong>发出的不同请求有没有发生内容的重复，再根据这些已知条件去排查。</p>
 <p><strong>4. 测试数据的准备</strong></p>
 <p>很多时候构造请求是需要数据的，可以根据数据库的运作特征来构造数据，从而相应地验证数据库的增删改性能，也可以根据Server逻辑来构造，从而触发Server的不同业务路径。但是构造数据务必要合理，以真实业务场景为依据。</p>
@@ -160,32 +178,34 @@ var _hmt = _hmt || [];
 <li>优化前的指标数据和优化后的对比指标数据</li>
 </ul>
 <p>拿到上面的数据，就可以分析得出性能测试的结论，清晰可观地知道这一次性能测试产生一些什么样的积极意义了。</p>
-
-      
+ 
       <!-- reward -->
       
-      <div id="reward-btn">
-        打赏
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
       </div>
       
     </div>
     
+
+    <!-- copyright -->
     
-      <!-- copyright -->
-      
-        <div class="declare">
-          <ul class="post-copyright">
-            <li>
-              <i class="ri-copyright-line"></i>
-              <strong>版权声明： </strong>
-              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
-            </li>
-          </ul>
-        </div>
-        
-    <footer class="article-footer">
-      
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
 <div class="share-btn">
       <span class="share-sns share-outer">
         <i class="ri-share-forward-line"></i>
@@ -228,25 +248,20 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zingphoy.github.io/2017/12/18/性能测试初探/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zingphoy.github.io/2017/12/18/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%88%9D%E6%8E%A2/" alt="微信分享二维码">
     </div>
 </div>
 
-<div id="share-mask"></div>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能测试/">性能测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
-
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" rel="tag">性能测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
 
     </footer>
-
   </div>
 
-  
-  
+   
   <nav class="article-nav">
     
-      <a href="/2018/02/28/功能测试小感/" class="article-nav-link">
+      <a href="/2018/02/28/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B0%8F%E6%84%9F/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
@@ -258,100 +273,110 @@ var _hmt = _hmt || [];
     
   </nav>
 
-
-  
-
-  
-  
+   
 <!-- valine评论 -->
 <div id="vcomments-box">
-    <div id="vcomments">
-    </div>
+  <div id="vcomments"></div>
 </div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
 <script>
-    new Valine({
-        el: '#vcomments',
-        app_id: 'lEXlYo1CeMpXzh2xpIltjyfz-gzGzoHsz',
-        app_key: 'cFRtsPTW0nzHu7wC21T3FXtH',
-        path: window.location.pathname,
-        notify: 'true',
-        verify: 'true',
-        avatar: 'mp',
-        placeholder: '给我的文章加点评论吧~',
-        recordIP: true
+  new Valine({
+    el: "#vcomments",
+    app_id: "lEXlYo1CeMpXzh2xpIltjyfz-gzGzoHsz",
+    app_key: "cFRtsPTW0nzHu7wC21T3FXtH",
+    path: window.location.pathname,
+    avatar: "mp",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
     });
-    const infoEle = document.querySelector('#vcomments .info');
-    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
-        infoEle.childNodes.forEach(function (item) {
-            item.parentNode.removeChild(item);
-        });
-    }
+  }
 </script>
 <style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
     #vcomments-box {
-        padding: 5px 30px;
+      padding: 5px 0px;
     }
+  }
 
-    @media screen and (max-width: 800px) {
-        #vcomments-box {
-            padding: 5px 0px;
-        }
-    }
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
 
-    #vcomments-box #vcomments {
-        background-color: #fff;
-    }
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
 
-    .v .vlist .vcard .vh {
-        padding-right: 20px;
-    }
-
-    .v .vlist .vcard {
-        padding-left: 10px;
-    }
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
 </style>
 
+ 
+   
   
-
-  
-  
-  
-
+    
 </article>
+
 </section>
       <footer class="footer">
   <div class="outer">
-    <ul class="list-inline">
+    <ul>
       <li>
-        &copy;
+        Copyrights &copy;
         2017-2022
-        Zingphoy Han
+        <i class="ri-heart-fill heart_icon"></i> Zingphoy Han
       </li>
+    </ul>
+    <ul>
       <li>
         
-        Powered by
         
         
-        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
         
       </li>
     </ul>
-    <ul class="list-inline">
+    <ul>
       <li>
         
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
       </li>
+    </ul>
+    <ul>
       
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
       <li>
         <!-- cnzz统计 -->
         
       </li>
     </ul>
   </div>
-</footer>
-      <div class="float_btns">
-        <div class="totop" id="totop">
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
   <i class="ri-arrow-up-line"></i>
 </div>
 
@@ -359,8 +384,7 @@ var _hmt = _hmt || [];
   <i class="ri-moon-line"></i>
 </div>
 
-      </div>
-    </main>
+    </div>
     <aside class="sidebar on">
       <button class="navbar-toggle"></button>
 <nav class="navbar">
@@ -416,12 +440,6 @@ var _hmt = _hmt || [];
 </div>
 </div>
     </aside>
-    <script>
-      if (window.matchMedia("(max-width: 768px)").matches) {
-        document.querySelector('.content').classList.remove('on');
-        document.querySelector('.sidebar').classList.remove('on');
-      }
-    </script>
     <div id="mask"></div>
 
 <!-- #reward -->
@@ -438,51 +456,40 @@ var _hmt = _hmt || [];
     
   </div>
 </div>
-    <script src="/js/jquery-2.0.3.min.js"></script>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
 <script src="/js/lazyload.min.js"></script>
 
-<script>
-  try {
-    var typed = new Typed("#subtitle", {
-      strings: ['技术、健身、欢乐', '一名QA，却不甘于只做QA', '梦想是拥有一间自己的健身房'],
-      startDelay: 500,
-      typeSpeed: 150,
-      loop: false,
-      backSpeed: 50,
-      showCursor: true
-    });
-  } catch (err) {
-  }
-
-</script>
-
-
-
+<!-- Tocbot -->
+ 
 <script src="/js/tocbot.min.js"></script>
+
 <script>
-  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
   tocbot.init({
-    tocSelector: '.tocbot',
-    contentSelector: '.article-entry',
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
     hasInnerContainers: true,
     scrollSmooth: true,
-    scrollContainer: 'main',
-    positionFixedSelector: '.tocbot',
-    positionFixedClass: 'is-position-fixed',
-    fixedSidebarOffset: 'auto'
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
   });
 </script>
 
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
 
-
-<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
-<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
 <script src="/dist/main.js"></script>
 
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     <!-- Background of PhotoSwipe. 
@@ -549,10 +556,10 @@ var _hmt = _hmt || [];
 
 </div>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
-<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
 
 <script>
     function viewer_init() {
@@ -587,10 +594,9 @@ var _hmt = _hmt || [];
         })
     }
     viewer_init()
-</script>
-
-
-<script type="text/x-mathjax-config">
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
       tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
@@ -607,22 +613,100 @@ var _hmt = _hmt || [];
   });
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
 <script>
   var ayerConfig = {
-    mathjax: true
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
   }
 </script>
 
 
-
-
-<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
-
-  <script src="/js/clickLove.js"></script>
-
-
     
+    
+
   </div>
 </body>
 

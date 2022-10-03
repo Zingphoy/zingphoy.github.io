@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 
 
-<html lang="zh-CN" >
-
-
-<head>
-  <meta charset="utf-8" />
-   
-  <meta name="keywords" content="computer science, blog, life, techique" />
-   
-  <meta name="description" content="一名QA，不甘平庸的QA" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>
-    Code Review落地方案 |  Zingphoy
-  </title>
-  <meta name="generator" content="hexo-theme-yilia-plus">
-  
-  <link rel="shortcut icon" href="/favicon.ico" />
-  
-  <link rel="stylesheet" href="/dist/main.css">
-  <link rel="stylesheet" href="/css/custom.css">
-  
-  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-  
+<html lang="zh-CN">
   
 
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="computer science, blog, life, technique, quality ensurance" />
+       
+      <meta name="description" content="一名QA，不甘平庸的QA" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>再谈Code Review |  Zingphoy</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
 
-ga('create', 'UA-127980698-1', 'auto');
-ga('send', 'pageview');
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
 
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127980698-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-127980698-1');
 </script>
 
-
-
-  
+ 
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -51,41 +51,69 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
 
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Zingphoy" type="application/atom+xml">
+</head>
+  </html>
 </html>
+
 
 <body>
   <div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
     <main class="content on">
       <section class="outer">
-  <article id="post-Code Review落地方案" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
+  <article
+  id="post-再谈Code Review"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
   <div class="article-inner">
     
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Code Review落地方案
+  再谈Code Review
 </h1>
  
 
+      
     </header>
-    
-
-    
+     
     <div class="article-meta">
-      <a href="/2020/05/31/Code Review落地方案/" class="article-date">
+      <a href="/2020/05/31/%E5%86%8D%E8%B0%88Code%20Review/" class="article-date">
   <time datetime="2020-05-31T05:32:31.000Z" itemprop="datePublished">2020-05-31</time>
-</a>
-      
+</a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/研发效率/">研发效率</a>
+    <a class="article-category-link" href="/categories/%E7%A0%94%E5%8F%91%E6%95%88%E7%8E%87/">研发效率</a>
   </div>
-
-      
-      
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
@@ -104,35 +132,24 @@ var _hmt = _hmt || [];
         </span>
     </span>
 </div>
-
-      
+ 
     </div>
-    
-
-    
-    
+      
     <div class="tocbot"></div>
 
 
 
 
-
-    
-
-    
+  
     <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>本文首发于我的<a href="https://zingphoy.github.io/"><strong>个人博客</strong></a>。</p>
-<p>之前的博文也写过两篇关于Code Review的文章，出发点的各不相同：</p>
+       
+  <p>之前的博文也写过两篇关于Code Review的文章，出发点的各不相同：</p>
 <ul>
-<li><p><a href="https://zingphoy.github.io/2019/12/12/QA测试是否要看代码/"><strong>QA测试是否要看代码</strong></a>——QA读产品代码的必要性</p>
+<li><p><a href="https://zingphoy.github.io/2019/12/12/QA%E6%B5%8B%E8%AF%95%E6%98%AF%E5%90%A6%E8%A6%81%E7%9C%8B%E4%BB%A3%E7%A0%81/"><strong>QA测试是否要看代码</strong></a>——QA读产品代码的必要性</p>
 </li>
-<li><p><a href="https://zingphoy.github.io/2020/03/26/Code-review的思考/"><strong>Code Review的思考</strong></a>——Code Review存在的必要性</p>
+<li><p><a href="https://zingphoy.github.io/2020/03/26/Code%20Review%E7%9A%84%E6%80%9D%E8%80%83/"><strong>Code Review的思考</strong></a>——Code Review存在的必要性</p>
 </li>
-<li><p><a href="https://zingphoy.github.io/2019/11/24/阅读代码小感/"><strong>阅读代码小感</strong></a>——阅读代码的一些方法论</p>
+<li><p><a href="https://zingphoy.github.io/2019/11/24/%E9%98%85%E8%AF%BB%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%84%9F/"><strong>阅读代码小感</strong></a>——阅读代码的一些方法论</p>
 </li>
 </ul>
 <p>似乎Code Review相关的话题特别容易水文章😅。其实网上有很多介绍Code Review的流程介绍，中英资料都不缺少，但是并没有一个更加系统的文章来阐述一个完整可行的Code Review方案，具体到流程的每一个环节。</p>
@@ -143,14 +160,14 @@ var _hmt = _hmt || [];
 <p>更进一步，线上事故经常有，我们的QA联合RD对一系列线上事故做分析之后，发现很多造成事故的Bug都具备在CR阶段被发现的可能性（当然不是100%能被发现）。</p>
 <p>综上三点，已经阐述了Code Review的必要性。</p>
 <hr>
-<h2 id="QA如何做-Code-Review"><a href="#QA如何做-Code-Review" class="headerlink" title="QA如何做 Code Review"></a>QA如何做 Code Review</h2><p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/communicate.jpg" alt="Code Review"></p>
+<h2 id="QA如何做-Code-Review"><a href="#QA如何做-Code-Review" class="headerlink" title="QA如何做 Code Review"></a>QA如何做 Code Review</h2><img src="/2020/05/31/%E5%86%8D%E8%B0%88Code%20Review/communicate.jpg" class="" title="沟通">
+
 <h3 id="QA为何难以参与CR"><a href="#QA为何难以参与CR" class="headerlink" title="QA为何难以参与CR"></a>QA为何难以参与CR</h3><p>很多QA可能觉得CR是RD的工作，跟QA没有关系，这是片面的。CR确实是RD主导，但也不失为QA贯彻测试左移原则一个好的切入点，还能顺便看看产品代码从细节上熟悉被测对象，何乐而不为？</p>
 <p>个人感觉QA难以在CR中体现出参与感的一个最关键的点，可能是很多QA本身缺少一定的代码经验或白盒测试思维导致CR参与度低，换句话说，就是缺少做CR经验和方法论，这些都是可以通过实践去积累的。老QA员工就不看重CR，上梁不正下梁歪，新来的QA同学很可能也不会看重CR。另一方面，确实是日常需求测试比较重，尤其是客户端（移动端和Web端）的同学，业务压力大，是客观现象，这就不在这里做讨论了。私以为，一个好QA，除了充当流程规范的把关者外，技术能力是不应该跟RD相差太远的。</p>
 <p>我所在的QA团队做CR也一直有问题，如下：</p>
 <ul>
-<li>业务类需求（泛指常规具备交互因素的功能），大多数都是需求完成测试后才发起CR，CR的时间节点过于滞后，导致CR发现问题改代码后又缺失测试环节。正确做法应该在测试前或者测试中完成CR，或CR修改完后复测</li>
-</ul>
-<ul>
+<li><p>业务类需求（泛指常规具备交互因素的功能），大多数都是需求完成测试后才发起CR，CR的时间节点过于滞后，导致CR发现问题改代码后又缺失测试环节。正确做法应该在测试前或者测试中完成CR，或CR修改完后复测</p>
+</li>
 <li><p>技术类需求（泛指代码优化或UI不好体现的功能），QA没有参与需求前期阶段，在不清楚上下文的情况下被RD拉进去对陌生功能模块进行CR，没有效果</p>
 </li>
 <li><p>鉴于上面两点，QA很难发挥真正的合码卡口质量担保的作用，也没办法建立RD对QA在技术上的认可度，QA的CR流于形式（甚至RD的CR也是）</p>
@@ -166,7 +183,7 @@ var _hmt = _hmt || [];
 <h4 id="2-明确-Change-List"><a href="#2-明确-Change-List" class="headerlink" title="2. 明确 Change List"></a>2. <strong>明确 Change List</strong></h4><blockquote>
 <ul>
 <li>改动范围是QA判断CR策略的核心信息，QA对代码本身以及模块设计的熟悉度肯定不及RD，在CR时需要获取更多辅助信息协助CR。</li>
-<li>知悉改动范围可以在业务知识上先行识别代码风险，然后根据风险点从代码层面上逐个排查——可以理解为QA根据改动先设计 <strong><em>CR用例</em></strong>，再拿具体代码对着 <strong><em>CR用例</em></strong> 来找Bug，如针对一段循环逻辑，QA基于业务知识知道循环的结束条件，再结合具体实现寻找是否存在导致死循环的潜在条件场景。</li>
+<li>知悉改动范围可以在业务知识上先行识别代码风险，然后根据风险点从代码层面上逐个排查——可以理解为QA根据改动先设计 <em><strong>CR用例</strong></em>，再拿具体代码对着 <em><strong>CR用例</strong></em> 来找Bug，如针对一段循环逻辑，QA基于业务知识知道循环的结束条件，再结合具体实现寻找是否存在导致死循环的潜在条件场景。</li>
 <li>Double check附带的说明文档，以防理解错误或遗漏信息。</li>
 </ul>
 </blockquote>
@@ -195,7 +212,8 @@ var _hmt = _hmt || [];
 <li>觉得存在遗漏的场景或未知风险的代码，应该指出来，可能是不知悉代码上下文带来的误判，也有可能是真的有问题！</li>
 </ul>
 </blockquote>
-<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/do_CR_right.jpg" alt="do CR right"></p>
+<img src="/2020/05/31/%E5%86%8D%E8%B0%88Code%20Review/do_CR_right.jpg" class="" title="正确做CR">
+
 <h3 id="QA做CR的一些经验"><a href="#QA做CR的一些经验" class="headerlink" title="QA做CR的一些经验"></a>QA做CR的一些经验</h3><p>RD做CR更多的是从风格、代码设计、注释、功能、性能、安全、可维护性、等各种维度下手，QA做CR更多是从功能、异常处理、性能、可测性方面下手，关注点会比RD少但是更集中。一般可以根据代码Diff，顺着数据流转链路往前后延伸走读，下面列举一些经验性的关注点。</p>
 <p><strong>可以让RD当面解释数据流转过程，有奇效。</strong></p>
 <hr>
@@ -212,7 +230,7 @@ var _hmt = _hmt || [];
 <li>数据格式与类型非预期（常见服务端线上事故）</li>
 <li>锁获取：饿死、死锁</li>
 <li>阻塞与非阻塞、同步还是异步</li>
-<li>内存/资源泄露，尤其是异常逻辑</li>
+<li>内存&#x2F;资源泄露，尤其是异常逻辑</li>
 <li>隐式类型转换</li>
 <li>上下游接口明确</li>
 <li>实现方案有缺陷</li>
@@ -222,7 +240,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>一个简单却又经常被忽略的辅助信息：<strong>历史commit message</strong>。</p>
 <hr>
-<h3 id="代码可测性"><a href="#代码可测性" class="headerlink" title="代码可测性"></a>代码可测性</h3><p>如果需要QA做具体测试的需求，还要关注一下<a href="https://zingphoy.github.io/2019/12/06/程序可测性/"><strong>代码程序的可测性</strong></a>。</p>
+<h3 id="代码可测性"><a href="#代码可测性" class="headerlink" title="代码可测性"></a>代码可测性</h3><p>如果需要QA做具体测试的需求，还要关注一下<a href="https://zingphoy.github.io/2019/12/06/%E7%A8%8B%E5%BA%8F%E5%8F%AF%E6%B5%8B%E6%80%A7/"><strong>代码程序的可测性</strong></a>。</p>
 <ul>
 <li>可验证性<ul>
 <li>添加必要的日志</li>
@@ -252,33 +270,67 @@ var _hmt = _hmt || [];
 </ul>
 <h3 id="CR例子"><a href="#CR例子" class="headerlink" title="CR例子"></a>CR例子</h3><p>这里给一些简单例子，可能不严谨，体会到意思即可。</p>
 <p>一、变量没有初始化即使用</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意java基本类型默认有初始值，但是赋初值还是个好习惯</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">A a;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">uploadData(a);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 注意java基本类型默认有初始值，但是赋初值还是个好习惯</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">&#123;</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">&#125;</span>
 
-<br>
+<span class="token class-name">A</span> a<span class="token punctuation">;</span>
+<span class="token comment">// ...</span>
+<span class="token function">uploadData</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</br>
 二、代码不符本意
 
 <p>mainDic已经初始化，if 判空逻辑永远为True，应该是 mainDic.count</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSMutableDictionary *mainDic = [NSMutableDictionary dictionary];</span><br><span class="line"></span><br><span class="line">if (mainDic)&#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">NSMutableDictionary *mainDic &#x3D; [NSMutableDictionary dictionary];
 
-<br>
+if (mainDic)&#123;
+    &#x2F;&#x2F; ...
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</br>
 三、异常情况遗漏处理 或 处理不完善
 
 <p>如断网弱网重试、异常抛出未catch、变量不判空。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件资源在抛异常时没有close，资源泄露</span></span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">  OutputStream out = <span class="keyword">new</span> FileOutputStream(<span class="string">""</span>);</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  out.close();</span><br><span class="line">&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">  e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 文件资源在抛异常时没有close，资源泄露</span>
+<span class="token keyword">try</span><span class="token punctuation">&#123;</span>
+  <span class="token class-name">OutputStream</span> out <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// ...</span>
+  out<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+  e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<br>
+</br>
 四、循环结束判断条件错误
 
 <p>喜闻乐见你懂的，不用举例了。</p>
-<br>
+</br>
 五、手误写错变量名、函数名
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rulesForA</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rulesForB</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line">A a = <span class="keyword">new</span> A();</span><br><span class="line">B b = <span class="keyword">new</span> B()</span><br><span class="line">rulesForA(b);   <span class="comment">//  手误写错变量名or函数名</span></span><br><span class="line">rulesForB(a);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> <span class="token function">rulesForA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+<span class="token comment">// ...</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">int</span> <span class="token function">rulesForB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+<span class="token comment">// ...</span>
+<span class="token punctuation">&#125;</span>
+<span class="token class-name">A</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">B</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">rulesForA</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">//  手误写错变量名or函数名</span>
+<span class="token function">rulesForB</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<br>
+</br>
 六、全局变量与局部变量混淆使用
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">9</span>;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    a += <span class="number">1</span>;   <span class="comment">// 可能本意是对全局变量a自增，这里错误把局部变量a自增</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">static</span> <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span>
+    <span class="token comment">// ...</span>
+    a <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>   <span class="token comment">// 可能本意是对全局变量a自增，这里错误把局部变量a自增</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>更多关于做CR的方法论，谷歌也出了一个CR工程师实践，文末参考资料附上链接。</p>
 <hr>
@@ -321,11 +373,12 @@ var _hmt = _hmt || [];
 <p><strong>一个具体例子</strong></p>
 <ol>
 <li>RD小陈修改了代码文件A.java，提交后发起Merge Request</li>
-<li>分析A.java的改动，发现本次改动中<strong>添加/删除/修改 方法function</strong>，根据A.java的代码进行分析，<strong>方法function属于类Example，类Example在B.java中被定义声明</strong>，被A.java import了进来；<strong>A.java在文件C.java、D.java中也有被使用，而C.java、D.java里定义的类被E.java和F.java调用</strong>。所以最后获取到关联的上下游文件集合有 [ A.java, B.java, C.java, D.java, E.java, F.java ]，下面附一个简单的图来表达这个上下关联关系</li>
+<li>分析A.java的改动，发现本次改动中<strong>添加&#x2F;删除&#x2F;修改 方法function</strong>，根据A.java的代码进行分析，<strong>方法function属于类Example，类Example在B.java中被定义声明</strong>，被A.java import了进来；<strong>A.java在文件C.java、D.java中也有被使用，而C.java、D.java里定义的类被E.java和F.java调用</strong>。所以最后获取到关联的上下游文件集合有 [ A.java, B.java, C.java, D.java, E.java, F.java ]，下面附一个简单的图来表达这个上下关联关系</li>
 <li>获取 [ A.java, B.java, C.java, D.java, E.java, F.java, G.java ] 这些代码文件的CR候选人（这里可以根据git代码行修改人获取对应RD，也可以配置RD）</li>
 <li>这些候选RD推荐给CR发起人，让他选择拉哪些RD进来CR</li>
 </ol>
-<p><img src="https://gitee.com/zingphoy/img/raw/master/blog_image/relationship_between_file.png" alt="代码文件的关联关系举例"></p>
+<img src="/2020/05/31/%E5%86%8D%E8%B0%88Code%20Review/relationship_between_file.png" class="" title="代码关联关系">
+
 <p><strong>核心问题</strong></p>
 <p>如何抽取出代码文件之间的关联关系？使用什么样的静态代码分析技术？</p>
 <p>以前有接触过类似的项目，通过正则表达式匹配不同的java语法，匹配范围包括：类对象的创建声明、包的引用关系，这样就可以知道<strong>一个文件会对外提供什么类，以及它使用了来自什么包的哪个类</strong>，进一步地，就可以匹配出两个java文件之间是否有关联关系——你调用我还是我调用你，也就是上下游关联关系。比如A.java有类A，B.java引入了类A并进行使用，那么B.java与A.java就存在关联关系。</p>
@@ -376,36 +429,38 @@ var _hmt = _hmt || [];
 </blockquote>
 <p><strong>Code Review做得不好，就说Code Review无用，这样的说法就好比单元测试写得烂，就说单元测试不用做一样</strong>。</p>
 <hr>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://coolshell.cn/articles/11432.html" target="_blank" rel="noopener">从 CODE REVIEW 谈如何做技术</a></p>
-<p><a href="http://szuwest.github.io/code-reviewfang-an.html" target="_blank" rel="noopener">Code Review方案</a></p>
-<p><a href="https://google.github.io/eng-practices/" target="_blank" rel="noopener">Google Engineering Practices Documentation</a></p>
-<p><a href="https://phauer.com/2018/code-review-guidelines/" target="_blank" rel="noopener">Code Review Guidelines for Humans</a></p>
-
-      
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://coolshell.cn/articles/11432.html">从 CODE REVIEW 谈如何做技术</a></p>
+<p><a target="_blank" rel="noopener" href="http://szuwest.github.io/code-reviewfang-an.html">Code Review方案</a></p>
+<p><a target="_blank" rel="noopener" href="https://google.github.io/eng-practices/">Google Engineering Practices Documentation</a></p>
+<p><a target="_blank" rel="noopener" href="https://phauer.com/2018/code-review-guidelines/">Code Review Guidelines for Humans</a></p>
+ 
       <!-- reward -->
       
-      <div id="reward-btn">
-        打赏
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
       </div>
       
     </div>
     
+
+    <!-- copyright -->
     
-      <!-- copyright -->
-      
-        <div class="declare">
-          <ul class="post-copyright">
-            <li>
-              <i class="ri-copyright-line"></i>
-              <strong>版权声明： </strong>
-              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
-            </li>
-          </ul>
-        </div>
-        
-    <footer class="article-footer">
-      
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
 <div class="share-btn">
       <span class="share-sns share-outer">
         <i class="ri-share-forward-line"></i>
@@ -448,25 +503,20 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zingphoy.github.io/2020/05/31/Code Review落地方案/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zingphoy.github.io/2020/05/31/%E5%86%8D%E8%B0%88Code%20Review/" alt="微信分享二维码">
     </div>
 </div>
 
-<div id="share-mask"></div>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/code-review/">code review</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推荐阅读/">推荐阅读</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/白盒/">白盒</a></li></ul>
-
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/code-review/" rel="tag">code review</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB/" rel="tag">推荐阅读</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%99%BD%E7%9B%92/" rel="tag">白盒</a></li></ul>
 
     </footer>
-
   </div>
 
-  
-  
+   
   <nav class="article-nav">
     
-      <a href="/2021/02/13/我的2020总结/" class="article-nav-link">
+      <a href="/2021/02/13/%E6%88%91%E7%9A%842020%E6%80%BB%E7%BB%93/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
@@ -476,107 +526,117 @@ var _hmt = _hmt || [];
       </a>
     
     
-      <a href="/2020/05/17/我的童年记忆/" class="article-nav-link">
+      <a href="/2020/05/17/%E6%88%91%E7%9A%84%E7%AB%A5%E5%B9%B4%E8%AE%B0%E5%BF%86/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
         <div class="article-nav-title">我的童年记忆</div>
       </a>
     
   </nav>
 
-
-  
-
-  
-  
+   
 <!-- valine评论 -->
 <div id="vcomments-box">
-    <div id="vcomments">
-    </div>
+  <div id="vcomments"></div>
 </div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
 <script>
-    new Valine({
-        el: '#vcomments',
-        app_id: 'lEXlYo1CeMpXzh2xpIltjyfz-gzGzoHsz',
-        app_key: 'cFRtsPTW0nzHu7wC21T3FXtH',
-        path: window.location.pathname,
-        notify: 'true',
-        verify: 'true',
-        avatar: 'mp',
-        placeholder: '给我的文章加点评论吧~',
-        recordIP: true
+  new Valine({
+    el: "#vcomments",
+    app_id: "lEXlYo1CeMpXzh2xpIltjyfz-gzGzoHsz",
+    app_key: "cFRtsPTW0nzHu7wC21T3FXtH",
+    path: window.location.pathname,
+    avatar: "mp",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
     });
-    const infoEle = document.querySelector('#vcomments .info');
-    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
-        infoEle.childNodes.forEach(function (item) {
-            item.parentNode.removeChild(item);
-        });
-    }
+  }
 </script>
 <style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
     #vcomments-box {
-        padding: 5px 30px;
+      padding: 5px 0px;
     }
+  }
 
-    @media screen and (max-width: 800px) {
-        #vcomments-box {
-            padding: 5px 0px;
-        }
-    }
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
 
-    #vcomments-box #vcomments {
-        background-color: #fff;
-    }
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
 
-    .v .vlist .vcard .vh {
-        padding-right: 20px;
-    }
-
-    .v .vlist .vcard {
-        padding-left: 10px;
-    }
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
 </style>
 
+ 
+   
   
-
-  
-  
-  
-
+    
 </article>
+
 </section>
       <footer class="footer">
   <div class="outer">
-    <ul class="list-inline">
+    <ul>
       <li>
-        &copy;
+        Copyrights &copy;
         2017-2022
-        Zingphoy Han
+        <i class="ri-heart-fill heart_icon"></i> Zingphoy Han
       </li>
+    </ul>
+    <ul>
       <li>
         
-        Powered by
         
         
-        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
         
       </li>
     </ul>
-    <ul class="list-inline">
+    <ul>
       <li>
         
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
       </li>
+    </ul>
+    <ul>
       
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
       <li>
         <!-- cnzz统计 -->
         
       </li>
     </ul>
   </div>
-</footer>
-      <div class="float_btns">
-        <div class="totop" id="totop">
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
   <i class="ri-arrow-up-line"></i>
 </div>
 
@@ -584,8 +644,7 @@ var _hmt = _hmt || [];
   <i class="ri-moon-line"></i>
 </div>
 
-      </div>
-    </main>
+    </div>
     <aside class="sidebar on">
       <button class="navbar-toggle"></button>
 <nav class="navbar">
@@ -641,12 +700,6 @@ var _hmt = _hmt || [];
 </div>
 </div>
     </aside>
-    <script>
-      if (window.matchMedia("(max-width: 768px)").matches) {
-        document.querySelector('.content').classList.remove('on');
-        document.querySelector('.sidebar').classList.remove('on');
-      }
-    </script>
     <div id="mask"></div>
 
 <!-- #reward -->
@@ -663,51 +716,40 @@ var _hmt = _hmt || [];
     
   </div>
 </div>
-    <script src="/js/jquery-2.0.3.min.js"></script>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
 <script src="/js/lazyload.min.js"></script>
 
-<script>
-  try {
-    var typed = new Typed("#subtitle", {
-      strings: ['技术、健身、欢乐', '一名QA，却不甘于只做QA', '梦想是拥有一间自己的健身房'],
-      startDelay: 500,
-      typeSpeed: 150,
-      loop: false,
-      backSpeed: 50,
-      showCursor: true
-    });
-  } catch (err) {
-  }
-
-</script>
-
-
-
+<!-- Tocbot -->
+ 
 <script src="/js/tocbot.min.js"></script>
+
 <script>
-  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
   tocbot.init({
-    tocSelector: '.tocbot',
-    contentSelector: '.article-entry',
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
     hasInnerContainers: true,
     scrollSmooth: true,
-    scrollContainer: 'main',
-    positionFixedSelector: '.tocbot',
-    positionFixedClass: 'is-position-fixed',
-    fixedSidebarOffset: 'auto'
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
   });
 </script>
 
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
 
-
-<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
-<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
 <script src="/dist/main.js"></script>
 
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     <!-- Background of PhotoSwipe. 
@@ -774,10 +816,10 @@ var _hmt = _hmt || [];
 
 </div>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
-<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
 
 <script>
     function viewer_init() {
@@ -812,10 +854,9 @@ var _hmt = _hmt || [];
         })
     }
     viewer_init()
-</script>
-
-
-<script type="text/x-mathjax-config">
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
       tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
@@ -832,22 +873,100 @@ var _hmt = _hmt || [];
   });
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
 <script>
   var ayerConfig = {
-    mathjax: true
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
   }
 </script>
 
 
-
-
-<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
-
-  <script src="/js/clickLove.js"></script>
-
-
     
+    
+
   </div>
 </body>
 

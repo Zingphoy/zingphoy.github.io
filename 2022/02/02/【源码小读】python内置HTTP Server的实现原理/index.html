@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="computer science, blog, life, technique, quality ensurance" />
+       
+      <meta name="description" content="一名QA，不甘平庸的QA" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>【源码小读】python内置HTTP Server的实现原理 |  Zingphoy</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127980698-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-127980698-1');
+</script>
+
+ 
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?b1b2a6b0e5bb9dd4408632cb65ab0a45";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Zingphoy" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="【源码小读】python内置HTTP Server的实现原理-【源码小读】python内置HTTP Server的实现原理"
+  class="article article-type-【源码小读】python内置HTTP Server的实现原理"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  【源码小读】python内置HTTP Server的实现原理
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/02/02/%E3%80%90%E6%BA%90%E7%A0%81%E5%B0%8F%E8%AF%BB%E3%80%91python%E5%86%85%E7%BD%AEHTTP%20Server%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" class="article-date">
+  <time datetime="2022-02-02T15:11:00.000Z" itemprop="datePublished">2022-02-02</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">python</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.6k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">7 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="应用案例"><a href="#应用案例" class="headerlink" title="应用案例"></a>应用案例</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> http<span class="token punctuation">.</span>server <span class="token keyword">import</span> HTTPServer<span class="token punctuation">,</span> BaseHTTPRequestHandler  
+
+IP <span class="token operator">=</span> <span class="token string">'127.0.0.1'</span>  
+PORT <span class="token operator">=</span> <span class="token number">8000</span>  
+
+<span class="token keyword">class</span> <span class="token class-name">Handler</span><span class="token punctuation">(</span>BaseHTTPRequestHandler<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    <span class="token keyword">def</span> <span class="token function">do_GET</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+        self<span class="token punctuation">.</span>send_response<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span>  
+        self<span class="token punctuation">.</span>send_header<span class="token punctuation">(</span><span class="token string">'Content-type'</span><span class="token punctuation">,</span> <span class="token string">'text/html'</span><span class="token punctuation">)</span>  
+        self<span class="token punctuation">.</span>end_headers<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+        message <span class="token operator">=</span> <span class="token string">"Hello, World!"</span>  
+
+        self<span class="token punctuation">.</span>wfile<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token builtin">bytes</span><span class="token punctuation">(</span>message<span class="token punctuation">,</span> <span class="token string">"utf8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
+
+<span class="token keyword">with</span> HTTPServer<span class="token punctuation">(</span><span class="token punctuation">(</span>IP<span class="token punctuation">,</span> PORT<span class="token punctuation">)</span><span class="token punctuation">,</span> Handler<span class="token punctuation">)</span> <span class="token keyword">as</span> httpd<span class="token punctuation">:</span>  
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"serving at port"</span><span class="token punctuation">,</span> PORT<span class="token punctuation">)</span>  
+    httpd<span class="token punctuation">.</span>serve_forever<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>以上是使用内置模块 <code>http.server</code> 实现的一个最简单的 http 服务器，能处理 http GET 请求。</p>
+<p>python 内置的 http server 主要集中在两个代码文件上，分别是 <code>socketserver.py</code> 和 <code>http/server.py</code>。<code>socketserver.py</code> 提供 socket 通信能力的 Server 封装并预留了用户自定义请求处理的接口；<code>http/server.py</code> 基于前者做进一步封装，用得比较多的是 HTTP 的封装。</p>
+<p>从开头的例子出发阅读代码（python 3.10.1），大致梳理出以下代码结构，图画得很随意无规范可言，只是为了更具象化解释。</p>
+<h2 id="问题一：实现一个-HTTP-服务器大致需要什么要素"><a href="#问题一：实现一个-HTTP-服务器大致需要什么要素" class="headerlink" title="问题一：实现一个 HTTP 服务器大致需要什么要素"></a>问题一：实现一个 HTTP 服务器大致需要什么要素</h2><p>先看图1，左边 <code>BaseServer</code> 一列是类，从上往下是父类到子类；右边 <code>server_forever()</code> 一列是方法，从上往下是逐步深入的调用链。</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">                从父类到子类                                 主线流程
+
+            +----------------+                      +------------------+
+            |                |                      |                  |
+            |   BaseServer   +--------------------->| serve_forever()  |
+            |                |                      |                  |
+            +--------+-------+                      +--------=+--------+
+                     |                                        |
+                     |                                        |
+                     |                                        |
+                     V                                        V
+            +----------------+                  +----------------------------+
+            |                |                  |                            |
+            |   TCPServer    |                  | _handle_request_noblock()  |
+            |                |                  |                            |
+            +--------+-------+                  +-------------+--------------+
+                     |                                        |
+         +-----------+------------+                           |
+         |                        |                           |
+         V                        V                           V
++----------------+       +----------------+         +------------------+
+|                |       |                |         |                  |
+|   HTTPServer   |       |   UDPServer    |         | process_request()|
+|                |       |                |         |                  |
++----------------+       +----------------+         +---------+--------+
+                                                              |
+                                                              |
+                                                              |
+                                                              V
+                                                    +------------------+
+                                                    |                  |
+                                                    | finish_request() |
+                                                    |                  |
+                                                    +------------------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p align='center'>图1</p>
+
+<p>例子中使用了 <code>HTTPServer</code> 这个类，字面意思，这个类就是一个 HTTP 服务器，顺着继承链看到 <code>HTTPServer</code> 是 <code>TCPServer</code> 的子类，符合 HTTP 报文是基于 TCP 协议传输的认知，<code>HTTPServer</code>  类其实没什么内容，代码如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">HTTPServer</span><span class="token punctuation">(</span>socketserver<span class="token punctuation">.</span>TCPServer<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+
+    allow_reuse_address <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment"># Seems to make sense in testing environment  </span>
+
+     <span class="token keyword">def</span> <span class="token function">server_bind</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+         <span class="token triple-quoted-string string">"""Override server_bind to store the server name."""</span>  
+         socketserver<span class="token punctuation">.</span>TCPServer<span class="token punctuation">.</span>server_bind<span class="token punctuation">(</span>self<span class="token punctuation">)</span>
+         host<span class="token punctuation">,</span> port <span class="token operator">=</span> self<span class="token punctuation">.</span>server_address<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span>
+         self<span class="token punctuation">.</span>server_name <span class="token operator">=</span> socket<span class="token punctuation">.</span>getfqdn<span class="token punctuation">(</span>host<span class="token punctuation">)</span>
+         self<span class="token punctuation">.</span>server_port <span class="token operator">=</span> port<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>TCPServer</code> 的源码实现得益于父类的预留接口，只需要 TCP socket 走一遍 <code>bind</code>、<code>listen</code><br>、<code>accept</code>、<code>close</code> 流程（子类 <code>UDPServer</code> 同理）。</p>
+<p>重点关注 <code>BaseServer</code>，这里是网络请求处理核心流程的实现，文章最开头的例子中 <code>serve_forever()</code> 这个入口方法就是在此类被实现，我在源码上加了些简单的注释：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">serve_forever</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> poll_interval<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""Handle one request at a time until shutdown.
+
+    Polls for shutdown every poll_interval seconds. Ignores
+    self.timeout. If you need to do periodic tasks, do them in
+    another thread. 
+    """</span>
+    self<span class="token punctuation">.</span>__is_shut_down<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+    <span class="token keyword">try</span><span class="token punctuation">:</span>  
+        <span class="token comment"># XXX: Consider using another file descriptor or connecting to the  </span>
+        <span class="token comment"># socket to wake this up instead of polling. Polling reduces our </span>
+        <span class="token comment"># responsiveness to a shutdown request and wastes cpu at all other </span>
+        <span class="token comment"># times. with _ServerSelector() as selector:  </span>
+        selector<span class="token punctuation">.</span>register<span class="token punctuation">(</span>self<span class="token punctuation">,</span> selectors<span class="token punctuation">.</span>EVENT_READ<span class="token punctuation">)</span>  <span class="token comment"># 注册Server描述符并监听I/O读事件</span>
+
+        <span class="token keyword">while</span> <span class="token keyword">not</span> self<span class="token punctuation">.</span>__shutdown_request<span class="token punctuation">:</span>  
+            ready <span class="token operator">=</span> selector<span class="token punctuation">.</span>select<span class="token punctuation">(</span>poll_interval<span class="token punctuation">)</span>  <span class="token comment"># 超时时长poll_interval避免长时间阻塞，在while循环下实现轮询</span>
+            <span class="token comment"># bpo-35017: shutdown() called during select(), exit immediately.  </span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>__shutdown_request<span class="token punctuation">:</span>  
+                <span class="token keyword">break</span>  
+            <span class="token keyword">if</span> ready<span class="token punctuation">:</span>  
+                self<span class="token punctuation">.</span>_handle_request_noblock<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 请求过来，I/O读事件准备好，开始处理请求</span>
+
+            self<span class="token punctuation">.</span>service_actions<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+     <span class="token keyword">finally</span><span class="token punctuation">:</span>  
+         self<span class="token punctuation">.</span>__shutdown_request <span class="token operator">=</span> <span class="token boolean">False</span>  
+         self<span class="token punctuation">.</span>__is_shut_down<span class="token punctuation">.</span><span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>从 <code>_handle_request_noblock()</code> 中看到，一个网络请求的处理流程无非就是 <code>verify_request()</code>、<code>process_request()</code>、<code>shoutdown_request()</code> 加上些许异常处理逻辑，比较简明。在 <code>finish_request()</code> 中出现 <code>RequestHandlerClass</code> 的类对象创建，这里其实就是用户自定义的 RequestHandler（在 <code>BaseServer</code> 的 <code>__int__()</code> 中被初始化）。源码如下，较好理解：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">_handle_request_noblock</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    <span class="token triple-quoted-string string">"""Handle one request, without blocking.
+    I assume that selector.select() has returned that the socket is
+    readable before this function was called, so there should be no risk of
+    blocking in get_request(). 
+    """</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>  
+        request<span class="token punctuation">,</span> client_address <span class="token operator">=</span> self<span class="token punctuation">.</span>get_request<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+    <span class="token keyword">except</span> OSError<span class="token punctuation">:</span>  
+        <span class="token keyword">return</span>  
+    <span class="token keyword">if</span> self<span class="token punctuation">.</span>verify_request<span class="token punctuation">(</span>request<span class="token punctuation">,</span> client_address<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment"># 从这里开始就是网络请求的处理流程</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>  
+            self<span class="token punctuation">.</span>process_request<span class="token punctuation">(</span>request<span class="token punctuation">,</span> client_address<span class="token punctuation">)</span>  
+        <span class="token keyword">except</span> Exception<span class="token punctuation">:</span>  
+            self<span class="token punctuation">.</span>handle_error<span class="token punctuation">(</span>request<span class="token punctuation">,</span> client_address<span class="token punctuation">)</span>  
+            self<span class="token punctuation">.</span>shutdown_request<span class="token punctuation">(</span>request<span class="token punctuation">)</span>  
+        <span class="token keyword">except</span><span class="token punctuation">:</span>  
+            self<span class="token punctuation">.</span>shutdown_request<span class="token punctuation">(</span>request<span class="token punctuation">)</span>  
+            <span class="token keyword">raise</span>  
+    <span class="token keyword">else</span><span class="token punctuation">:</span>  
+        self<span class="token punctuation">.</span>shutdown_request<span class="token punctuation">(</span>request<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">process_request</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> client_address<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    <span class="token triple-quoted-string string">"""Call finish_request.  
+
+    Overridden by ForkingMixIn and ThreadingMixIn.  
+    """</span>
+    self<span class="token punctuation">.</span>finish_request<span class="token punctuation">(</span>request<span class="token punctuation">,</span> client_address<span class="token punctuation">)</span>  
+    self<span class="token punctuation">.</span>shutdown_request<span class="token punctuation">(</span>request<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">finish_request</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> client_address<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    <span class="token triple-quoted-string string">"""Finish one request by instantiating RequestHandlerClass."""</span>  
+    self<span class="token punctuation">.</span>RequestHandlerClass<span class="token punctuation">(</span>request<span class="token punctuation">,</span> client_address<span class="token punctuation">,</span> self<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">shutdown_request</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    <span class="token triple-quoted-string string">"""Called to shutdown and close an individual request."""</span>  
+    self<span class="token punctuation">.</span>close_request<span class="token punctuation">(</span>request<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>总结：要实现一个 HTTP 服务器，需要包含TCP socket 实现，网络请求流程大致抽象为   <code>verify_request()</code>、<code>process_request()</code>、<code>shoutdown_request()</code> 。如果考虑支持用户自定义请求处理，还需要预留接口提供扩展性。当然如何要支持处理 HTTP 协议，还需要具备解析 HTTP 报文的能力，下文继续探讨。</p>
+</blockquote>
+<h2 id="问题二：python-内置的-HTTP-Server-是怎么实现的"><a href="#问题二：python-内置的-HTTP-Server-是怎么实现的" class="headerlink" title="问题二：python 内置的 HTTP Server 是怎么实现的"></a>问题二：python 内置的 HTTP Server 是怎么实现的</h2><p>前文介绍了内置一个网络请求的处理流程 （等价于 HTTP Server 的运行流程），一定程度上解释了本节的问题，但欠缺一点细节，没有体现 HTTP 报文的解析逻辑在哪里实现。其实内置的 HTTP Server 的把 HTTP 协议解析的工作解耦出去，单独做成 <code>BaseHTTPRequestHandler</code> 类，这样允许用户自行实现任意应用层的协议解析工作，参考下面图2：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">                             +----------------------+        +----------------+
+                             |                      |        |                |
+                             |  BaseRequestHandler  +------->|   __init__()   |
+                             |                      |        |                |
+                             +-----------+----------+        +----------------+
+                                         |
+                                         |
+                                         |                   +----------------+
+                                         |                   |                |
+                                         V              +--->|     setup()    |
+                             +----------------------+   |    |                |
+                             |                      |   |    +----------------+
+                             | StreamRequestHandler +---+
+                             |                      |   |
+                             +-----------+----------+   |    +----------------+
+                                         |              |    |                |
+                                         |              +---->    finish()    |
+                                         V                   |                |
++------------------------+    +----------------------+        +----------------+
+|                        |    |                      |
+|SimpleHTTPRequestHandler|&lt;---+BaseHTTPRequestHandler|
+|                        |    |                      |
++------------------------+    +-----------+----------+
+                                         |
+                                         |
+                                         |
+                                         V
+                               +------------------+
+                               |                  |
+                               |     handler()    |
+                               |                  |
+                               +---------+--------+          +----------------+
+                                         |                   |                |
+                                         |              +--->| parse_request()|
+                                         |              |    |                |
+                                         V              |    +----------------+
+                             +----------------------+   |
+                             |                      |   |
+                             | handler_one_request()+---+
+                             |                      |   |    +----------------+
+                             +----------------------+   |    |                |
+                                                        +--->|    do_XXX()    |
+                                                             |                |
+                                                             +----------------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p align='center'>图2</p>
+
+<p>图2中，但凡带括号的都是方法，不带括号的是类，从上往下也是父类到子类。本着代码最大化复用的原则，父类 <code>BaseRequestHandler</code> 的 <code>__init__()</code> 中将工作流程确定下来，分别是 <code>setup()</code>、<code>handler()</code>、<code>finish()</code> 的先后调用顺序。<code>setup()</code> 和 <code>finish()</code> 在子类 <code>StreamRequestHandler</code> 被实现，最后在 <code>BaseHTTPRequestHandler</code> 类中实现 HTTP 协议解析功能，以及用 HTTP method 来决定调用哪个用户自定义的 <code>do_XXX()</code> 方法，如 <code>do_GET()</code>、<code>do_POST()</code> 等。代码如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">BaseRequestHandler</span><span class="token punctuation">:</span>  
+    <span class="token triple-quoted-string string">"""Base class for request handler classes.  
+    ......
+    """</span>  
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> client_address<span class="token punctuation">,</span> server<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+        self<span class="token punctuation">.</span>request <span class="token operator">=</span> request  
+        self<span class="token punctuation">.</span>client_address <span class="token operator">=</span> client_address  
+        self<span class="token punctuation">.</span>server <span class="token operator">=</span> server  
+        self<span class="token punctuation">.</span>setup<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+        <span class="token keyword">try</span><span class="token punctuation">:</span>  
+            self<span class="token punctuation">.</span>handle<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+        <span class="token keyword">finally</span><span class="token punctuation">:</span>  
+            self<span class="token punctuation">.</span>finish<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+
+    <span class="token keyword">def</span> <span class="token function">setup</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+        <span class="token keyword">pass</span>  
+
+    <span class="token keyword">def</span> <span class="token function">handle</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+        <span class="token keyword">pass</span>  
+
+    <span class="token keyword">def</span> <span class="token function">finish</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+        <span class="token keyword">pass</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">StreamRequestHandler</span><span class="token punctuation">(</span>BaseRequestHandler<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    <span class="token triple-quoted-string string">"""Define self.rfile and self.wfile for stream sockets."""</span>  
+
+    <span class="token comment"># 省略代码</span>
+
+    <span class="token keyword">def</span> <span class="token function">setup</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+        <span class="token comment"># 设置链接超时时长、nagle算法、读写缓冲区</span>
+        self<span class="token punctuation">.</span>connection <span class="token operator">=</span> self<span class="token punctuation">.</span>request  
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>timeout <span class="token keyword">is</span> <span class="token keyword">not</span> <span class="token boolean">None</span><span class="token punctuation">:</span>  
+            self<span class="token punctuation">.</span>connection<span class="token punctuation">.</span>settimeout<span class="token punctuation">(</span>self<span class="token punctuation">.</span>timeout<span class="token punctuation">)</span>  
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>disable_nagle_algorithm<span class="token punctuation">:</span>  
+            self<span class="token punctuation">.</span>connection<span class="token punctuation">.</span>setsockopt<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>IPPROTO_TCP<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>TCP_NODELAY<span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>  
+        self<span class="token punctuation">.</span>rfile <span class="token operator">=</span> self<span class="token punctuation">.</span>connection<span class="token punctuation">.</span>makefile<span class="token punctuation">(</span><span class="token string">'rb'</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>rbufsize<span class="token punctuation">)</span>  
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>wbufsize <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>  
+            self<span class="token punctuation">.</span>wfile <span class="token operator">=</span> _SocketWriter<span class="token punctuation">(</span>self<span class="token punctuation">.</span>connection<span class="token punctuation">)</span>  
+        <span class="token keyword">else</span><span class="token punctuation">:</span>  
+            self<span class="token punctuation">.</span>wfile <span class="token operator">=</span> self<span class="token punctuation">.</span>connection<span class="token punctuation">.</span>makefile<span class="token punctuation">(</span><span class="token string">'wb'</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>wbufsize<span class="token punctuation">)</span>  
+
+    <span class="token keyword">def</span> <span class="token function">finish</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+        <span class="token keyword">if</span> <span class="token keyword">not</span> self<span class="token punctuation">.</span>wfile<span class="token punctuation">.</span>closed<span class="token punctuation">:</span>  
+            <span class="token keyword">try</span><span class="token punctuation">:</span>  
+                self<span class="token punctuation">.</span>wfile<span class="token punctuation">.</span>flush<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+            <span class="token keyword">except</span> socket<span class="token punctuation">.</span>error<span class="token punctuation">:</span>  
+                <span class="token comment"># A final socket error may have occurred here, such as  </span>
+                <span class="token comment"># the local error ECONNABORTED. </span>
+                <span class="token keyword">pass</span>  
+        self<span class="token punctuation">.</span>wfile<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+        self<span class="token punctuation">.</span>rfile<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>HTTP 协议解析关注 <code>parse_request()</code> 方法，由于代码较多不单独贴过来，思路如下：</p>
+<ol>
+<li>解析 HTTP 协议版本号，确定版本解析是否支持（1.1 &lt;&#x3D; version &lt; 2.0）</li>
+<li>获取 HTTP method</li>
+<li>解析 HTTP header<br>解析完 HTTP 协议后，根据所获取的 HTTP method，调用用户自定义的对应方法，至此结束。</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>python 内置的 HTTP Server 实现比较简洁，功能相对简单。如果要自行从零实现一个 HTTP Server，设计上参考 python 的实现，应该具备以下要素：</p>
+<ol>
+<li>TCP socket 通信</li>
+<li>HTTP 协议的报文解析</li>
+<li>用户自定义的 RequestHandler 调用（设计上需要引入拓展）</li>
+</ol>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zingphoy.github.io/2022/02/02/%E3%80%90%E6%BA%90%E7%A0%81%E5%B0%8F%E8%AF%BB%E3%80%91python%E5%86%85%E7%BD%AEHTTP%20Server%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" rel="tag">源码阅读</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/02/20/%E3%80%8ARedis%E5%AE%9E%E6%88%98%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            《Redis实战》读书笔记
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/07/11/Monkey%E6%B5%8B%E8%AF%95%E7%9A%84%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Monkey测试的进化之路</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "lEXlYo1CeMpXzh2xpIltjyfz-gzGzoHsz",
+    app_key: "cFRtsPTW0nzHu7wC21T3FXtH",
+    path: window.location.pathname,
+    avatar: "mp",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2017-2022
+        <i class="ri-heart-fill heart_icon"></i> Zingphoy Han
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/Me.png" alt="Zingphoy"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>一块钱一个俯卧撑 O_O</p>
+  <div class="reward-box">
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/WechatPay.jpeg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

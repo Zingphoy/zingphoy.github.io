@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 
 
-<html lang="zh-CN" >
-
-
-<head>
-  <meta charset="utf-8" />
-   
-  <meta name="keywords" content="computer science, blog, life, techique" />
-   
-  <meta name="description" content="一名QA，不甘平庸的QA" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>
-    服务端压测怎么做 |  Zingphoy
-  </title>
-  <meta name="generator" content="hexo-theme-yilia-plus">
-  
-  <link rel="shortcut icon" href="/favicon.ico" />
-  
-  <link rel="stylesheet" href="/dist/main.css">
-  <link rel="stylesheet" href="/css/custom.css">
-  
-  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-  
+<html lang="zh-CN">
   
 
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="computer science, blog, life, technique, quality ensurance" />
+       
+      <meta name="description" content="一名QA，不甘平庸的QA" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>服务端压测怎么做 |  Zingphoy</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
 
-ga('create', 'UA-127980698-1', 'auto');
-ga('send', 'pageview');
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
 
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127980698-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-127980698-1');
 </script>
 
-
-
-  
+ 
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -51,17 +51,49 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
 
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Zingphoy" type="application/atom+xml">
+</head>
+  </html>
 </html>
+
 
 <body>
   <div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
     <main class="content on">
       <section class="outer">
-  <article id="post-服务端压测怎么做" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
+  <article
+  id="post-服务端压测怎么做"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
   <div class="article-inner">
     
     <header class="article-header">
@@ -71,27 +103,23 @@ var _hmt = _hmt || [];
 </h1>
  
 
+      
     </header>
-    
-
-    
+     
     <div class="article-meta">
-      <a href="/2020/04/26/服务端压测怎么做/" class="article-date">
+      <a href="/2020/04/26/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8E%8B%E6%B5%8B%E6%80%8E%E4%B9%88%E5%81%9A/" class="article-date">
   <time datetime="2020-04-26T14:30:00.000Z" itemprop="datePublished">2020-04-26</time>
-</a>
-      
+</a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/测试/">测试</a>
+    <a class="article-category-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a>
   </div>
-
-      
-      
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">6k</span>
+            <span class="post-count">6.1k</span>
         </span>
     </span>
 
@@ -104,43 +132,33 @@ var _hmt = _hmt || [];
         </span>
     </span>
 </div>
-
-      
+ 
     </div>
-    
-
-    
-    
+      
     <div class="tocbot"></div>
 
 
 
 
-
-    
-
-    
+  
     <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>博文的内容并不都是我原创的，行文思路来源于一次内部分享，再结合网上众多参考资料总结出来的，算是一个学习笔记。</p>
+       
+  <p>博文的内容并不都是我原创的，行文思路来源于一次内部分享，再结合网上众多参考资料总结出来的，算是一个学习笔记。</p>
 <p>可能很多QA、RD同学跟我都一样，对服务端压测一直没有系统的认知，印象停留在使用压测工具如Jmeter对单接口发压，调整线程数和循环数来制造不同压力，最后计算一下TPS和成功率等就完事了？网上虽然有不少压测相关的文章，但多数是压测工具的入门级使用，有的是压测流程和指标的简单解释，或者就是几个大厂牛逼的全链路压测能力和压测平台的介绍。这些文章要不缺少系统性阐述，要不过于抽象不好理解，对没怎么接触过压测的同学不太友好。</p>
-<img src="/2020/04/26/服务端压测怎么做/why_3.jpg" width="500" height="400" title="挠头三连">
+<img src="/2020/04/26/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8E%8B%E6%B5%8B%E6%80%8E%E4%B9%88%E5%81%9A/why_3.jpg" class="" width="500" height="400" title="挠头三连">
 
 
 
 <p>本文在QA角度梳理一次完整的压测过程，尝试总结更为普适的压测思路，给大家提供更有意义的参考。</p>
 <hr>
-<h2 id="压测背景"><a href="#压测背景" class="headerlink" title="压测背景"></a>压测背景</h2><p>测试分很多种，网上很多文章<a href="https://www.guru99.com/performance-vs-load-vs-stress-testing.html" target="_blank" rel="noopener">^1</a>会玩弄概念，搬出来3个名词：压力测试（Stress Testing）、性能测试（Performance Testing）、负载测试（Load Testing）。一般情况下并不需要做这么细粒度的概念区分，这3个概念我觉得是没办法完整区分各自边界的，至少在程序逻辑上难以做得到，更多差异只是来自于不同的压测策略，所以尽管忽略这几个概念的区别，都叫它压测或者性能测试即可。</p>
+<h2 id="压测背景"><a href="#压测背景" class="headerlink" title="压测背景"></a>压测背景</h2><p>测试分很多种，网上很多文章<a target="_blank" rel="noopener" href="https://www.guru99.com/performance-vs-load-vs-stress-testing.html">^1</a>会玩弄概念，搬出来3个名词：压力测试（Stress Testing）、性能测试（Performance Testing）、负载测试（Load Testing）。一般情况下并不需要做这么细粒度的概念区分，这3个概念我觉得是没办法完整区分各自边界的，至少在程序逻辑上难以做得到，更多差异只是来自于不同的压测策略，所以尽管忽略这几个概念的区别，都叫它压测或者性能测试即可。</p>
 <h3 id="为什么需要压测"><a href="#为什么需要压测" class="headerlink" title="为什么需要压测"></a>为什么需要压测</h3><p>拿技术人熟知的阿里举例，应该是国内做压测最好的一个大厂。外界熟知的阿里2012双11活动，2012年11月11日零点，阿里各种系统报错、立刻下单报错、购物车支付报错、支付系统报错、购物车的东西丢失，系统显示交易成功率不到50%，产生了大量超卖，给阿里带来很大的损失。那一年的双11后，库存、商品、退款和相应数据库的同学，为了处理超卖导致的问题，没日没夜加了两周的班，同时给了用户不少糟糕购物体验。</p>
 <p>为什么出现这么严重的问题？因为对整个全交易链路上的各个子系统的承受能力不清楚，并且错误预估了可能会达到的流量，也没有完善的预案，兵败如山倒。</p>
 <p>2013年阿里首次提出了全链路压测方案：一方面可让链路的各个系统知道自己的承压极限；另一方面可让各个系统有个明确的优化目标，了解到整个链路的瓶颈并评估资源情况。</p>
 <h3 id="单系统压测与全链路压测"><a href="#单系统压测与全链路压测" class="headerlink" title="单系统压测与全链路压测"></a>单系统压测与全链路压测</h3><p>为什么只做单系统压测还不够呢？</p>
 <p>在活动开始的瞬间，各系统都面临自身服务的巨大的压力，而系统之间是有互相依赖关系的，单机压测没有考虑到依赖环节压力都比较大的情况。一个系统出现故障，故障会在链路流转过程中层层累加，会造成无法评估的影响。</p>
 <p>所以最可靠的方式是完全模拟真实场景来压测，通过线上全链路压测提前发现问题。</p>
-<h3 id="压测流程"><a href="#压测流程" class="headerlink" title="压测流程"></a>压测流程</h3><p>完整的压测流程一般包含下面几个步骤，引用自<a href="https://developer.aliyun.com/article/721643" target="_blank" rel="noopener">文末参考资料</a>：</p>
+<h3 id="压测流程"><a href="#压测流程" class="headerlink" title="压测流程"></a>压测流程</h3><p>完整的压测流程一般包含下面几个步骤，引用自<a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/721643">文末参考资料</a>：</p>
 <ol>
 <li>压测目标的制定</li>
 <li>压测链路的梳理</li>
@@ -150,7 +168,7 @@ var _hmt = _hmt || [];
 <li>瓶颈定位及容量微调</li>
 <li>压测总结</li>
 </ol>
-<img src="/2020/04/26/服务端压测怎么做/strest_testing_flow.png" width="700" height="600" title="压测流程规范">
+<img src="/2020/04/26/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8E%8B%E6%B5%8B%E6%80%8E%E4%B9%88%E5%81%9A/strest_testing_flow.png" class="" width="700" height="600" title="压测流程规范">
 
 
 
@@ -163,11 +181,11 @@ var _hmt = _hmt || [];
 <h3 id="压测指标"><a href="#压测指标" class="headerlink" title="压测指标"></a>压测指标</h3><p>列举一些常用指标，并不一定都需要关注，根据业务考虑指标的细化粒度。</p>
 <ul>
 <li>QPS：Query Per Second，每秒处理的请求个数</li>
-<li>TPS：Transactions Per Second，每秒处理的事务数，TPS &lt;= QPS</li>
+<li>TPS：Transactions Per Second，每秒处理的事务数，TPS &lt;&#x3D; QPS</li>
 <li>RT： Response Time，响应时间，等价于Latency<br>RT分平均延时，Pct延时（Percentile分位数）。平均值不能反映服务真实响应延时，实际压测中一般参考Pct90，Pct99等指标</li>
 <li>CPU使用率：出于节点宕机后负载均衡的考虑，一般 CPU使用率 &lt; 75% 比较合适</li>
 <li>内存使用率：内存占用情况，一般观察内存是否有尖刺或泄露</li>
-<li>Load指标：CPU的负载，不是指CPU的使用率，而是在一段时间内CPU正在处理以及等待CPU处理的进程数之和的统计信息，表示CPU的负载情况，一般情况下 Load &lt; CPU的核数*2，更多参考<a href="https://www.ruanyifeng.com/blog/2011/07/linux_load_average_explained.html" target="_blank" rel="noopener">链接1</a>和<a href="https://www.jianshu.com/p/02825a66e46f" target="_blank" rel="noopener">链接2</a></li>
+<li>Load指标：CPU的负载，不是指CPU的使用率，而是在一段时间内CPU正在处理以及等待CPU处理的进程数之和的统计信息，表示CPU的负载情况，一般情况下 Load &lt; CPU的核数*2，更多参考<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2011/07/linux_load_average_explained.html">链接1</a>和<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/02825a66e46f">链接2</a></li>
 <li>缓存命中率：多少流量能命中缓存层（redis、memcached等）</li>
 <li>数据库耗时：数据库就是业务的生命，很多时候业务崩掉是因为数据库挂了</li>
 <li>网络带宽：带宽是否瓶颈</li>
@@ -178,9 +196,9 @@ var _hmt = _hmt || [];
 <li>QPS一般是指一台服务器每秒能够响应的查询次数，或者抽象理解成每秒能应对多少网络流量</li>
 <li>TPS是指一个完整事务，一个事务可能包含一系列的请求过程。举个🌰，访问一个网页，这是一个TPS，但是访问一个网页可能会对多个服务器发起多次请求，包括文本、js、图片等，这些请求会当做多次QPS计算在内，因为它们都是流量</li>
 </ul>
-<p>性能测试中，<strong><em>平均值的作用是十分有限的</em></strong>，平均值代表前后各有50%的量，对于一个敏感的性能指标，我们取平均值到底意味着什么？是让50%的用户对响应时间happy，但是50%的用户感知到响应延迟？还是说50%的时间系统能保证稳定，而50%的时间系统则是一个不可控状态？</p>
-<p>平均响应时间这种指标，只有在你每次请求的响应时间都是几乎一样的前提下才会有一样。再来个例子，人均财富这个概念有多沙雕相信大家也明白，19年有个很搞笑的新闻——<a href="http://finance.sina.com.cn/roll/2019-05-16/doc-ihvhiqax9049380.shtml" target="_blank" rel="noopener">腾讯员工平均月薪七万</a>，明白平均值多不靠谱了吧😂。下图是现实世界中一个系统的响应时间柱状图，RT在前20%的请求数实际较少，而耗时特别短的请求拉低了均值（这些请求可能是命中缓存，也可能是快速失败），而大多数RT是在均值之下，那才是系统的实际性能情况。</p>
-<img src="/2020/04/26/服务端压测怎么做/percentile_average.png" width="500" height="400" title="分位值、平均值、中位数">
+<p>性能测试中，<em><strong>平均值的作用是十分有限的</strong></em>，平均值代表前后各有50%的量，对于一个敏感的性能指标，我们取平均值到底意味着什么？是让50%的用户对响应时间happy，但是50%的用户感知到响应延迟？还是说50%的时间系统能保证稳定，而50%的时间系统则是一个不可控状态？</p>
+<p>平均响应时间这种指标，只有在你每次请求的响应时间都是几乎一样的前提下才会有一样。再来个例子，人均财富这个概念有多沙雕相信大家也明白，19年有个很搞笑的新闻——<a target="_blank" rel="noopener" href="http://finance.sina.com.cn/roll/2019-05-16/doc-ihvhiqax9049380.shtml">腾讯员工平均月薪七万</a>，明白平均值多不靠谱了吧😂。下图是现实世界中一个系统的响应时间柱状图，RT在前20%的请求数实际较少，而耗时特别短的请求拉低了均值（这些请求可能是命中缓存，也可能是快速失败），而大多数RT是在均值之下，那才是系统的实际性能情况。</p>
+<img src="/2020/04/26/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8E%8B%E6%B5%8B%E6%80%8E%E4%B9%88%E5%81%9A/percentile_average.png" class="" width="500" height="400" title="分位值、平均值、中位数">
 
 
 
@@ -198,19 +216,19 @@ var _hmt = _hmt || [];
 </ol>
 <h3 id="目标预估"><a href="#目标预估" class="headerlink" title="目标预估"></a>目标预估</h3><p>压测开展前是需要有目标的，也就是有期望的性能情况，希望接口或系统能达到的性能预期，没有目的的压测是浪费人力，下面给出几种目标预估的方法。</p>
 <h4 id="历史监控数据"><a href="#历史监控数据" class="headerlink" title="历史监控数据"></a>历史监控数据</h4><p>已经上线并且有历史监控数据的接口，可以查看历史数据，找出峰值QPS和PCT99。🌰 若接口A已经上线并且做了监控，在经过某次大活动或者上线时间足够长后，存量监控数据就可以使用了。</p>
-<h4 id="类比"><a href="#类比" class="headerlink" title="类比"></a>类比</h4><p>新接口或者线上未监控的接口，不存在历史数据，但存在类似功能接口的历史监控数据，可以通过类比得出压测的目标。🌰 假设上一年淘宝双十一下订单接口QPS=x，RT=y，这一年天猫平台整起来了，双十一活动与上年淘宝双十一活动场景类似，也沿用QPS=x，RT=y的目标（例子不严谨，理解即可）。</p>
+<h4 id="类比"><a href="#类比" class="headerlink" title="类比"></a>类比</h4><p>新接口或者线上未监控的接口，不存在历史数据，但存在类似功能接口的历史监控数据，可以通过类比得出压测的目标。🌰 假设上一年淘宝双十一下订单接口QPS&#x3D;x，RT&#x3D;y，这一年天猫平台整起来了，双十一活动与上年淘宝双十一活动场景类似，也沿用QPS&#x3D;x，RT&#x3D;y的目标（例子不严谨，理解即可）。</p>
 <h4 id="估算"><a href="#估算" class="headerlink" title="估算"></a>估算</h4><p>新接口或者线上未监控的接口，不存在历史数据，且不存在类似功能接口的数据可供参数考，此时需要估算峰值，常用方法有<code>8/2原则</code>——一天内80%的请求会在20%的时间内到达。</p>
-<p>top QPS = (总PV * 0.8) / (60 * 60 * 24 * 0.2)</p>
+<p>top QPS &#x3D; (总PV * 0.8) &#x2F; (60 * 60 * 24 * 0.2)</p>
 <p>RT如无特殊要求，一般采用默认值：</p>
 <ul>
 <li>单服务单表类，RT&lt;100ms</li>
 <li>较复杂接口，RT&lt;300ms</li>
 <li>大数据量或调用链较长的接口，RT&lt;1s</li>
 </ul>
-<p>🌰-1 电商秒杀活动，预估同时有1000w人参与，简单起见假设总QPS是1000w。由于前端不同的秒杀倒计时形式使得请求有2s的打散，再加上nginx等webserver做了20%几率拒绝请求的策略，所以下单接口总QPS = 1000w / 2 * (1 - 0.2) = 400w/s，最终压测目标为400w/s的QPS。</p>
-<p>🌰-2 电商全天低价抢购活动，屠龙宝刀，点击就送，一刀99级，emmmmm跑题了。根据8/2原则，预估在午休（12-1）和晚上下班后（7-10）共4h是流量高峰，估算接口峰值QPS = 活动全天接口PV / (4*3600s)。</p>
+<p>🌰-1 电商秒杀活动，预估同时有1000w人参与，简单起见假设总QPS是1000w。由于前端不同的秒杀倒计时形式使得请求有2s的打散，再加上nginx等webserver做了20%几率拒绝请求的策略，所以下单接口总QPS &#x3D; 1000w &#x2F; 2 * (1 - 0.2) &#x3D; 400w&#x2F;s，最终压测目标为400w&#x2F;s的QPS。</p>
+<p>🌰-2 电商全天低价抢购活动，屠龙宝刀，点击就送，一刀99级，emmmmm跑题了。根据8&#x2F;2原则，预估在午休（12-1）和晚上下班后（7-10）共4h是流量高峰，估算接口峰值QPS &#x3D; 活动全天接口PV &#x2F; (4*3600s)。</p>
 <h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>除了前面说到的情况，肯定还有一些我们无法下手的三无接口，无参考、无预估、无历史数据，这时候只能一点一点来，慢慢把压力提上去的同时收集数据，最终得出接口的最优处理能力。</p>
-<img src="/2020/04/26/服务端压测怎么做/system_performance_line.png" width="500" height="400" title="系统性能转折线">
+<img src="/2020/04/26/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8E%8B%E6%B5%8B%E6%80%8E%E4%B9%88%E5%81%9A/system_performance_line.png" class="" width="500" height="400" title="系统性能转折线">
 
 
 
@@ -237,13 +255,13 @@ var _hmt = _hmt || [];
 <li>mock server：mock服务返回响应的时长应该遵循线上时延分布，对业务的代码实现无侵入</li>
 <li>服务stub：针对压测流量做处理，类似单测stub，代码stub模拟服务返回response，需要修改代码</li>
 </ul>
-<img src="/2020/04/26/服务端压测怎么做/data_isolate.png" width="500" height="400" title="数据隔离">
+<img src="/2020/04/26/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8E%8B%E6%B5%8B%E6%80%8E%E4%B9%88%E5%81%9A/data_isolate.png" class="" width="500" height="400" title="数据隔离">
 
 
 
 <p>可以独立部署一套线下环境进行压测。在不影响线上环境的前提下，确保机房，网络，存储，上下游服务与线上保持一致，部署一套独立的环境进行测试，机器与线上隔离，机器出问题不会影响线上。这种方式压测只是针对较少的几个系统进行，因为很难把整个链路所有系统都独立再部署一套，所以应用范围有限。</p>
 <blockquote>
-<p>备注：上游、下游如何定义？ <a href="https://tools.ietf.org/html/rfc2616#section-1.3" target="_blank" rel="noopener">RFC 2616</a></p>
+<p>备注：上游、下游如何定义？ <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc2616#section-1.3">RFC 2616</a></p>
 <p>Upstream and downstream describe the flow of a message: all messages flow from upstream to downstream.</p>
 <p>下游的输入来自于上游的输出，假设有服务A、B，A调用了B（或者说A依赖B），那B就是A的上游，A就是B的下游，因为A的输入来自于B的输出（A调用了B，获取B的输出）。</p>
 <p>更简单地理解，越接近用户的东西，越是下游。</p>
@@ -255,8 +273,8 @@ var _hmt = _hmt || [];
 <li>消息队列、缓存、数据库</li>
 <li>机器物理资源</li>
 </ul>
-<h3 id="压测数据"><a href="#压测数据" class="headerlink" title="压测数据"></a>压测数据</h3><p>压测数据其实没什么神秘的，网上说什么按照业务模型产出数据，表达上做了过度抽象反而不好理解，其实意思就是按照业务核心场景将所需要的数据构造出来。关键是要如何科学地模拟线上数据分布，引用<a href="https://developer.aliyun.com/article/721643" target="_blank" rel="noopener">文末参考资料</a>，阿里双十一大促中有如下的业务流量漏斗模型，需要给不同场景科学地分配流量比例，这个比例是分析出来的而不是拍脑袋的。可以想象，阿里大促的流量不可能全部最后都走到付款流程，必然很多流量会在前面的流程就结束了，也就意味着，你把全部压测数据都构造成【走到付款场景】的话，你的压测结果是不准确的。</p>
-<img src="/2020/04/26/服务端压测怎么做/funnel.png" width="500" height="400" title="业务量级漏斗图">
+<h3 id="压测数据"><a href="#压测数据" class="headerlink" title="压测数据"></a>压测数据</h3><p>压测数据其实没什么神秘的，网上说什么按照业务模型产出数据，表达上做了过度抽象反而不好理解，其实意思就是按照业务核心场景将所需要的数据构造出来。关键是要如何科学地模拟线上数据分布，引用<a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/721643">文末参考资料</a>，阿里双十一大促中有如下的业务流量漏斗模型，需要给不同场景科学地分配流量比例，这个比例是分析出来的而不是拍脑袋的。可以想象，阿里大促的流量不可能全部最后都走到付款流程，必然很多流量会在前面的流程就结束了，也就意味着，你把全部压测数据都构造成【走到付款场景】的话，你的压测结果是不准确的。</p>
+<img src="/2020/04/26/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8E%8B%E6%B5%8B%E6%80%8E%E4%B9%88%E5%81%9A/funnel.png" class="" width="500" height="400" title="业务量级漏斗图">
 
 
 
@@ -276,13 +294,13 @@ var _hmt = _hmt || [];
 </ol>
 <hr>
 <h2 id="压测过程"><a href="#压测过程" class="headerlink" title="压测过程"></a>压测过程</h2><p>基本思路跟做质量保障是一样的，从细粒度开始慢慢集成到整个大系统，就像<code>单测-&gt;接口测试-&gt;集成测试</code>，压测也是先从简单的开始，一步一步走向全资源全链路，可以参考过程：<code>单接口单机-&gt;单接口1/4资源-&gt;场景化1/4资源-&gt;全量资源压测-&gt;拨测</code>。</p>
-<h3 id="单接口单机"><a href="#单接口单机" class="headerlink" title="单接口单机"></a>单接口单机</h3><p>在单核（或物理资源少）机器上部署单个服务，排除外部链路、网络等因素，得出自身服务的单核性能情况（单位QPS/core），后续根据此单核性能指标结合压测目标值进行扩容。另外由于是压的单接口单机，无其他接口请求影响，上下游在足够资源的情况下也不会造成瓶颈，所以能确保服务的性能真实值。</p>
+<h3 id="单接口单机"><a href="#单接口单机" class="headerlink" title="单接口单机"></a>单接口单机</h3><p>在单核（或物理资源少）机器上部署单个服务，排除外部链路、网络等因素，得出自身服务的单核性能情况（单位QPS&#x2F;core），后续根据此单核性能指标结合压测目标值进行扩容。另外由于是压的单接口单机，无其他接口请求影响，上下游在足够资源的情况下也不会造成瓶颈，所以能确保服务的性能真实值。</p>
 <p>单接口单机可以在正式开始大规模压测前提前发现问题，方便RD做针对的性能优化并快速检验优化效果。一部分问题会先在单接口单机压测环节中发现，而一些隐藏得更深的问题，需要延后到全链路大流量压测才能暴露。</p>
-<h3 id="单接口1-4资源"><a href="#单接口1-4资源" class="headerlink" title="单接口1/4资源"></a>单接口1/4资源</h3><p>单接口单机压测环节，服务端已经完成了部分性能优化，接下来可以进入单接口1/4资源压测，这样是为了验证在单接口单机压测中得到的单核性能数据，在扩容1/4资源下性能是否会线性增长，是否存在性能损耗以及定位损耗源。</p>
-<h3 id="场景化1-4资源"><a href="#场景化1-4资源" class="headerlink" title="场景化1/4资源"></a>场景化1/4资源</h3><p>单接口压测局限很明显，场景化压测由于引入了上下游服务的其他接口的因素，可以发现单接口压测无法发现的问题，更接近线上用户场景。</p>
+<h3 id="单接口1-x2F-4资源"><a href="#单接口1-x2F-4资源" class="headerlink" title="单接口1&#x2F;4资源"></a>单接口1&#x2F;4资源</h3><p>单接口单机压测环节，服务端已经完成了部分性能优化，接下来可以进入单接口1&#x2F;4资源压测，这样是为了验证在单接口单机压测中得到的单核性能数据，在扩容1&#x2F;4资源下性能是否会线性增长，是否存在性能损耗以及定位损耗源。</p>
+<h3 id="场景化1-x2F-4资源"><a href="#场景化1-x2F-4资源" class="headerlink" title="场景化1&#x2F;4资源"></a>场景化1&#x2F;4资源</h3><p>单接口压测局限很明显，场景化压测由于引入了上下游服务的其他接口的因素，可以发现单接口压测无法发现的问题，更接近线上用户场景。</p>
 <h3 id="全量资源全链路"><a href="#全量资源全链路" class="headerlink" title="全量资源全链路"></a>全量资源全链路</h3><p>全部资源到位后，预估的线上压力是否能承受，这一步也是内网压测过程的最后一步。</p>
 <h3 id="拨测"><a href="#拨测" class="headerlink" title="拨测"></a>拨测</h3><p>除了做内网压测，还要进行拨测验证用户从客户端到服务端的整个带宽资源是否满足预期，内网压测已经确认了业务性能是否达标，因此拨测可以只选择了一个场景进行验证即可。（简单来说拨测相当于压测cdn，检查各地cdn节点资源是否充足）</p>
-<h3 id="压测策略"><a href="#压测策略" class="headerlink" title="压测策略"></a>压测策略</h3><p>压测过程也要提前规划好，然后加入一定的人工策略调整。阿里大促还会有预热环节，预先跑一部分流量使得该缓存的数据提前缓存起来。正式压测时细分有几种压测策略，引用自<a href="https://developer.aliyun.com/article/721643" target="_blank" rel="noopener">文末参考资料</a>：</p>
+<h3 id="压测策略"><a href="#压测策略" class="headerlink" title="压测策略"></a>压测策略</h3><p>压测过程也要提前规划好，然后加入一定的人工策略调整。阿里大促还会有预热环节，预先跑一部分流量使得该缓存的数据提前缓存起来。正式压测时细分有几种压测策略，引用自<a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/721643">文末参考资料</a>：</p>
 <ul>
 <li>峰值脉冲：流量是逐渐变大的一个小坡，还是骤升后保持高峰</li>
 <li>系统摸高：关闭熔断降级限流等fallback功能，提高压力观察系统性能转折点</li>
@@ -322,40 +340,42 @@ var _hmt = _hmt || [];
 </ol>
 <p>压测最终应该输出一份报告总结，其实也就是把整个压测方案、过程、结论记录下来，写明压测目标、压测接口、压测数据、压测结论，给出发现的问题并提供优化方案。往往在压测报告完成时，性能问题已经基本被解决了，报告的意义在于梳理前面的整个流程，给后续的压测提供经验指导。</p>
 <hr>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://www.toolsou.com/en/article/200293789" target="_blank" rel="noopener">performance index ：QPS,TPS, System throughput understanding</a></p>
-<p><a href="https://www.dynatrace.com/news/blog/why-averages-suck-and-percentiles-are-great/" target="_blank" rel="noopener">Why Averages Suck and Percentiles are Great</a></p>
-<p><a href="https://coolshell.cn/articles/17381.html" target="_blank" rel="noopener">CoolShell-性能测试怎么做</a></p>
-<p><a href="https://lishoubo.github.io/2018/07/15/全链路压测的大概思路/" target="_blank" rel="noopener">全链路压测的大概思路</a></p>
-<p><a href="https://developer.aliyun.com/article/721643" target="_blank" rel="noopener">独家揭秘 | 阿里怎么做双11全链路压测？</a></p>
-<p><a href="https://m.huxiu.com/article/271340.html" target="_blank" rel="noopener">亲历流量尖峰时刻：一名阿里技术员工的双11十年</a></p>
-<p><a href="https://reflectoring.io/upstream-downstream/" target="_blank" rel="noopener">What is Upstream and Downstream in Software Development?</a></p>
-<p><a href="https://m.huxiu.com/article/270730.html" target="_blank" rel="noopener">一个阿里技术男经历的六年“双11”：技术改变阿里</a></p>
-
-      
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://www.toolsou.com/en/article/200293789">performance index ：QPS,TPS, System throughput understanding</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.dynatrace.com/news/blog/why-averages-suck-and-percentiles-are-great/">Why Averages Suck and Percentiles are Great</a></p>
+<p><a target="_blank" rel="noopener" href="https://coolshell.cn/articles/17381.html">CoolShell-性能测试怎么做</a></p>
+<p><a target="_blank" rel="noopener" href="https://lishoubo.github.io/2018/07/15/%E5%85%A8%E9%93%BE%E8%B7%AF%E5%8E%8B%E6%B5%8B%E7%9A%84%E5%A4%A7%E6%A6%82%E6%80%9D%E8%B7%AF/">全链路压测的大概思路</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/721643">独家揭秘 | 阿里怎么做双11全链路压测？</a></p>
+<p><a target="_blank" rel="noopener" href="https://m.huxiu.com/article/271340.html">亲历流量尖峰时刻：一名阿里技术员工的双11十年</a></p>
+<p><a target="_blank" rel="noopener" href="https://reflectoring.io/upstream-downstream/">What is Upstream and Downstream in Software Development?</a></p>
+<p><a target="_blank" rel="noopener" href="https://m.huxiu.com/article/270730.html">一个阿里技术男经历的六年“双11”：技术改变阿里</a></p>
+ 
       <!-- reward -->
       
-      <div id="reward-btn">
-        打赏
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
       </div>
       
     </div>
     
+
+    <!-- copyright -->
     
-      <!-- copyright -->
-      
-        <div class="declare">
-          <ul class="post-copyright">
-            <li>
-              <i class="ri-copyright-line"></i>
-              <strong>版权声明： </strong>
-              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
-            </li>
-          </ul>
-        </div>
-        
-    <footer class="article-footer">
-      
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
 <div class="share-btn">
       <span class="share-sns share-outer">
         <i class="ri-share-forward-line"></i>
@@ -398,25 +418,20 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zingphoy.github.io/2020/04/26/服务端压测怎么做/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zingphoy.github.io/2020/04/26/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8E%8B%E6%B5%8B%E6%80%8E%E4%B9%88%E5%81%9A/" alt="微信分享二维码">
     </div>
 </div>
 
-<div id="share-mask"></div>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/压测/">压测</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能测试/">性能测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推荐阅读/">推荐阅读</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务端/">服务端</a></li></ul>
-
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8E%8B%E6%B5%8B/" rel="tag">压测</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" rel="tag">性能测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB/" rel="tag">推荐阅读</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF/" rel="tag">服务端</a></li></ul>
 
     </footer>
-
   </div>
 
-  
-  
+   
   <nav class="article-nav">
     
-      <a href="/2020/05/17/我的童年记忆/" class="article-nav-link">
+      <a href="/2020/05/17/%E6%88%91%E7%9A%84%E7%AB%A5%E5%B9%B4%E8%AE%B0%E5%BF%86/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
@@ -426,107 +441,117 @@ var _hmt = _hmt || [];
       </a>
     
     
-      <a href="/2020/04/19/为什么dict的key不能是list/" class="article-nav-link">
+      <a href="/2020/04/19/%E3%80%90%E6%BA%90%E7%A0%81%E5%B0%8F%E8%AF%BB%E3%80%91%E4%B8%BA%E4%BD%95python%E5%AD%97%E5%85%B8%E7%9A%84key%E4%B8%8D%E8%83%BD%E6%98%AFlist%E7%B1%BB%E5%9E%8B/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">【python源码探究】dict的key不能是list</div>
+        <div class="article-nav-title">【源码小读】为何python字典的key不能是list类型</div>
       </a>
     
   </nav>
 
-
-  
-
-  
-  
+   
 <!-- valine评论 -->
 <div id="vcomments-box">
-    <div id="vcomments">
-    </div>
+  <div id="vcomments"></div>
 </div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
 <script>
-    new Valine({
-        el: '#vcomments',
-        app_id: 'lEXlYo1CeMpXzh2xpIltjyfz-gzGzoHsz',
-        app_key: 'cFRtsPTW0nzHu7wC21T3FXtH',
-        path: window.location.pathname,
-        notify: 'true',
-        verify: 'true',
-        avatar: 'mp',
-        placeholder: '给我的文章加点评论吧~',
-        recordIP: true
+  new Valine({
+    el: "#vcomments",
+    app_id: "lEXlYo1CeMpXzh2xpIltjyfz-gzGzoHsz",
+    app_key: "cFRtsPTW0nzHu7wC21T3FXtH",
+    path: window.location.pathname,
+    avatar: "mp",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
     });
-    const infoEle = document.querySelector('#vcomments .info');
-    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
-        infoEle.childNodes.forEach(function (item) {
-            item.parentNode.removeChild(item);
-        });
-    }
+  }
 </script>
 <style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
     #vcomments-box {
-        padding: 5px 30px;
+      padding: 5px 0px;
     }
+  }
 
-    @media screen and (max-width: 800px) {
-        #vcomments-box {
-            padding: 5px 0px;
-        }
-    }
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
 
-    #vcomments-box #vcomments {
-        background-color: #fff;
-    }
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
 
-    .v .vlist .vcard .vh {
-        padding-right: 20px;
-    }
-
-    .v .vlist .vcard {
-        padding-left: 10px;
-    }
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
 </style>
 
+ 
+   
   
-
-  
-  
-  
-
+    
 </article>
+
 </section>
       <footer class="footer">
   <div class="outer">
-    <ul class="list-inline">
+    <ul>
       <li>
-        &copy;
+        Copyrights &copy;
         2017-2022
-        Zingphoy Han
+        <i class="ri-heart-fill heart_icon"></i> Zingphoy Han
       </li>
+    </ul>
+    <ul>
       <li>
         
-        Powered by
         
         
-        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
         
       </li>
     </ul>
-    <ul class="list-inline">
+    <ul>
       <li>
         
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
       </li>
+    </ul>
+    <ul>
       
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
       <li>
         <!-- cnzz统计 -->
         
       </li>
     </ul>
   </div>
-</footer>
-      <div class="float_btns">
-        <div class="totop" id="totop">
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
   <i class="ri-arrow-up-line"></i>
 </div>
 
@@ -534,8 +559,7 @@ var _hmt = _hmt || [];
   <i class="ri-moon-line"></i>
 </div>
 
-      </div>
-    </main>
+    </div>
     <aside class="sidebar on">
       <button class="navbar-toggle"></button>
 <nav class="navbar">
@@ -591,12 +615,6 @@ var _hmt = _hmt || [];
 </div>
 </div>
     </aside>
-    <script>
-      if (window.matchMedia("(max-width: 768px)").matches) {
-        document.querySelector('.content').classList.remove('on');
-        document.querySelector('.sidebar').classList.remove('on');
-      }
-    </script>
     <div id="mask"></div>
 
 <!-- #reward -->
@@ -613,51 +631,40 @@ var _hmt = _hmt || [];
     
   </div>
 </div>
-    <script src="/js/jquery-2.0.3.min.js"></script>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
 <script src="/js/lazyload.min.js"></script>
 
-<script>
-  try {
-    var typed = new Typed("#subtitle", {
-      strings: ['技术、健身、欢乐', '一名QA，却不甘于只做QA', '梦想是拥有一间自己的健身房'],
-      startDelay: 500,
-      typeSpeed: 150,
-      loop: false,
-      backSpeed: 50,
-      showCursor: true
-    });
-  } catch (err) {
-  }
-
-</script>
-
-
-
+<!-- Tocbot -->
+ 
 <script src="/js/tocbot.min.js"></script>
+
 <script>
-  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
   tocbot.init({
-    tocSelector: '.tocbot',
-    contentSelector: '.article-entry',
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
     hasInnerContainers: true,
     scrollSmooth: true,
-    scrollContainer: 'main',
-    positionFixedSelector: '.tocbot',
-    positionFixedClass: 'is-position-fixed',
-    fixedSidebarOffset: 'auto'
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
   });
 </script>
 
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
 
-
-<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
-<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
 <script src="/dist/main.js"></script>
 
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     <!-- Background of PhotoSwipe. 
@@ -724,10 +731,10 @@ var _hmt = _hmt || [];
 
 </div>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
-<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
 
 <script>
     function viewer_init() {
@@ -762,10 +769,9 @@ var _hmt = _hmt || [];
         })
     }
     viewer_init()
-</script>
-
-
-<script type="text/x-mathjax-config">
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
       tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
@@ -782,22 +788,100 @@ var _hmt = _hmt || [];
   });
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
 <script>
   var ayerConfig = {
-    mathjax: true
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
   }
 </script>
 
 
-
-
-<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
-
-  <script src="/js/clickLove.js"></script>
-
-
     
+    
+
   </div>
 </body>
 

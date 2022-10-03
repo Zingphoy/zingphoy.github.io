@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="computer science, blog, life, technique, quality ensurance" />
+       
+      <meta name="description" content="一名QA，不甘平庸的QA" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>初探前端质量保障体系 |  Zingphoy</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127980698-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-127980698-1');
+</script>
+
+ 
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?b1b2a6b0e5bb9dd4408632cb65ab0a45";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Zingphoy" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-初探前端质量保障体系"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  初探前端质量保障体系
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/" class="article-date">
+  <time datetime="2022-07-16T06:40:00.000Z" itemprop="datePublished">2022-07-16</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">8.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">27 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文是我在字节内部一次面向质量大部门的分享，来源于深圳 2022 QECon，用大部门的门票，故听完大会需要对组织有回馈。</p>
+<p>当时我对阿里健康前端质量保障的课题非常好奇，觉得阿里多多少少应该有些前端质量保障的黑科技，带着这样的疑问去听，听完之后却是不一样的认识。其实前端质量保障也没有什么黑科技，在质量保障的思路和理念上，和其他端是一脉相承的，差异点不过是某些质量保障技术概念在前端落地的技术形式而已。</p>
+<p>在这样的理解下，分享单点的前端质量保障黑科技就显得只见树木不见森林，在做了更多外部资料整理后便有了这次分享，受众是一线 QA。</p>
+<p>全文图片非常多，以 Github 为图床，没梯子可能会加载不出来，建议在 PC 上阅读。</p>
+<h1 id="一、What-什么是前端"><a href="#一、What-什么是前端" class="headerlink" title="一、What - 什么是前端"></a>一、What - 什么是前端</h1><blockquote>
+<p>Front End Development: <strong>The part of a website that the user interacts with directly is termed the front end.</strong> It is also referred to as the ‘client side’ of the application. **It includes everything that users experience directly: text colors and styles, images, graphs and tables, buttons, colors, and navigation menu.**Responsiveness and performance are two main objectives of the Front End.</p>
+<p>—— 摘自：<a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/frontend-vs-backend/">Frontend vs Backend</a></p>
+</blockquote>
+<p>在2010年及更早，大家习惯于将前端定义为浏览器 Web 端，也就是针对浏览器开发出来并运行在浏览器上的代码。</p>
+<p>后来随着移动端的爆发以及前端技术栈得不断进化，狭义的 Web 端已经不再是前端唯一的定义，并逐渐泛化为“大前端”，如 PC、Android、iOS、Watch、VR 等的可视化均有所涵盖，技术栈角度上最接近用户的可视化层均可以从某种意义上定义为大前端。</p>
+<p>大前端的重点就是跨平台技术，特点是一次开发同时适用于所有平台，目的最大化降低多端可视化适配的成本，解放人力物力。</p>
+<p>抽象的前端发展史：从静态走向动态 -&gt; 从后端走向前端 -&gt; 从前端走向全端。</p>
+<blockquote>
+<p>注：本文提及所有 PDF 均可从网上获取，这里帮大家一并整理到 github.io 的文件夹下，在 <a target="_blank" rel="noopener" href="https://github.com/Zingphoy/Docs_Files/tree/main/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB_%E5%8F%82%E8%80%83%E6%9D%90%E6%96%99"><strong>这里</strong></a> 下载。</p>
+</blockquote>
+<hr>
+<h1 id="二、Why-为什么要重视前端质量"><a href="#二、Why-为什么要重视前端质量" class="headerlink" title="二、Why - 为什么要重视前端质量"></a>二、Why - 为什么要重视前端质量</h1><ol>
+<li><p>为什么要追求质量？</p>
+</li>
+<li><p>细化到前端领域，为什么其质量依然重要？</p>
+</li>
+</ol>
+<h2 id="2-1-质量决定产品命运"><a href="#2-1-质量决定产品命运" class="headerlink" title="2.1 质量决定产品命运"></a>2.1 质量决定产品命运</h2><blockquote>
+<p>质量固然是很重要的</p>
+</blockquote>
+<ol>
+<li><p>质量好，会给产品带来增长</p>
+</li>
+<li><p>质量差，会导致用户流失，最终产品发展受限</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E8%B4%A8%E9%87%8F%E9%87%8D%E8%A6%81%E6%80%A7_1.png" class="" title="质量决定产品命运"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E8%B4%A8%E9%87%8F%E9%87%8D%E8%A6%81%E6%80%A7_2.png" class="" title="不好的质量会使产品发展受限"></th>
+</tr>
+</thead>
+</table>
+<p align='center'>摘自：美团-大前端质量保障体系概览-张杰.pdf</p>
+
+<h2 id="2-2-前端在产品的应用"><a href="#2-2-前端在产品的应用" class="headerlink" title="2.2 前端在产品的应用"></a>2.2 前端在产品的应用</h2><blockquote>
+<p>前端应用在产品业务中的方方面面，其对业务的贡献不言而喻</p>
+</blockquote>
+<p>本来下面会贴十多张字节跳动 app 上的前端业务图示，但为避免涉敏，删减剩一个例子。</p>
+<img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/toutiao_front.png" class="" width="200" height="200" title="今日头条里的典型前端页面">
+
+<h2 id="2-3-前端线上故障及影响"><a href="#2-3-前端线上故障及影响" class="headerlink" title="2.3 前端线上故障及影响"></a>2.3 前端线上故障及影响</h2><p>下面通过几个单点事故来感受前端线上故障（事故）对业务的影响面，可大可小，需要重视。</p>
+<img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/fatal.png" class="" title="脱敏后的事故">
+
+<h2 id="2-4-前端会变得越来越重要"><a href="#2-4-前端会变得越来越重要" class="headerlink" title="2.4 前端会变得越来越重要"></a>2.4 前端会变得越来越重要</h2><blockquote>
+<p>当下的前端确实重要，那未来的前端呢？</p>
+</blockquote>
+<p>内部看，不太严谨地统计 Fatal 事故数，前端对业务的影响的确在最近几年有所增长，侧面印证前端在业务中的影响越来越大。</p>
+<table>
+<thead>
+<tr>
+<th>年份</th>
+<th>2016年</th>
+<th>2017年</th>
+<th>2018年</th>
+<th>2019年</th>
+<th>2020年</th>
+<th>2021年</th>
+<th>2022年7月</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>含”前端”关键字的事故数</td>
+<td>3</td>
+<td>15</td>
+<td>47</td>
+<td>94</td>
+<td>136</td>
+<td>124</td>
+<td>49</td>
+</tr>
+</tbody></table>
+<p>外部看，从实际工作生活观察，很多技术变革都伴随着用户交互体验的变革（如跨平台、元宇宙、低代码），不可否认大前端越来越火热。</p>
+<img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/baidu_zhishu.png" class="" title="百度搜索指数">
+
+<p>百度指数【前端】，直接结论是前端在当下比过去受到更多关注，由于大前端分化出很多子方向，各有各的叫法，在这个指数上较难印证整体趋势。</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.infoq.cn/article/prfjpajwiffde6cvdij6">解读大前端的2021：究竟“卷”除了什么名堂？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.infoq.cn/article/k1qpf3faxnhdb7yqqptg">展望大前端的2022</a></p>
+</li>
+</ul>
+<p><font color='red'>综上，随着时间发展，前端在业务中的地位会越发凸显，其质量对产品的影响就越来越大，前端质量保障要求也会越来越高，需要大家更多的关注和重视。</font></p>
+<hr>
+<h1 id="三、How-前端质量保障体系化建设"><a href="#三、How-前端质量保障体系化建设" class="headerlink" title="三、How - 前端质量保障体系化建设"></a>三、How - 前端质量保障体系化建设</h1><h2 id="3-0-前端质量保障策略推演"><a href="#3-0-前端质量保障策略推演" class="headerlink" title="3.0 前端质量保障策略推演"></a>3.0 前端质量保障策略推演</h2><blockquote>
+<p>有通用框架（方法论），再套到前端里头，前端里通用的&amp;差异的</p>
+</blockquote>
+<h3 id="通用质量保障框架-gt-通用质量策略"><a href="#通用质量保障框架-gt-通用质量策略" class="headerlink" title="通用质量保障框架 -&gt; 通用质量策略"></a>通用质量保障框架 -&gt; 通用质量策略</h3><p><strong>关键问题：什么是质量？如何做保障？</strong></p>
+<ol>
+<li><p>质量：产品的品质与口碑，要求做到全流程风险防控（防控 &#x3D; 发生前的防范 + 发生中&#x2F;后的控制 + 发生后的复盘改进）</p>
+</li>
+<li><p>保障：提质与提效，在给定的约束下寻找最优解</p>
+<ol>
+<li><p>业务不同发展阶段，对质量的关注度不一样，质量痛点和关键风险也不一样，要有的放矢</p>
+<blockquote>
+<p>反例：一顿操作猛如虎，一看战绩零杠五</p>
+</blockquote>
+</li>
+<li><p>人力是资源约束条件，做到有效的资源利用</p>
+<blockquote>
+<p>反例：一个人身兼N职，不停被打断难以聚焦，结果啥工作都做不好</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<p>更具体的，里面有什么要素？</p>
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E9%80%9A%E7%94%A8%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E6%A1%86%E6%9E%B6_1.png" class="" title="框架1"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E9%80%9A%E7%94%A8%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E6%A1%86%E6%9E%B6_2.png" class="" title="框架2"></th>
+</tr>
+</thead>
+</table>
+<p align="center">通用质量保障框架</p>
+
+<h3 id="前端质量保障体系推演"><a href="#前端质量保障体系推演" class="headerlink" title="前端质量保障体系推演"></a>前端质量保障体系推演</h3><p><strong>引子</strong></p>
+<blockquote>
+<p>SRE has found that <strong>roughly 70% of outages are due to changes</strong> in a live system.（outage 代表“电力或服务停止供应期”，这里引申为故障）</p>
+<p>—— 摘自：<a target="_blank" rel="noopener" href="https://sre.google/sre-book/introduction/">https://sre.google/sre-book/introduction/</a></p>
+<p>70%的故障可能都是由变更引起的，这也说明其实你不做变更，基本上是不太会发生故障的。毕竟像以前发生的<strong>支付宝电缆被挖断，腾讯天津机房爆炸这类事情是极少的（外部灾害），大多数情况还是因为变更造成了故障。然而快速变更适配用户诉求是互联网的重要特性，所以我们会发现，要让系统稳定、持续地运行，提升系统对外质量，只要能把控变更这个口子，就能降低非常多故障。</strong></p>
+</blockquote>
+<p><strong>思路启发</strong></p>
+<ol>
+<li><p>没有变更，就基本不会有故障 <strong>→→</strong> 面向变更 <strong>≈</strong> 面向风险、面向故障；核心是<font color='red'>做好变更管控</font>，关注每个变更及其上下游</p>
+</li>
+<li><p>从「变更」的生命周期做质量保障体系建设 <strong>→→</strong> 三个环节：<font color='red'>变更前、变更中、变更后</font></p>
+</li>
+</ol>
+</br>
+
+<p><strong>关键问题：如何基于通用质量保障框架，推演适配到前端的质量保障建设？（方法论的实践）</strong></p>
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E9%80%9A%E7%94%A8%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E6%A1%86%E6%9E%B6_2.png" class="" title="框架2"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%80%9D%E8%B7%AF%E6%8E%A8%E6%BC%94.png" class="" title="思路推演"></th>
+</tr>
+</thead>
+</table>
+<p align='center' >套用通用质量保障框架，做建设推演</p>
+
+</br>
+
+<p><strong>通用归通用，那质量策略中，前端相较于服务端、移动端，差异点可能在哪里？</strong></p>
+<img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%90%84%E7%AB%AF%E5%BC%82%E5%90%8C%E7%82%B9.png" class="" title="各端异同点">
+
+<p align='center'>一份粗糙的各端对比</p>
+
+</br>
+
+<p><strong>按照上面的推演，简单总结一下全流程的质量策略。</strong></p>
+<img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%85%A8%E6%B5%81%E7%A8%8B%E8%B4%A8%E9%87%8F%E7%AD%96%E7%95%A5.png" class="" title="全流程质量策略">
+
+<p align='center'>全流程质量保障策略观感</p>
+
+<h2 id="3-1-变更前-交付不-delay，严重问题不逃逸"><a href="#3-1-变更前-交付不-delay，严重问题不逃逸" class="headerlink" title="3.1 变更前 - 交付不 delay，严重问题不逃逸"></a>3.1 变更前 - 交付不 delay，严重问题不逃逸</h2><p>变更前的质量保障主要从两个维度切入，分别是 <strong>流程</strong> 和 <strong>质检</strong>。通过两者的结合，可以有效避免低级风险的引入或外漏（如发布前未经测试、发布时无小流量观察），达到风险收口的效果。</p>
+<h3 id="流程规范"><a href="#流程规范" class="headerlink" title="流程规范"></a>流程规范</h3><blockquote>
+<p>没有约束的自由是危险的</p>
+</blockquote>
+<p><strong>典型问题</strong></p>
+<ol>
+<li><p>基本功能都没实现好，主流程跑不起来，阻塞测试导致提测打回，一天过去了</p>
+</li>
+<li><p>这是一个小问题，判断语句漏了个条件，本地改完直接上线</p>
+</li>
+<li><p>线上灰度&#x2F;小流量发布 10% 观察了一天都没问题，直接放满 100%</p>
+</li>
+<li><p>这个需求很常见，虽然公司提供了可靠的标准公共库，但还是想造个轮子过一把技术瘾</p>
+</li>
+<li><p>需求提测后，一些不太了解的专项问题不知如何评估和测试</p>
+</li>
+</ol>
+<p><strong>常见解法</strong></p>
+<img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83%E8%84%91%E5%9B%BE.png" class="" width="500" height="500" title="流程规范脑图">
+
+
+
+<table>
+<thead>
+<tr>
+<th align="left">特别的，变更前（发布前）涉及的几个关键风险：<br/>1. 高危低频操作要小心 —— 多演练<br/>2. 高危高频操作要标准化 —— 平台标准化<br/>3. 高危人肉操作要严控 —— SOP、指导手册</th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E9%98%BF%E9%87%8C%E5%AE%89%E5%85%A8%E7%94%9F%E4%BA%A7.png" class="" width="600" height="500" title="风险原则"></th>
+</tr>
+</thead>
+</table>
+<p align='center'>截图摘自：阿里-安全生产实践介绍-王建.pdf</p>
+
+<p><strong>实践建议</strong></p>
+<ol>
+<li><p>标准流程的实施，最好依托于构建发布流水线平台来实施，才能摆脱对“人的意识”的依赖</p>
+</li>
+<li><p>标准流程实施过程时，针对不同环节做不同的约束与卡点，重点关注流程管控率</p>
+</li>
+<li><p>流程规范不仅仅局限在变更前，变更中、变更后同样有配套的流程规范，如变更中的止损 SOP，变更后的线上反馈处理等。只要哪里有人肉操作衍生的风险，都可以基于成本考虑追加流程规范</p>
+</li>
+</ol>
+</br>
+
+<h3 id="自动化测试"><a href="#自动化测试" class="headerlink" title="自动化测试"></a>自动化测试</h3><blockquote>
+<p>自动化测试只是整个质量保障体系中的一部分，通过单一自动化环节难以做到 100% 的问题兜底，一定要明确自动化测试的价值主要是提前拦截致命风险，而不是拦截所有风险</p>
+</blockquote>
+<p><strong>典型问题</strong></p>
+<ol>
+<li><p>前端变更很频繁，很多需求是 RD 自测的，质量比较虚，但是 QA 确实顾不过来</p>
+</li>
+<li><p>跟进的前端需求每改一点地方，都要手工跑一次用例，效率低容易遗漏</p>
+</li>
+<li><p>除了前端常规功能之外，不了解还有什么地方需要专项测试</p>
+</li>
+<li><p>多种浏览器，需要 Mac、Windows 电脑换着测，好麻烦而且浪费机器</p>
+</li>
+<li><p>有些改动发到线上可能发生一些用户不感知的小问题，我们能否发现</p>
+</li>
+</ol>
+<p><strong>常见解法</strong></p>
+<img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E8%84%91%E5%9B%BE.png" class="" width="500" height="500" title="自动化测试脑图">
+
+<blockquote>
+<p><em><strong>流量回放</strong></em></p>
+</blockquote>
+<ul>
+<li><p>价值</p>
+<ul>
+<li><p>作为有限数量的手工用例弥补 —— 前端变更频繁，需要大量自动化兜底</p>
+</li>
+<li><p>降低 UI 自动化的编写与维护的成本 —— 由于接口数据导致用例稳定性差</p>
+</li>
+<li><p>线下复现线上问题，从而协助定位归因，或验证修复有效性</p>
+</li>
+</ul>
+</li>
+<li><p>方案</p>
+<ul>
+<li><p>用户操作录制：基于埋点上报或事件监听，将用户在前端上的具体操作步骤录制下来</p>
+</li>
+<li><p>接口数据录制：基于后端流量采集和数据清洗，实现数据 Mock</p>
+</li>
+<li><p>内容管理：平台化管理、封装录制用例</p>
+</li>
+</ul>
+</li>
+<li><p>补充：一般与图像断言技术结合，以实现录制、回放、断言的全自动化闭环</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%B5%81%E9%87%8F%E5%9B%9E%E6%94%BE_1-1.png" class="" width="500" height="500" title="流量回放_1-1"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%B5%81%E9%87%8F%E5%9B%9E%E6%94%BE_1-2.png" class="" width="500" height="500" title="流量回放_1-2"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%B5%81%E9%87%8F%E5%9B%9E%E6%94%BE_1-3.png" class="" width="500" height="500" title="流量回放_1-3"></th>
+</tr>
+</thead>
+</table>
+<p align='center'>摘自：阿里-前端安全生产在ICBU的探索与落地-陈波.pdf</p>
+
+</br>
+
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%B5%81%E9%87%8F%E5%9B%9E%E6%94%BE_2-1.png" class="" width="500" height="500" title="流量回放_2-1"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%B5%81%E9%87%8F%E5%9B%9E%E6%94%BE_2-2.png" class="" width="500" height="500" title="流量回放_2-2"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%B5%81%E9%87%8F%E5%9B%9E%E6%94%BE_2-3.png" class="" width="500" height="500" title="流量回放_2-3"></th>
+</tr>
+</thead>
+</table>
+<p align='center'>摘自：贝壳-监控进阶前端操作完美回放-陈辰.pdf</p>
+
+</br>
+
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%B5%81%E9%87%8F%E5%9B%9E%E6%94%BE_3-1.png" class="" width="500" height="500" title="流量回放_3-1"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%B5%81%E9%87%8F%E5%9B%9E%E6%94%BE_3-2.png" class="" width="500" height="500" title="流量回放_3-2"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%B5%81%E9%87%8F%E5%9B%9E%E6%94%BE_3-3.png" class="" width="500" height="500" title="流量回放_3-3"></th>
+</tr>
+</thead>
+</table>
+<p align='center'>摘自：字节跳动-前端流量回放在企业应用的落地-高亚.pdf【建议看，比较清晰】</p>
+
+</br>
+
+<blockquote>
+<p><em><strong>精准测试（一个很广泛的概念）</strong></em></p>
+</blockquote>
+<ul>
+<li><p>价值</p>
+<ul>
+<li>改哪里测哪里，降低测试环节消耗时长，提高测试效率</li>
+</ul>
+</li>
+<li><p>方案</p>
+<ul>
+<li><p>变更提取：基于 git diff，提取具体到代码行的前端变更代码</p>
+</li>
+<li><p>影响评估：基于代码关联关系（关联链条：代码行-&gt;方法-&gt;类-&gt;文件），识别变更影响范围</p>
+</li>
+<li><p>测试执行：将影响范围涉及的自动化用例提取出来运行，或基于页面对应 scheme 做定向测试，或推荐手工用例</p>
+</li>
+</ul>
+</li>
+<li><p>补充</p>
+<ul>
+<li><p>精准测试往往基于代码覆盖率实现，常见如测试覆盖率卡口、用例智能推荐等，参考<a target="_blank" rel="noopener" href="https://testerhome.com/topics/25283">酷家乐-服务端精准测试实践</a></p>
+</li>
+<li><p>变更感知可以进一步泛化，比如三方库依赖变更、so 库依赖变更、node 服务依赖变更</p>
+</li>
+<li><p>精准测试不仅仅应用在用例选择与运行上，还可以应用在兼容性测试机型选择等场景</p>
+</li>
+</ul>
+</li>
+</ul>
+<img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E7%B2%BE%E5%87%86%E6%B5%8B%E8%AF%95_1-1.png" class="" width="500" height="500" title="精准测试_1-1">
+
+<p align='center'>摘自：阿里健康-前端质量保障体系化演进之路-张航.pdf</p>
+
+</br>
+
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E7%B2%BE%E5%87%86%E6%B5%8B%E8%AF%95_2-1.png" class="" width="500" height="500" title="精准测试_2-1"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E7%B2%BE%E5%87%86%E6%B5%8B%E8%AF%95_2-2.png" class="" width="500" height="500" title="精准测试_2-2"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E7%B2%BE%E5%87%86%E6%B5%8B%E8%AF%95_2-3.png" class="" width="500" height="500" title="精准测试_2-3"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E7%B2%BE%E5%87%86%E6%B5%8B%E8%AF%95_2-4.png" class="" width="500" height="500" title="精准测试_2-4"></th>
+</tr>
+</thead>
+</table>
+<p align='center'>摘自：百度-基于精准测试及图像技术的前端质量保证实践-刘道伟.pdf</p>
+
+</br>
+
+<blockquote>
+<p><em><strong>遍历测试</strong></em></p>
+</blockquote>
+<ul>
+<li><p>价值</p>
+<ul>
+<li>替代人工尽可能遍历更多页面，实现更大范围的测试覆盖（辅以其他断言能力）</li>
+</ul>
+</li>
+<li><p>方案</p>
+<ul>
+<li><p>遍历能力：基于可交互组件、基于 DOM 树</p>
+</li>
+<li><p>遍历策略：基于算法，组件&#x2F;控件&#x2F;页面权重、黑白名单、异常注入策略</p>
+</li>
+</ul>
+</li>
+</ul>
+<img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E8%87%AA%E5%8A%A8%E9%81%8D%E5%8E%86%E8%84%91%E5%9B%BE.png" class="" width="500" height="400" title="自动遍历脑图">
+
+</br>
+
+<blockquote>
+<p><em><strong>图像断言</strong></em></p>
+</blockquote>
+<ul>
+<li><p>价值（对比传统的 DOM 断言能力，如 Selenium）：</p>
+<ul>
+<li><p>解决传统基于 DOM 的断言方案召回能力弱 —— 传统断言只有元素存在性和文本正确性校验，无法检测 UI 样式问题</p>
+</li>
+<li><p>传统自动化用例在断言上的编写维护成本高 ——依赖大量元素的校验步骤</p>
+</li>
+<li><p>断言能力更通用 —— 部分场景无法获取 DOM 导致无法断言，如早期 Lynx</p>
+</li>
+</ul>
+</li>
+<li><p>方案</p>
+<ul>
+<li><p>内容识别：基于算法的元素边缘识别 + OCR 识别，提取有效的内容信息</p>
+</li>
+<li><p>自定义断言区域：自定义页面的检测区域，提升检测准确率，排除检测噪音</p>
+</li>
+<li><p>差异检测：文字、图片、位置的差异检测</p>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%9B%BE%E5%83%8F%E6%96%AD%E8%A8%80_1-1.png" class="" width="500" height="500" title="图像断言_1-1"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%9B%BE%E5%83%8F%E6%96%AD%E8%A8%80_1-2.png" class="" width="500" height="500" title="图像断言_1-2"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%9B%BE%E5%83%8F%E6%96%AD%E8%A8%80_1-3.png" class="" width="500" height="500" title="图像断言_1-3"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%9B%BE%E5%83%8F%E6%96%AD%E8%A8%80_1-4.png" class="" width="500" height="500" title="图像断言_1-4"></th>
+</tr>
+</thead>
+</table>
+<p align='center'>摘自：百度-通用视觉UI Diff校验技术及实践-尹飞.pdf【建议看，细节多】</p>
+
+</br>
+
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%9B%BE%E5%83%8F%E6%96%AD%E8%A8%80_2-1.png" class="" width="500" height="500" title="图像断言_2-1"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%9B%BE%E5%83%8F%E6%96%AD%E8%A8%80_2-2.png" class="" width="500" height="500" title="图像断言_2-2"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%9B%BE%E5%83%8F%E6%96%AD%E8%A8%80_2-3.png" class="" width="500" height="500" title="图像断言_2-3"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%9B%BE%E5%83%8F%E6%96%AD%E8%A8%80_2-4.png" class="" width="500" height="500" title="图像断言_2-4"></th>
+</tr>
+</thead>
+</table>
+<p align='center'>摘自：百度-基于精准测试及图像技术的前端质量保证实践-刘道伟.pdf【建议看，细节多】</p>
+
+</br>
+
+<p>关于前端自动化的其他参考资料：</p>
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%85%B6%E4%BB%96%E8%87%AA%E5%8A%A8%E5%8C%96_1-1.png" class="" width="500" height="500" title="其他自动化_1-1"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%85%B6%E4%BB%96%E8%87%AA%E5%8A%A8%E5%8C%96_1-2.png" class="" width="500" height="500" title="其他自动化_1-2"></th>
+</tr>
+</thead>
+</table>
+<p align='center'>摘自：阿里健康-前端质量保障体系化演进之路-张航.pdf</p>
+
+<p>下面是一些其他资料汇总。</p>
+<table>
+<thead>
+<tr>
+<th>资料类型</th>
+<th>资料链接</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>测试覆盖率</td>
+<td><a target="_blank" rel="noopener" href="https://testerhome.com/topics/23570">酷家乐-基于 Istanbul 的 JS 覆盖率平台</a><br/>vivo-前端代码覆盖率平台-宋加超.pdf</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/gotwarlost/istanbul">Github-istanbul</a></td>
+</tr>
+<tr>
+<td>前端性能</td>
+<td><a target="_blank" rel="noopener" href="https://tech.kujiale.com/3dshe-ji-gong-ju-de-qian-duan-xing-neng-ce-shi/">酷家乐-3D 设计工具的前端性能测试</a></td>
+<td><a target="_blank" rel="noopener" href="https://testerhome.com/topics/27213">酷家乐-3D云设计工具的前端性能自动化决</a></td>
+</tr>
+<tr>
+<td>前端录制工具</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/alibaba/uirecorder">Github-uirecorder</a></td>
+<td></td>
+</tr>
+<tr>
+<td>兼容性</td>
+<td><a target="_blank" rel="noopener" href="https://www.yuque.com/artist/f2etest/intro">F2etest-多浏览器兼容性测试解决方案</a></td>
+<td></td>
+</tr>
+<tr>
+<td>其他</td>
+<td>酷家乐-大型3D图形渲染质量保障实践-吴鑫璐.pdf<br/>探探-客户端精准测试实践-陈希.pdf<br/>阿里-基于高频动态化场景的移动测试解决方案-龚高.pdf<br/></td>
+<td>爱奇艺-基于云IDE的智能化移动端录制回放方案-余华欢.pdf<br/>美团-埋点质量保障体系建设实践-程潇.pdf<br/>百度-度小满金融前端智能测试服务平台落地实践-肖汉.pdf</td>
+</tr>
+</tbody></table>
+<p><strong>实践建议</strong></p>
+<ol>
+<li><p>自动化测试只是手段，要关注背后的实际问题和测试目标（功能、性能、稳定性、兼容、安全……）</p>
+</li>
+<li><p>自动化测试是能力和策略的结合，应用场景 &#x3D; 测试目标+测试能力+测试策略。质量与效率兼顾，“因地制宜”做出选择，不是所有场景都上一遍自动化兜底，反而降低发布效率，浪费测试资源</p>
+</li>
+<li><p>按照业务不同发展阶段去考虑不同的自动化能力应用，大体分类是提质与提效，或两者结合。自动化建设早期更关注落地成本，在不清楚能力对业务问题的实际效果时，不适宜将自动化铺开</p>
+<blockquote>
+<p>一般是先上一些稳定且低使用成本的能力，不追求一步到位的质变，而是看重量变，问题逐个攻破，风险逐点收敛，优先把控线上（右移，从质量问题外掏的最后窗口开始管控）</p>
+</blockquote>
+</li>
+</ol>
+</br>
+
+<h3 id="质量门禁"><a href="#质量门禁" class="headerlink" title="质量门禁"></a>质量门禁</h3><blockquote>
+<p>质量门禁或质量卡点，是 RD 和 QA 同时参与进来一起 review 本次变更发布的重要活动。质量问题尽量线下解决，一旦到了线上解决成本会急剧增加，所以质量门禁在把控变更风险上是不可或缺的</p>
+</blockquote>
+<p><strong>典型问题</strong></p>
+<ol>
+<li><p>没手段和渠道推动日理万机的 RD 投入时间处理问题</p>
+</li>
+<li><p>这个问题很关键，但是 RD 在看问题时刚好漏了它</p>
+</li>
+<li><p>这个问题提出来了，但不知道要谁来消费解决，无人认领</p>
+</li>
+<li><p>版本灰度数据比以往差，质量不好，但没被留意就继续增发灰度了</p>
+</li>
+<li><p>缺陷在发布前都消费完了，但是有些没提成权限的问题没有被关注到</p>
+</li>
+</ol>
+<p><strong>常见解法</strong></p>
+<img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E8%B4%A8%E9%87%8F%E9%97%A8%E7%A6%81%E8%84%91%E5%9B%BE.png" class="" width="500" height="400" title="质量门禁脑图">
+
+<blockquote>
+<p><em><strong>各环节的准入与准出</strong></em></p>
+</blockquote>
+<ul>
+<li><p>价值</p>
+<ul>
+<li><p>准入：保证流程规范得以落实，提高多方协作效率</p>
+</li>
+<li><p>准出：已知问题尽量线下消费，防止问题外漏导致解决成本剧增，损失扩大</p>
+</li>
+</ul>
+</li>
+<li><p>方案</p>
+<ul>
+<li><p>数据规则：基于多个平台的数据（需求、代码、测试等维度），根据人工设定的规则和判断阈值，在流水线上实现卡口</p>
+</li>
+<li><p>智能化：此时质量门禁从单一的准入准出实施环节，进化为广义的变更发布风险评估环节</p>
+<ul>
+<li><p>数据：将数据集进一步扩大到更精细的维度（如一个人一天的高危操作次数、服务上下游依赖耦合度、repo 复杂度）</p>
+</li>
+<li><p>评估：结合算法挖掘特征，做更多维度的风险识别与曝光</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</br>
+
+<blockquote>
+<p><em><strong>问题自动流转</strong></em></p>
+</blockquote>
+<p>有生产链路就有相应的消费链路，广义消费链路包含监控、运维等针对问题所做的一系列活动，狭义指线下问题的流转消费流程。</p>
+<p>这里的“问题自动流转”，本身不依托质量门禁，它是一个持续运转的机制，是提升研发效能的方式。问题可以是广义的质量问题，也可以是狭义的缺陷，范畴可灵活定义。</p>
+<ul>
+<li><p>价值</p>
+<ul>
+<li><p>避免问题处理人需要人的评估，不熟悉、经验不足的话容易误判，造成精力浪费</p>
+</li>
+<li><p>问题流转定责（确定处理负责人）的同时，通过提醒机制提高问题消费率和解决率</p>
+</li>
+</ul>
+</li>
+<li><p>方案</p>
+<ul>
+<li><p>问题过滤：按照人工梳理关键字或其他特征，对无效或无法解决的问题 —— 如系统底层导致的极难定位解决的问题，可以过滤）</p>
+</li>
+<li><p>问题分配：使用 git blame 命令获取问题代码最近修改人并分配，再基于人工定义的规则，结合问题所在的具体文件&#x2F;文件夹&#x2F;堆栈特征等，分配给固定 owner</p>
+</li>
+<li><p>问题定级：按照问题的类型，或问题出现的频率等特征，赋予不同的优先级 —— 如启动崩溃，非核心路径必现白屏，则可定义为 P0 问题</p>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E9%97%AE%E9%A2%98%E8%87%AA%E5%8A%A8%E6%B5%81%E8%BD%AC_1-1.png" class="" width="500" height="500" title="问题自动流转_1-1"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E9%97%AE%E9%A2%98%E8%87%AA%E5%8A%A8%E6%B5%81%E8%BD%AC_1-2.png" class="" width="500" height="500" title="问题自动流转_1-2"></th>
+</tr>
+</thead>
+</table>
+<p align='center'>摘自：阿里健康-前端质量保障体系化演进之路-张航.pdf</p>
+
+<p><strong>实践建议</strong></p>
+<ol>
+<li><p>质量门禁是贯彻问题消费的重要环节，应该优先建设，否则线下问题暴露得再多，不消费也白搭</p>
+</li>
+<li><p>质量门禁可针对不同类型问题（功能、性能、稳定性、兼容性等），按需实施不同严格程度的卡口</p>
+</li>
+<li><p>最简单的实践方式，是梳理一个卡口 checklist 的 Excel 文档，在封板与发版的时间节点上人工检查</p>
+</li>
+</ol>
+<h2 id="3-2-变更中-用少量代价暴露未发现的问题"><a href="#3-2-变更中-用少量代价暴露未发现的问题" class="headerlink" title="3.2 变更中 - 用少量代价暴露未发现的问题"></a>3.2 变更中 - 用少量代价暴露未发现的问题</h2><p>相比于「变更前」，「变更中」意味着变更已经被发布到线上，线上用户开始接触变更。站在风险外漏角度，问题已经开始发生了，质量保障工作可以围绕着「如何更快发现问题」和「如何更快消除问题影响」来开展。</p>
+<h3 id="监控报警"><a href="#监控报警" class="headerlink" title="监控报警"></a>监控报警</h3><blockquote>
+<p>监控报警不仅仅是 RD 的工作，也是 QA 的工作。</p>
+</blockquote>
+<p><strong>典型问题</strong></p>
+<ol>
+<li><p>线上问题都上热搜了，我们才知道原来有这么个问题</p>
+</li>
+<li><p>线上出问题，但是不知道问题是什么，信息太少</p>
+</li>
+<li><p>线上用户反馈过来，没有标准处理流程，全屏个人经验对接</p>
+</li>
+<li><p>监控群里天天发报警消息，好像不处理也没事，久而久之没人管</p>
+</li>
+<li><p>报警过来了，但是报警携带的信息太少，不知道是什么问题，还要搞一顿很重复的排查定位</p>
+</li>
+</ol>
+<p><strong>常见解法</strong></p>
+<img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E8%84%91%E5%9B%BE.png" class="" width="500" height="400" title="监控报警脑图">
+
+<blockquote>
+<p><em><strong>线上巡检</strong></em></p>
+</blockquote>
+<p>质量问题不一定都能被用户直接感知到，有些问题悄悄发生，当影响累积一定时长后，开始劣化并被大家感知到</p>
+<ul>
+<li><p>价值</p>
+<ul>
+<li>线上巡检不是为了发现更多问题，而是保证业务的正常运作，是一种主动监控方式</li>
+</ul>
+</li>
+<li><p>方案</p>
+<ul>
+<li><p>巡检场景：线上高热用户场景（用户价值）、业务核心场景（业务价值）</p>
+</li>
+<li><p>巡检对象：API、日志、前端页面、业务功能、埋点数据</p>
+</li>
+<li><p>巡检方式：基于 UI 自动化，或基于录制回放</p>
+</li>
+</ul>
+</li>
+<li><p>其他参考</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://my.oschina.net/u/4939618/blog/5530920">百度智能小程序巡检调度方案演进之路</a></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E7%BA%BF%E4%B8%8A%E5%B7%A1%E6%A3%80_1-1.png" class="" width="500" height="500" title="线上巡检_1-1"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E7%BA%BF%E4%B8%8A%E5%B7%A1%E6%A3%80_1-2.png" class="" width="500" height="500" title="线上巡检_1-2"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E7%BA%BF%E4%B8%8A%E5%B7%A1%E6%A3%80_1-3.png" class="" width="500" height="500" title="线上巡检_1-3"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E7%BA%BF%E4%B8%8A%E5%B7%A1%E6%A3%80_1-4.png" class="" width="500" height="500" title="线上巡检_1-4"></th>
+</tr>
+</thead>
+</table>
+<p align='center'>摘自：群核科技-多维度巡检在线上稳定性保障的实践-邹海滨.pdf【建议看，细节多】</p>
+
+</br>
+
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E7%BA%BF%E4%B8%8A%E5%B7%A1%E6%A3%80_2-1.png" class="" width="500" height="500" title="线上巡检_2-1"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E7%BA%BF%E4%B8%8A%E5%B7%A1%E6%A3%80_2-2.png" class="" width="500" height="500" title="线上巡检_2-2"></th>
+</tr>
+</thead>
+</table>
+<p align='center'>摘自：阿里健康-前端质量保障体系化演进之路-张航.pdf</p>
+
+<p><img src="https://tech.kujiale.com/content/images/2020/08/image-3.png" alt="酷家乐-网页巡检工具实践"></p>
+<p>摘自：<a target="_blank" rel="noopener" href="https://tech.kujiale.com/wang-ye-xun-jian-gong-ju-shi-jian/">酷家乐-网页巡检工具实践</a></p>
+</br>
+
+<blockquote>
+<p><em><strong>监控与报警</strong></em></p>
+</blockquote>
+<ul>
+<li><p>价值（QA 视角，考虑如何设计与实施监控报警）</p>
+<ul>
+<li><p>线上问题及时感知，暴露风险</p>
+</li>
+<li><p>线上问题定位验证</p>
+</li>
+</ul>
+</li>
+<li><p>方案（Grafana 等平台）</p>
+<ul>
+<li><p>监控对象： 基础设施监控、业务属性监控，度量指标主要是监控覆盖率、监控准确率、监控召回率，最终关注监控发现时长 MTTI（Mean Time To Identify）</p>
+</li>
+<li><p>监控维护：追加增量监控、清理冗余监控的机制和规范</p>
+<ul>
+<li><p>报警发生前：监控覆盖率 -&gt; 监控召回率、监控准确率</p>
+</li>
+<li><p>报警发生后：报警响应率、报警响应时长、报警处理时长</p>
+</li>
+</ul>
+</li>
+<li><p>报警响应：报警信息完备性，响应流程自动化，自动降级或熔断，最终关注 MTTR（Mean Time To Resolve）</p>
+<ul>
+<li>自动熔断上，前端需要和用户端（如移动端）的监控互相打通，在发布上做好数据关联与回溯才能实现准确的熔断</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>以下资料是 RD 视角的前端监控建设，供大家开阔思路</p>
+<ul>
+<li><p>把前端监控做到极致-扬森.pdf，<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1145473">把前端监控做到机制 [含分享现场视频]</a></p>
+</li>
+<li><p>阿里-大前端时代前端监控的最佳实践-彭伟春.pdf</p>
+</li>
+<li><p>微医-前端异常监控的黑科技-宋睿.pdf</p>
+</li>
+<li><p>美团-前端监控的发展_从运维走向运营-林雨.pdf</p>
+</li>
+</ul>
+</br>
+
+<blockquote>
+<p><em><strong>反馈处理</strong></em></p>
+</blockquote>
+<p>监控可能存在数据稀释的问题，个例问题较难识别，用户反馈作为补充渠道。</p>
+<p>用户反馈在监控分层体系中，是最贴近用户的质量监控方式，是发现线上问题的必要来源渠道，反映业务功能、性能、稳定性、兼容性等多个线上质量核心指标。</p>
+<ul>
+<li><p>价值</p>
+<ul>
+<li><p>线上用户反馈</p>
+<ul>
+<li><p>安抚用户情绪，挽留用户</p>
+</li>
+<li><p>单点反馈难以通过全盘监控发现（如监控会产生大量噪音），通过线上用户反馈来补充</p>
+</li>
+<li><p>从最贴近用户的角度来发现和解决质量问题，提升产品线上质量和体验</p>
+</li>
+</ul>
+</li>
+<li><p>舆情监控</p>
+<ul>
+<li><p>线上用户不一定有直接反馈的意愿，可能在其他地方吐槽产品问题，舆情监控是一种补充</p>
+</li>
+<li><p>在处理效率和人力成本上，比线上用户反馈处理更优</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>方案</p>
+<ul>
+<li><p>反馈收集：确定反馈收集渠道，利用爬虫爬取包含预设关键词的文案</p>
+</li>
+<li><p>反馈过滤与聚类：基于 NLP 分析语义进行无效反馈的过滤，并聚类出 Top 反馈问题</p>
+</li>
+<li><p>反馈推送与触达：基于聚类和关键词的消息订阅&amp;监控报警</p>
+</li>
+<li><p>反馈分析与定位：打通相关平台，关联当时脱敏后的日志、数据等信息</p>
+</li>
+<li><p>反馈跟进与处理：标准的反馈处理与跟进流程，反馈转 Bug 或需求</p>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%8F%8D%E9%A6%88%E5%A4%84%E7%90%86_1-1.png" class="" width="500" height="500" title="反馈处理_1-1"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%8F%8D%E9%A6%88%E5%A4%84%E7%90%86_1-2.png" class="" width="500" height="500" title="反馈处理_1-2"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%8F%8D%E9%A6%88%E5%A4%84%E7%90%86_1-3.png" class="" width="500" height="500" title="反馈处理_1-3"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%8F%8D%E9%A6%88%E5%A4%84%E7%90%86_1-4.png" class="" width="500" height="500" title="反馈处理_1-4"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%8F%8D%E9%A6%88%E5%A4%84%E7%90%86_1-5.png" class="" width="500" height="500" title="反馈处理_1-5"></th>
+</tr>
+</thead>
+</table>
+<p align='center'>摘自：如何打造智能化的舆情监控平台-网易云音乐-蒋超.pptx【建议看，细节多】</p>
+
+<p><strong>实践建议</strong></p>
+<ol>
+<li><p>监控建设，实际开展的时候容易演变为“先污染后治理”。早期的野蛮生长，使得后面不得回过头来重新打理。建议在监控建设开始时就考虑监控追加和清理的机制与规范</p>
+</li>
+<li><p>监控报警是相互以依赖的，监控是状态的反馈，报警是通知，更是要采取具体行动的信</p>
+</li>
+<li><p>处理用户线上反馈不但只是运营同学的工作，QA 往往需要参与其中协助复现&#x2F;定位&#x2F;解决问题，应该尽快明确标准流程，提高反馈流转效率，以免不可控的人力消耗。另外，线上用户反馈处理比较适合使用技术手段来提升整体处理效率</p>
+</li>
+<li><p>监控报警的实施也需要“监控报警”</p>
+</li>
+</ol>
+<h2 id="3-3-变更后-复盘回顾，沉淀机制能力，改进过程"><a href="#3-3-变更后-复盘回顾，沉淀机制能力，改进过程" class="headerlink" title="3.3 变更后 - 复盘回顾，沉淀机制能力，改进过程"></a>3.3 变更后 - 复盘回顾，沉淀机制能力，改进过程</h2><p>变更完成并不意味着尘埃落定，回顾整个变更过程中发生的“意外”，能让我们有进一步的成长，从质量保障体系来说，没有后续的运营，那就是脱节和自嗨。</p>
+<h3 id="故障演练"><a href="#故障演练" class="headerlink" title="故障演练"></a>故障演练</h3><blockquote>
+<p>无论是正向体系化建设还是反向查漏补缺，线下的一系列质量建设需要经过验证来证明效果，这样在面对 未知&#x2F;过往 大小故障的时候，损失会越来越小</p>
+</blockquote>
+<p><strong>典型问题</strong></p>
+<ol>
+<li><p>我们分析了很多问题，搞了好多建设，下一次同样的问题还是发生了</p>
+</li>
+<li><p>我们分析了很多问题，搞了好多建设，下一次问题来了还是没处理好</p>
+</li>
+</ol>
+<p><strong>常见解法</strong></p>
+<img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%95%85%E9%9A%9C%E6%BC%94%E7%BB%83%E8%84%91%E5%9B%BE.png" class="" width="500" height="400" title="故障演练脑图">
+
+<blockquote>
+<p><em><strong>故障演练</strong></em></p>
+</blockquote>
+<p>故障演练不局限于服务端，移动端、前端都是可以落地这个理念。</p>
+<ul>
+<li><p>价值</p>
+<ul>
+<li><p>面对常见故障和过往故障，保障产品不出现严重质量问题</p>
+</li>
+<li><p>面对未知故障，更有底气保障产品不出现严重质量问题</p>
+</li>
+</ul>
+</li>
+<li><p>方案</p>
+<ul>
+<li><p>单点故障注入能力：CR 注入、日志注入、数据注入、资源劫持注入</p>
+</li>
+<li><p>演练流程标准化：标准的演练流程，多样的演练剧本池，低成本发起演练</p>
+</li>
+<li><p>常态化演练：红蓝攻防机制，多平台联动覆盖故障全生命周期</p>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%95%85%E9%9A%9C%E6%BC%94%E7%BB%83_1-1.png" class="" width="500" height="500" title="故障演练_1-1"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%95%85%E9%9A%9C%E6%BC%94%E7%BB%83_1-2.png" class="" width="500" height="500" title="故障演练_1-2"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%95%85%E9%9A%9C%E6%BC%94%E7%BB%83_1-3.png" class="" width="500" height="500" title="故障演练_1-3"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%95%85%E9%9A%9C%E6%BC%94%E7%BB%83_1-4.png" class="" width="500" height="500" title="故障演练_1-4"></th>
+</tr>
+</thead>
+</table>
+<p align='center'>摘自：阿里-前端安全生产的探索与实践-朱亚东.pdf</p>
+
+</br>
+
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%95%85%E9%9A%9C%E6%BC%94%E7%BB%83_2-1.png" class="" width="500" height="500" title="故障演练_2-1"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%95%85%E9%9A%9C%E6%BC%94%E7%BB%83_2-2.png" class="" width="500" height="500" title="故障演练_2-2"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%95%85%E9%9A%9C%E6%BC%94%E7%BB%83_2-3.png" class="" width="500" height="500" title="故障演练_2-3"></th>
+</tr>
+</thead>
+</table>
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%95%85%E9%9A%9C%E6%BC%94%E7%BB%83_2-4.png" class="" width="500" height="500" title="故障演练_2-4"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%95%85%E9%9A%9C%E6%BC%94%E7%BB%83_2-5.png" class="" width="500" height="500" title="故障演练_2-5"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%95%85%E9%9A%9C%E6%BC%94%E7%BB%83_2-6.png" class="" width="500" height="500" title="故障演练_2-6"></th>
+</tr>
+</thead>
+</table>
+<p align='center'>摘自：酷家乐-故障演练平台在酷家乐的演进历程-乐冉.pdf</p>
+
+</br>
+
+<table>
+<thead>
+<tr>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%95%85%E9%9A%9C%E6%BC%94%E7%BB%83_3-1.png" class="" width="500" height="500" title="故障演练_3-1"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%95%85%E9%9A%9C%E6%BC%94%E7%BB%83_3-2.png" class="" width="500" height="500" title="故障演练_3-2"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%95%85%E9%9A%9C%E6%BC%94%E7%BB%83_3-3.png" class="" width="500" height="500" title="故障演练_3-3"></th>
+<th><img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%95%85%E9%9A%9C%E6%BC%94%E7%BB%83_3-4.png" class="" width="500" height="500" title="故障演练_3-4"></th>
+</tr>
+</thead>
+</table>
+<p align='center'>摘自：阿里-前端故障演练的探索与实践-辰啸.pdf，演讲视频B站能搜到</p>
+
+<p><strong>实践建议</strong></p>
+<ol>
+<li><p>故障演练有明确目的，它既是暴露建设短板的手段，也是质量建设的验证手段（变更管控、服务设计、服务依赖、监控报警、运维操作）</p>
+</li>
+<li><p>不要忽略人员在面对故障时的心智意识</p>
+</li>
+</ol>
+<h3 id="度量运营"><a href="#度量运营" class="headerlink" title="度量运营"></a>度量运营</h3><blockquote>
+<p>无跟踪无效率，无反馈无成长，无量化无质量</p>
+</blockquote>
+<p><strong>典型问题</strong></p>
+<ol>
+<li><p>过程数据不清楚，无法评估“测试设计与执行”本身的质量，被别人质疑</p>
+</li>
+<li><p>做了一堆事情，但是不知道对线上质量有无实际贡献</p>
+</li>
+<li><p>不知道有什么套路可以让大家对质量关注起来</p>
+</li>
+</ol>
+<p><strong>常见解法</strong></p>
+<img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E5%BA%A6%E9%87%8F%E8%BF%90%E8%90%A5%E8%84%91%E5%9B%BE.png" class="" width="500" height="400" title="度量运营脑图">
+
+<blockquote>
+<p><em><strong>质量度量</strong></em></p>
+</blockquote>
+<ul>
+<li><p>价值</p>
+<ul>
+<li><p>使现状有客观的评判，告诉我们现状如何，或者具体问题所在</p>
+</li>
+<li><p>对目标有统一的共识，或者具备统一的评判标准</p>
+</li>
+<li><p>使改进更聚焦和精准，改进动作可以做到有的放矢</p>
+</li>
+</ul>
+</li>
+<li><p>建议</p>
+<ul>
+<li><p>度量的口径需要得到多方认可，否则无法针对性改善</p>
+</li>
+<li><p>单一或局部指标无法表现全貌，一个事物一般需要多个指标（若只看千行代码 Bug 率，则可以通过刻意稀释代码去让指标变好，然而没有任何意义）</p>
+</li>
+<li><p>做好指标分层分级，结果指标（滞后性指标）作为质量最终结果或业务价值，但周期长粒度粗，而过程指标（引领性指标）具备预见性和可控性，过程指标对结果指标有实际贡献，通过控制过程实现控制结果</p>
+</li>
+<li><p>度量不追求又大又全，讲究上下层指标的逻辑是否完整，讲究数据能否和实际做的事情关联在一起，具备因果关系</p>
+</li>
+</ul>
+</li>
+</ul>
+</br>
+
+<blockquote>
+<p><em><strong>质量运营</strong></em></p>
+</blockquote>
+<p>质量运营在实操过程中<strong>经常退化为摆数据说数据</strong>，而事实上最重要的是要<strong>基于数据进行分析，帮助相关方做改进，同时跟进反馈改进的效果</strong>。看数据大家都会，实际做改进才是主要。</p>
+<ul>
+<li><p>价值</p>
+<ul>
+<li>质量领域中<strong>发现问题、拆解问题、解决问题的过程</strong>，强调其人为干预动作需要形成 PDCA 循环（Plan、Do、Check、Act），通过数据驱动提升质量、效率、价值等多方面的度量指标，最终实现质量提升</li>
+</ul>
+</li>
+<li><p>建议</p>
+<ul>
+<li><p>P-制定改进计划</p>
+<ul>
+<li><p>质量痛点驱动：痛点来源于日常研发过程，通过问题分析制定落地改进方案，利用度量做效果评估</p>
+</li>
+<li><p>质量目标驱动：有一个既定的目标值，从上往下进行目标拆解，转化为各项度量指标目标值，针对这些下层指标做可落地的改进方案设计与实施</p>
+</li>
+</ul>
+</li>
+<li><p>D-实施落地计划</p>
+<ul>
+<li><p>日常运营：通过明确可执行的机制，日常滚动运营</p>
+</li>
+<li><p>短期突击：成立小的专项组，针对问题做短期内的专项改进，适合解决短平快的问题（如某个模块的 UI 自动化用例补充）</p>
+</li>
+<li><p>长期攻坚：成立大的专项组，针对问题做中长期体系化的专项改进（如体系化的监控报警治理）</p>
+</li>
+</ul>
+</li>
+<li><p>C-复盘和反馈：形式上如各种书面总结报告、复盘总结会议，起到了承前启后的作用 —— 回顾计划与实施过程，评估落地效果，明确后续改进</p>
+</li>
+<li><p>A-改进和推广：基于前面的步骤，判断是否有效果，如果有效，则继续进一步做更深入的事项，如果无效则考虑做调整</p>
+</li>
+<li><p>一些手法</p>
+<ul>
+<li><p>培训宣贯</p>
+</li>
+<li><p>红黑榜</p>
+</li>
+<li><p>评分排名</p>
+</li>
+<li><p>……</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>参考：<a target="_blank" rel="noopener" href="https://learn.lianglianglee.com/%E4%B8%93%E6%A0%8F/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%2020%20%E8%AE%B2-%E5%AE%8C/16%20%20%E5%BA%A6%E9%87%8F%E4%B8%8E%E8%BF%90%E8%90%A5%E7%AF%87%EF%BC%9A%E5%A6%82%E4%BD%95%E5%81%9A%E5%A5%BD%E8%B4%A8%E9%87%8F%E5%92%8C%E6%95%88%E7%8E%87%E7%9A%84%E5%BA%A6%E9%87%8F%E4%B8%8E%E8%BF%90%E8%90%A5%EF%BC%9F.md">度量与运营篇：如何做好质量和效率的度量与运营？</a></p>
+<hr>
+<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1><p>回顾全文，行文思路如下，读者可以按照这个思路重新回顾一下前面多而杂的内容，具体内容细节可以在 <a target="_blank" rel="noopener" href="https://github.com/Zingphoy/Docs_Files/tree/main/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB_%E5%8F%82%E8%80%83%E6%9D%90%E6%96%99">这里</a>下载：</p>
+<ol>
+<li><p>阐述前端定义，以及解释前端质量的重要性</p>
+</li>
+<li><p>基于通用质量保障框架，推演前端质量保障体系</p>
+</li>
+<li><p>结合前端的差异与特色，阐述 变更前、变更中、变更后 三个环节所涉及的不同事项和一些实践建议</p>
+</li>
+</ol>
+<img src="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/%E6%80%BB%E7%BB%93%E8%84%91%E5%9B%BE.png" class="" width="500" height="400" title="总结脑图">
+
+<hr>
+<h1 id="五、参考资料"><a href="#五、参考资料" class="headerlink" title="五、参考资料"></a>五、参考资料</h1><p>【外部资料】</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/kidney/p/6079530.html">前端发展史</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ruanyf/jstraining/blob/master/docs/history.md">前端开发的历史和趋势</a></p>
+</li>
+<li><p>阿里安全生产实践介绍-王建.pdf</p>
+</li>
+<li><p>阿里电商域精准测试生态建设实践-吴金杰.pdf</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av714892258?vd_source=731b13e5927873c84e26bc830c4473f2">阿里-前端故障演练的探索与实践-辰啸-分享视频</a></p>
+</li>
+</ul>
+<p>【体系建设】</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/752640">构建前端安全生产体系，给前端同学「稳稳」的幸福-阿里云开发者社区</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/820969">淘宝客户端安全生产体系建设-阿里云开发者社区</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://tech.youzan.com/you-zan-qian-duan-zhi-liang-bao-zheng-ti-xi/">有赞前端质量保障体系</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/PpaejyYnhVOn8vV6s4jf2Q">如何建立高效的质量保障机制</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg2NDAwMjM1NQ==&mid=2247484399&idx=1&sn=976c9ac63a76a65e3ec7671af82765b2&chksm=ce714bb3f906c2a5f675e9f49929b919c69df92e8d5588a9eada95d2016e6674b324eb939c89&scene=21#wechat_redirect">软件质量保障体系建设</a></p>
+</li>
+<li><p>移动测试体系-华为佟明来.pdf</p>
+</li>
+</ul>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zingphoy.github.io/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/" rel="tag">质量保障体系</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2022/02/20/%E3%80%8ARedis%E5%AE%9E%E6%88%98%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">《Redis实战》读书笔记</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "lEXlYo1CeMpXzh2xpIltjyfz-gzGzoHsz",
+    app_key: "cFRtsPTW0nzHu7wC21T3FXtH",
+    path: window.location.pathname,
+    avatar: "mp",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2017-2022
+        <i class="ri-heart-fill heart_icon"></i> Zingphoy Han
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/Me.png" alt="Zingphoy"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>一块钱一个俯卧撑 O_O</p>
+  <div class="reward-box">
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/WechatPay.jpeg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

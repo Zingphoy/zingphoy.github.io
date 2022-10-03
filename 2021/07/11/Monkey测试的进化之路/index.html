@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 
 
-<html lang="zh-CN" >
-
-
-<head>
-  <meta charset="utf-8" />
-   
-  <meta name="keywords" content="computer science, blog, life, techique" />
-   
-  <meta name="description" content="一名QA，不甘平庸的QA" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>
-    Monkey测试的进化之路 |  Zingphoy
-  </title>
-  <meta name="generator" content="hexo-theme-yilia-plus">
-  
-  <link rel="shortcut icon" href="/favicon.ico" />
-  
-  <link rel="stylesheet" href="/dist/main.css">
-  <link rel="stylesheet" href="/css/custom.css">
-  
-  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-  
+<html lang="zh-CN">
   
 
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="computer science, blog, life, technique, quality ensurance" />
+       
+      <meta name="description" content="一名QA，不甘平庸的QA" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Monkey测试的进化之路 |  Zingphoy</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
 
-ga('create', 'UA-127980698-1', 'auto');
-ga('send', 'pageview');
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
 
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127980698-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-127980698-1');
 </script>
 
-
-
-  
+ 
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -51,17 +51,49 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
 
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Zingphoy" type="application/atom+xml">
+</head>
+  </html>
 </html>
+
 
 <body>
   <div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
     <main class="content on">
       <section class="outer">
-  <article id="post-Monkey测试的进化之路" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
+  <article
+  id="post-Monkey测试的进化之路"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
   <div class="article-inner">
     
     <header class="article-header">
@@ -71,21 +103,17 @@ var _hmt = _hmt || [];
 </h1>
  
 
+      
     </header>
-    
-
-    
+     
     <div class="article-meta">
-      <a href="/2021/07/11/Monkey测试的进化之路/" class="article-date">
+      <a href="/2021/07/11/Monkey%E6%B5%8B%E8%AF%95%E7%9A%84%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/" class="article-date">
   <time datetime="2021-07-11T07:20:42.000Z" itemprop="datePublished">2021-07-11</time>
-</a>
-      
+</a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/质量保障/">质量保障</a>
+    <a class="article-category-link" href="/categories/%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C/">质量保障</a>
   </div>
-
-      
-      
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
@@ -104,28 +132,18 @@ var _hmt = _hmt || [];
         </span>
     </span>
 </div>
-
-      
+ 
     </div>
-    
-
-    
-    
+      
     <div class="tocbot"></div>
 
 
 
 
-
-    
-
-    
+  
     <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>首先，这不是一篇技术文档，是一篇对Monkey测试及上下游的总结。</p>
+       
+  <p>首先，这不是一篇技术文档，是一篇对Monkey测试及上下游的总结。</p>
 <p>来字节跳动后，由于工作关系跟Quaility Lab部门的同学接触了也一年多了，一直在享受别人在稳定性测试工具上的研发成果，虽然没办法偷师到别人的源码实现，但是在思想上还是可以get到一点的，再融入一些业务方或者用户方的视角，这里就用一篇简单的文章来记录我对Monkey测试上下游的理解。</p>
 <hr>
 <h1 id="Why-Monkey"><a href="#Why-Monkey" class="headerlink" title="Why Monkey"></a>Why Monkey</h1><p>Monkey测试作为一种手工回归的补充或者测试的兜底手段，肯定是必要的，大家对它基本预期是：</p>
@@ -135,17 +153,17 @@ var _hmt = _hmt || [];
 <p>引入Monkey测试目的就是降低研发成本，提高产品质量。Monkey测试能拿到的结果，人肉一样能拿到（本质上自动化能做的东西，肯定得先有人肉+工具实现的案例）。同时无数的研究报告也表明了，Bug越早被发现，修复成本越低，所以在app新版本的生命周期开始那一刻，Monkey就要全功率跑起来，用线下低廉的设备成本和修复成本来换取线上宝贵的用户体验和口碑。</p>
 <p>对Monkey的预期中，特地用逗号隔开几个基本前提，Monkey测试的<strong>最基本评价点</strong>分别是“时间成本”和“测试覆盖”，而“测试覆盖”又会细分出更多的评价维度，暂时不做展开。</p>
 <hr>
-<h1 id="How-to-benefit-from-Monkey"><a href="#How-to-benefit-from-Monkey" class="headerlink" title="How to benefit from Monkey"></a>How to benefit from Monkey</h1><img src="/2021/07/11/Monkey测试的进化之路/monkey_view.png" title="Monkey测试的建设全景">
+<h1 id="How-to-benefit-from-Monkey"><a href="#How-to-benefit-from-Monkey" class="headerlink" title="How to benefit from Monkey"></a>How to benefit from Monkey</h1><img src="/2021/07/11/Monkey%E6%B5%8B%E8%AF%95%E7%9A%84%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/monkey_view.png" class="" title="Monkey测试的建设全景">
 
 <p>上图是本文梗概，因为这里我们讨论的对象是Monkey，所以出发点是Monkey测试工具。实际上它的父话题是测试效能，而Monkey测试仅仅是测试效能中一个点而已。</p>
 <p>那如何利用Monkey测试工具获得我们想要的收益呢？</p>
 <p><strong>第一点，可以在不同的研发流程环节引入，集成到流水线中发挥测试兜底作用，降低人力成本。</strong></p>
 <p>研发流程规不规范都好，总归会先有需求和UI设计，然后是实现方案设计，再来是代码实现和测试设计并行，最后是测试、修复以及PM验收等环节。这里可以划分出几个不同的阶段或者几种动作，举例：</p>
 <ul>
-<li>按阶段划分：需求/开发阶段 -&gt; 测试阶段 -&gt; 回归阶段 -&gt; 灰度阶段 -&gt; 线上阶段</li>
+<li>按阶段划分：需求&#x2F;开发阶段 -&gt; 测试阶段 -&gt; 回归阶段 -&gt; 灰度阶段 -&gt; 线上阶段</li>
 <li>按动作划分：测试包构建 -&gt; BugFix包构建 -&gt; 回归包构建 -&gt; 灰度包构建 -&gt; 线上包构建</li>
 </ul>
-<p>那就意味着，在不同的阶段/动作，我们可以具备不同的测试预期，从而以不同的形式/投入来使用Monkey。举两个例子：</p>
+<p>那就意味着，在不同的阶段&#x2F;动作，我们可以具备不同的测试预期，从而以不同的形式&#x2F;投入来使用Monkey。举两个例子：</p>
 <ul>
 <li>按阶段划分的策略，回归阶段可以投入最大的成本去做Monkey集成测试，全局发现尽可能多的问题；而在测试阶段，因为app本身还不稳定，可以通过减少Monkey测试时长或者测试机器数来降低测试成本，是需要把关最基本的启动和核心场景不易现崩溃即可，剩余由QA手工测试把控。</li>
 <li>按动作划分的策略，实际一些动作可能会贯穿不同的阶段，比如BugFix这种东西，它可以在回归、灰度、线上阶段去合入，那针对BugFix应该有一些特别的策略，比如RD都希望只测到我的BugFix相关功能，别人的功能我不管。</li>
@@ -164,13 +182,13 @@ var _hmt = _hmt || [];
 <hr>
 <h1 id="Monkey测试的评价标准"><a href="#Monkey测试的评价标准" class="headerlink" title="Monkey测试的评价标准"></a>Monkey测试的评价标准</h1><p>比较容易想到的指标，无非下面这些：</p>
 <ul>
-<li>覆盖率：app页面覆盖率 &amp; 代码覆盖率 &amp; Diff页面/代码覆盖率</li>
+<li>覆盖率：app页面覆盖率 &amp; 代码覆盖率 &amp; Diff页面&#x2F;代码覆盖率</li>
 <li>测试耗时：测试任务耗时 &amp; 总机器测试时长</li>
 <li>问题发现数（召回数）、被修复问题数</li>
 </ul>
 <p>三者的关系，覆盖率是Monkey能力的技术指标、问题发现数是业务收益指标，测试耗时需要前两者搭配一起食用才具备意义。</p>
 <p>这里的评价指标看着比较简单，对于Monkey来说，背后需要挖掘的方向其实多得很，下面一节详细说明。</p>
-<img src="/2021/07/11/Monkey测试的进化之路/moneky_measure.png" width="500" height="400" title="测试度量评价">
+<img src="/2021/07/11/Monkey%E6%B5%8B%E8%AF%95%E7%9A%84%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/moneky_measure.png" class="" width="500" height="400" title="测试度量评价">
 
 <hr>
 <h1 id="Monkey测试能力的理解"><a href="#Monkey测试能力的理解" class="headerlink" title="Monkey测试能力的理解"></a>Monkey测试能力的理解</h1><p>如果换一个角度来理解Monkey测试能力，往最纯粹的要素来看，Monkey工具它本身就是一个纯粹的 <strong>“UI遍历驱动器”</strong> ，它实现了自动化点点点的能力，它让app工作起来（也不是说不操作app，app就不工作，毕竟还有后台任务），运行到不同的代码分支逻辑里头。那基于Monkey的 <strong>“遍历能力”</strong> ，还能否附加更多价值？当然可以！</p>
@@ -180,18 +198,18 @@ var _hmt = _hmt || [];
 <li>单机测试时长延长，提高总的测试机测试时长 —— Monkey客户端的稳定性、功耗</li>
 <li>不一样的遍历策略（优先覆盖率or测试压力），app手势操作策略，其他操作策略（app前后台切换、app退出等）</li>
 </ol>
-<img src="/2021/07/11/Monkey测试的进化之路/muti_cover.png" width="400" height="300" title="多机遍历">
+<img src="/2021/07/11/Monkey%E6%B5%8B%E8%AF%95%E7%9A%84%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/muti_cover.png" class="" width="400" height="300" title="多机遍历">
 
 <p>如果基于测试覆盖率来衡量效果，那多机遍历就是使得达到同等测试覆盖率的前提下，通过横向扩展测试资源来缩短测试总时长，从而在相同时间内可以触发更多次的测试。</p>
-<h3 id="定向-精准测试"><a href="#定向-精准测试" class="headerlink" title="定向/精准测试"></a><strong>定向/精准测试</strong></h3><p>改哪里测哪里，RD当然不希望在自己的合入里发现了问题，然后花时间一看原来是别人的问题。所以在原来的“遍历”上引入测试目标或测试方向，就是Monkey的另一个能力。关键问题就是如何实现“定向”。</p>
-<p>QL团队的Fastbot已经做出了方案<a href="https://bytedance.feishu.cn/docs/doccnS2ugiaohDCh4XMRvIVlkqc#EowlJB" target="_blank" rel="noopener">Fastbot自动化精准：改哪儿测哪儿</a> ，思路很直白，大体由两部分能力组合而成：</p>
+<h3 id="定向-x2F-精准测试"><a href="#定向-x2F-精准测试" class="headerlink" title="定向&#x2F;精准测试"></a><strong>定向&#x2F;精准测试</strong></h3><p>改哪里测哪里，RD当然不希望在自己的合入里发现了问题，然后花时间一看原来是别人的问题。所以在原来的“遍历”上引入测试目标或测试方向，就是Monkey的另一个能力。关键问题就是如何实现“定向”。</p>
+<p>QL团队的Fastbot已经做出了方案<a target="_blank" rel="noopener" href="https://bytedance.feishu.cn/docs/doccnS2ugiaohDCh4XMRvIVlkqc#EowlJB">Fastbot自动化精准：改哪儿测哪儿</a> ，思路很直白，大体由两部分能力组合而成：</p>
 <ul>
-<li>自动寻路的能力 —— <a href="https://bytedance.feishu.cn/docs/doccnV8SilNys6w5bOu4WmJvZth#" target="_blank" rel="noopener">Fastbot 定向稳定性测试方案</a> 基于历史访问UI链路，自动寻路到对应页面</li>
+<li>自动寻路的能力 —— <a target="_blank" rel="noopener" href="https://bytedance.feishu.cn/docs/doccnV8SilNys6w5bOu4WmJvZth#">Fastbot 定向稳定性测试方案</a> 基于历史访问UI链路，自动寻路到对应页面</li>
 <li>确定测试范围的能力 —— 基于静态代码分析，获得代码变更在一定范围内影响的方法代码，再通过这些方法映射到页面，从而推荐出哪些页面需要被测试</li>
 </ul>
 <p>基于以上的方案，要实现代码合入时的定向测试是没问题的，至少可以控制Monkey在这些页面上停留更长时间做更多点击滑动等测试，去做到更高的覆盖率，结合代码Diff插桩，就可以获取到增量代码的覆盖率。</p>
 <p>如果结合业务视角，希望将更多测试时间放在更重要的场景上，可以定时监控线上top热度的页面，线下保持Monkey在这些页面上的测试时长即可。</p>
-<img src="/2021/07/11/Monkey测试的进化之路/monkey_precise.png" title="定向测试">
+<img src="/2021/07/11/Monkey%E6%B5%8B%E8%AF%95%E7%9A%84%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/monkey_precise.png" class="" title="定向测试">
 
 <p>直观难点是静态代码分析环节，基于AST分析获取类之间的调用关系，理论上是收集不全的。以Java为例，基于配置文件通过反射动态生成的类，这种在AST角度应该无法追踪，它们对于AST来说就像凭空产生的幽灵，回溯不了出处（感觉增加人工语法规则辅助应该能一定程度追溯到），意味着本该存在的调用链就丢失了。</p>
 <p>在获取到调用关系网状图后，即可按照人为规则，针对某个类我们说它上下游各多少层就算是存在关联关系。那拿到Code Diff，所改Code对应的类在网状图里一套，Diff Class就出来了。</p>
@@ -202,15 +220,15 @@ var _hmt = _hmt || [];
 <li>什么操作才算是线上用户的操作</li>
 </ul>
 <p>估计大家都不需要思考，就知道这些答案全都在线上用户数据里头隐藏着了，所以答案也很简单，直接拉取用户真实操作数据过来训练（当然要脱敏），收集如操作手势、访问路径、访问时长等数据，就可以做出一个近似线上真实用户的模型，从而在面对一些列控件树去做点击决策时，尽量模拟一个真实用户。以头条为例，做到启动app后，下滑刷新几次feed，下拉选择某篇文章点击进去，再慢慢划到评论区点赞评论等。</p>
-<img src="/2021/07/11/Monkey测试的进化之路/monkey_userbot.png" title="拟人化测试">
+<img src="/2021/07/11/Monkey%E6%B5%8B%E8%AF%95%E7%9A%84%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/monkey_userbot.png" class="" title="拟人化测试">
 
 <h3 id="跨平台"><a href="#跨平台" class="headerlink" title="跨平台"></a><strong>跨平台</strong></h3><p>无需多说，Android、iOS、Flutter、Webview、Web浏览器、Windows、Mac、Linux，不同的产品类型，都可以支持上。</p>
 <p>对于后端和算法模型来说，区别应该不会很大，重点差异在客户端，因为不同平台在解析控件树、执行交互操作等方面上有天然的区别，技术无法复用。</p>
 <h2 id="能力集成"><a href="#能力集成" class="headerlink" title="能力集成"></a>能力集成</h2><h3 id="集成专项测试能力"><a href="#集成专项测试能力" class="headerlink" title="集成专项测试能力"></a><strong>集成专项测试能力</strong></h3><p>有了Monkey的遍历能力，专项测试能力非常多，千奇百怪，较为常见的思路是参考服务端混沌工程，在客户端引入类似的能力，通过注入故障的形式来模拟极端环境，观察app的表现，如控制app进程内外的高CPU、高内存占用、IO频繁swap、IO带宽打满、app维度的弱网断网等通用资源的故障。</p>
-<p>除了上述的“通用资源故障”外，更有意思的就是业务维度的典型问题，可以阅读文末参考资料的“随机Crash”的两个例子，还有一些常见的业务问题，有些想法但是不知道可行性：如加载时序问题，通过注入延迟，能否使得Android插件被延迟加载（这个肯定可行），或使得对象加锁延迟从而提高出现死锁的概率，或使得Dex文件延迟加载出现某功能未加载但是被使用的现象，更多想法可参考<a href="https://bytedance.feishu.cn/docs/doccn8DAU8TgUdJ4pTnkCIS7PNc" target="_blank" rel="noopener">[建设构想] 客户端稳定性问题防控服务</a> ，后续会持续补充case，我们（移动专项测试服务中心）正在做相关建设与规划。</p>
+<p>除了上述的“通用资源故障”外，更有意思的就是业务维度的典型问题，可以阅读文末参考资料的“随机Crash”的两个例子，还有一些常见的业务问题，有些想法但是不知道可行性：如加载时序问题，通过注入延迟，能否使得Android插件被延迟加载（这个肯定可行），或使得对象加锁延迟从而提高出现死锁的概率，或使得Dex文件延迟加载出现某功能未加载但是被使用的现象，更多想法可参考<a target="_blank" rel="noopener" href="https://bytedance.feishu.cn/docs/doccn8DAU8TgUdJ4pTnkCIS7PNc">[建设构想] 客户端稳定性问题防控服务</a> ，后续会持续补充case，我们（移动专项测试服务中心）正在做相关建设与规划。</p>
 <p>测试能力作为测试本身的主要卖点，建立生态，集思广益也是很重要的，要让用户能利用Monkey的遍历能力来开发新的测试能力，解决不同业务的问题，所以必须可扩展。</p>
 <h3 id="录制回放"><a href="#录制回放" class="headerlink" title="录制回放"></a><strong>录制回放</strong></h3><p>其实除了测试出问题外，Monkey工具也可以作为线下自动回放的UI驱动工具，应用场景是在线上线下发生崩溃后，能通过app回传的信（或Monkey有某种滑动窗口机制来缓存一定时间之前的动作信息）息进行崩溃前操作与数据的回放，从而最大程度协助RD Debug，提高线下定位调试的效率。</p>
-<p>关于录制回放，技术难点应该比较多，但是对方案没怎么做了解，所以这里没法帮大家做简单的总结，客户端录制时的数据上报协议以及客户端的回放引擎，都是难点，尤其是在不同分辨率的手机上做到精确回放，参考内部方案<a href="https://bytedance.feishu.cn/wiki/wikcnHbhMTb0mN9DqNS9RQX2Yjd#EQDG0w" target="_blank" rel="noopener">用户行为录制回放技术方案</a> 。</p>
+<p>关于录制回放，技术难点应该比较多，但是对方案没怎么做了解，所以这里没法帮大家做简单的总结，客户端录制时的数据上报协议以及客户端的回放引擎，都是难点，尤其是在不同分辨率的手机上做到精确回放，参考内部方案<a target="_blank" rel="noopener" href="https://bytedance.feishu.cn/wiki/wikcnHbhMTb0mN9DqNS9RQX2Yjd#EQDG0w">用户行为录制回放技术方案</a> 。</p>
 <h3 id="Fuzz"><a href="#Fuzz" class="headerlink" title="Fuzz"></a><strong>Fuzz</strong></h3><p>Fuzz有很多种，国外和学术界已经搞了不少Android上的各种Fuzz方案，如 Intent Fuzz等（了解有限暂时枚举不了更多）。</p>
 <p>排除app内部的Fuzz，在服务端响应层面上的Fuzz则更加常见，主要用来验证客户端接口的健壮性，面对服务端突如其来的“抽风response”（往往是接口协议变形）能否稳定地处理。测试目的是后手检验客户端是否有意识地做防御式编程，做容错判断。因为服务端真的可能随时有问题，就不按常理出牌，比如服务端响应的某个字段原本约定是不为空的，但是服务端抽风它就给客户端一个空，然后客户端啪地一下崩了，这种事故在头条也不是两次三次了。</p>
 <p>这样听起来服务端响应的Fuzz也蛮好的，但在实操层面上要需要解决额外的问题：</p>
@@ -219,7 +237,7 @@ var _hmt = _hmt || [];
 <li>Fuzz要更多测试核心接口，边边角角冷门接口可以不测试或适度测试</li>
 </ul>
 <p>并不是十分困难的问题，但是一般需要多个平台之间打通，把能力当成一个产品来做，这样才能做好。</p>
-<img src="/2021/07/11/Monkey测试的进化之路/monkey_fuzz.png" title="客户端接口Fuzz测试">
+<img src="/2021/07/11/Monkey%E6%B5%8B%E8%AF%95%E7%9A%84%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/monkey_fuzz.png" class="" title="客户端接口Fuzz测试">
 
 <p>Fuzz落地会遇到两个关键问题：</p>
 <ol>
@@ -233,8 +251,8 @@ var _hmt = _hmt || [];
 <p>在实践过程中，变异策略不是越多越好，因为越多的变异策略代表更不聚焦的测试目标与更低效的问题发现。举个例子，服务端某个接口返回字段A，它是int类型，此时考虑是优先把它变异为空，还是把它变异为string？当然是选择变异为空，因为前者是更典型的“服务端抽风”现场，“全都要”是不现实的，因为测试时长有限，而且RD更倾向于认为int类型的字段被改为string的概率很低，更不愿意去修改这种问题。变异规则指定最好还是根据线上典型的异常response来提炼，基于实际问题来制定。</p>
 <h3 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a><strong>性能测试</strong></h3><p>性能测试具体怎么做就不再这里开展了，这里表达的点是可以利用Monkey的遍历能力，来实现大范围的性能数据采集。因为常规方案都是基于UI自动化的形式定向获取数据，优点是适合做场景的精确模拟，更加适合竞品之间的性能数据对比，缺点是数据采集的范围有限，扩大范围就要线性增加人力投入来新增和维护自动化case。</p>
 <p>使用Monkey作为UI驱动器弥补了测试范围有限的缺点，它可以在线下实验室环境下大范围采集app的性能数据，这个时候可以不依赖于RD埋点上报来统计耗时，可采用更加贴近用户体验的是录屏分帧的形式来计算场景耗时（因为线上只能基于埋点统计，没有其他办法），缺点就是测试范围不好控制，同时引入Monkey工具本身对系统资源损耗多少的问题，从实践来看，还真不太好优化Monkey性能，因为频繁的控件树读取以及与后端算法模型的网络交互再到点击事件生成这个过程本身就需要较多资源。所以这一项也就只是一个猜想，没有实践过，ROI也不高。</p>
-<h3 id="安全合规"><a href="#安全合规" class="headerlink" title="安全合规"></a><strong>安全合规</strong></h3><p>参考<a href="https://bytedance.feishu.cn/docs/doccnHrsCLcqY0fByfxi2iFB2yg" target="_blank" rel="noopener">质量工程x安全：动态检测基础能力专项</a> ，还是基于Monkey的遍历能力，如果在系统环境上动手脚，比如我们将ROM坐一些魔改或者Hook，然后跑在模拟器上，用Monkey去点点点，只要app真的有隐私Api的调用，总归有概率能捕捉到，然后引入人工review，整体思路也比较直白。</p>
-<img src="/2021/07/11/Monkey测试的进化之路/monkey_privacy.png" width="500" height="400" title="安全隐私检查">
+<h3 id="安全合规"><a href="#安全合规" class="headerlink" title="安全合规"></a><strong>安全合规</strong></h3><p>参考<a target="_blank" rel="noopener" href="https://bytedance.feishu.cn/docs/doccnHrsCLcqY0fByfxi2iFB2yg">质量工程x安全：动态检测基础能力专项</a> ，还是基于Monkey的遍历能力，如果在系统环境上动手脚，比如我们将ROM坐一些魔改或者Hook，然后跑在模拟器上，用Monkey去点点点，只要app真的有隐私Api的调用，总归有概率能捕捉到，然后引入人工review，整体思路也比较直白。</p>
+<img src="/2021/07/11/Monkey%E6%B5%8B%E8%AF%95%E7%9A%84%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/monkey_privacy.png" class="" width="500" height="400" title="安全隐私检查">
 
 <h2 id="智能化"><a href="#智能化" class="headerlink" title="智能化"></a>智能化</h2><p><strong>围绕崩溃的一系列设想</strong></p>
 <p>下面很多方向可能已经与Monkey测试本身无关了，属于上下游的拓展，是整个稳定性解决方案的一环。实践中主要几个关键问题：</p>
@@ -246,7 +264,7 @@ var _hmt = _hmt || [];
 <li>监控规则智能补齐 —— 结合线上监控，自动分析逃逸问题的崩溃或实现模式，总结规则提前避免</li>
 </ul>
 <p><strong>自动断言</strong></p>
-<p>这是一个比较广的命题，它可以包括：功能问题分析<a href="https://bytedance.feishu.cn/docs/doccnJBA4MoaVODUGetIUeMdXgb?from=message&source" target="_blank" rel="noopener">Fastbot：自动功能测试探索</a> 、GUI兼容分析、GUI异常分析等一系列子方向。</p>
+<p>这是一个比较广的命题，它可以包括：功能问题分析<a target="_blank" rel="noopener" href="https://bytedance.feishu.cn/docs/doccnJBA4MoaVODUGetIUeMdXgb?from=message&source">Fastbot：自动功能测试探索</a> 、GUI兼容分析、GUI异常分析等一系列子方向。</p>
 <p>参考手工测试的行为模式，更多也是在图像、日志上下手做分析实现问题诊断。</p>
 <h2 id="商业化"><a href="#商业化" class="headerlink" title="商业化"></a>商业化</h2><p>成本中心转化为利润中心，ToB的建设比不可少。对外以云真机平台的形式展示，作为一个测试能力选项对外暴露，这里只要保证Monkey客户端被正确混淆，不泄露代码出去即可，其他均可依赖云真机平台去实现ToB计费策略与使用入口。ToB需要做的事情明显简单很多。</p>
 <hr>
@@ -262,35 +280,37 @@ var _hmt = _hmt || [];
 <hr>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>外部资料：</p>
 <ul>
-<li><a href="https://mp.weixin.qq.com/s/Kr4L5sspqOOO6MG39_G2JQ" target="_blank" rel="noopener">NewMonkey二次进击：Jump into DevOps</a></li>
-<li><a href="https://mp.weixin.qq.com/s/-tJ4FB86tgRNQeCYqPY9PA" target="_blank" rel="noopener">经典随机Crash-线程安全</a>、<a href="https://mp.weixin.qq.com/s/bphu_g1PfGQREAApWat7mQ" target="_blank" rel="noopener">经典随机Crash-Android消息机制</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Kr4L5sspqOOO6MG39_G2JQ">NewMonkey二次进击：Jump into DevOps</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/-tJ4FB86tgRNQeCYqPY9PA">经典随机Crash-线程安全</a>、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/bphu_g1PfGQREAApWat7mQ">经典随机Crash-Android消息机制</a></li>
 </ul>
-
-      
+ 
       <!-- reward -->
       
-      <div id="reward-btn">
-        打赏
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
       </div>
       
     </div>
     
+
+    <!-- copyright -->
     
-      <!-- copyright -->
-      
-        <div class="declare">
-          <ul class="post-copyright">
-            <li>
-              <i class="ri-copyright-line"></i>
-              <strong>版权声明： </strong>
-              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
-            </li>
-          </ul>
-        </div>
-        
-    <footer class="article-footer">
-      
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
 <div class="share-btn">
       <span class="share-sns share-outer">
         <i class="ri-share-forward-line"></i>
@@ -333,135 +353,140 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zingphoy.github.io/2021/07/11/Monkey测试的进化之路/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zingphoy.github.io/2021/07/11/Monkey%E6%B5%8B%E8%AF%95%E7%9A%84%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/" alt="微信分享二维码">
     </div>
 </div>
 
-<div id="share-mask"></div>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工程效能/">工程效能</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
-
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E7%A8%8B%E6%95%88%E8%83%BD/" rel="tag">工程效能</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
 
     </footer>
-
   </div>
 
-  
-  
+   
   <nav class="article-nav">
     
-      <a href="/2022/02/20/《Redis实战》读书笔记/" class="article-nav-link">
+      <a href="/2022/02/02/%E3%80%90%E6%BA%90%E7%A0%81%E5%B0%8F%E8%AF%BB%E3%80%91python%E5%86%85%E7%BD%AEHTTP%20Server%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            《Redis实战》读书笔记
+            【源码小读】python内置HTTP Server的实现原理
           
         </div>
       </a>
     
     
-      <a href="/2021/02/13/我的2020总结/" class="article-nav-link">
+      <a href="/2021/02/13/%E6%88%91%E7%9A%842020%E6%80%BB%E7%BB%93/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
         <div class="article-nav-title">我的2020总结</div>
       </a>
     
   </nav>
 
-
-  
-
-  
-  
+   
 <!-- valine评论 -->
 <div id="vcomments-box">
-    <div id="vcomments">
-    </div>
+  <div id="vcomments"></div>
 </div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
 <script>
-    new Valine({
-        el: '#vcomments',
-        app_id: 'lEXlYo1CeMpXzh2xpIltjyfz-gzGzoHsz',
-        app_key: 'cFRtsPTW0nzHu7wC21T3FXtH',
-        path: window.location.pathname,
-        notify: 'true',
-        verify: 'true',
-        avatar: 'mp',
-        placeholder: '给我的文章加点评论吧~',
-        recordIP: true
+  new Valine({
+    el: "#vcomments",
+    app_id: "lEXlYo1CeMpXzh2xpIltjyfz-gzGzoHsz",
+    app_key: "cFRtsPTW0nzHu7wC21T3FXtH",
+    path: window.location.pathname,
+    avatar: "mp",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
     });
-    const infoEle = document.querySelector('#vcomments .info');
-    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
-        infoEle.childNodes.forEach(function (item) {
-            item.parentNode.removeChild(item);
-        });
-    }
+  }
 </script>
 <style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
     #vcomments-box {
-        padding: 5px 30px;
+      padding: 5px 0px;
     }
+  }
 
-    @media screen and (max-width: 800px) {
-        #vcomments-box {
-            padding: 5px 0px;
-        }
-    }
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
 
-    #vcomments-box #vcomments {
-        background-color: #fff;
-    }
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
 
-    .v .vlist .vcard .vh {
-        padding-right: 20px;
-    }
-
-    .v .vlist .vcard {
-        padding-left: 10px;
-    }
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
 </style>
 
+ 
+   
   
-
-  
-  
-  
-
+    
 </article>
+
 </section>
       <footer class="footer">
   <div class="outer">
-    <ul class="list-inline">
+    <ul>
       <li>
-        &copy;
+        Copyrights &copy;
         2017-2022
-        Zingphoy Han
+        <i class="ri-heart-fill heart_icon"></i> Zingphoy Han
       </li>
+    </ul>
+    <ul>
       <li>
         
-        Powered by
         
         
-        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
         
       </li>
     </ul>
-    <ul class="list-inline">
+    <ul>
       <li>
         
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
       </li>
+    </ul>
+    <ul>
       
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
       <li>
         <!-- cnzz统计 -->
         
       </li>
     </ul>
   </div>
-</footer>
-      <div class="float_btns">
-        <div class="totop" id="totop">
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
   <i class="ri-arrow-up-line"></i>
 </div>
 
@@ -469,8 +494,7 @@ var _hmt = _hmt || [];
   <i class="ri-moon-line"></i>
 </div>
 
-      </div>
-    </main>
+    </div>
     <aside class="sidebar on">
       <button class="navbar-toggle"></button>
 <nav class="navbar">
@@ -526,12 +550,6 @@ var _hmt = _hmt || [];
 </div>
 </div>
     </aside>
-    <script>
-      if (window.matchMedia("(max-width: 768px)").matches) {
-        document.querySelector('.content').classList.remove('on');
-        document.querySelector('.sidebar').classList.remove('on');
-      }
-    </script>
     <div id="mask"></div>
 
 <!-- #reward -->
@@ -548,51 +566,40 @@ var _hmt = _hmt || [];
     
   </div>
 </div>
-    <script src="/js/jquery-2.0.3.min.js"></script>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
 <script src="/js/lazyload.min.js"></script>
 
-<script>
-  try {
-    var typed = new Typed("#subtitle", {
-      strings: ['技术、健身、欢乐', '一名QA，却不甘于只做QA', '梦想是拥有一间自己的健身房'],
-      startDelay: 500,
-      typeSpeed: 150,
-      loop: false,
-      backSpeed: 50,
-      showCursor: true
-    });
-  } catch (err) {
-  }
-
-</script>
-
-
-
+<!-- Tocbot -->
+ 
 <script src="/js/tocbot.min.js"></script>
+
 <script>
-  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
   tocbot.init({
-    tocSelector: '.tocbot',
-    contentSelector: '.article-entry',
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
     hasInnerContainers: true,
     scrollSmooth: true,
-    scrollContainer: 'main',
-    positionFixedSelector: '.tocbot',
-    positionFixedClass: 'is-position-fixed',
-    fixedSidebarOffset: 'auto'
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
   });
 </script>
 
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
 
-
-<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
-<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
 <script src="/dist/main.js"></script>
 
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     <!-- Background of PhotoSwipe. 
@@ -659,10 +666,10 @@ var _hmt = _hmt || [];
 
 </div>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
-<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
 
 <script>
     function viewer_init() {
@@ -697,10 +704,9 @@ var _hmt = _hmt || [];
         })
     }
     viewer_init()
-</script>
-
-
-<script type="text/x-mathjax-config">
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
       tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
@@ -717,22 +723,100 @@ var _hmt = _hmt || [];
   });
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
 <script>
   var ayerConfig = {
-    mathjax: true
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
   }
 </script>
 
 
-
-
-<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
-
-  <script src="/js/clickLove.js"></script>
-
-
     
+    
+
   </div>
 </body>
 

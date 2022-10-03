@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 
 
-<html lang="zh-CN" >
-
-
-<head>
-  <meta charset="utf-8" />
-   
-  <meta name="keywords" content="computer science, blog, life, techique" />
-   
-  <meta name="description" content="一名QA，不甘平庸的QA" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>
-    《Redis实战》读书笔记 |  Zingphoy
-  </title>
-  <meta name="generator" content="hexo-theme-yilia-plus">
-  
-  <link rel="shortcut icon" href="/favicon.ico" />
-  
-  <link rel="stylesheet" href="/dist/main.css">
-  <link rel="stylesheet" href="/css/custom.css">
-  
-  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-  
+<html lang="zh-CN">
   
 
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="computer science, blog, life, technique, quality ensurance" />
+       
+      <meta name="description" content="一名QA，不甘平庸的QA" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>《Redis实战》读书笔记 |  Zingphoy</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
 
-ga('create', 'UA-127980698-1', 'auto');
-ga('send', 'pageview');
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
 
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127980698-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-127980698-1');
 </script>
 
-
-
-  
+ 
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -51,17 +51,49 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
 
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Zingphoy" type="application/atom+xml">
+</head>
+  </html>
 </html>
+
 
 <body>
   <div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
     <main class="content on">
       <section class="outer">
-  <article id="post-《Redis实战》读书笔记" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
+  <article
+  id="post-《Redis实战》读书笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
   <div class="article-inner">
     
     <header class="article-header">
@@ -71,21 +103,17 @@ var _hmt = _hmt || [];
 </h1>
  
 
+      
     </header>
-    
-
-    
+     
     <div class="article-meta">
-      <a href="/2022/02/20/《Redis实战》读书笔记/" class="article-date">
+      <a href="/2022/02/20/%E3%80%8ARedis%E5%AE%9E%E6%88%98%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="article-date">
   <time datetime="2022-02-20T09:25:38.000Z" itemprop="datePublished">2022-02-20</time>
-</a>
-      
+</a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+    <a class="article-category-link" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
   </div>
-
-      
-      
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
@@ -104,28 +132,18 @@ var _hmt = _hmt || [];
         </span>
     </span>
 </div>
-
-      
+ 
     </div>
-    
-
-    
-    
+      
     <div class="tocbot"></div>
 
 
 
 
-
-    
-
-    
+  
     <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h1 id="《Redis实战》"><a href="#《Redis实战》" class="headerlink" title="《Redis实战》"></a>《Redis实战》</h1><p><a href="https://book.douban.com/subject/26612779/" target="_blank" rel="noopener">《Redis实战》豆瓣链接</a></p>
+       
+  <h1 id="《Redis实战》"><a href="#《Redis实战》" class="headerlink" title="《Redis实战》"></a>《Redis实战》</h1><p><a target="_blank" rel="noopener" href="https://book.douban.com/subject/26612779/">《Redis实战》豆瓣链接</a></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本书面向 Redis 初学者，全书非常贯彻”实战“二字，基本是以应用案例驱动的一本书，非常适合想跟着案例讲解一步步编码学习的读者，但也是因为这个特色导致书本欠缺深度和广度，不少地方更是显得啰嗦无聊。</p>
 <h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><ol>
 <li>Redis 基本命令和概念</li>
@@ -135,7 +153,7 @@ var _hmt = _hmt || [];
 <li>局限于 Redis 单机技术，欠缺 Redis 集群环境上的技术讲解</li>
 <li>应用案例的代码注释虽多但欠缺图解不易理解，不少浅显的代码会用一段文本去解释，着实有些啰嗦并降低了整体可读性，需要跟着作者的思路细看，效率低（故我没细看代码）</li>
 </ol>
-<h2 id="一个补充"><a href="#一个补充" class="headerlink" title="一个补充"></a>一个补充</h2><p>Redis 创始人 Antirez 博客 <a href="http://antirez.com/news/135" target="_blank" rel="noopener">Programming and Writing</a> 写到编程和写作之间的异同之处，如下是文章摘抄：</p>
+<h2 id="一个补充"><a href="#一个补充" class="headerlink" title="一个补充"></a>一个补充</h2><p>Redis 创始人 Antirez 博客 <a target="_blank" rel="noopener" href="http://antirez.com/news/135">Programming and Writing</a> 写到编程和写作之间的异同之处，如下是文章摘抄：</p>
 <blockquote>
 <p>The most obvious parallel between the two activities is that in both of them you write something. Code is not prose written in a natural language, yet it has a set of fixed rules (a grammar), certain forms that most programmers will understand as natural and others that, while formally correct, will sound hard to grasp.<br>There is, however, a much deeper connection between the two activities: a good program and a good novel are both the sum of local and global elements that work well. Good code must be composed of well written and readable single statements, but overall the different parts of the program must be orthogonal, designed in a coherent way, and have clean interactions. A good novel must also succeed in the same two scales of the micro and the macro. Sentences must be well written, but the overall structure and relationship between the parts is also crucial.<br>A less structural link between programming and writing is in the drive you need when approaching one or the other: <strong>to succeed you need to make progresses, and to make progresses you have to be consistent.</strong> There is extensive agreement on the fact that programs and novels don’t write themselves, yet. <strong>Twenty years of writing code helped me immensely with this aspect; I knew that things happen only if you sit every day and write: one day one hundred words, the other day two thousands, but rare is the day I don’t put words on the page.</strong> And if you have written code that is not just a “filler” for a bigger system, but a creation of your own, you know that writer block also happens in programming. The only difference is that for most people you are an engineer, hence, if you don’t work, you are lazy. The same laziness, in the case of an artist, will assume the shape of a fascinating part of the creative process.</p>
 </blockquote>
@@ -214,7 +232,7 @@ var _hmt = _hmt || [];
 <li>Redis事务不支持回滚，但具备原子性（要么都执行，要么都不执行，但并不代表执行不会出错，出错也没有 rollback）</li>
 <li>使用 <code>multi</code> &amp; <code>exec</code> 实现多个命令的一次性、按顺序地执行（集群下效果不明）；流程是 开始事务-&gt;命令如入队-&gt;执行事务；意义似乎只是减少网络通信从而提升性能</li>
 <li>pipeline 和事务是两个完全不同的概念，pipeline是客户端的行为，实现单次批量传输命令给服务端从而减少网络开销，对于服务端是透明的，pipeline 没有原子性（而事务是服务端实现的，保证原子性）</li>
-<li><a href="https://www.cnblogs.com/Howinfun/p/12774398.html" target="_blank" rel="noopener">Redis事务的一份好资料</a>，简述 Redis 事务源码实现，以及 Redis 事务与 MySQL 事务的作用对比</li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Howinfun/p/12774398.html">Redis事务的一份好资料</a>，简述 Redis 事务源码实现，以及 Redis 事务与 MySQL 事务的作用对比</li>
 <li>Lua 脚本具备原子性，当脚本运行时间超过 lua-time-limit 选项指定的时间之后，执行 SCRIPT KILL 命令可以杀死正在运行的脚本，但如果脚本存在写操作会使得数据不一致</li>
 </ul>
 <h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><ul>
@@ -224,7 +242,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 <li>集群锁<ul>
-<li><a href="https://redis.io/topics/distlock" target="_blank" rel="noopener">RedLock算法</a>（书中没讲解，只知道这个概念但没去理解）</li>
+<li><a target="_blank" rel="noopener" href="https://redis.io/topics/distlock">RedLock算法</a>（书中没讲解，只知道这个概念但没去理解）</li>
 </ul>
 </li>
 </ul>
@@ -238,7 +256,7 @@ var _hmt = _hmt || [];
 <h2 id="任务队列"><a href="#任务队列" class="headerlink" title="任务队列"></a>任务队列</h2><ul>
 <li>多级的任务队列<ul>
 <li>多个不同优先级的任务队列，如高、中、低三个任务队列</li>
-<li><a href="https://github.com/josiahcarlson/rpqueue" target="_blank" rel="noopener">redis优先级队列 - rpqueue</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/josiahcarlson/rpqueue">redis优先级队列 - rpqueue</a></li>
 </ul>
 </li>
 <li>延迟任务<ul>
@@ -263,36 +281,38 @@ var _hmt = _hmt || [];
 <li>Redis 单线程<ul>
 <li>执行 Redis 命令的核心模块是单线程（所以命令之间是串行的确实没错），但是整个 Redis 实例并不只有一个线程，Redis 其他模块有各自的线程</li>
 <li>Redis 瓶颈一般不在 CPU，而是在内存和网络。如果要尽可能提高 CPU 利用率，可以通过部署多 Redis 实例</li>
-<li>网络 I/O 读写使用多线程，更多拓展知识见<a href="https://strikefreedom.top/multiple-threaded-network-model-in-redis" target="_blank" rel="noopener">他人网络博文</a></li>
+<li>网络 I&#x2F;O 读写使用多线程，更多拓展知识见<a target="_blank" rel="noopener" href="https://strikefreedom.top/multiple-threaded-network-model-in-redis">他人网络博文</a></li>
 </ul>
 </li>
 </ul>
-
-      
+ 
       <!-- reward -->
       
-      <div id="reward-btn">
-        打赏
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
       </div>
       
     </div>
     
+
+    <!-- copyright -->
     
-      <!-- copyright -->
-      
-        <div class="declare">
-          <ul class="post-copyright">
-            <li>
-              <i class="ri-copyright-line"></i>
-              <strong>版权声明： </strong>
-              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
-            </li>
-          </ul>
-        </div>
-        
-    <footer class="article-footer">
-      
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
 <div class="share-btn">
       <span class="share-sns share-outer">
         <i class="ri-share-forward-line"></i>
@@ -335,126 +355,140 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zingphoy.github.io/2022/02/20/《Redis实战》读书笔记/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zingphoy.github.io/2022/02/20/%E3%80%8ARedis%E5%AE%9E%E6%88%98%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
     </div>
 </div>
 
-<div id="share-mask"></div>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
-
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/" rel="tag">redis</a></li></ul>
 
     </footer>
-
   </div>
 
-  
-  
+   
   <nav class="article-nav">
     
+      <a href="/2022/07/16/%E5%88%9D%E6%8E%A2%E5%89%8D%E7%AB%AF%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            初探前端质量保障体系
+          
+        </div>
+      </a>
     
-      <a href="/2021/07/11/Monkey测试的进化之路/" class="article-nav-link">
+    
+      <a href="/2022/02/02/%E3%80%90%E6%BA%90%E7%A0%81%E5%B0%8F%E8%AF%BB%E3%80%91python%E5%86%85%E7%BD%AEHTTP%20Server%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Monkey测试的进化之路</div>
+        <div class="article-nav-title">【源码小读】python内置HTTP Server的实现原理</div>
       </a>
     
   </nav>
 
-
-  
-
-  
-  
+   
 <!-- valine评论 -->
 <div id="vcomments-box">
-    <div id="vcomments">
-    </div>
+  <div id="vcomments"></div>
 </div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
 <script>
-    new Valine({
-        el: '#vcomments',
-        app_id: 'lEXlYo1CeMpXzh2xpIltjyfz-gzGzoHsz',
-        app_key: 'cFRtsPTW0nzHu7wC21T3FXtH',
-        path: window.location.pathname,
-        notify: 'true',
-        verify: 'true',
-        avatar: 'mp',
-        placeholder: '给我的文章加点评论吧~',
-        recordIP: true
+  new Valine({
+    el: "#vcomments",
+    app_id: "lEXlYo1CeMpXzh2xpIltjyfz-gzGzoHsz",
+    app_key: "cFRtsPTW0nzHu7wC21T3FXtH",
+    path: window.location.pathname,
+    avatar: "mp",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
     });
-    const infoEle = document.querySelector('#vcomments .info');
-    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
-        infoEle.childNodes.forEach(function (item) {
-            item.parentNode.removeChild(item);
-        });
-    }
+  }
 </script>
 <style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
     #vcomments-box {
-        padding: 5px 30px;
+      padding: 5px 0px;
     }
+  }
 
-    @media screen and (max-width: 800px) {
-        #vcomments-box {
-            padding: 5px 0px;
-        }
-    }
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
 
-    #vcomments-box #vcomments {
-        background-color: #fff;
-    }
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
 
-    .v .vlist .vcard .vh {
-        padding-right: 20px;
-    }
-
-    .v .vlist .vcard {
-        padding-left: 10px;
-    }
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
 </style>
 
+ 
+   
   
-
-  
-  
-  
-
+    
 </article>
+
 </section>
       <footer class="footer">
   <div class="outer">
-    <ul class="list-inline">
+    <ul>
       <li>
-        &copy;
+        Copyrights &copy;
         2017-2022
-        Zingphoy Han
+        <i class="ri-heart-fill heart_icon"></i> Zingphoy Han
       </li>
+    </ul>
+    <ul>
       <li>
         
-        Powered by
         
         
-        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
         
       </li>
     </ul>
-    <ul class="list-inline">
+    <ul>
       <li>
         
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
       </li>
+    </ul>
+    <ul>
       
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
       <li>
         <!-- cnzz统计 -->
         
       </li>
     </ul>
   </div>
-</footer>
-      <div class="float_btns">
-        <div class="totop" id="totop">
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
   <i class="ri-arrow-up-line"></i>
 </div>
 
@@ -462,8 +496,7 @@ var _hmt = _hmt || [];
   <i class="ri-moon-line"></i>
 </div>
 
-      </div>
-    </main>
+    </div>
     <aside class="sidebar on">
       <button class="navbar-toggle"></button>
 <nav class="navbar">
@@ -519,12 +552,6 @@ var _hmt = _hmt || [];
 </div>
 </div>
     </aside>
-    <script>
-      if (window.matchMedia("(max-width: 768px)").matches) {
-        document.querySelector('.content').classList.remove('on');
-        document.querySelector('.sidebar').classList.remove('on');
-      }
-    </script>
     <div id="mask"></div>
 
 <!-- #reward -->
@@ -541,51 +568,40 @@ var _hmt = _hmt || [];
     
   </div>
 </div>
-    <script src="/js/jquery-2.0.3.min.js"></script>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
 <script src="/js/lazyload.min.js"></script>
 
-<script>
-  try {
-    var typed = new Typed("#subtitle", {
-      strings: ['技术、健身、欢乐', '一名QA，却不甘于只做QA', '梦想是拥有一间自己的健身房'],
-      startDelay: 500,
-      typeSpeed: 150,
-      loop: false,
-      backSpeed: 50,
-      showCursor: true
-    });
-  } catch (err) {
-  }
-
-</script>
-
-
-
+<!-- Tocbot -->
+ 
 <script src="/js/tocbot.min.js"></script>
+
 <script>
-  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
   tocbot.init({
-    tocSelector: '.tocbot',
-    contentSelector: '.article-entry',
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
     hasInnerContainers: true,
     scrollSmooth: true,
-    scrollContainer: 'main',
-    positionFixedSelector: '.tocbot',
-    positionFixedClass: 'is-position-fixed',
-    fixedSidebarOffset: 'auto'
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
   });
 </script>
 
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
 
-
-<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
-<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
 <script src="/dist/main.js"></script>
 
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     <!-- Background of PhotoSwipe. 
@@ -652,10 +668,10 @@ var _hmt = _hmt || [];
 
 </div>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
-<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
 
 <script>
     function viewer_init() {
@@ -690,10 +706,9 @@ var _hmt = _hmt || [];
         })
     }
     viewer_init()
-</script>
-
-
-<script type="text/x-mathjax-config">
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
       tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
@@ -710,22 +725,100 @@ var _hmt = _hmt || [];
   });
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
 <script>
   var ayerConfig = {
-    mathjax: true
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
   }
 </script>
 
 
-
-
-<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
-
-  <script src="/js/clickLove.js"></script>
-
-
     
+    
+
   </div>
 </body>
 
